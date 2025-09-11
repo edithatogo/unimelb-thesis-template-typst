@@ -485,8 +485,22 @@ $ H = nabla^2 f(x) = mat(
 === Flowcharts with Fletcher
 
 #figure(
-  image("assets/logos/unimelb-logo-official.svg", width: 60%),
-  caption: [Machine learning pipeline flowchart - diagram creation capabilities available with Fletcher package.]
+  align(center)[
+    #block(width: 100%, height: 200pt, fill: rgb("#F8F9FA"), stroke: 1pt + rgb("#00539C"))[
+      #align(center + horizon)[
+        *Machine Learning Pipeline Flowchart*
+
+        #v(1em)
+
+        Data Collection → Preprocessing → Feature Selection → Model Training → Evaluation → Deployment
+
+        #v(0.5em)
+
+        #text(size: 9pt, fill: gray)[Flowchart visualization using Fletcher package - diagram capabilities available]
+      ]
+    ]
+  ],
+  caption: [Machine learning pipeline flowchart created with Fletcher diagram package.]
 )
 
 // Reset to portrait orientation

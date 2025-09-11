@@ -72,8 +72,8 @@
 
 #let thesis-style = (
   fonts: (
-    serif: font-with-coverage("Times New Roman", ("latin", "cjk")),
-    sans: ("Arial", "Liberation Sans", "DejaVu Sans"),
+    serif: font-with-coverage("Fraunces", ("latin", "cjk")),  // Official UoM primary font
+    sans: font-with-coverage("Source Sans Pro", ("latin", "cjk")),  // Official UoM secondary font
     mono: font-with-coverage("JetBrains Mono", ("latin", "cjk")),
   ),
   colors: (
