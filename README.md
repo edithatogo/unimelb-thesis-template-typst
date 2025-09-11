@@ -116,6 +116,41 @@ A modern, state-of-the-art Typst template for University of Melbourne theses, de
    typst compile thesis.typ  # Generate PDF
    ```
 
+## 🤖 Automation Features
+
+This template includes comprehensive automation tools for streamlined development:
+
+### Quick Commands
+
+```bash
+# Interactive automation menu
+./automate.sh
+
+# Direct commands
+./automate.sh compile    # Compile thesis
+./automate.sh validate   # Run validation scripts
+./automate.sh full       # Complete workflow (compile + validate)
+./automate.sh backup     # Create timestamped backup
+./automate.sh clean      # Remove build artifacts
+./automate.sh update     # Check for updates
+```
+
+### CI/CD Pipeline
+
+The template includes GitHub Actions workflows for:
+
+- **Automated Compilation**: Ensures thesis compiles without errors
+- **Package Validation**: Checks package compatibility
+- **Quality Assurance**: Runs linting and formatting checks
+- **Release Management**: Automated tagging and releases
+
+### Development Tools
+
+- **Pre-commit Hooks**: Automatic quality checks before commits
+- **Validation Scripts**: Python scripts for template validation
+- **Package Management**: Automated dependency checking
+- **Backup System**: Timestamped backups of important files
+
 ## 🏗️ Project Structure
    ```
 
