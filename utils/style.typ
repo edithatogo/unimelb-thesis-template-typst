@@ -1,17 +1,8 @@
-// =================================
 // University of Melbourne Thesis Template - Utilities
-// =================================
-
-// =================================
-// Official Brand Assets Import
-// =================================
 
 #import "../assets/colors/unimelb-colors.typ": *
 
-// =================================
-// Package Imports
-// =================================
-
+// Package imports
 #import "@preview/cetz:0.3.1"
 #import "@preview/cetz:0.3.1": plot
 #import "@preview/codly:1.1.0": *
@@ -28,15 +19,12 @@
 #import "@preview/codetastic:0.2.2": qrcode
 #import "@preview/glossarium:0.5.1": make-glossary, print-glossary, gls, glspl
 
-// =================================
-// Official Font Configuration (University of Melbourne Design System)
-// =================================
-
+// Font configuration
 #let font-covers = (
   latin: (
-    "Fraunces",           // Official primary font
-    "Source Sans Pro",    // Official secondary font
-    "Times New Roman",    // Fallback serif
+    "Fraunces",
+    "Source Sans Pro",
+    "Times New Roman",
     "Liberation Serif",
     "DejaVu Serif",
     "Latin Modern Roman",
