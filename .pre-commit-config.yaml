@@ -1,0 +1,40 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-case-conflict
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.38.0
+    hooks:
+      - id: markdownlint
+        args: [--config, .markdownlint.json]
+
+  - repo: local
+    hooks:
+      - id: validate-template
+        name: Validate template structure
+        entry: python scripts/validate_template.py
+        language: system
+        files: \.(typ|toml)$
+        pass_filenames: false
+
+      - id: check-packages
+        name: Check package versions
+        entry: python scripts/check_packages.py
+        language: system
+        files: \.(typ)$
+        pass_filenames: false
+
+      - id: compile-test
+        name: Test Typst compilation
+        entry: typst
+        language: system
+        files: thesis\.typ$
+        args: [compile, thesis.typ]
+        pass_filenames: false
