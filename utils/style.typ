@@ -306,9 +306,6 @@
 // =================================
 // Advanced Package Utilities
 // =================================
-  italic-greek: true,
-  bold-greek: false,
-)
 
 // Equation numbering and referencing
 #let equation-env = equate.with(
