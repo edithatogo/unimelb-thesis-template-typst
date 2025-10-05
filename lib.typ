@@ -276,7 +276,7 @@
   // =================================
 
   if metadata.include_index {
-    generate-index-page(custom-entries: metadata.index_entries)
+    generate-index-page()
   }
 }
 

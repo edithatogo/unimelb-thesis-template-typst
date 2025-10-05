@@ -13,10 +13,9 @@
   university: "The University of Melbourne",
   submission_date: datetime(year: 2024, month: 12, day: 1),
 
-  // Optional End Matter Features - ENABLED
-  include_glossary: true,         // Generate glossary from abbreviation data
-  include_abbreviations: true,    // Generate list of abbreviations
-  include_index: true,            // Generate index from custom entries
+  // Optional End Matter Features - (glossary disabled to avoid runtime example issues)
+  include_glossary: false,        // Disabled in examples; enable in real projects if glossary system is configured
+  include_index: false,           // Disabled in examples to avoid dependency on colors/assets
   index_entries: (                // Custom index entries (only used if include_index: true)
     "Machine Learning": "15, 23, 45",
     "Neural Networks": "12, 34",

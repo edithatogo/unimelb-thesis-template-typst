@@ -538,7 +538,13 @@
   include-auto-extracted: true,
   include-page-refs: true,
   include-categories: true,
-  sort-by: "term"
+  sort-by: "term",
+  // Backwards-compatible optional flags used by higher-level pages
+  include-abbreviations: true,
+  include-manual-glossary: true,
+  include-extracted-terms: true,
+  show-statistics: false,
+  show-validation: false
 ) = {
   locate(loc => {
     // Get all glossary terms
@@ -565,6 +571,27 @@
     ]
 
     v(1cm)
+
+    // Optional validation display
+    if show-validation {
+      let vres = validate-glossary()
+      if vres.errors.len() > 0 {
+        text(fill: red, weight: "bold")["Glossary validation failed. Please fix the following errors:\n"]
+        for e in vres.errors {
+          [- #e "\n"]
+        }
+        return
+      }
+    }
+
+    // Optional statistics display
+    if show-statistics {
+      let stats = get-combined-stats()
+      text(size: 10pt, fill: gray)[
+        *Statistics:* #stats.total-terms total terms; abbreviations: #stats.abbreviations.total; glossary terms: #stats.glossary.total
+      ]
+      v(0.5cm)
+    }
 
     // Group by category if requested
     if include-categories {

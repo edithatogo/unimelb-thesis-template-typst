@@ -9,13 +9,13 @@
 #let _font-themes = (
   "unimelb": (
     serif: (
-      "Fraunces",
-      "Source Serif Pro",
-      "Times New Roman",
-      "Liberation Serif",
-      "DejaVu Serif",
-      "STIX Two Text",
-      "Latin Modern Roman",
+  "Source Serif Pro",
+  "Fraunces",
+  "Times New Roman",
+  "Liberation Serif",
+  "DejaVu Serif",
+  "STIX Two Text",
+  "LMRoman10",
     ),
     sans: (
       "Source Sans Pro",

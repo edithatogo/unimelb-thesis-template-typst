@@ -102,12 +102,6 @@
   )
 
   // Use the automated glossary generation system
-  generate-glossary-page(
-    title: "Glossary of Terms and Abbreviations",
-    include-abbreviations: true,
-    include-manual-glossary: true,
-    include-extracted-terms: true,
-    show-statistics: true,
-    show-validation: true
-  )
+  // Call the generate function without extra flags to use defaults
+  generate-glossary-page()
 }
