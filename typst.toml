@@ -8,12 +8,12 @@ description = "A modern Typst template for University of Melbourne theses"
 keywords = ["thesis", "university", "melbourne", "academic", "template"]
 categories = ["thesis", "academic"]
 disciplines = ["computer-science", "engineering", "science"]
-repository = "https://github.com/dylanmordaunt/unimelb-thesis-template-typst"
+repository = "https://github.com/edithatogo/unimelb-thesis-template-typst"
 
 [template]
 path = "."
 entrypoint = "thesis.typ"
-thumbnail = "unimelb-logo.svg"
+thumbnail = "thumbnail.png"
 
 [tool]
 typst = { version = "0.13.0" }
