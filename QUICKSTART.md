@@ -37,6 +37,8 @@ typst watch thesis.typ
 - Adjust page margins and layout
 - Add custom styling
 - Include additional packages
+- Choose bibliography style: Set `bibliography_style` in `thesis.typ`
+  (options: "apa", "ieee", "numeric", "author_year", "chicago", "mla")
 
 ## File Structure
 ```

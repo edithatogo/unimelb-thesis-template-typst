@@ -1,0 +1,1569 @@
+Australian standards
+for editing practice
+Second edition
+
+Institute of Professional Editors Limited
+
+First published 2001 by Council of Australian Societies of Editors (CASE)
+© Council of Australian Societies of Editors 2001
+
+Foreword
+
+Second edition published 2013 by
+Institute of Professional Editors Limited (IPEd)
+© Institute of Professional Editors Limited 2013
+Design and layout by Graham Abraham Design
+Printed in Australia by Eureka Printing Pty Ltd
+The Standards are available from the organisations below.
+Institute of Professional Editors Limited (IPEd)
+PO Box 6585, Point Cook Vic 3030
+iped-editors.org
+IPEd member societies
+Canberra Society of Editors Inc., PO Box 3222, Manuka ACT 2603
+editorscanberra.org
+Editors Victoria, PO Box 176, Carlton South Vic 3053
+editorsvictoria.org
+Society of Editors (New South Wales) Inc., PO Box 254, Broadway NSW 2007
+editorsnsw.com
+Society of Editors (Queensland) Inc., PO Box 1524, Toowong Qld 4066
+editorsqld.com
+Society of Editors (South Australia) Inc., PO Box 2328, Kent Town SA 5071
+editors-sa.org.au
+Society of Editors (Tasmania) Inc., PO Box 4512, Bathurst St PO,
+Hobart Tas 7000
+tas-editors.org.au
+Society of Editors (Western Australia) Inc., PO Box 99, Subiaco WA 6904
+editorswa.com
+
+Never have able wordsmiths – the minders, or keepers, of language – been more
+needed. Communication has become more abundant, more widespread, faster
+and more deeply ingrained in our lives. Access to an array of media is wider than
+it has ever been, and ideas and language innovations are burgeoning. Sometimes,
+though, ideas are marred by the speed and ease in which they can be delivered,
+leading to miscommunication, a lack of clarity and a lack of elegance.
+Editors are correspondingly more indispensable. Working within this realm,
+they need solid grounding, logical thinking and a breadth of understanding of
+how published language and communication work. And they need a functional
+grasp of an increasing range of subject areas.
+This second edition of Australian standards for editing practice, published
+by the Institute of Professional Editors Limited (IPEd), the peak body for
+Australian editors and societies of editors, gives a solid frame to the range of
+knowledge and skills that competent editors possess. It includes the understanding
+of new technology and the flexibility to embrace new media, new rules and new
+language, among the many other factors that enhance clear communication.
+IPEd has done a fine job in reviewing the original edition to produce a timely and
+well-crafted document to guide new and experienced editors, their educators and
+their clients. This book brings together a special wisdom and care for our language
+– especially as it is used in Australia – combined with experience of working with
+Australian English in the professional domain. Our language has moved on since
+the first edition. We need a reference work that is up to date.
+As with the first edition, published in 2001, the second results from the
+teamwork of many Australian editors, to whom their colleagues are deeply
+indebted. Capably led by Kerry Davies AE, editors from all of IPEd’s member
+societies worked for more than a year to revise, review and refine the Standards.
+Others contributed to meetings and discussions about the revision in their
+local societies. These editors generously gave time and effort to the project;
+they brought their intelligence and negotiating skills to the task. Writers and
+readers, and the editors whose work benefits both those groups, are in their debt.
+Emeritus Professor Roland Sussex OAM
+Patron, Institute of Professional Editors Limited
+February 2013
+
+Contents
+
+Preface
+
+vi
+
+The fundamentals of editing
+
+viii
+
+The role of editors
+
+ix
+
+A. Professional practice
+
+1
+
+A1
+
+Professional knowledge and conduct
+
+1
+
+A2
+
+Communication
+
+2
+
+A3
+
+The publishing process
+
+3
+
+A4
+
+Legal and ethical matters
+
+4
+
+A5
+
+Design, typography and formatting
+
+5
+
+A6
+
+Tools and software for editing practice
+
+6
+
+A7
+
+Printing and replication processes
+
+7
+
+B. Management and liaison
+
+8
+
+B1
+
+Project definition
+
+8
+
+B2
+
+Project documentation
+
+9
+
+B3
+
+Monitoring
+
+10
+
+C. Substance and structure
+
+11
+
+C1
+
+Appraisal
+
+11
+
+C2
+
+Structural devices
+
+12
+
+D. Language and illustrations
+
+13
+
+D1
+
+Clarity
+
+13
+
+D2
+
+Voice and tone
+
+14
+
+D3
+
+Grammar and usage
+
+14
+
+D4
+
+Spelling and punctuation
+
+15
+
+D5
+
+Specialised material
+
+15
+
+D6
+
+Illustrations
+
+16
+
+E. Completeness and consistency
+
+17
+
+E1
+
+Integrity
+
+17
+
+E2
+
+Textual elements
+
+18
+
+E3
+
+Illustrations
+
+19
+
+E4
+
+Format, layout and production
+
+19
+
+Glossary
+
+20
+
+Revision history
+
+24
+
+Acknowledgements
+
+24
+
+Preface
+
+Australian standards for editing practice sets out the core standards that
+professional editors should meet and tells employers what to expect
+from the editors they hire. It shows new editors the range of skills and
+knowledge they should aspire to. It helps the Institute of Professional
+Editors (IPEd), educational institutions and other training providers
+to devise material, seminars and courses on editing. And it is the
+foundation for IPEd’s national accreditation of editors.
+Australian standards for editing practice does not attempt to capture
+the full array of knowledge, skills, best practice, sequential tasks and
+responsibilities required by all editors on all projects in all settings.
+However, professional editors should meet certain core standards.
+The term ‘standard’ is used here to mean ‘anything taken by general
+consent as a basis of comparison; an approved model’ (Macquarie
+dictionary). Australian standards for editing practice does not attempt
+to codify the quality of editors’ work – how well a particular task has
+been performed. Rather, it aims to set out the knowledge and skills
+needed for editing practice, those that experienced editors routinely
+use in their work.
+
+vi
+
+Australian standards for editing practice, second edition
+
+The standards in this document are divided into five parts:
+A.
+
+Professional practice
+
+B.
+
+Management and liaison
+
+C.
+
+Substance and structure
+
+D. Language and illustrations
+E.
+
+Completeness and consistency.
+
+The standards set out in Part A underpin those in Parts B to E.
+Editors who meet the standards given in this document are able to
+do a professional job with a minimum of supervision.
+This document is genre neutral; that is, it describes the knowledge
+and skills required of editors regardless of the type of material they
+work on or the organisational context they work in.
+Australian standards for editing practice recognises the most recent
+version of the Style manual for authors, editors and printers as the
+standard Australian editorial reference.
+
+Preface
+
+vii
+
+The fundamentals of editing
+
+The role of editors
+
+Editing involves carefully reviewing material before it is published,
+and suggesting or making changes to correct and improve it.
+
+Editors are central to any publishing project; they endeavour to
+reconcile the needs of the author, the audience and the publisher.
+
+Three aspects, or levels, of editing are generally recognised –
+substantive editing, copyediting and proofreading.
+
+Editors are part of a team that guides a work through its various
+stages from creation to publication. All editors need to have a broad
+understanding of the publishing process and their role within it,
+regardless of the extent of their involvement. They should demonstrate
+initiative and flexibility, adapting to the needs of a project and the
+specific work environment. They need to communicate clearly and
+tactfully, and to respect the opinions of others.
+
+•
+
+Substantive editing (including, and sometimes called, structural
+editing) is assessing and shaping material to improve its
+organisation and content. It is editing to clarify meaning,
+improve flow and smooth language.
+
+•
+
+Copyediting is editing to ensure consistency, accuracy and
+completeness.
+
+•
+
+Proofreading is examining material after layout to correct errors
+in textual and visual elements.
+
+In practice, not all editors work on all of these aspects, and not all
+publications go through them all. Further, some overlap is inevitable.
+The exact editorial process followed for a given publication varies,
+depending on factors such as the quality of the original material, the
+intended audience and purpose, set practices within an organisation,
+production methods and tools, schedule and budget.
+Australian standards for editing practice emphasises the place of editors’
+work in the context of the entire publishing process. The practice of
+editing is not confined to working with specific written materials in
+isolation. For example, an editor’s capabilities may extend to project
+management, using the same skill set needed in managing any job and
+dealing with the other people involved. Although editors generally do
+not need the design and layout abilities of a desktop publisher, they
+need to understand what a desktop publisher can do.
+
+viii
+
+Australian standards for editing practice, second edition
+
+Editors work with many different subjects and many types of
+publication (novels, reports, websites, magazines, textbooks and
+scientific materials, to name a few) that require specialised knowledge
+and skills. Editors also work in many different contexts, from book
+editing for traditional publishing houses to advising on communication
+strategies in government and corporate sectors. Some editors perform
+tasks that extend beyond editing, such as project management, design,
+indexing and website maintenance.
+The goal of editors, regardless of their role or the type of publication,
+is to ensure that the material is consistent and correct, and that its
+content, language, style and layout suit its purpose and meet the
+needs of its audience.
+
+The role of editors
+
+ix
+
+A. Professional practice
+Editors are part of a larger publishing process; they understand
+the stages of that process and the standard practices of the
+publishing industry, whether for printed or onscreen publications.
+
+A1 Professional knowledge and conduct
+Regardless of their role in the publishing process or the
+organisational context, editors need to understand the following:
+A1.1
+
+Steps in the publishing process, the relationship between them
+and their effect on the final publication.
+Includes publication planning, budgeting, editing, designing, formatting
+or typesetting, proofreading, navigation, indexing, print production
+(such as production checking, binding and distribution), online
+procedures (such as programming, testing, site maintenance and
+uploading or replication) and marketing.
+
+A1.2
+
+Different types of publication, their purpose and audience,
+and the editing and production choices that these imply.
+Includes implications for accessibility, cost, scheduling, production,
+marketing and delivery modes.
+
+A1.3
+
+Components of a publication appropriate to the delivery
+medium, which may include preliminary matter, body,
+and end matter.
+
+A1.4
+
+The need to balance time, cost and quality to suit the purpose
+of a publication, and the effect of choices in any of these on
+the final product.
+
+A1.5
+
+Professional ethics.
+Includes objectivity, confidentiality, conflict of interest and implications
+for editing academic material such as theses. (When editing a thesis,
+comply with the IPEd ‘Guidelines for editing research theses’, available
+at iped-editors.org.)
+A. Professional practice
+
+1
+
+A1.6
+
+Standard business practices in the publishing and
+communication industries, whether as a freelancer or as
+an in-house editor responsible for contracting work.
+Includes knowledge of acceptable rates and methods of quoting; types of
+contracts and conditions; and the different types of insurance that may
+be required (such as public liability and professional indemnity) and
+the circumstances under which insurance may or may not be necessary.
+
+A1.7
+
+A2.5
+
+A client, whether an individual, a group of individuals or an
+organisation, is the entity to which an editor is answerable for
+a publishing project. The client may or may not be the author.
+
+A2.6
+
+The need for ongoing professional development.
+Before undertaking a project, editors should ensure that they have
+the skills, training and experience necessary to complete the work.
+They should also recognise when they need to acquire and apply
+specialised knowledge from other sources or professions. Editors should
+improve and upgrade their knowledge and skills throughout their careers.
+
+A2 Communication
+Competent editors have the required skills to communicate
+clearly and diplomatically with clients and colleagues. They
+understand and can apply the following:
+
+Respective roles of editor, author and client in decision making.
+
+Negotiation techniques to apply when differences of opinion
+occur, and understanding of when to bring in an appropriate
+arbiter.
+
+A3 The publishing process
+Regardless of the extent of their involvement in the publishing
+process, editors require understanding of the following:
+A3.1
+
+Scope of the briefing process for the publishing team.
+Expertise required of the publishing team may include project
+management, editing, design, illustration, photography, electronic
+publishing, word processing, typesetting, proofreading, indexing,
+prepress, printing, web maintenance and marketing.
+
+A3.2
+
+Technology used in the industry and the terminology that
+describes it.
+
+A3.3
+
+Role of the editor in a publishing project, and the importance
+of properly defined responsibilities, accountabilities and
+authorities.
+
+A2.1
+
+Principles of clear writing.
+
+A2.2
+
+Principles of structuring material for printed and onscreen
+publications.
+
+A2.3
+
+Principles of accessibility – the ways in which people access
+and absorb information.
+
+A3.4
+
+Includes access for people with disability; links between design and
+substance; media, formats and typography; and legibility and readability.
+
+Levels of editorial intervention required for various
+publications.
+
+A3.5
+
+Stages of the editing and proofreading process, including
+which stages need to be repeated to ensure consistency.
+
+A2.4
+
+2
+
+Conventions of spelling, punctuation, grammar and usage in
+Australia, and evolving trends in language usage nationally
+and internationally.
+
+Australian standards for editing practice, second edition
+
+A. Professional practice
+
+3
+
+A4 Legal and ethical matters
+
+A5 Design, typography and formatting
+
+The publisher is responsible for ensuring that a publication
+meets all legal requirements, but the editor should alert the
+publisher at the earliest opportunity to any possible legal
+problems. In particular, editors require knowledge of the
+following:
+
+Editors understand the following design, typography and
+formatting concepts, and recognise when professional design
+input is appropriate:
+
+A4.1
+
+Legal and ethical dimensions of the publishing process, and
+their implications for a publication.
+Includes libel, defamation, obscenity, discriminatory language, cultural
+sensitivity, intellectual property, plagiarism, moral rights and copyright,
+privacy and confidentiality, visibility of material, the ease with which
+material can be copied and republished in other formats, and different
+copyright protections available in Australia and other countries.
+
+A4.2
+
+A5.1
+
+For example, use of fonts, layout and colour.
+
+A5.2
+
+When legal advice on implications for publishing should
+be sought.
+
+The information that is required to appear in a publication.
+May include the publisher’s name and address, acknowledgements, credits
+and copyright notices.
+
+A4.4
+
+Legal deposit requirements and registration practices.
+Includes cataloguing-in-publication (CIP) data, international standard
+book number (ISBN) and international standard serial number (ISSN).
+
+A4.5
+
+Permissions required for reproduction, and the procedures
+and responsibilities for obtaining permission.
+
+A4.6
+
+When it is appropriate to remove, amend or flag potentially
+biased, non-inclusive or offensive material.
+
+4
+
+Australian standards for editing practice, second edition
+
+Effect of typography and layout on readability in different
+media. Typographical characteristics include:
+• alignment
+• use of appropriate typefaces for different purposes (for
+example, printed and onscreen publications)
+• use of white space and margins
+• use and effect of kerning
+• fonts, text size, leading and weight
+• capitalisation
+• line and column widths
+• colour (for example, visibility for people who perceive
+colour differently).
+
+Includes legislation relating to copyright and digital rights; trade practices
+and trademarks; privacy and freedom of information; social justice, access
+and equity; sub judice matters; and parliamentary privilege.
+
+A4.3
+
+Use of design elements to convey meaning and enhance
+readability.
+
+A5.3
+
+Requirements associated with illustrations (see D6 for a full
+definition) in different media.
+Includes techniques for best fit in the space available and correct
+placement in the final publication.
+
+A. Professional practice
+
+5
+
+A6 Tools and software for editing practice
+
+A7 Printing and replication processes
+
+Editors use resources to help ensure consistency and to
+communicate suggested changes to the client. Editors
+should be up to date and proficient in the following:
+
+Different publishing processes bring different kinds of problems.
+The more editors know about the following processes, the
+better they will be able to make informed choices at all stages
+of a project:
+
+A6.1
+
+Common word-processing software for editing.
+Includes use and development of templates, styles, revision mark-up
+(comments, track changes), tables of contents, footnotes and endnotes,
+macros, find and replace functions, and spellcheck.
+
+A6.2
+
+A6.3
+
+Includes colour systems, paper sizes, screen resolutions and file sizes.
+
+A7.2
+
+Prepress, print production and proof-checking processes.
+
+Includes backing up, virus scanning, transmitting and receiving files,
+converting and saving files, archiving and version control (incorporating
+date and time, stage of editing and editor identification).
+
+A7.3
+
+Characteristics of different types of printing, embellishment,
+paper and binding styles.
+
+A7.4
+
+Production requirements for dissemination of onscreen
+publications.
+
+A7.5
+
+Accessibility of printed and onscreen material for all users,
+including people with disability.
+
+A7.6
+
+Procedures for website and document maintenance.
+
+Principles and requirements of software for design, formatting,
+web authoring (including mark-up languages), content
+management and citation management, and the interaction
+of word-processing software with these programs.
+
+Accuracy in content transfer.
+Includes identifying typical errors that may arise with scanned material,
+text derived from voice-recognition software, material transferred from
+word-processing software to formatting software and material copied
+from websites into word-processing software.
+
+A6.5
+
+Technical requirements associated with different production
+methods.
+
+Accepted techniques for handling electronic files.
+
+Includes different document and graphic file formats and their use in
+the publishing process.
+
+A6.4
+
+A7.1
+
+Includes backing up, archiving, handling responses, updating and
+authorisation procedures.
+
+Style guides or style manuals appropriate to the genre.
+IPEd recognises the Style manual for authors, editors and
+printers (most recent edition) as the standard Australian
+editorial reference.
+Also includes the use of dictionaries, thesauruses and specialist references.
+
+A6.6
+
+6
+
+Standard mark-up symbols and conventions for copyediting
+and proofreading.
+
+Australian standards for editing practice, second edition
+
+A. Professional practice
+
+7
+
+B. Management and liaison
+Editors can be expected to undertake a range of tasks, from
+managing the entire publishing process to performing one very
+specific part of it. Regardless of the size of a publication or
+the extent of their role, all editors need to manage their own
+time and resources. They also need good communication skills,
+initiative, tact, perseverance, flexibility and respect for others’
+points of view. This section describes what editors must know
+and be able to do to define, document and monitor a project.
+
+B1.6
+
+Final output required from available resources.
+
+B1.7
+
+Review and approval processes.
+
+B2 Project documentation
+Tasks required to complete project documentation include
+preparation of the following:
+B2.1
+
+• work required and those who are to accomplish the
+various tasks
+• guidelines for writing, editing and design
+• equipment and facilities required
+• detailed, realistic timetable
+• budget and payment schedule
+• approval processes
+• document-management system.
+
+B1 Project definition
+To maintain a schedule, and to negotiate and keep track of
+changes, project managers must establish the following aspects
+of a project:
+B1.1
+
+Project purpose, audience and delivery mode.
+
+B1.2
+
+Definition of client and lines of authority.
+
+B1.3
+
+Components of the publication.
+
+B1.4
+
+Specification of quality required, and the resources needed
+to achieve such quality.
+Includes the range of publishing skills and services, time, budget,
+materials, equipment and facilities.
+
+B1.5
+
+Publishing team members, and definition of their
+responsibility, accountability and authority.
+
+Project plan, identifying:
+
+A document-management system controls drafts, file naming, tracking
+and marking up changes, backing up files, and archiving text and
+original illustrations.
+
+B2.2
+
+Designer brief.
+Includes sample setting, sample content, text elements and estimated
+length of a publication.
+
+B2.3
+
+Content outline.
+Includes a table of contents or a high-level summary (printed material);
+flow charts, storyboards or site maps (onscreen material).
+
+May include people responsible for project management, editing,
+design, illustration, photography, electronic publishing, web design,
+web maintenance, typesetting or compositing, proofreading,
+indexing, prepress, printing, publicity and marketing.
+
+8 Australian standards for editing practice, second edition
+
+B. Management and liaison
+
+9
+
+B2.4
+
+Formal agreements that detail, at least:
+• responsibility, accountability and authority of each party
+• services and final output required
+• schedule for receipt of material and handover of
+completed work
+• methods of communication
+• process for agreeing on variations
+• remuneration.
+
+B3 Monitoring
+Organisation and communication in the publishing process are
+essential. Editors must track and record the following:
+B3.1
+B3.2
+
+B3.3
+B3.4
+
+The project’s progress against budget, schedule, scope of work
+and required quality.
+Communication with client and team members to ensure
+that the team meets deadlines, contains costs and prevents
+problems.
+Version control of successive drafts and proofs, including
+sources of change.
+Formal project closure and evaluation of the extent to which
+the project achieved its objectives.
+
+C. Substance and structure
+Editors can be expected to ensure that the form, arrangement,
+focus and length of a publication are suitable for its purpose,
+taking into consideration the intended audience, author’s
+intention, available resources, medium of publication and
+level of editorial intervention required.
+
+C1 Appraisal
+Editors exercise their judgement in determining whether
+basic structures are in place, the sequence of ideas is logical
+and material with potential to be used for multiple formats
+has been identified. In particular, editors are required to
+evaluate the following:
+C1.1
+
+Suitability and quality of the original material.
+May include printed and onscreen text, media assets such as video and
+audio files, and interactive activities such as quizzes.
+
+C1.2
+
+Length, structure and focus appropriate for the purpose of
+the publication, intended audience and medium.
+
+C1.3
+
+Textual devices for people to find their way around a publication.
+May include a table of contents, cross-references and index.
+
+C1.4
+
+Content from the publication with potential to be used for
+other purposes, such as promotion and marketing.
+For example, an editor may be required to draft a blurb or select text for
+use in promotional material.
+
+C1.5
+
+Additional material to enhance a publication in multiple
+formats.
+For example, the e-book version of a publication may benefit from
+additional content such as author interview, animated diagrams,
+interactive quizzes, video tutorials or games.
+
+10
+
+Australian standards for editing practice, second edition
+
+C. Substance and structure
+
+11
+
+C2 Structural devices
+
+D. Language and illustrations
+
+Editors ensure that publications are effective and suitable for the
+intended audience by identifying the quality required and using
+various techniques to achieve the following:
+
+Editors ensure that the elements of a publication are suitable
+for its purpose, taking into consideration the intended audience,
+author’s intention, available resources and type of publication.
+This section describes what an editor must know and do to
+ensure that the language and illustrations of a publication
+are appropriate for its purpose.
+
+C2.1
+
+A complete, coherent and balanced publication, restructuring,
+rewording, adding and deleting material where necessary.
+
+C2.2
+
+Appropriate form of presentation, rewriting or reformatting
+material where necessary.
+For example, material in tabular form may be better presented as part of
+the text; dialogue as narrative text; number-laden text as a chart or table;
+a descriptive passage as a diagram; or a lengthy digression as dialogue or
+an appendix. Paragraphing, emphasis, lists and illustrations may also
+help to clarify the material.
+
+C2.3
+C2.4
+
+Cohesive and varied paragraphs and sentences, reordering
+where necessary.
+
+A major purpose of editing is to make the mechanics of
+presentation inconspicuous so as not to distract the reader.
+The principal areas dealt with by the editor to ensure clarity
+are the following:
+D1.1
+
+Relevant, logically graded and consistent headings and other
+labelling devices appropriate to the publication and medium,
+and accurately reflecting the content to which they apply.
+Includes menus, buttons, electronic links, margin notes, headers
+and footers.
+
+C2.5
+
+Ease of navigation, using cross-references or electronic links
+to guide readers through a publication.
+
+C2.6
+
+Effective use of supplementary material, requesting or creating
+new material if required.
+Includes maps, tables, figures, glossary, index and further reading list.
+
+C2.7
+
+D1 Clarity
+
+Principles of clear expression.
+For example, the use of plain English to avoid ambiguity, verbosity
+and needless repetition; replacing the general and abstract with the
+specific and concrete; replacing noun strings; and eliminating clichés
+and euphemisms.
+
+D1.2
+
+Clear and logical connections between phrases, clauses,
+sentences, paragraphs and sections.
+For example, editors use subordinate structures for subordinate ideas,
+replace negative constructions with affirmative ones, and employ parallel
+grammatical structures to create smooth links.
+
+D1.3
+
+Punctuation to ensure clarity of meaning and ease of reading.
+
+Appropriate referencing.
+Includes citations, bibliography, list of references, endnotes, footnotes,
+margin notes, cross-references, glossary and index.
+
+C2.8
+
+Effective summaries for meaning, adding lists, abstracts and
+metadata to help readers understand a publication’s content.
+Metadata includes title, description and keywords associated with a file.
+
+12
+
+Australian standards for editing practice, second edition
+
+D. Language and illustrations
+
+13
+
+D2 Voice and tone
+
+D4 Spelling and punctuation
+
+In improving a sentence, paragraph or passage, editors change
+only what is necessary to establish and preserve consistency
+in the following:
+
+English spelling and punctuation vary in different regions of
+the world. Editors are required to know the following:
+
+D2.1
+
+D2.2
+
+Reading level, degree of formality (register) and use of
+terminology appropriate to the type of publication and
+audience.
+
+D4.1
+
+Australian spelling and punctuation, and acceptable options
+in both, in texts for Australian publication.
+
+D4.2
+
+Word usage, spelling and punctuation used in other
+English-speaking cultures as appropriate.
+
+Voice (or voices), colour and tone.
+Refers to the level and style of language appropriate to the nature
+of the material and its audience; alternatively, especially in fiction,
+the representation of characters through the style of language
+ascribed to them.
+
+D3 Grammar and usage
+Editors do not introduce new errors and do not alter the
+intended meaning. To ensure consistency, accuracy and
+completeness, editors are required to know the following:
+D3.1
+
+Conventions of English grammar and syntax in different
+genres.
+
+D3.2
+
+Words and their meanings.
+
+D3.3
+
+Conventions governing:
+• expression of numbers, dates, percentages, measurements
+and statistical data
+• use of italics, capitalisation, bolding, underscoring, angle
+brackets, hyphenation, symbols and shortened forms
+• list formatting
+• citation of sources and quoted material in academic and
+non-academic text.
+
+D5 Specialised material
+Punctuation, spelling and word choices in specialised material
+must be defensible and coherent. Editors working with such
+material require relevant knowledge and skill in the following:
+D5.1
+
+Includes fiction, poetry, music, drama, academic writing, government
+reports, web content, mathematics and scientific notation.
+
+D5.2
+
+Australian standards for editing practice, second edition
+
+The extent to which an academic thesis may be edited and
+the nature of the edit.
+Refer to the ‘Guidelines for editing research theses’ at iped-editors.org.
+
+D5.3
+
+Technical and specialised terms, with the ability to explain
+them for the intended audience.
+
+D5.4
+
+Conventions for expressing foreign and historical currencies
+and units of measurement, and methods of conversion.
+
+D5.5
+
+Diacritics for foreign words, and other letter conventions.
+Includes symbols added to letters, such as the various types of accent, and
+ligatures or tied letters.
+
+D5.6
+14
+
+Forms and protocols associated with the language and display
+of specialised material.
+
+Techniques available to help potential readers to find web
+content, such as search engine optimisation (SEO).
+D. Language and illustrations
+
+15
+
+D6 Illustrations
+
+E. Completeness and consistency
+
+‘Illustrations’ is used in the widest sense to include all nontext elements, such as drawings, cartoons, diagrams, charts,
+graphs, maps, photographs, computer-generated graphics,
+slideshows and multimedia files. Editors require knowledge
+of the following:
+
+Editors ensure that elements of a publication are complete,
+consistent and correctly placed. They also test onscreen
+publications for usability and functionality.
+
+D6.1
+
+Principles of presenting information in visual form.
+
+D6.2
+
+Styles of illustration appropriate to a publication.
+
+D6.3
+
+Need for additional illustrations.
+
+D6.4
+
+Most effective positioning of illustrations.
+
+D6.5
+
+Requirement for captions and acknowledgements.
+
+D6.6
+
+Different types of graphs and charts, and their uses.
+
+D6.7
+
+Conventions governing the use of graphs, including correct use
+of their various elements, such as axes, scales and labels.
+
+D6.8
+
+Conventions governing the use of the various types of maps
+and their elements, such as labels, boundaries, contours, scale,
+legend and orientation.
+
+D6.9
+
+Principles of clear, logical and effective structure and layout
+of the parts of a table.
+
+E1 Integrity
+To ensure that a publication is complete and consistent, editors
+are required to check:
+E1.1
+
+Completeness of the various components of a publication,
+ensuring that they are accurate and in proper sequence.
+
+E1.2
+
+Accuracy of cross-references, citations and links:
+• within the text
+• between the text and illustrations and tables
+• between the contents page and the headings, text and
+page numbers
+• between the lists of illustrations and tables in the
+preliminary matter and the illustrations and tables.
+
+E1.3
+
+• navigation, including structure, links and menus
+• usability of all interactive elements
+• compliance with accessibility standards.
+
+D6.10 Technical quality of illustrations.
+Includes resolution, clarity, file size and tonal contrast.
+
+D6.11 Accessibility requirements for onscreen materials.
+For example, all images, other than purely decorative ones, require
+alternative text (alt text), which identifies the content of an image.
+
+16
+
+Australian standards for editing practice, second edition
+
+Usability of onscreen materials, by testing:
+
+E1.4
+
+Functionality of online publications, by testing for:
+• performance, download time and interactivity (aspects
+designed to elicit responses)
+• functionality using different platforms and browsers.
+
+E. Completeness and consistency
+
+17
+
+E2 Textual elements
+To ensure the consistency of the language and internal structures
+of the text, editors check them against external and internal style
+references. Editors use the following tools, methods and elements
+to maintain consistency, accuracy and completeness:
+E2.1
+
+An editing style sheet specific to the publication to ensure a
+consistent approach to textual elements such as:
+• spelling, grammar, punctuation, capitalisation, hyphenation,
+abbreviations and italics
+• style of numbers, dates, percentages, symbols and equations
+• structure, grammar and punctuation of lists, including
+nested lists
+• heading hierarchy
+• chronology, descriptions, names and terms
+• alphabetical and numerical sequences.
+
+		
+Alphabetical sequences apply to bibliographies, glossaries and indexes;
+numerical sequences apply to chapters, paragraphs, sections, pages,
+footnotes, illustrations and tables.
+
+E2.2
+
+Explanations of symbols, terms and shortened forms, when
+required and placed appropriately.
+
+E2.3
+
+Lists that help readers find information efficiently.
+
+E2.6
+
+Preparation of copy for preliminary material, headers or
+footers, covers and spine, if required.
+
+E2.7
+
+Assessment of index for length, content and accuracy, and
+conformity to style.
+
+E3 Illustrations
+Editors need to understand what can and cannot be done with
+illustrations. At a minimum, editors ensure that a publication
+presents:
+E3.1
+
+Includes captions, labels and legends; for onscreen materials, also includes
+the content of link titles and alt text.
+
+E3.2
+
+Identification and review of statements where content seems to
+require checking.
+
+E2.5
+
+Referencing that is consistent, accurate and complete.
+Includes acknowledgements, citations, bibliography, list of references,
+endnotes, footnotes, margin notes, cross-references, URLs (website
+addresses), glossary and index.
+
+18
+
+Australian standards for editing practice, second edition
+
+Consistency between text and non-text elements.
+
+E4 Format, layout and production
+Editors should be familiar with proofreading strategies to
+check the following elements of a publication:
+E4.1
+
+Format and layout against design specifications.
+Includes type sizes and styles, line lengths, alignment, leading, heading
+hierarchy, weights of rules and other design features.
+
+Includes lists of contents, abbreviations, illustrations, tables, crossreferences, dramatis personae and links in onscreen publications.
+
+E2.4
+
+Illustrations, where required, that are consistent, accurate,
+complete and relevant.
+
+E4.2
+
+Layout to correct problems, including widows and orphans;
+rivers of space; awkward breaks in words, lines, tables and lists;
+and incorrect placement of design features and illustrations.
+
+E4.3
+
+Page numbers and headers or footers.
+
+E4.4
+
+Page and production proofs and binding.
+
+E. Completeness and consistency
+
+19
+
+Glossary
+
+end matter: Material that follows the last page of the body; may include
+glossary, appendixes, acknowledgements, reference list and index.
+
+accessibility: Ease of information retrieval (A1.2, A2.3, A7.5, C1.3, D5.6,
+D6.11, E1.3, E2.3). 1. Technological access, as through a network or the
+internet. 2. Cognitive access, such that information is easily read. 3. Ease of
+access for people with disability. See also functionality, usability.
+
+format: 1. Shape and size of a book (A5). 2. Particular way information is
+coded for computers (A6.3, A6.4). 3. Particular design elements, list styles
+(def. 1) and type styles (def. 3) used in a publication (A1.1, A2.3, A5,
+A6.4, C2.2, E4). 4. Medium of publication (A4.1, A5, C1.5).
+
+alt text: Alternative text that identifies the content of an image (other than
+purely decorative images) used in onscreen materials to ensure accessibility
+(def. 3) (D6.11, E3.1).
+
+front matter: See preliminary matter.
+
+back matter: See end matter.
+body: Material that follows the preliminary matter and precedes the end
+matter, which may be organised into parts, chapters, sections and subsections;
+may include tables and illustrations, captions, labels and notes.
+cataloguing-in-publication (CIP) data: Part of an international system
+of cataloguing publications (A4.4).
+citation: Method of properly accrediting sources, often through an accepted
+academic method using footnotes or endnotes and a reference list.
+copyediting: Editing to ensure consistency, accuracy and
+completeness; also called line editing. See also verification editing.
+copyright: Legal concept giving the creator or commissioner of an original
+work exclusive rights to it.
+credit: Acknowledgement of a source, as an in-text reference, as part of a
+caption or in a list in preliminary matter or end matter.
+defamation: Written or spoken statement that damages a person’s or an
+organisation’s reputation (A4.1). See also libel.
+
+functionality: Performance efficiency of an online publication, and its
+reliability on different platforms and browsers (E1.4). See also accessibility,
+usability.
+imprint page: Page within preliminary matter that gives details of the
+publication and the publisher.
+inclusive language: Language free of bias.
+intellectual property: Original material produced by a writer or other creator
+that is protected by copyright law (A4.1).
+international standard book number (ISBN): Part of a worldwide system
+of cataloguing books.
+international standard serial number (ISSN): Part of a worldwide system
+of cataloguing journals and other series of publications.
+legal deposit: Legal requirement to lodge works that are catalogued with
+an ISBN or ISSN in national and state libraries.
+libel: Statement that damages a person’s or an organisation’s reputation
+(A4.1). See also defamation.
+line editing: See copyediting.
+
+diacritic: A symbol added to a letter in a foreign word, such as the various
+types of accent, which affects its pronunciation.
+
+macro: A computer program that can be used to automate procedures
+in applications such as word-processing software (A6.1).
+
+dramatis personae: List of main characters in a dramatic work.
+
+metadata: Information describing the content of an item such as an
+electronic file; may include title, description and keywords (C2.8).
+
+electronic: See online, onscreen.
+
+20
+
+Australian standards for editing practice, second edition
+
+moral right: Right of creators of works that are protected by copyright
+law (A4.1).
+
+Glossary
+
+21
+
+online: Any material that is accessed through a website.
+onscreen: Any material that appears on a computer screen or other
+electronic device.
+parallel structure: Consistent use of a grammatical form for equal clauses
+within a sentence or for items in a list.
+plagiarism: Appropriation or close imitation of other people’s writing or
+ideas without acknowledgement (A4.1).
+preliminary matter: Material that precedes the first page of the body,
+which, for printed publications, may include title page, imprint page,
+dedication, foreword, contents, lists of illustrations and abbreviations,
+preface, acknowledgements, abstract and summary; commonly known
+as the ‘prelims’. For onscreen materials, entry sequence may include
+splash screen and home page.
+
+2. The nature and tone of written materials; see also voice (D2.2).
+3. Type formats (size, font and so on) and spacing for elements of a
+publication that are applied consistently through a style template or design
+brief (A6.1, E2.7, E4.1).
+style guide: A handbook, usually developed by an organisation for general
+in-house use or for a particular series of publications, detailing points of
+editorial style (def. 1).
+style manual: A published work developed for general use by authors,
+editors and printers, detailing points of editorial style (def. 1).
+style sheet: A list, usually alphabetical, developed by an editor during
+the course of an edit, detailing points of editorial style (def. 1) for a
+particular publication or series.
+
+proof checking: Checking of various types of proof during the printing
+process.
+
+substantive editing: Editing to assess and shape material to improve its
+organisation and content, to clarify meaning, improve flow and smooth
+language, ensuring that language use is appropriate to the nature of the
+material and its audience; includes structural editing.
+
+proofreading: Examination of material after layout to correct errors in
+textual and visual elements. See also verification editing.
+
+textual device: Device for adding emphasis to a piece of writing, including
+formatting, punctuation, sentence structure and the arrangement of words.
+
+reference: See citation.
+
+usability: The ease with which a publication, especially a website, can be
+navigated and used by its audience (E1.3, E2.3). See also accessibility,
+functionality.
+
+sample setting: Material selected as representative of the elements of a
+publication, such as levels of heading, list formats (def. 3), boxed text and
+other design elements, and headers and footers, as part of the design brief.
+slander: See libel.
+source: See citation.
+structural editing: An aspect of substantive editing that focuses on the
+organisation of material and the types of elements included to clarify
+meaning and improve flow.
+style: 1. Decisions made about punctuation, capitalisation, spelling,
+formatting of lists and tables, presentation of numbers, abbreviations
+and so on that are applied consistently throughout a document or series,
+usually through a style sheet, style guide or style manual (A6.5, E2.1, E2.7).
+
+22
+
+Australian standards for editing practice, second edition
+
+verification editing: Checking that material is consistent, accurate and
+complete; may include elements of proofreading and copyediting.
+version control: A system of file-management conventions used to record
+different versions of a document.
+voice: 1. The level and style (def. 2) of language appropriate to the nature
+of the material and its audience (D2.2). 2. The representation of characters,
+especially in fiction, through the style (def. 2) of language ascribed to
+them (D2.2).
+
+Glossary
+
+23
+
+Revision history
+
+CASE Standards Working Group,
+1998–2001*
+
+Standards Revision Working Group,
+2010–2011
+
+The first edition of Australian standards for editing practice was devised by
+the Standards Working Group of the Council of Australian Societies of
+Editors (CASE), approved by the members of all Australian societies of
+editors and ratified by CASE in 2001.
+
+Kathie Stove DE ELS, convenor
+(South Australia)
+
+Edwin Briggs AE, convenor
+(Canberra)
+
+Catherine Gray, secretary
+(New South Wales)
+
+Hilary Cadman AE ELS (Canberra)
+
+CASE was an informal national body that brought together the seven
+Australian societies of editors to work on projects of common interest.
+The successor to CASE, the Institute of Professional Editors Limited (IPEd),
+a not-for-profit company, was established in 2008 as the peak national body
+for Australian editors.
+
+Catherine Bruce (Tasmania)
+
+This revised edition is the result of the efforts of three working groups, the
+first in 2005–2006. The 2010–2011 working group, comprising members
+of the Canberra Society of Editors, consulted with members of the other
+Australian societies of editors through IPEd Council and the committees
+of IPEd’s member societies.
+In 2011, IPEd appointed a facilitator to consult with all Australian societies
+of editors, through their committees and a series of workshops, in a process
+similar to that used for the preparation of the original edition of the
+Standards. After the workshops, each society appointed a coordinator;
+together the coordinators and facilitator devised the final revision through
+national teleconferences and consultation with their workshop participants.
+The resulting document was submitted to IPEd Council and approved
+by the members of all Australian societies of editors in August 2012.
+
+Acknowledgements
+
+Elizabeth Manning Murphy DE
+(Canberra)
+
+Amanda Curtin AE (Western
+Australia)
+
+Kerie Newell (Canberra)
+
+Janet Mackenzie DE (Victoria)
+
+Standards Revision Working Group,
+2011–2012
+
+Rhana Pike (New South Wales)
+Loma Snooks DE (Canberra)
+Janette Whelan DE and Mary-Jane
+Bosch (Queensland)
+
+Kerry Davies AE, facilitator
+(Queensland)
+Robin Bennett AE (Queensland)
+Kerry Coyle AE (Western Australia)
+
+Standards Revision Working
+Group, 2005–2006*
+Shelley Kenigsberg, convenor
+(New South Wales)
+Helen Bethune Moore (Victoria)
+Robyn Colman (Tasmania)
+Elizabeth Manning Murphy DE
+(Canberra)
+Sharon Nevile (Queensland)
+
+Loene Doube AE (South Australia)
+Rosemary Luke AE (Chair, IPEd
+Council)
+Cathy Nicoll AE (Canberra)
+Rosemary Noble AE (Victoria)
+Pam Peters DE and Denise Holden AE
+(New South Wales)
+Elizabeth Spiegel AE (Tasmania)
+
+Helen Topor (Canberra)
+
+The standards working groups, from inception to this 2011–2012 review,
+acknowledge the assistance of the Editors’ Association of Canada (EAC),
+whose published Standards have guided both the process and the output.
+The 2011–2012 working group especially acknowledges that it has drawn
+heavily on the preface and introduction to the 2009 edition of EAC’s
+Professional editorial standards.
+
+24
+
+Australian standards for editing practice, second edition
+
+* The postnominals DE (distinguished editor) and AE (accredited editor) were instituted
+by IPEd in 2008. They have been included with the names of members of earlier working
+groups. The postnominal ELS (Editor in the Life Sciences) is awarded by the Board of Editors
+in the Life Sciences (BELS), an international organisation established in 1991.
+
+Acknowledgements
+
+25
+
+

@@ -1,6 +1,7 @@
 // University of Melbourne Thesis Template - Utilities
 
 #import "../assets/colors/unimelb-colors.typ": *
+#import "./fonts.typ": font-theme, font-themes
 
 // Package imports
 #import "@preview/cetz:0.3.1"
@@ -19,60 +20,23 @@
 #import "@preview/codetastic:0.2.2": qrcode
 #import "@preview/glossarium:0.5.1": make-glossary, print-glossary, gls, glspl
 
-// Font configuration
-#let font-covers = (
-  latin: (
-    "Fraunces",
-    "Source Sans Pro",
-    "Times New Roman",
-    "Liberation Serif",
-    "DejaVu Serif",
-    "Latin Modern Roman",
-    "STIX Two Text",
-  ),
-  cjk: (
-    "SimSun",
-    "MS Mincho",
-    "Hiragino Mincho Pro",
-    "Source Han Serif",
-    "Noto Serif CJK SC",
-  ),
-  mono: (
-    "JetBrains Mono",
-    "Fira Code",
-    "Cascadia Code",
-    "Source Code Pro",
-    "Consolas",
-  ),
-)
-
-// Font coverage control function
-#let font-with-coverage(base-font, covers) = {
-  if type(covers) == str {
-    covers = (covers,)
-  }
-  (base-font,) + covers.map(c => font-covers.at(c, default: ())).flatten()
-}
-
-// =================================
-// Global Style Configuration
-// =================================
-
-#let thesis-style = (
-  fonts: (
-    serif: font-with-coverage("Fraunces", ("latin", "cjk")),  // Official UoM primary font
-    sans: font-with-coverage("Source Sans Pro", ("latin", "cjk")),  // Official UoM secondary font
-    mono: font-with-coverage("JetBrains Mono", ("latin", "cjk")),
-  ),
+#let make-thesis-style(font_theme: "unimelb", profile: "default") = {
+  let fonts = font-theme(name: font_theme)
+  
+  // Profile-aware color definitions
+  let color-space = if profile == "print" { cmyk } else { rgb }
+  
+  (
+    fonts: fonts,
   colors: (
-    primary: rgb(traditional-heritage-100),      // Official UoM blue #000F46
-    secondary: rgb(magpie-dark-100),             // Official dark grey #2D2D2D
-    accent: rgb(sheoak-light-100),               // Official red #FF2D3C
-    success: rgb(red-gum-light-100),             // Official green #9FB825
-    warning: rgb(yam-daisy-100),                 // Official yellow #FFD629
-    link: rgb(link),                             // Official link color #083973
-    background: rgb(white),                      // White background
-    surface: rgb(magpie-light-25),               // Light grey surface #F1F1F1
+    primary: color-space(traditional-heritage-100),      // Official UoM blue #000F46
+    secondary: color-space(magpie-dark-100),             // Official dark grey #2D2D2D
+    accent: color-space(sheoak-light-100),               // Official red #FF2D3C
+    success: color-space(red-gum-light-100),             // Official green #9FB825
+    warning: color-space(yam-daisy-100),                 // Official yellow #FFD629
+    link: color-space(link),                             // Official link color #083973
+    background: color-space(white),                      // White background
+    surface: color-space(magpie-light-25),               // Light grey surface #F1F1F1
   ),
   spacing: (
     paragraph-leading: 1.2em,
@@ -80,6 +44,11 @@
     heading-below: ("1": 1em, "2": 0.8em, "3": 0.5em),
   ),
 )
+}
+
+#let thesis-style = make-thesis-style(profile: "default")
+
+#let available-font-themes = font-themes()
 
 // =================================
 // Theorem Environment Setup
@@ -89,7 +58,7 @@
 // #show: theorion-init
 
 #let theorem-counter = counter("theorem")
-#let theorem(title: none, body) = {
+#let theorem(title: none, body) = context {
   theorem-counter.step()
   block[
     *Theorem #theorem-counter.display().*#h(1em)
@@ -99,7 +68,7 @@
 }
 
 #let lemma-counter = counter("lemma")
-#let lemma(title: none, body) = {
+#let lemma(title: none, body) = context {
   lemma-counter.step()
   block[
     *Lemma #lemma-counter.display().*#h(1em)
@@ -109,7 +78,7 @@
 }
 
 #let corollary-counter = counter("corollary")
-#let corollary(title: none, body) = {
+#let corollary(title: none, body) = context {
   corollary-counter.step()
   block[
     *Corollary #corollary-counter.display().*#h(1em)
@@ -119,7 +88,7 @@
 }
 
 #let definition-counter = counter("definition")
-#let definition(title: none, body) = {
+#let definition(title: none, body) = context {
   definition-counter.step()
   block[
     *Definition #definition-counter.display().*#h(1em)
@@ -129,7 +98,7 @@
 }
 
 #let example-counter = counter("example")
-#let example(title: none, body) = {
+#let example(title: none, body) = context {
   example-counter.step()
   block[
     *Example #example-counter.display().*#h(1em)
@@ -152,8 +121,19 @@
 
 #let algorithm-counter = counter("algorithm")
 
-#let algorithm(body, caption: none) = {
+#let algorithm(
+  body,
+  caption: none,
+  title: none,
+  breakable: false
+) = {
   algorithm-counter.step()
+  let algorithm-title = if title != none {
+    title
+  } else {
+    [Algorithm #algorithm-counter.display()]
+  }
+
   figure(
     kind: "algorithm",
     supplement: "Algorithm",
@@ -161,7 +141,7 @@
     pseudocode(
       body,
       booktabs: true,
-      numbered-title: [Algorithm #algorithm-counter.display()],
+      numbered-title: algorithm-title,
     )
   )
 }
@@ -170,7 +150,7 @@
 // Enhanced Code Display
 // =================================
 
-// Configure codly for code highlighting
+// Configure codly for code highlighting with comprehensive language support
 #show: codly-init.with()
 
 #codly(
@@ -178,17 +158,47 @@
     rust: (name: "Rust", icon: "🦀", color: rgb("#000000")),
     python: (name: "Python", icon: "🐍", color: rgb("#3776AB")),
     typst: (name: "Typst", icon: "📝", color: rgb("#239DAD")),
+    javascript: (name: "JavaScript", icon: "🟨", color: rgb("#F7DF1E")),
+    java: (name: "Java", icon: "☕", color: rgb("#ED8B00")),
+    cpp: (name: "C++", icon: "⚡", color: rgb("#00599C")),
+    c: (name: "C", icon: "⚡", color: rgb("#A8B9CC")),
+    r: (name: "R", icon: "📊", color: rgb("#276DC3")),
+    matlab: (name: "MATLAB", icon: "🔢", color: rgb("#0076A8")),
+    bash: (name: "Bash", icon: "💻", color: rgb("#4EAA25")),
+    sql: (name: "SQL", icon: "🗄️", color: rgb("#336791")),
+    latex: (name: "LaTeX", icon: "📄", color: rgb("#008080")),
   ),
   display-name: true,
   display-icon: true,
+  zebra-fill: rgb("#f8f8f8"),
+  radius: 3pt,
 )
 
-// Code with line numbers using zebraw
-#let code-block(body, lang: none, numbers: true) = {
-  if numbers {
-    zebraw(body, lang: lang)
+// Enhanced code block with captioning and consistent styling
+#let code-block(
+  body,
+  lang: none,
+  caption: none,
+  numbers: true,
+  breakable: false
+) = {
+  if caption != none {
+    figure(
+      kind: "code",
+      supplement: "Listing",
+      caption: caption,
+      if numbers {
+        zebraw(body, lang: lang)
+      } else {
+        raw(body, lang: lang, block: true)
+      }
+    )
   } else {
-    raw(body, lang: lang, block: true)
+    if numbers {
+      zebraw(body, lang: lang)
+    } else {
+      raw(body, lang: lang, block: true)
+    }
   }
 }
 
@@ -236,6 +246,36 @@
 // Utility Functions
 // =================================
 
+// Profile-aware image function with compression for draft/screen profiles
+#let thesis-image(path, ..args) = {
+  let profile = sys.inputs.at("profile", default: "default")
+  
+  // Apply compression optimizations based on profile
+  if profile == "draft" {
+    // Maximum compression for draft - convert to low-quality PNG
+    if path.ends-with(".svg") {
+      image(path, ..args)
+    } else {
+      // Force PNG conversion with potential quality loss for faster compilation
+      image(path, format: "png", ..args)
+    }
+  } else if profile == "screen" {
+    // Balanced compression for screen viewing
+    if path.ends-with(".svg") {
+      image(path, ..args)
+    } else {
+      // Convert to PNG for web-optimized compression
+      image(path, format: "png", ..args)
+    }
+  } else if profile == "print" {
+    // High quality for print - preserve original format and quality
+    image(path, ..args)
+  } else {
+    // Default profile - standard handling
+    image(path, ..args)
+  }
+}
+
 // Format dates
 #let format-date(date) = {
   let months = ("January", "February", "March", "April", "May", "June",
@@ -244,7 +284,24 @@
 }
 
 // Create a placeholder for unimelb logo
-#let unimelb-logo = image.with(width: 4cm)
+#let unimelb-logo(custom: none) = {
+  let path = if custom != none { custom } else { "../assets/logos/unimelb-logo-official.svg" }
+  thesis-image(path, width: 4cm)
+}
+
+#let make-spine-text(author: none, title: none, degree: none, year: none) = {
+  let segments = (
+    if author != none { author } else { none },
+    if title != none { title } else { none },
+    if degree != none { degree } else { none },
+    if year != none { str(year) } else { none },
+  ).filter(x => x != none)
+  if segments.len() == 0 {
+    []
+  } else {
+    segments.join(" · ")
+  }
+}
 
 // =================================
 // Advanced Package Utilities
@@ -311,16 +368,17 @@
 // =================================
 
 #let landscape-page(body) = {
+  // Ensure landscape pages keep the same paper size (A4) and margins.
+  // Avoid changing height/width directly to prevent mixed page sizes.
   set page(
-    height: auto,
-    width: auto,
+    paper: "a4",
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
     flipped: true
   )
   body
+  // Restore to portrait A4 after the landscape content.
   set page(
-    height: auto,
-    width: auto,
+    paper: "a4",
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
     flipped: false
   )
@@ -353,39 +411,6 @@
     #body
   ]
 }
-
-// =================================
-// Code Highlighting Setup
-// =================================
-
-// Configure codly for code highlighting
-#show: codly-init.with()
-#codly(languages: (
-  typst: (
-    name: "Typst",
-    icon: "",
-    color: rgb("#239dad"),
-  ),
-  python: (
-    name: "Python",
-    icon: "",
-    color: rgb("#ffd43b"),
-  ),
-  rust: (
-    name: "Rust",
-    icon: "",
-    color: rgb("#000000"),
-  ),
-  javascript: (
-    name: "JavaScript",
-    icon: "",
-    color: rgb("#f7df1e"),
-  ),
-))
-
-// =================================
-// Export all utilities
-// =================================
 
 // =================================
 // Export all utilities

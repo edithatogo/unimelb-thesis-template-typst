@@ -79,4 +79,14 @@
   // Modern Features (uncomment to enable)
   // blind: true,                    // Blind review mode
   // double_sided: true,             // Double-sided printing
+
+  // Optional End Matter Features
+  // include_glossary: true,         // Generate glossary from abbreviation data
+  // include_abbreviations: true,    // Generate list of abbreviations
+  // include_index: true,            // Generate index from custom entries
+  // index_entries: (                // Custom index entries (only used if include_index: true)
+  //   "Machine Learning": "15, 23, 45",
+  //   "Neural Networks": "12, 34",
+  //   "Deep Learning": "23, 67-69"
+  // ),
 )

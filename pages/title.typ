@@ -1,6 +1,6 @@
 #import "../utils/style.typ": thesis-style, format-date, unimelb-logo
 
-#let title-page(
+#let title-page(ctx,
   title: none,
   subtitle: none,
   author: none,
@@ -13,13 +13,20 @@
   submission_date: none,
   blind: false,
 ) = {
+  let style = ctx.style
+  let labels = ctx.labels
+  let show-logo = ctx.at("show_logo", default: true)
   align(center)[
-    #text(size: 24pt, weight: "bold", fill: thesis-style.colors.primary)[
-      The University of Melbourne
+    #text(size: 24pt, weight: "bold", fill: style.colors.primary)[
+      #labels.university_name
     ]
     #v(1em)
-    #image("../assets/logos/unimelb-logo-official.svg", width: 120pt)
-    #v(2em)
+    #if show-logo {
+      unimelb-logo()
+      v(2em)
+    } else {
+      v(2em)
+    }
   ]
 
   align(center)[
@@ -32,11 +39,11 @@
   ]
 
   align(center)[
-    #text(size: 14pt)[A thesis submitted in fulfilment of the requirements]
+    #text(size: 14pt)[#labels.thesis_submission_line]
     #v(0.5em)
-    #text(size: 14pt)[for the degree of #degree]
+    #text(size: 14pt)[#labels.thesis_degree_line #degree]
     #v(1em)
-    #text(size: 14pt)[in the #department]
+    #text(size: 14pt)[#labels.thesis_department_line #department]
     #v(0.5em)
     #text(size: 14pt)[#school]
     #v(1em)
@@ -56,13 +63,13 @@
   ]
 
   align(center)[
-    #text(size: 12pt)[Supervisor: #supervisor]
+    #text(size: 12pt)[#labels.supervisor_label: #supervisor]
     #if co_supervisor != none {
       v(0.5em)
-      text(size: 12pt)[Co-supervisor: #co_supervisor]
+      text(size: 12pt)[#labels.co_supervisor_label: #co_supervisor]
     }
     #v(1em)
-    #text(size: 12pt)[#format-date(submission_date)]
+    #text(size: 12pt)[#labels.submission_date_label: #format-date(submission_date)]
   ]
 
   pagebreak()

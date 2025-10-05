@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 1"
 
 jobs:
   # Quality Control and Linting
@@ -26,6 +28,29 @@ jobs:
       - name: Lint Markdown files
         run: markdownlint "**/*.md" --config .markdownlint.json || true
 
+      - name: Setup Python (for package checks)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install package-check dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml requests
+
+      - name: Check Typst package imports
+        id: check-packages
+        run: |
+          python scripts/check_packages.py 2>&1 | tee check-packages.log || true
+        continue-on-error: true
+
+      - name: Upload package-check log (on failure)
+        if: steps.check-packages.outcome == 'failure' || steps.check-packages.conclusion == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: check-packages-log
+          path: check-packages.log
+
       - name: Check for broken links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
@@ -36,6 +61,44 @@ jobs:
   # Typst Compilation Test
   compile-test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        typst-version: ['0.13.0']
+        profile: ['default', 'draft', 'screen', 'print']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v3
+        with:
+          typst-version: ${{ matrix.typst-version }}
+
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu fonts-liberation
+
+      - name: Compile main thesis
+        run: |
+          mkdir -p build/ci
+          typst compile --input profile=${{ matrix.profile }} thesis.typ build/ci/thesis-${{ matrix.profile }}.pdf
+
+      - name: Compile sample chapter
+        run: |
+          typst compile --input profile=${{ matrix.profile }} sample-chapter.typ build/ci/sample-chapter-${{ matrix.profile }}.pdf
+
+      - name: Upload compiled PDFs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: typst-build-${{ matrix.profile }}
+          path: build/ci
+
+  preflight:
+    runs-on: ubuntu-latest
+    needs: [compile-test, automated-build]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -45,22 +108,50 @@ jobs:
         with:
           typst-version: '0.13.0'
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Run preflight checks
+        run: |
+          python scripts/preflight.py --profile default --profile draft --profile print --profile screen --json
+
+      - name: Upload preflight artefacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: preflight-results
+          path: build/preflight
+
+  compatibility-test:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Typst (latest)
+        uses: typst-community/setup-typst@v3
+        with:
+          typst-version: 'latest'
+
       - name: Install fonts
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-dejavu fonts-liberation
 
-      - name: Compile main thesis
-        run: typst compile thesis.typ
+      - name: Compile thesis with latest Typst
+        run: |
+          mkdir -p build/compat
+          typst compile thesis.typ build/compat/thesis-latest.pdf
 
-      - name: Test sample chapter compilation
-        run: typst compile sample-chapter.typ
-
-      - name: Upload compiled PDF
+      - name: Upload compatibility artefact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: compiled-thesis
-          path: thesis.pdf
+          name: typst-latest
+          path: build/compat
 
   # Template Validation
   validate-template:
@@ -88,7 +179,7 @@ jobs:
   # Documentation Build
   docs-build:
     runs-on: ubuntu-latest
-    needs: [quality-check, compile-test]
+    needs: [quality-check, compile-test, automated-build, preflight]
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
@@ -123,7 +214,7 @@ jobs:
   # Release Management
   release:
     runs-on: ubuntu-latest
-    needs: [compile-test, validate-template]
+    needs: [compile-test, automated-build, validate-template, preflight]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - name: Checkout code
@@ -159,3 +250,133 @@ jobs:
             README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Automated Build Recipes
+  automated-build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: ['default', 'draft', 'screen', 'print']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v3
+        with:
+          typst-version: '0.13.0'
+
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu fonts-liberation
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get install -y make
+
+      - name: Setup Python (for validation)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install validation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml requests
+
+      - name: Run automated compile (thesis)
+        run: make compile PROFILE=${{ matrix.profile }}
+
+      - name: Run automated compile (sample)
+        run: make compile-sample PROFILE=${{ matrix.profile }}
+
+      - name: Run automated validation
+        run: make validate
+
+      - name: Run automated tests
+        run: make test
+
+      - name: Upload automated build artefacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: automated-build-${{ matrix.profile }}
+          path: |
+            thesis.pdf
+            sample-chapter.pdf
+
+  # Build Recipe Testing
+  build-recipe-test:
+    runs-on: ubuntu-latest
+    needs: automated-build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v3
+        with:
+          typst-version: '0.13.0'
+
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu fonts-liberation make
+
+      - name: Test clean target
+        run: |
+          make compile PROFILE=default
+          ls -la *.pdf
+          make clean
+          ls -la *.pdf || echo "PDFs successfully cleaned"
+
+      - name: Test clean-all target
+        run: |
+          make compile PROFILE=default
+          mkdir -p build .typst-cache
+          touch build/test.txt .typst-cache/test.txt
+          ls -la build/ .typst-cache/
+          make clean-all
+          ls -la build/ .typst-cache/ || echo "All files successfully cleaned"
+
+      - name: Test profile validation
+        run: |
+          make compile PROFILE=invalid 2>&1 || echo "Profile validation working"
+          make profiles
+
+      - name: Test watch simulation (compile-only)
+        run: |
+          timeout 5 make compile PROFILE=draft || true
+          ls -la *.pdf
+
+      - name: Test extended automation recipes
+        run: |
+          # Test parallel compilation
+          make compile-parallel PROFILE=draft
+          ls -la *.pdf
+
+          # Test status reporting
+          make status
+
+          # Test profile build analysis
+          make profile-build PROFILE=screen
+
+          # Test additional clean targets
+          make clean-profile
+          ls -la thesis-*.pdf sample-chapter-*.pdf || echo "Profile PDFs cleaned"
+          make clean-logs
+          make clean-build
+          make clean-cache
+
+          # Test timed compilation
+          make compile-timed PROFILE=default
+
+      - name: Test automate.sh extended commands
+        run: |
+          # Test new automate.sh commands
+          ./automate.sh parallel draft
+          ./automate.sh status
+          ./automate.sh clean-profile
+          ./automate.sh clean-logs

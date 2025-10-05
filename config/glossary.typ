@@ -1,0 +1,411 @@
+#import "../utils/style.typ": *
+
+// Glossary System for Academic Writing
+// Provides comprehensive glossary management with cross-referencing and validation
+
+// Default glossary entries (can be extended by users)
+#let glossary-entries = (
+  (
+    term: "Thesis",
+    definition: "A long piece of writing on a particular subject, especially one that is done for a higher college or university degree.",
+    category: "Academic",
+    related: ("Dissertation", "Research")
+  ),
+  (
+    term: "Methodology",
+    definition: "The system of methods followed in a particular discipline or field of study.",
+    category: "Research",
+    related: ("Method", "Approach")
+  ),
+  (
+    term: "Literature Review",
+    definition: "A scholarly paper that includes the current knowledge including substantive findings, as well as theoretical and methodological contributions to a particular topic.",
+    category: "Research",
+    related: ("Review", "Bibliography")
+  ),
+  (
+    term: "Hypothesis",
+    definition: "A supposition or proposed explanation made on the basis of limited evidence as a starting point for further investigation.",
+    category: "Research",
+    related: ("Theory", "Proposition")
+  ),
+  (
+    term: "Peer Review",
+    definition: "The evaluation of work by one or more people with similar competencies as the producers of the work.",
+    category: "Academic",
+    related: ("Review", "Evaluation")
+  ),
+  (
+    term: "Citation",
+    definition: "A reference to a source of information used in a scholarly work.",
+    category: "Academic",
+    related: ("Reference", "Bibliography")
+  ),
+  (
+    term: "Plagiarism",
+    definition: "The practice of taking someone else's work or ideas and passing them off as one's own.",
+    category: "Academic",
+    related: ("Academic Integrity", "Ethics")
+  ),
+  (
+    term: "Abstract",
+    definition: "A brief summary of a research article, thesis, review, conference proceeding, or any in-depth analysis of a particular subject.",
+    category: "Academic",
+    related: ("Summary", "Synopsis")
+  ),
+  (
+    term: "Bibliography",
+    definition: "A list of the books referred to in a scholarly work, typically printed as an appendix.",
+    category: "Academic",
+    related: ("References", "Works Cited")
+  ),
+  (
+    term: "Appendix",
+    definition: "A section at the end of a book or document containing additional information.",
+    category: "Academic",
+    related: ("Supplement", "Addendum")
+  )
+)
+
+// State tracking for glossary term usage
+#let _glossary-used = state("glossary-used", (:))
+
+// Validate glossary structure
+#let validate-glossary() = {
+  let errors = ()
+  let warnings = ()
+
+  // Check for required fields
+  for entry in glossary-entries {
+    if "term" not in entry {
+      errors.push("Missing 'term' field in glossary entry")
+    }
+    if "definition" not in entry {
+      errors.push("Missing 'definition' field for term: " + entry.at("term", default: "unknown"))
+    }
+  }
+
+  // Check for duplicate terms
+  let terms = glossary-entries.map(e => e.term)
+  for (i, term) in terms.Enumerate() {
+    for (j, other) in terms.enumerate() {
+      if i < j and term == other {
+        errors.push("Duplicate glossary term: " + term)
+      }
+    }
+  }
+
+  // Check for empty fields
+  for entry in glossary-entries {
+    if entry.term.trim() == "" {
+      errors.push("Empty term found")
+    }
+    if entry.definition.trim() == "" {
+      warnings.push("Empty definition for term: " + entry.term)
+    }
+  }
+
+  (errors: errors, warnings: warnings)
+}
+
+// Get glossary term with auto-expansion on first use
+#let glossary(term, link: true, expand: true) = {
+  let entry = glossary-entries.find(e => e.term == term)
+  if entry == none {
+    // Unknown term - show with warning
+    text(fill: red, weight: "bold")[#term (?) ]
+  } else {
+    if expand {
+      locate(loc => {
+        let used = _glossary-used.at(loc)
+        if term not in used {
+          // First use - expand with definition
+          _glossary-used.update(used => used + ((term): true))
+          if link {
+            link(label("glossary-" + term))[#entry.term]
+          } else {
+            [#entry.term]
+          }
+        } else {
+          // Subsequent use - show term only
+          if link {
+            link(label("glossary-" + term))[#entry.term]
+          } else {
+            [#entry.term]
+          }
+        }
+      })
+    } else {
+      if link {
+        link(label("glossary-" + term))[#entry.term]
+      } else {
+        [#entry.term]
+      }
+    }
+  }
+}
+
+// Get glossary entry by term
+#let get-glossary-term(term) = {
+  glossary-entries.find(e => e.term == term)
+}
+
+// Search glossary by pattern
+#let search-glossary(pattern, field: "term") = {
+  glossary-entries.filter(entry => {
+    let value = if field == "term" { entry.term }
+               else if field == "definition" { entry.definition }
+               else if field == "category" { entry.at("category", default: "") }
+               else { "" }
+    value.contains(pattern)
+  })
+}
+
+// Get glossary terms by category
+#let get-glossary-by-category(category) = {
+  glossary-entries.filter(entry => entry.at("category", default: "") == category)
+}
+
+// Get all categories
+#let get-glossary-categories() = {
+  let categories = glossary-entries.map(e => e.at("category", default: "General"))
+  categories.dedup()
+}
+
+// Get sorted glossary entries
+#let get-sorted-glossary(sort-by: "term", reverse: false) = {
+  let sorted = glossary-entries.sorted(key: e => {
+    if sort-by == "term" { e.term }
+    else if sort-by == "category" { e.at("category", default: "ZZZ") }
+    else { e.term }
+  })
+  if reverse {
+    sorted.rev()
+  } else {
+    sorted
+  }
+}
+
+// Get related terms for a glossary entry
+#let get-related-terms(term) = {
+  let entry = get-glossary-term(term)
+  if entry != none and "related" in entry {
+    entry.related
+  } else {
+    ()
+  }
+}
+
+// Create cross-references between related terms
+#let create-glossary-cross-references() = {
+  for entry in glossary-entries {
+    if "related" in entry {
+      for related in entry.related {
+        let related-entry = get-glossary-term(related)
+        if related-entry != none and "related" not in related-entry {
+          // Add reverse relationship if it doesn't exist
+          related-entry.insert("related", (entry.term,))
+        }
+      }
+    }
+  }
+}
+
+// Get glossary statistics
+#let get-glossary-stats() = {
+  let total = glossary-entries.len()
+  let categories = get-glossary-categories()
+  let avg-term-len = glossary-entries.map(e => e.term.len()).sum(default: 0) / total
+  let avg-def-len = glossary-entries.map(e => e.definition.len()).sum(default: 0) / total
+
+  (
+    total: total,
+    categories: categories.len(),
+    avg-term-length: calc.round(avg-term-len, digits: 1),
+    avg-definition-length: calc.round(avg-def-len, digits: 1)
+  )
+}
+
+// Export glossary to different formats
+#let export-glossary(format: "typst") = {
+  if format == "typst" {
+    [#glossary-entries]
+  } else if format == "json" {
+    [#repr(glossary-entries)]
+  } else if format == "csv" {
+    let csv-lines = ("Term,Category,Definition,Related",)
+    for e in glossary-entries {
+      let related-str = if "related" in e { e.related.join("; ") } else { "" }
+      let line = "\"" + e.term.replace("\"", "\"\"") + "\",\"" + e.at("category", default: "").replace("\"", "\"\"") + "\",\"" + e.definition.replace("\"", "\"\"") + "\",\"" + related-str.replace("\"", "\"\"") + "\""
+      csv-lines.push(line)
+    }
+    csv-lines.join("\n")
+  } else {
+    panic("Unsupported export format: " + format)
+  }
+}
+
+// Import glossary entries
+#let import-glossary(new-entries) = {
+  // Validate format
+  for entry in new-entries {
+    if type(entry) != dictionary or "term" not in entry or "definition" not in entry {
+      panic("Invalid glossary format. Expected: (term: \"...\", definition: \"...\", category: \"...\", related: (...))")
+    }
+  }
+
+  // Merge with existing
+  let merged = glossary-entries + new-entries
+
+  // Remove duplicates (keep last occurrence)
+  let seen = (:)
+  let deduped = ()
+  for entry in merged.rev() {
+    if entry.term not in seen {
+      seen.insert(entry.term, true)
+      deduped.push(entry)
+    }
+  }
+
+  deduped.rev()
+}
+
+// Create glossary index for quick lookup
+#let create-glossary-index() = {
+  let index = (:)
+  for entry in glossary-entries {
+    index.insert(entry.term, entry)
+  }
+  index
+}
+
+// Quick lookup with caching
+#let _glossary-cache = state("glossary-cache", none)
+
+#let get-glossary-fast(term) = {
+  locate(loc => {
+    let cache = _glossary-cache.at(loc)
+    if cache == none {
+      cache = create-glossary-index()
+      _glossary-cache.update(cache)
+    }
+    cache.at(term, default: none)
+  })
+}
+
+// Enhanced abbreviation-glossary integration utilities
+
+// Check if a term exists in either abbreviations or glossary
+#let term-exists(term, check-abbrevs: true, check-glossary: true) = {
+  let found = false
+  if check-abbrevs {
+    import "abbreviations.typ": abbreviations
+    found = found or (abbreviations.find(e => e.key == term or e.short == term) != none)
+  }
+  if check-glossary {
+    found = found or (glossary-entries.find(e => e.term == term) != none)
+  }
+  found
+}
+
+// Get comprehensive term information (from either system)
+#let get-term-info(term) = {
+  import "abbreviations.typ": abbreviations
+
+  // Check abbreviations first
+  let abbrev = abbreviations.find(e => e.key == term or e.short == term)
+  if abbrev != none {
+    return (
+      type: "abbreviation",
+      key: abbrev.key,
+      short: abbrev.short,
+      long: abbrev.long,
+      definition: abbrev.long
+    )
+  }
+
+  // Check glossary
+  let glossary = glossary-entries.find(e => e.term == term)
+  if glossary != none {
+    return (
+      type: "glossary",
+      term: glossary.term,
+      definition: glossary.definition,
+      category: glossary.at("category", default: "General"),
+      related: glossary.at("related", default: ())
+    )
+  }
+
+  none
+}
+
+// Unified term reference (works with both abbreviations and glossary)
+#let term(term, link: true, expand: true) = {
+  let info = get-term-info(term)
+  if info == none {
+    text(fill: red, weight: "bold")[#term (?) ]
+  } else if info.type == "abbreviation" {
+    import "abbreviations.typ": abbrev
+    abbrev(info.short, expand: expand)
+  } else {
+    glossary(info.term, link: link, expand: expand)
+  }
+}
+
+// Create combined abbreviations and glossary index
+#let create-combined-index() = {
+  import "abbreviations.typ": abbreviations
+
+  let index = (:)
+
+  // Add abbreviations
+  for entry in abbreviations {
+    index.insert(entry.short, (type: "abbreviation", data: entry))
+    index.insert(entry.key, (type: "abbreviation", data: entry))
+  }
+
+  // Add glossary terms
+  for entry in glossary-entries {
+    index.insert(entry.term, (type: "glossary", data: entry))
+  }
+
+  index
+}
+
+// Combined search across abbreviations and glossary
+#let search-terms(pattern, sources: ("abbreviations", "glossary")) = {
+  import "abbreviations.typ": abbreviations
+
+  let results = ()
+
+  if "abbreviations" in sources {
+    let abbrev-results = abbreviations.filter(entry => {
+      entry.key.contains(pattern) or entry.short.contains(pattern) or entry.long.contains(pattern)
+    }).map(entry => (type: "abbreviation", data: entry))
+    results += abbrev-results
+  }
+
+  if "glossary" in sources {
+    let glossary-results = glossary-entries.filter(entry => {
+      entry.term.contains(pattern) or entry.definition.contains(pattern) or entry.at("category", default: "").contains(pattern)
+    }).map(entry => (type: "glossary", data: entry))
+    results += glossary-results
+  }
+
+  results
+}
+
+// Get combined statistics
+#let get-combined-stats() = {
+  import "abbreviations.typ": abbreviations, get-abbreviation-stats
+
+  let abbrev-stats = get-abbreviation-stats()
+  let glossary-stats = get-glossary-stats()
+
+  (
+    abbreviations: abbrev-stats,
+    glossary: glossary-stats,
+    total-terms: abbrev-stats.total + glossary-stats.total,
+    total-categories: glossary-stats.categories
+  )
+}

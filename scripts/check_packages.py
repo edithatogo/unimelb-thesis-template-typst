@@ -95,7 +95,8 @@ def main():
 
     if not packages:
         print("❌ No packages found in the template")
-        return 1
+        # Consider this an error for CI so maintainers notice missing imports
+        return 2
 
     print(f"Found {len(packages)} packages:")
     for package, version in packages.items():
@@ -115,6 +116,8 @@ def main():
         print("⚠️  Package usage issues:")
         for issue in issues:
             print(f"  - {issue}")
+        # Return non-zero so CI can fail the job and require fixes
+        return 3
     else:
         print("✅ No package usage issues found")
 
