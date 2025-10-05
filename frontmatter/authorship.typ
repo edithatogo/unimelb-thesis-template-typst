@@ -1,5 +1,5 @@
 // Statement of authorship sample. Adjust wording per faculty guidance.
-#heading("Statement of Authorship", numbering: none, outlined: false)
+#heading("Statement of Authorship", numbering: none, outlined: true)
 #v(1em)
 [All chapters in this thesis are my own work except where otherwise indicated.]
 

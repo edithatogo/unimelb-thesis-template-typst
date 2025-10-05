@@ -4,7 +4,7 @@
 
 #let abstract-page(ctx, abstract, keywords: ()) = {
   let labels = ctx.labels
-  heading(labels.abstract, numbering: none, outlined: false)
+  heading(labels.abstract, numbering: none, outlined: true)
   v(1em)
   abstract
   pagebreak()

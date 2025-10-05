@@ -9,14 +9,12 @@
     numbering: "i"
   )
 
-  align(center)[
-    #text(size: 16pt, weight: "bold")[#labels.table_of_contents]
-  ]
+  heading(labels.table_of_contents, numbering: none, outlined: true)
 
   v(2em)
 
   set text(size: 11pt, font: style.fonts.sans, lang: locale)
-  outline(depth: 3, indent: 1em)
+  outline(depth: 3, indent: 1em, target: heading.where(numbering: auto))
 
   pagebreak()
 }
@@ -30,9 +28,7 @@
     numbering: "i"
   )
 
-  align(center)[
-    #text(size: 16pt, weight: "bold")[#labels.list_of_figures]
-  ]
+  heading(labels.list_of_figures, numbering: none, outlined: true)
 
   v(2em)
 
@@ -54,9 +50,7 @@
     numbering: "i"
   )
 
-  align(center)[
-    #text(size: 16pt, weight: "bold")[#labels.list_of_tables]
-  ]
+  heading(labels.list_of_tables, numbering: none, outlined: true)
 
   v(2em)
 
@@ -78,9 +72,7 @@
     numbering: "i"
   )
 
-  align(center)[
-    #text(size: 16pt, weight: "bold")[#labels.list_of_algorithms]
-  ]
+  heading(labels.list_of_algorithms, numbering: none, outlined: true)
 
   v(2em)
 
@@ -103,7 +95,7 @@
       numbering: "i"
     )
 
-    heading("Third-Party Copyright Register", numbering: none, outlined: false)
+    heading("Third-Party Copyright Register", numbering: none, outlined: true)
     v(1em)
 
     table(

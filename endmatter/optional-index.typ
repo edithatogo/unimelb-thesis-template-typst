@@ -3,6 +3,7 @@
 // Include this in your thesis configuration to enable optional index features
 
 #import "../utils/style.typ": colors
+#import "../config/index.typ": index-term, extract-index-terms, auto-extract-index, get-index-terms, get-term-references, format-page-references, generate-index, generate-index-page, validate-index, get-index-stats
 
 // Index entry function for marking terms in the document
 // Usage: #index("term") or #index("term", "subterm")
@@ -27,75 +28,36 @@
   show-page-numbers: true,
   columns: 2
 ) = {
-  set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
-  )
-
-  align(center)[
-    #text(size: 18pt, weight: "bold", fill: colors.primary)[
-      Index
-    ]
-  ]
-
-  v(1cm)
-
-  // Check if we have any entries
-  if custom-entries.len() == 0 {
-    text(fill: gray)[
-      *Index Generation Note:* This index is currently empty. To populate the index:
-
-      1. *Manual Entries*: Add entries to the `custom-entries` parameter when calling this function
-      2. *Automatic Indexing*: Use `#index("term")` throughout your document (requires Typst query system)
-      3. *Cross-references*: Include page numbers and sub-entries as needed
-
-      *Example custom entries:*
-      ```typst
-      optional-index-page(custom-entries: (
-        "Machine Learning": "15, 23, 45",
-        "Neural Networks": "12, 34",
-        "Deep Learning": "23, 67-69"
-      ))
-      ```
-    ]
-  } else {
-    // Generate index from custom entries
-    let sorted-terms = custom-entries.keys().sorted()
-
-    // Group terms by first letter for better organization
-    let grouped-terms = (:)
-    for term in sorted-terms {
-      let first-letter = upper(term.at(0))
-      if first-letter not in grouped-terms {
-        grouped-terms.insert(first-letter, ())
-      }
-      grouped-terms.at(first-letter).push(term)
-    }
-
-    // Display index in columns
-    if columns == 1 {
-      // Single column layout
-      for letter in grouped-terms.keys().sorted() {
-        heading(letter, level: 3, numbering: none)
-        for term in grouped-terms.at(letter) {
-          let pages = custom-entries.at(term)
-          block[*#term*#if show-page-numbers [, #pages]]
-          v(0.3em)
+  // If custom entries are provided, add them to the automated index
+  if custom-entries.len() > 0 {
+    for (term, pages) in custom-entries.pairs() {
+      // Parse page string like "15, 23, 45" into array
+      let page-nums = pages.split(", ").map(p => {
+        if p.contains("-") {
+          // Handle ranges like "23-25"
+          let parts = p.split("-")
+          range(int(parts.at(0)), int(parts.at(1)) + 1)
+        } else {
+          int(p)
         }
-        v(0.5em)
-      }
-    } else {
-      // Multi-column layout - simplified version
-      for letter in grouped-terms.keys().sorted() {
-        heading(letter, level: 3, numbering: none)
-        for term in grouped-terms.at(letter) {
-          let pages = custom-entries.at(term)
-          block[*#term*#if show-page-numbers [, #pages]]
-          v(0.3em)
-        }
-        v(0.5em)
+      }).flatten()
+
+      // Add to automated index
+      for page in page-nums {
+        index-term(term)
+        // Note: This simplified approach doesn't perfectly handle the page tracking
+        // In a full implementation, we'd need to simulate the location context
       }
     }
   }
+
+  // Use the automated index generation system
+  generate-index-page(
+    title: "Index",
+    include-categories: true,
+    include-statistics: true,
+    columns: columns
+  )
 }
 
 // Advanced index with sub-entries support
@@ -104,75 +66,35 @@
   show-page-numbers: true,
   columns: 2
 ) = {
-  set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
-  )
+  // Convert hierarchical entries to automated index format
+  if entries.len() > 0 {
+    for (main_term, sub_entries) in entries.pairs() {
+      for (sub_term, pages) in sub_entries.pairs() {
+        // Parse page string and add to index
+        let page_nums = pages.split(", ").map(p => {
+          if p.contains("-") {
+            let parts = p.split("-")
+            range(int(parts.at(0)), int(parts.at(1)) + 1)
+          } else {
+            int(p)
+          }
+        }).flatten()
 
-  align(center)[
-    #text(size: 18pt, weight: "bold", fill: colors.primary)[
-      Index
-    ]
-  ]
-
-  v(1cm)
-
-  if entries.len() == 0 {
-    text(fill: gray)[
-      *Advanced Index Generation:* Use the `entries` parameter to define hierarchical index entries.
-
-      *Example structure:*
-      ```typst
-      optional-index-with-subentries(entries: (
-        "Machine Learning": (
-          "supervised": "15, 23",
-          "unsupervised": "45, 67",
-          "definition": "12"
-        ),
-        "Neural Networks": (
-          "backpropagation": "34",
-          "activation functions": "56"
-        )
-      ))
-      ```
-    ]
-  } else {
-    // Generate hierarchical index
-    let sorted-main-terms = entries.keys().sorted()
-
-    // Group by first letter
-    let grouped-terms = (:)
-    for term in sorted-main-terms {
-      let first-letter = upper(term.at(0))
-      if first-letter not in grouped-terms {
-        grouped-terms.insert(first-letter, ())
-      }
-      grouped-terms.at(first-letter).push(term)
-    }
-
-    // Display hierarchical index
-    for letter in grouped-terms.keys().sorted() {
-      heading(letter, level: 3, numbering: none)
-
-      for main-term in grouped-terms.at(letter) {
-        let sub-entries = entries.at(main-term)
-
-        // Main term
-        block[*#main-term*]
-        v(0.2em)
-
-        // Sub-entries (indented)
-        for sub-term in sub-entries.keys().sorted() {
-          let pages = sub-entries.at(sub-term)
-          block[
-            #h(1em)#sub-term#if show-page-numbers [, #pages]
-          ]
-          v(0.2em)
+        // Add main term and sub-term
+        for page in page_nums {
+          index-term(main_term, subterm: sub_term)
         }
-        v(0.5em)
       }
-      v(0.8em)
     }
   }
+
+  // Use automated generation
+  generate-index-page(
+    title: "Index with Sub-entries",
+    include-categories: true,
+    include-statistics: true,
+    columns: columns
+  )
 }
 
 // Combined index and glossary helper
@@ -181,41 +103,41 @@
   glossary-terms: (:),
   show-statistics: true
 ) = {
+  // Add manual index entries to automated system
+  if index-entries.len() > 0 {
+    for (term, pages) in index-entries.pairs() {
+      let page-nums = pages.split(", ").map(p => {
+        if p.contains("-") {
+          let parts = p.split("-")
+          range(int(parts.at(0)), int(parts.at(1)) + 1)
+        } else {
+          int(p)
+        }
+      }).flatten()
+
+      for page in page-nums {
+        index-term(term, category: "manual")
+      }
+    }
+  }
+
   // Index section
-  optional-index-page(custom-entries: index-entries, show-page-numbers: true)
+  generate-index-page(
+    title: "Index",
+    include-categories: true,
+    include-statistics: show-statistics,
+    columns: 2
+  )
 
   pagebreak()
 
-  // Glossary section
-  set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+  // Glossary section - use the automated glossary system
+  import "../config/glossary.typ": generate-glossary-page
+  generate-glossary-page(
+    title: "Glossary",
+    include-abbreviations: false,
+    include-manual-glossary: true,
+    include-extracted-terms: false,
+    show-statistics: show-statistics
   )
-
-  align(center)[
-    #text(size: 18pt, weight: "bold", fill: colors.primary)[
-      Glossary and Index
-    ]
-  ]
-
-  v(1cm)
-
-  if glossary-terms.len() == 0 {
-    text(fill: gray)[No glossary terms provided. Use the `glossary-terms` parameter to define terms.]
-  } else {
-    heading("Glossary", level: 2, numbering: none)
-
-    let sorted-terms = glossary-terms.keys().sorted()
-    for term in sorted-terms {
-      let definition = glossary-terms.at(term)
-      block[*#term*: #definition]
-      v(0.5em)
-    }
-
-    if show-statistics {
-      v(1cm)
-      text(size: 10pt, fill: gray)[
-        *Index and Glossary Statistics:* #index-entries.len() index entries, #glossary-terms.len() glossary terms
-      ]
-    }
-  }
 }

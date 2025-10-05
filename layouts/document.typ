@@ -61,7 +61,8 @@
       left: 3cm,
       right: 3cm,
     ),
-    numbering: none,
+    numbering: "i",
+    number-align: center,
   )
 
   // Profile-specific text rendering optimizations
@@ -356,6 +357,7 @@
   )
 
   show heading: it => {
+    let bookmarked = heading(it.body, level: it.level, bookmark: true)
     set text(weight: "bold", fill: style.colors.primary)
     if it.level == 1 {
       pagebreak(weak: true)
@@ -366,15 +368,16 @@
       let appendix_label = "Appendix " + counter(heading).display()
       let appendix_title = if it.body != none { str(it.body) } else { "" }
       let heading_text = if appendix_title != "" { appendix_label + ": " + appendix_title } else { appendix_label }
+      // The bookmarked heading is created above, so the bookmark will be generated
       text(size: 16pt, heading_text)
       v(style.spacing.heading-below.at(1, default: 1em))
     } else if it.level == 2 {
       v(style.spacing.heading-above.at(2, default: 1.5em))
-      text(size: 14pt, it)
+      text(size: 14pt, bookmarked)
       v(style.spacing.heading-below.at(2, default: 0.8em))
     } else {
       v(style.spacing.heading-above.at(3, default: 1em))
-      text(size: 12pt, it)
+      text(size: 12pt, bookmarked)
       v(style.spacing.heading-below.at(3, default: 0.5em))
     }
   }

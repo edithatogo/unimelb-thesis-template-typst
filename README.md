@@ -19,13 +19,15 @@ This is purely to showcase the template's formatting capabilities.
 
 - University of Melbourne branding and official colors
 - All required thesis sections (title page, abstract, acknowledgements, etc.)
+- Logical page numbering (Roman numerals for front matter, Arabic for main body)
 - Mathematical equations and algorithm formatting
 - Code syntax highlighting with line numbers
 - Automatic table of contents and references
 - Landscape pages for wide content
 - Bibliography and citation support
-- Optional glossary and abbreviation lists (auto-generated from abbreviation data)
+- Optional glossary and abbreviation lists (auto-generated from abbreviation data and content analysis)
 - Optional index with custom entries and page numbers
+- Embedded PDF support for including external documents
 
 ## Code and Algorithm Styling
 
@@ -102,11 +104,34 @@ The template supports syntax highlighting for:
 
 Algorithms are automatically included in the List of Algorithms in the front matter.
 
+## Embedded PDFs
+
+The template includes support for embedding external PDF documents while maintaining proper page counting:
+
+```typst
+// Embed specific pages from an external PDF
+#embed-pdf(
+  "path/to/document.pdf",
+  pages: (1, 2, 3),  // Specify which pages to include
+  caption: "Supplementary Materials"  // Optional caption
+)
+```
+
+**Features:**
+
+- Pages are automatically counted in the document's page numbering
+- Supports embedding multiple pages with page breaks
+- Optional figure captions for formal inclusion
+- Maintains document flow and formatting
+
+
 ## Structure
 
 - `thesis.typ` - Main file with sample content
 - `frontmatter/` - Optional dedication/authorship stubs
-- `chapters/` - Sample chapter scaffolding
+- `examples/` - Sample chapters and documents
+  - `examples/chapters/` - Sample chapter scaffolding
+  - `examples/samples/` - Additional sample documents
 - `endmatter/` - Sample appendices, bibliography, glossary, index
 - `pages/` - Individual page templates used by the core macros
 - `utils/` - Styling and utilities
@@ -405,34 +430,80 @@ The template now includes detailed abbreviation validation with:
 
 Abbreviations are automatically validated during compilation, with statistics displayed in glossary pages.
 
-### Optional Glossary and Abbreviations Pages
+### Automated Glossary and Abbreviations Pages
 
-Enable automatic glossary and abbreviations generation in your thesis endmatter:
+The template now includes an advanced automated glossary system that can extract technical terms
+from your thesis content and generate comprehensive glossaries with page references.
+
+#### Basic Usage
+
+Enable automated glossary generation in your thesis endmatter:
 
 ```typst
 #show: thesis.with(
   // ... other metadata ...
-  include_glossary: true,        // Generate glossary page from abbreviations
+  include_glossary: true,        // Generate comprehensive glossary page
   include_abbreviations: true,   // Generate abbreviations list page
   // ... rest of configuration ...
 )
 ```
 
-The optional glossary system automatically:
+#### Automated Term Extraction
 
-- Generates glossary pages from your abbreviation definitions
-- Validates abbreviation data during compilation
-- Provides statistics and error reporting
-- Supports both separate and combined glossary/abbreviations pages
+The system automatically extracts technical terms from your thesis content using pattern matching for:
 
-For advanced usage, you can customize the optional glossary behavior by importing the module directly:
+- Capitalized terms (e.g., "Machine Learning", "Neural Network")
+- Technical acronyms and abbreviations
+- Domain-specific terminology
+
+Terms are tracked with their page references throughout the document.
+
+#### Manual Glossary Entries
+
+You can also define custom glossary entries in `config/glossary.typ`:
 
 ```typst
-#import "endmatter/optional-glossary.typ": optional-glossary-abbreviations-page
-
-// Custom combined page
-#optional-glossary-abbreviations-page(separate-pages: false, show-statistics: true)
+#let glossary-entries = (
+  (
+    term: "Supervised Learning",
+    definition: "A type of machine learning where the algorithm learns from labeled training data",
+    category: "Machine Learning",
+    related: ("Unsupervised Learning", "Reinforcement Learning")
+  ),
+  // ... more entries ...
+)
 ```
+
+#### Advanced Usage
+
+For custom glossary generation, import the automated functions:
+
+```typst
+#import "config/glossary.typ": generate-glossary-page, glossary-term
+
+// Mark terms in your content for extraction
+The #glossary-term("Neural Network") is a key component of modern AI.
+
+// Generate custom glossary page
+#generate-glossary-page(
+  title: "Technical Glossary",
+  include-abbreviations: true,
+  include-manual-glossary: true,
+  include-extracted-terms: true,
+  show-statistics: true
+)
+```
+
+#### Glossary Features
+
+The automated glossary system provides:
+
+- **Term Extraction**: Automatically identifies technical terms from thesis content
+- **Page References**: Tracks and displays page numbers for each term
+- **Categorized Organization**: Groups terms by category for better navigation
+- **Validation**: Checks for duplicate terms and formatting issues
+- **Statistics**: Provides insights into term usage and glossary completeness
+- **Integration**: Seamlessly combines manual entries with auto-extracted terms
 
 ## Bibliography and Citation Management
 
@@ -494,7 +565,7 @@ Set your preferred citation style in the thesis metadata:
 }
 ```
 
-2. **Cite References in Text**: Use Typst's built-in citation commands:
+1. **Cite References in Text**: Use Typst's built-in citation commands:
 
 ```typst
 // Author-year style citation
@@ -847,7 +918,7 @@ The template includes index validation features:
 
 ## License
 
-MIT
+Apache 2.0
 
 ---
 

@@ -20,10 +20,16 @@
 #import "pages/preface.typ": preface-page
 #import "pages/front-matter.typ": toc-page, lof-page, lot-page, loa-page, third-party-page
 #import "pages/landscape-sample.typ": landscape-sample-page
-#import "pages/glossary.typ": glossary-page, abbreviations-page
+#import "pages/glossary.typ": glossary-page, abbreviations-page, comprehensive-glossary-page
 #import "endmatter/optional-glossary.typ": optional-glossary-page, optional-abbreviations-page, optional-glossary-abbreviations-page
 #import "endmatter/optional-index.typ": optional-index-page, optional-index-with-subentries, optional-index-glossary-page
 #import "pages/appendix.typ": appendix-page
+
+// Import automated index functions
+#import "config/index.typ": index-term, extract-index-terms, auto-extract-index, get-index-terms, get-term-references, format-page-references, generate-index, generate-index-page, validate-index, get-index-stats
+
+// Import automated glossary functions
+#import "config/glossary.typ": glossary-term, extract-technical-terms, auto-extract-glossary, get-extracted-glossary, generate-full-glossary, generate-glossary-page, generate-glossary-entry, extract-terms-from-content, add-glossary-terms, generate-glossary-index
 
 // Import layout components
 #import "layouts/document.typ": front-matter-layout, main-matter-layout, appendix-layout
@@ -254,7 +260,7 @@
   // =================================
 
   if metadata.include_glossary {
-    optional-glossary-page()
+    comprehensive-glossary-page()
   }
 
   // =================================
@@ -270,7 +276,7 @@
   // =================================
 
   if metadata.include_index {
-    optional-index-page(custom-entries: metadata.index_entries)
+    generate-index-page(custom-entries: metadata.index_entries)
   }
 }
 
@@ -318,6 +324,60 @@
 #let display-page-count = context {
   let count = counter(page).final().first()
   [Page count: #count]
+}
+
+// =================================
+// Embedded PDF Support
+// =================================
+
+// Include embedded PDF pages
+// Note: Page numbering display control requires custom layout modifications
+// For now, this function embeds PDFs which are automatically counted in page numbering
+#let embed-pdf(
+  path,
+  pages: none,
+  caption: none,
+  alt: none,
+  width: 100%,
+  height: auto,
+  fit: "contain"
+) = {
+  // If no specific pages requested, try to embed the first page as a fallback
+  // In practice, users should specify pages explicitly
+  let page-list = if pages == none {
+    (1,)  // Default to first page
+  } else {
+    pages
+  }
+
+  // Create a figure for each page if caption is provided
+  if caption != none {
+    figure(
+      caption: caption,
+      {
+        for page-num in page-list {
+          // Embed the PDF page
+          image(path, page: page-num, width: width, height: height, fit: fit, alt: alt)
+
+          // Add page break between pages (except for the last one)
+          if page-num != page-list.last() {
+            pagebreak()
+          }
+        }
+      }
+    )
+  } else {
+    // No caption, just embed the pages
+    for page-num in page-list {
+      // Embed the PDF page
+      image(path, page: page-num, width: width, height: height, fit: fit, alt: alt)
+
+      // Add page break between pages (except for the last one)
+      if page-num != page-list.last() {
+        pagebreak()
+      }
+    }
+  }
 }
 
 // =================================

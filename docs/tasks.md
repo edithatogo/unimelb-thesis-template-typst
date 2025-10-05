@@ -23,7 +23,7 @@
 - [x] R-FMT-003/R-FMT-004: Remove branding assets, add spine text helper, ensure declaration page renders without signatures.
 - [x] R-FMT-005: Maintain automated lists for figures/tables/algorithms and expose third-party copyright register support.
 - [x] R-FM-001..003: Refactor front-matter metadata capture into a shared configuration module with validation hints.
-- [x] R-STR-001: Provide repository scaffold (frontmatter/chapters/endmatter) with sample files.
+- [x] R-STR-001: Provide repository scaffold (frontmatter/examples/endmatter) with sample files.
 - [x] R-OPT-DED-001: Add optional dedication page template and document usage.
 - [x] R-OPT-AUTH-001: Provide statement of authorship block that can be included in preface/front matter.
 

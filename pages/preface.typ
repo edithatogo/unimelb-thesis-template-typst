@@ -15,7 +15,7 @@
     numbering: "i"
   )
 
-  heading("Preface", numbering: none, outlined: false)
+  heading("Preface", numbering: none, outlined: true)
   v(1em)
 
   if contributions.len() > 0 {

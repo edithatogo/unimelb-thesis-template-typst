@@ -1,6 +1,6 @@
 #import "../utils/style.typ": *
 #import "../config/abbreviations.typ": abbreviations, validate-abbreviations-detailed, print-validation-report, get-sorted-abbreviations, get-abbreviation-stats, abbreviations-with-categories, get-abbrevs-by-category, create-abbrev-groups
-#import "../config/glossary.typ": glossary-entries, validate-glossary, get-sorted-glossary, get-glossary-categories, get-glossary-stats, get-glossary-by-category
+#import "../config/glossary.typ": glossary-entries, validate-glossary, get-sorted-glossary, get-glossary-categories, get-glossary-stats, get-glossary-by-category, generate-glossary-page, generate-full-glossary, get-extracted-glossary, get-combined-stats
 
 #let glossary-page() = {
   set page(
@@ -101,124 +101,13 @@
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
   )
 
-  align(center)[
-    #text(size: 18pt, weight: "bold", fill: colors.primary)[
-      Glossary of Terms and Abbreviations
-    ]
-  ]
-
-  v(1cm)
-
-  // Validate both systems
-  let abbrev-validation = validate-abbreviations-detailed()
-  let glossary-validation = validate-glossary()
-
-  let has-errors = abbrev-validation.errors.len() > 0 or glossary-validation.errors.len() > 0
-
-  if has-errors {
-    text(fill: red, weight: "bold")[Validation failed. Please fix the following errors:\n]
-
-    if abbrev-validation.errors.len() > 0 {
-      text(fill: red)[*Abbreviation Errors:* \n]
-      for error in abbrev-validation.errors {
-        [- #error\n]
-      }
-    }
-
-    if glossary-validation.errors.len() > 0 {
-      text(fill: red)[*Glossary Errors:* \n]
-      for error in glossary-validation.errors {
-        [- #error\n]
-      }
-    }
-    return
-  }
-
-  // Show warnings if any
-  if abbrev-validation.warnings.len() > 0 or glossary-validation.warnings.len() > 0 {
-    text(fill: orange, weight: "bold")[Warnings:\n]
-    for warning in abbrev-validation.warnings + glossary-validation.warnings {
-      [- #warning\n]
-    }
-    v(0.5cm)
-  }
-
-  // Get combined statistics
-  import "../config/glossary.typ": get-combined-stats
-  let combined-stats = get-combined-stats()
-
-  // Abbreviations section
-  if abbreviations.len() > 0 {
-    text(size: 14pt, weight: "bold", fill: colors.secondary)[Abbreviations\n]
-    v(0.5cm)
-
-    // Group abbreviations by category
-    let abbrev-groups = create-abbrev-groups()
-
-    for category in abbrev-groups.keys().sorted() {
-      let group-abbrevs = abbrev-groups.at(category)
-      if group-abbrevs.len() > 0 {
-        text(size: 12pt, weight: "bold")[#category\n]
-        v(0.3cm)
-
-        for entry in group-abbrevs.sorted(key: e => e.short) {
-          block[
-            *#entry.short* — #entry.key: #entry.long
-          ]
-          v(0.3em)
-        }
-        v(0.5cm)
-      }
-    }
-  }
-
-  // Glossary section
-  if glossary-entries.len() > 0 {
-    pagebreak()
-    align(center)[
-      #text(size: 14pt, weight: "bold", fill: colors.secondary)[
-        Glossary of Terms
-      ]
-    ]
-    v(0.5cm)
-
-    // Group glossary by category
-    let categories = get-glossary-categories().sorted()
-
-    for category in categories {
-      let category-entries = get-glossary-by-category(category)
-      if category-entries.len() > 0 {
-        text(size: 12pt, weight: "bold")[#category\n]
-        v(0.3cm)
-
-        for entry in category-entries.sorted(key: e => e.term) {
-          block[
-            [#label("glossary-" + entry.term)]
-            *#entry.term*: #entry.definition
-          ]
-
-          // Show related terms if any
-          if "related" in entry and entry.related.len() > 0 {
-            text(size: 9pt, fill: gray)[
-              Related: #entry.related.join(", ")
-            ]
-          }
-
-          v(0.5em)
-        }
-        v(0.8cm)
-      }
-    }
-  }
-
-  // Statistics and summary
-  if abbreviations.len() > 0 or glossary-entries.len() > 0 {
-    v(1cm)
-    text(size: 10pt, fill: gray)[
-      *Summary Statistics:*\n
-      Abbreviations: #combined-stats.abbreviations.total total (#combined-stats.abbreviations.avg-abbrev-length avg length)\n
-      Glossary terms: #combined-stats.glossary.total total (#combined-stats.glossary.avg-term-length avg term length, #combined-stats.glossary.categories categories)\n
-      Total terms: #combined-stats.total-terms
-    ]
-  }
+  // Use the automated glossary generation system
+  generate-glossary-page(
+    title: "Glossary of Terms and Abbreviations",
+    include-abbreviations: true,
+    include-manual-glossary: true,
+    include-extracted-terms: true,
+    show-statistics: true,
+    show-validation: true
+  )
 }

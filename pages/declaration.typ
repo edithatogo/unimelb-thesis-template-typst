@@ -11,7 +11,7 @@
   third_party_assistance: none,
 ) = {
   let labels = ctx.labels
-  heading(labels.declaration, numbering: none, outlined: false)
+  heading(labels.declaration, numbering: none, outlined: true)
   v(2em)
 
   par[This is to certify that:]

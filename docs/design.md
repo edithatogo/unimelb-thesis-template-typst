@@ -27,7 +27,7 @@ This design translates the requirements in `docs/requirements.md` into implement
 The solution layers three cooperating modules atop existing Typst assets:
 
 1. **Configuration Core (`config/` + `utils/global.typ`)** — Centralises document metadata, typography, and layout constants. Satisfies R-FMT-001..004, R-FM-001..003, R-IMP-001..002.
-2. **Content Modules (`frontmatter/`, `chapters/`, `endmatter/`)** — Provide structured templates, macros, and partials for front matter, preface, publications, and appendices/end matter. Covers R-PRE-001..003, R-PUB-001..004, R-APP-001..002, R-AI-001, R-OPT-DED-001, R-OPT-AUTH-001, R-OPT-GLOS-001, R-OPT-IDX-001.
+2. **Content Modules (`frontmatter/`, `examples/chapters/`, `endmatter/`)** — Provide structured templates, macros, and partials for front matter, preface, publications, and appendices/end matter. Covers R-PRE-001..003, R-PUB-001..004, R-APP-001..002, R-AI-001, R-OPT-DED-001, R-OPT-AUTH-001, R-OPT-GLOS-001, R-OPT-IDX-001.
 3. **Authoring Toolkit (`docs/`, `scripts/`, `tasks/`)** — README updates, QA checklists, CLI helpers, and sample content supporting build workflows, disclosures, and submission checklists. Addresses R-PUB-005..006, R-AI-002..003, R-EDT-001..002, R-SUB-001..002, R-IMP-003..010.
 
 Directory scaffold (R-STR-001):
@@ -42,10 +42,16 @@ frontmatter/
   dedication.typ (optional)
   authorship.typ (optional statement of authorship)
   toc.typ (generates TOC/LOF/LOT/LOA)
-chapters/
-  chapter1-introduction.typ
-  chapter2-literature.typ
-  chapter3-methods.typ
+examples/
+  chapters/
+    chapter1-introduction.typ
+    chapter2-literature.typ
+    chapter3-methods.typ
+  samples/
+    sample-ai-disclosure.typ
+    sample-creative-outputs.typ
+    sample-publications.typ
+    sample-qa-checklist.typ
 endmatter/
   appendix-a.typ
   appendix-b.typ
@@ -156,7 +162,7 @@ Interactions:
   - AI confidentiality warning and citation footnote examples (R-AI-002..003).
   - Editorial assistance boundaries summarizing ASEP standards (R-EDT-001..002).
 - **CLI scripts / tasks** (optional) provide convenience commands: `typst compile`, `typst watch`, `cleanup`. Documented in tasks or README (R-IMP-008).
-- **Sample content** (under `samples/`) demonstrates figures, tables, publications, AI disclosures, and QA checklist referencing requirement IDs (R-IMP-004..010).
+- **Sample content** (under `examples/samples/`) demonstrates figures, tables, publications, AI disclosures, and QA checklist referencing requirement IDs (R-IMP-004..010).
 
 ## Data & Configuration Models
 | Structure | Purpose | Requirements |
@@ -171,12 +177,12 @@ Interactions:
 
 | Feature Area | Requirements | Policy / Template Inputs | Existing Assets | Planned Enhancements |
 | --- | --- | --- | --- | --- |
-| Layout & Pagination Controls | R-FMT-001, R-FMT-002, R-FMT-005 | UoM-Prep §3.4–3.5, §3.8(i–j); Typst-UIT layout conventions | `layouts/document.typ`, `utils/style.typ`, `lib.typ` | Add `layouts/unimelb.typ` with enforced A4 margins, print-ready mirror toggles, auto list generation macros tied to tagged elements |
+| Layout & Pagination Controls | R-FMT-001, R-FMT-002, R-FMT-005 | UoM-Prep §3.4–3.5, §3.8(i–j); Typst-UIT layout conventions | `layouts/document.typ`, `utils/style.typ`, `lib.typ` | ✅ Implemented logical page numbering |
 | Branding & Declaration Compliance | R-FMT-003, R-FMT-004, R-PRE-003 | UoM-Prep §3.6–3.7, §3.10; LaTeX-UoM declaration pattern | `thesis.typ`, `layouts/document.typ` | Export signature-free declaration block, spine text helper, no-logo guard flag documented in README |
 | Metadata & Title Page Orchestration | R-FM-001..003 | UoM-Prep §3.8–3.9; Typst-UM metadata form | `thesis.typ`, `sample-chapter.typ` | Centralise metadata in `config/defaults.typ`, add validation hints, funder table partial, ORCID field |
 | Preface & Contribution Logging | R-PRE-001, R-PRE-002, R-IMP-003 | UoM-Prep §3.11; UoM-Pub “The preface”, “Declaration of incorporated publications” | `sample-chapter.typ`, `thesis.typ` preface stub | Provide contribution matrix macro, publication status register, reusable narrative prompts for prior work and assistance |
 | Publication Integration Workflow | R-PUB-001..006 | UoM-Prep §3.14–3.19; UoM-Pub Overview, Format, Completing the forms, iThenticate; declaration form | `sample-chapter.typ`, `pages/landscape-sample.typ` | Build publication registry, chapter footnote macro, appendix inclusion helper, iThenticate declaration template and TES upload checklist |
-| End Matter & Creative Outputs | R-APP-001, R-APP-002, R-OPT-GLOS-001, R-OPT-IDX-001 | UoM-Prep §3.13, §3.18–3.19; UoM-Pub examples; Typst-ThesIST appendix handling | `pages/landscape-sample.typ`, `sample-chapter.typ` | Add `appendix-items` struct, creative output descriptor macro, optional glossary/index hooks, and validation ensuring end matter follows bibliography |
+| End Matter & Creative Outputs | R-APP-001, R-APP-002, R-OPT-GLOS-001, R-OPT-IDX-001 | UoM-Prep §3.13, §3.18–3.19; UoM-Pub examples; Typst-ThesIST appendix handling | `pages/landscape-sample.typ`, `sample-chapter.typ` | ✅ Added embed-pdf function for appendices; Add `appendix-items` struct, creative output descriptor macro, optional glossary/index hooks |
 | Digital Assistance & Editorial Governance | R-AI-001..003, R-EDT-001, R-EDT-002 | UoM-Prep §3.21–3.24; UoM-AI statement; ASEP Standards C–E | `README.md`, `docs/requirements.md` | Embed AI log and assistance tables in preface, add confidentiality warning callouts, summarise ASEP scope in docs |
 | Submission & Repository Support | R-PUB-005, R-PUB-006, R-SUB-001, R-SUB-002 | UoM-Prep §3.1, §3.25–3.26; UoM-Pub “Completing the forms”, “iThenticate report”; declaration form guidance | `README.md`, `automate.sh`, `docs/source-material/` references | Publish submission checklist, TES packaging guidance, final archive instructions, script hooks for watch/clean commands |
 | Implementation Scaffolding & Samples | R-IMP-001..010 | Typst-UIT project structure; Typst-UM and ThesIST usage docs; LaTeX-UoM feature set | `thesis.typ`, `lib.typ`, `sample-chapter.typ`, `scripts/` directory | Introduce modular `config/` layer, sample chapters illustrating figures/publications/AI notes, CLI build recipes, abbreviation helpers |

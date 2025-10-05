@@ -433,14 +433,14 @@ $ H = nabla^2 f(x) = mat(
 
 #figure(
   table(
-    columns: 8,
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto),
     align: (left, center, center, center, center, center, center, center),
     table.header(
       [Dataset], [Size], [Features], [Classes], [Accuracy], [Precision], [Recall], [F1-Score]
     ),
     [Iris], [150], [4], [3], [96.7%], [97.1%], [96.3%], [96.7%],
     [Wine], [178], [13], [3], [94.2%], [94.8%], [93.9%], [94.3%],
-    [Breast Cancer], [569], [30], [2], [98.1%], [97.9%], [98.3%], [98.1%],
+    [Breast\nCancer], [569], [30], [2], [98.1%], [97.9%], [98.3%], [98.1%],
     [Digits], [1797], [64], [10], [97.8%], [97.9%], [97.7%], [97.8%],
     [MNIST], [70000], [784], [10], [99.2%], [99.1%], [99.2%], [99.2%],
   ),
@@ -480,8 +480,8 @@ $ H = nabla^2 f(x) = mat(
 
 #figure(
   align(center)[
-    #block(width: 100%, height: 200pt, fill: rgb("#F8F9FA"), stroke: 1pt + rgb("#00539C"))[
-      #align(center + horizon)[
+  #block(width: 100%, fill: rgb("#F8F9FA"), stroke: 1pt + rgb("#00539C"), inset: (x: 1em, y: 1.2em))[
+      #align(top + center)[
         *Machine Learning Pipeline Flowchart*
 
         #v(1em)
