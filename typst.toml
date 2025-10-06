@@ -1,6 +1,6 @@
 [package]
 name = "unimelb-thesis-template"
-version = "0.2.0"
+version = "0.2.1"
 entrypoint = "lib.typ"
 authors = ["Dylan A Mordaunt"]
 license = "Apache-2.0"
@@ -8,7 +8,7 @@ description = "A modern Typst template for University of Melbourne theses"
 keywords = ["thesis", "university", "melbourne", "academic", "template"]
 categories = ["thesis", "academic"]
 disciplines = ["computer-science", "engineering", "science"]
-repository = "https://github.com/dylanmordaunt/unimelb-thesis-template-typst"
+repository = "https://github.com/edithatogo/unimelb-thesis-template-typst"
 
 [template]
 path = "."
