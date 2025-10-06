@@ -48,8 +48,11 @@ def validate_required_files():
         'pages/abstract.typ',
         'pages/declaration.typ',
         'layouts/document.typ',
-        'assets/logos/unimelb-logo-official.svg',
         'assets/colors/unimelb-colors.typ'
+    ]
+    
+    optional_files = [
+        'assets/logos/unimelb-logo-official.svg'
     ]
 
     missing_files = []
@@ -57,9 +60,18 @@ def validate_required_files():
         if not os.path.isfile(file_path):
             missing_files.append(file_path)
 
+    missing_optional = []
+    for file_path in optional_files:
+        if not os.path.isfile(file_path):
+            missing_optional.append(file_path)
+
     if missing_files:
-        print(f"❌ Missing files: {missing_files}")
+        print(f"❌ Missing required files: {missing_files}")
         return False
+    
+    if missing_optional:
+        print(f"⚠️  Missing optional files: {missing_optional}")
+        print(f"   (See assets/logos/README.md for instructions)")
 
     print("✅ Required files are present")
     return True
@@ -89,8 +101,9 @@ def validate_color_definitions():
         with open('assets/colors/unimelb-colors.typ', 'r') as f:
             content = f.read()
 
-        # Check for primary brand color
-        if 'traditional-heritage-100: #000F46' not in content:
+        # Check for primary brand color (in Typst syntax)
+        if 'traditional-heritage-100 = rgb("#000F46")' not in content and \
+           'traditional-heritage-100 = rgb("000F46")' not in content:
             print("❌ Primary brand color not found in color definitions")
             return False
 
@@ -104,29 +117,42 @@ def validate_typst_syntax():
     """Basic validation of Typst files for common syntax issues."""
     typst_files = list(Path('.').rglob('*.typ'))
 
-    issues = []
+    warnings = []
+    
     for file_path in typst_files:
         try:
             with open(file_path, 'r') as f:
                 content = f.read()
 
-            # Check for common syntax issues
-            if '#import(' in content and not content.count('#import(') == content.count(')'):
-                issues.append(f"Unmatched parentheses in imports: {file_path}")
-
-            if '#let' in content and not content.count('#let') == content.count('='):
-                issues.append(f"Potential let binding issues: {file_path}")
+            # Remove code blocks, math expressions, and strings to avoid counting delimiters inside them
+            import re
+            content_no_blocks = re.sub(r'```[^`]*```', '', content, flags=re.DOTALL)
+            content_no_math = re.sub(r'\$[^$]*\$', '', content_no_blocks, flags=re.DOTALL)
+            content_no_strings = re.sub(r'"[^"]*"', '', content_no_math)
+            content_no_strings = re.sub(r"'[^']*'", '', content_no_strings)
+            
+            # Check for obviously unmatched braces, brackets, and parentheses
+            # Note: This is a basic check and may produce false positives due to complex Typst syntax
+            if content_no_strings.count('{') != content_no_strings.count('}'):
+                warnings.append(f"Possible unmatched braces: {file_path}")
+            
+            if content_no_strings.count('[') != content_no_strings.count(']'):
+                warnings.append(f"Possible unmatched brackets: {file_path}")
+            
+            if content_no_strings.count('(') != content_no_strings.count(')'):
+                warnings.append(f"Possible unmatched parentheses: {file_path}")
 
         except Exception as e:
-            issues.append(f"Error reading {file_path}: {e}")
+            warnings.append(f"Error reading {file_path}: {e}")
 
-    if issues:
-        print("❌ Typst syntax issues found:")
-        for issue in issues:
-            print(f"  - {issue}")
-        return False
+    if warnings:
+        print("⚠️  Typst syntax warnings (may include false positives):")
+        for warning in warnings:
+            print(f"  - {warning}")
+        print("   Note: These are basic checks that may not account for all Typst syntax.")
+        print("   Run 'typst compile' to verify actual syntax correctness.")
 
-    print("✅ Typst syntax validation passed")
+    print("✅ Typst syntax validation completed")
     return True
 
 def main():

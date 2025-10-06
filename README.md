@@ -12,8 +12,32 @@ This is purely to showcase the template's formatting capabilities.
 
 1. Install Typst
 2. Clone this repo
-3. Edit `thesis.typ` with your details
-4. Run `typst compile thesis.typ`
+
+  Typst compile thesis.typ
+
+Compile examples
+ 
+
+The repository contains runnable example files under the project root and the `examples/` folder.
+
+When compiling examples that import the root-level library (`lib.typ`) compile from the repository root or pass
+`--root .` so imports resolve correctly. Example commands:
+
+```bash
+Typst compile example-run.typ
+Typst compile --root . examples/run-basic.typ
+Typst compile --root . examples/basic.typ
+```
+
+Notes:
+
+- The `thesis(...)` macro requires these metadata fields in examples: `title`, `author`, `degree`,
+  `department`, `school`, `university`, and `submission_date`. Use the `datetime(year:YYYY, month:MM,
+  day:DD)` constructor for `submission_date`.
+
+- Some examples disable optional features (glossary/index) to avoid requiring additional assets. Enable those
+  only when you also include the related resources.
+
 
 ## Features
 
