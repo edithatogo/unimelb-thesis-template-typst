@@ -59,7 +59,7 @@ class TypstTemplateUpdater:
         # Package version mappings for common updates
         package_updates = {
             "@preview/cetz:0.2.": "@preview/cetz:0.3.1",
-            "@preview/codly:1.0.": "@preview/codly:1.1.0",
+            "@preview/codly:1.0.": "@preview/codly:1.3.0",
             "@preview/theorion:0.3.": "@preview/theorion:0.4.0",
         }
 
