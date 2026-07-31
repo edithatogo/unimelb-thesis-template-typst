@@ -294,12 +294,18 @@
   [#date.day() #months.at(date.month() - 1) #date.year()]
 }
 
-// Create a placeholder for unimelb logo
+// Use a caller-provided official logo; keep the public template redistributable.
 #let unimelb-logo(custom: none) = {
-  let path = if custom != none { custom } else {
-    "../assets/logos/unimelb-logo-official.svg"
+  if custom != none {
+    thesis-image(custom, width: 4cm)
+  } else {
+    box(
+      width: 4cm,
+      inset: 8pt,
+      stroke: 0.5pt + gray,
+      align(center)[University of Melbourne],
+    )
   }
-  thesis-image(path, width: 4cm)
 }
 
 #let make-spine-text(author: none, title: none, degree: none, year: none) = {
