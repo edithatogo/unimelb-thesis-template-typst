@@ -6,7 +6,7 @@
   let locale = ctx.locale
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    numbering: "i"
+    numbering: "i",
   )
 
   heading(labels.table_of_contents, numbering: none, outlined: true)
@@ -25,7 +25,7 @@
   let locale = ctx.locale
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    numbering: "i"
+    numbering: "i",
   )
 
   heading(labels.list_of_figures, numbering: none, outlined: true)
@@ -47,7 +47,7 @@
   let locale = ctx.locale
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    numbering: "i"
+    numbering: "i",
   )
 
   heading(labels.list_of_tables, numbering: none, outlined: true)
@@ -69,7 +69,7 @@
   let locale = ctx.locale
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    numbering: "i"
+    numbering: "i",
   )
 
   heading(labels.list_of_algorithms, numbering: none, outlined: true)
@@ -92,7 +92,7 @@
 
     set page(
       margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-      numbering: "i"
+      numbering: "i",
     )
 
     heading("Third-Party Copyright Register", numbering: none, outlined: true)
@@ -106,8 +106,8 @@
       ..items.map(item => (
         item.at("material", default: ""),
         item.at("source", default: ""),
-        item.at("permission", default: "")
-      ))
+        item.at("permission", default: ""),
+      )),
     )
 
     pagebreak()

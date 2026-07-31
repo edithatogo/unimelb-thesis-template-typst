@@ -18,21 +18,42 @@
 #import "pages/declaration.typ": declaration-page
 #import "pages/acknowledgements.typ": acknowledgements-page
 #import "pages/preface.typ": preface-page
-#import "pages/front-matter.typ": toc-page, lof-page, lot-page, loa-page, third-party-page
+#import "pages/front-matter.typ": (
+  loa-page, lof-page, lot-page, third-party-page, toc-page,
+)
 #import "pages/landscape-sample.typ": landscape-sample-page
-#import "pages/glossary.typ": glossary-page, abbreviations-page, comprehensive-glossary-page
-#import "endmatter/optional-glossary.typ": optional-glossary-page, optional-abbreviations-page, optional-glossary-abbreviations-page
-#import "endmatter/optional-index.typ": optional-index-page, optional-index-with-subentries, optional-index-glossary-page
+#import "pages/glossary.typ": (
+  abbreviations-page, comprehensive-glossary-page, glossary-page,
+)
+#import "endmatter/optional-glossary.typ": (
+  optional-abbreviations-page, optional-glossary-abbreviations-page,
+  optional-glossary-page,
+)
+#import "endmatter/optional-index.typ": (
+  optional-index-glossary-page, optional-index-page,
+  optional-index-with-subentries,
+)
 #import "pages/appendix.typ": appendix-page
 
 // Import automated index functions
-#import "config/index.typ": index-term, extract-index-terms, auto-extract-index, get-index-terms, get-term-references, format-page-references, generate-index, generate-index-page, validate-index, get-index-stats
+#import "config/index.typ": (
+  auto-extract-index, extract-index-terms, format-page-references,
+  generate-index, generate-index-page, get-index-stats, get-index-terms,
+  get-term-references, index-term, validate-index,
+)
 
 // Import automated glossary functions
-#import "config/glossary.typ": glossary-term, extract-technical-terms, auto-extract-glossary, get-extracted-glossary, generate-full-glossary, generate-glossary-page, generate-glossary-entry, extract-terms-from-content, add-glossary-terms, generate-glossary-index
+#import "config/glossary.typ": (
+  add-glossary-terms, auto-extract-glossary, extract-technical-terms,
+  extract-terms-from-content, generate-full-glossary, generate-glossary-entry,
+  generate-glossary-index, generate-glossary-page, get-extracted-glossary,
+  glossary-term,
+)
 
 // Import layout components
-#import "layouts/document.typ": front-matter-layout, main-matter-layout, appendix-layout
+#import "layouts/document.typ": (
+  appendix-layout, front-matter-layout, main-matter-layout,
+)
 
 // =================================
 // Bibliography Setup
@@ -52,7 +73,7 @@
 #let thesis-bibliography(
   metadata,
   path,
-  title: "Bibliography"
+  title: "Bibliography",
 ) = {
   // Get style from metadata and validate/resolve it
   let style-key = metadata.bibliography_style
@@ -111,7 +132,7 @@
   include_abbreviations: false,
   include_index: false,
   index_entries: (:),
-  body
+  body,
 ) = {
   let style = make-thesis-style(font_theme: font_theme)
   let labels = locale-labels(locale: locale)
@@ -150,7 +171,10 @@
     index_entries: index_entries,
   )
 
-  let metadata = (config.metadata.resolve)(base-metadata, overrides: metadata_overrides)
+  let metadata = (config.metadata.resolve)(
+    base-metadata,
+    overrides: metadata_overrides,
+  )
 
   let ctx = (
     style: style,
@@ -162,7 +186,9 @@
     metadata: metadata,
   )
 
-  let effective-university = if metadata.university != none { metadata.university } else { labels.university_name }
+  let effective-university = if metadata.university != none {
+    metadata.university
+  } else { labels.university_name }
   let resolved-double = double_sided or profile == "print"
 
   set document(
@@ -217,7 +243,11 @@
     }
 
     // Preface
-    #if metadata.preface != none or metadata.preface_contributions.len() > 0 or metadata.preface_sections.len() > 0 {
+    #if (
+      metadata.preface != none
+        or metadata.preface_contributions.len() > 0
+        or metadata.preface_sections.len() > 0
+    ) {
       preface-page(ctx, metadata)
     }
 
@@ -233,7 +263,7 @@
   // Main Content
   // =================================
 
-    main-matter-layout(ctx, title: metadata.title, double-sided: resolved-double)[
+  main-matter-layout(ctx, title: metadata.title, double-sided: resolved-double)[
     #body
   ]
 
@@ -340,12 +370,12 @@
   alt: none,
   width: 100%,
   height: auto,
-  fit: "contain"
+  fit: "contain",
 ) = {
   // If no specific pages requested, try to embed the first page as a fallback
   // In practice, users should specify pages explicitly
   let page-list = if pages == none {
-    (1,)  // Default to first page
+    (1,) // Default to first page
   } else {
     pages
   }
@@ -357,20 +387,34 @@
       {
         for page-num in page-list {
           // Embed the PDF page
-          image(path, page: page-num, width: width, height: height, fit: fit, alt: alt)
+          image(
+            path,
+            page: page-num,
+            width: width,
+            height: height,
+            fit: fit,
+            alt: alt,
+          )
 
           // Add page break between pages (except for the last one)
           if page-num != page-list.last() {
             pagebreak()
           }
         }
-      }
+      },
     )
   } else {
     // No caption, just embed the pages
     for page-num in page-list {
       // Embed the PDF page
-      image(path, page: page-num, width: width, height: height, fit: fit, alt: alt)
+      image(
+        path,
+        page: page-num,
+        width: width,
+        height: height,
+        fit: fit,
+        alt: alt,
+      )
 
       // Add page break between pages (except for the last one)
       if page-num != page-list.last() {

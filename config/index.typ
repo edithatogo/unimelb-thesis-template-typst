@@ -25,7 +25,7 @@
 
     // Update index terms state
     _index-terms.update(terms => {
-      if term not in terms in terms {
+      if term in terms in terms {
         terms.insert(term, (category: category, subterm: subterm, pages: ()))
       }
 
@@ -52,7 +52,12 @@
   })
 
   // Return invisible content to mark the location
-  metadata((type: "index-term", term: term, category: category, subterm: subterm))
+  metadata((
+    type: "index-term",
+    term: term,
+    category: category,
+    subterm: subterm,
+  ))
   []
 }
 
@@ -67,7 +72,47 @@
   for match in matches {
     let term = match.text.trim()
     // Filter out common words and very short terms
-    let exclude-words = ("the", "and", "for", "are", "but", "not", "you", "all", "can", "had", "her", "was", "one", "our", "out", "day", "get", "has", "him", "his", "how", "its", "may", "new", "now", "old", "see", "two", "way", "who", "boy", "did", "has", "let", "put", "say", "she", "too", "use")
+    let exclude-words = (
+      "the",
+      "and",
+      "for",
+      "are",
+      "but",
+      "not",
+      "you",
+      "all",
+      "can",
+      "had",
+      "her",
+      "was",
+      "one",
+      "our",
+      "out",
+      "day",
+      "get",
+      "has",
+      "him",
+      "his",
+      "how",
+      "its",
+      "may",
+      "new",
+      "now",
+      "old",
+      "see",
+      "two",
+      "way",
+      "who",
+      "boy",
+      "did",
+      "has",
+      "let",
+      "put",
+      "say",
+      "she",
+      "too",
+      "use",
+    )
     if term.len() >= 3 and lower(term) not in exclude-words {
       if term not in terms {
         terms.push(term)
@@ -83,10 +128,9 @@
   let extracted = extract-index-terms(content)
 
   // Filter by minimum length and exclude common words
-  let filtered = extracted.filter(term =>
-    term.len() >= min-length and
-    lower(term) not in exclude-words
-  )
+  let filtered = extracted.filter(term => (
+    term.len() >= min-length and lower(term) not in exclude-words
+  ))
 
   // Add extracted terms to index
   for term in filtered {
@@ -161,7 +205,7 @@
 #let generate-index(
   include-categories: true,
   include-subentries: true,
-  sort-by: "term"  // "term" or "category"
+  sort-by: "term", // "term" or "category"
 ) = {
   let terms = _index-terms.get()
   let sorted-terms = ()
@@ -205,10 +249,10 @@
   title: "Index",
   include-categories: true,
   include-statistics: true,
-  columns: 2
+  columns: 2,
 ) = {
   set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
   )
 
   align(center)[
@@ -264,14 +308,14 @@
       // Multi-column layout
       columns(columns, gutter: 1em)[
         for letter in grouped-terms.keys().sorted() {
-          heading(letter, level: 3, numbering: none)
-          for term in grouped-terms.at(letter) {
-            let data = index-data.at(term)
-            let formatted-refs = format-page-references(data.pages)
-            block[*#term*#if data.subterm != none [, #data.subterm] — #formatted-refs]
-            v(0.3em)
-          }
-          v(0.5em)
+        heading(letter, level: 3, numbering: none)
+        for term in grouped-terms.at(letter) {
+        let data = index-data.at(term)
+        let formatted-refs = format-page-references(data.pages)
+        block[*#term*#if data.subterm != none [, #data.subterm] — #formatted-refs]
+        v(0.3em)
+        }
+        v(0.5em)
         }
       ]
     }
@@ -280,8 +324,16 @@
     if include-statistics {
       v(1cm)
       let total-terms = index-data.len()
-      let total-references = index-data.values().map(data => data.pages.len()).sum()
-      let categories = index-data.values().map(data => data.category).filter(cat => cat != none).dedup().len()
+      let total-references = index-data
+        .values()
+        .map(data => data.pages.len())
+        .sum()
+      let categories = index-data
+        .values()
+        .map(data => data.category)
+        .filter(cat => cat != none)
+        .dedup()
+        .len()
 
       text(size: 10pt, fill: gray)[
         *Index Statistics:* #total-terms unique terms, #total-references total references, #categories categories
@@ -310,7 +362,7 @@
     errors: errors,
     warnings: warnings,
     total-terms: terms.len(),
-    total-references: terms.values().map(data => data.pages.len()).sum()
+    total-references: terms.values().map(data => data.pages.len()).sum(),
   )
 }
 
@@ -321,7 +373,7 @@
     total: validation.total-terms,
     references: validation.total-references,
     errors: validation.errors.len(),
-    warnings: validation.warnings.len()
+    warnings: validation.warnings.len(),
   )
 }
 

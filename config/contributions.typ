@@ -11,13 +11,22 @@
   let required = ("name", "role")
   for field in required {
     if entry.at(field, default: none) == none {
-      panic("Contribution entry missing required field '" + field + "': " + repr(entry))
+      panic(
+        "Contribution entry missing required field '"
+          + field
+          + "': "
+          + repr(entry),
+      )
     }
   }
 
   // Ensure percentage is valid if provided
   let percentage = entry.at("percentage", default: none)
-  if percentage != none and type(percentage) != "integer" and type(percentage) != "float" {
+  if (
+    percentage != none
+      and type(percentage) != "integer"
+      and type(percentage) != "float"
+  ) {
     panic("Contribution percentage must be a number: " + repr(entry))
   }
 
@@ -45,7 +54,7 @@
           v.at("role", default: ""),
           v.at("percentage", default: "") + if v.at("percentage", default: none) != none { "%" } else { "" }
         ]
-      })
+      }),
     )
   }
 }
@@ -68,7 +77,7 @@
           v.at("percentage", default: "") + if v.at("percentage", default: none) != none { "%" } else { "" },
           v.at("description", default: "")
         ]
-      })
+      }),
     )
   }
 }
@@ -80,10 +89,12 @@
     none
   } else {
     // Calculate totals
-    let total-percentage = contributions.map(entry => {
-      let v = validate-contribution(entry)
-      v.at("percentage", default: 0)
-    }).sum()
+    let total-percentage = contributions
+      .map(entry => {
+        let v = validate-contribution(entry)
+        v.at("percentage", default: 0)
+      })
+      .sum()
 
     table(
       columns: 3,
@@ -98,7 +109,7 @@
         ]
       }),
       table.hline(),
-      [*Total*, *, *str(total-percentage) + "%"]
+      [*Total*, *, *str(total-percentage) + "%"],
     )
   }
 }
@@ -121,7 +132,7 @@
           v.at("percentage", default: "") + if v.at("percentage", default: none) != none { "%" } else { "" },
           v.at("description", default: "")
         ]
-      })
+      }),
     )
   }
 }
@@ -142,7 +153,11 @@
   } else if template == "ai" {
     ai-contribution-table(contributions)
   } else {
-    panic("Unknown contribution template: " + template + ". Available: simple, detailed, percentage, ai")
+    panic(
+      "Unknown contribution template: "
+        + template
+        + ". Available: simple, detailed, percentage, ai",
+    )
   }
 }
 
@@ -155,24 +170,24 @@
     name: "John Smith",
     role: "Primary Researcher",
     percentage: 60,
-    description: "Conducted main experiments and data analysis"
+    description: "Conducted main experiments and data analysis",
   ),
   (
     name: "Jane Doe",
     role: "Co-Supervisor",
     percentage: 20,
-    description: "Provided guidance on methodology and results interpretation"
+    description: "Provided guidance on methodology and results interpretation",
   ),
   (
     name: "AI Assistant (ChatGPT)",
     role: "Writing Assistant",
     percentage: 10,
-    description: "Helped with literature review and manuscript editing"
+    description: "Helped with literature review and manuscript editing",
   ),
   (
     name: "Lab Technician",
     role: "Technical Support",
     percentage: 10,
-    description: "Assisted with equipment setup and maintenance"
+    description: "Assisted with equipment setup and maintenance",
   ),
 )

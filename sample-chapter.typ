@@ -33,9 +33,7 @@ Despite these advances, several challenges remain:
 
 #lorem(150)
 
-Penguin quantum supremacy was first hinted at in recent work.#(config.publications.publication-footnote)(
-  (citation: "Featherstone et al. (2024)", status: "published", consent: true, appendix: "Appendix A")
-)
+Penguin quantum supremacy was first hinted at in recent work.#(config.publications.publication-footnote)((citation: "Featherstone et al. (2024)", status: "published", consent: true, appendix: "Appendix A"))
 
 #theorem(title: "Central Research Problem")[
   Given the increasing complexity of modern machine learning models and their widespread deployment in critical applications, there is an urgent need for methods that can provide interpretable, reliable, and ethically sound decision-making processes.
@@ -95,7 +93,7 @@ This thesis addresses the following research questions:
     line(theory, method, mark: (end: ">"))
     line(method, evaluation, mark: (end: ">"))
     line(evaluation, results, mark: (end: ">"))
-  })
+  }),
 )
 
 The research methodology combines theoretical analysis with empirical evaluation, utilizing both synthetic and real-world datasets.
@@ -113,7 +111,7 @@ Consider a supervised learning problem where we have input-output pairs $(x_i, y
 #theorem(title: "Generalization Bound")[
   Under certain assumptions, with probability $1 - delta$, the following holds for any $f in cal(F)$:
 
-  $ cal(R)(f) <= hat(cal(R))(f) + 2 sqrt( (log(|cal(F)|) + log(1/delta))/(2n) ) $
+  $ cal(R)(f) <= hat(cal(R))(f) + 2 sqrt((log(|cal(F)|) + log(1/delta))/(2n)) $
 ]
 
 #proof[
@@ -149,7 +147,7 @@ Consider a supervised learning problem where we have input-output pairs $(x_i, y
       + *if* convergence criteria met *then*
         + *break*
     + *return* $w$
-  ]
+  ],
 )
 
 == Code Example
@@ -183,7 +181,7 @@ Consider a supervised learning problem where we have input-output pairs $(x_i, y
       def predict(self, X):
           return X.dot(self.weights)
   ```,
-  lang: "python"
+  lang: "python",
 )
 
 == Thesis Structure
@@ -205,15 +203,29 @@ This research has resulted in several peer-reviewed publications and conference 
 The following publications have been derived from this research:
 
 #(config.publications.publication-footnote)(
-  (citation: "Smith et al. (2024). Deep Learning Interpretability Framework. Journal of Machine Learning Research.", status: "published", consent: true, appendix: "Appendix A")
+  (
+    citation: "Smith et al. (2024). Deep Learning Interpretability Framework. Journal of Machine Learning Research.",
+    status: "published",
+    consent: true,
+    appendix: "Appendix A",
+  ),
 )
 
 #(config.publications.publication-footnote)(
-  (citation: "Smith & Johnson (2023). Neural Network Explanations for Critical Applications. Proceedings of ICML.", status: "published", consent: true, appendix: "Appendix B")
+  (
+    citation: "Smith & Johnson (2023). Neural Network Explanations for Critical Applications. Proceedings of ICML.",
+    status: "published",
+    consent: true,
+    appendix: "Appendix B",
+  ),
 )
 
 #(config.publications.publication-footnote)(
-  (citation: "Smith (2023). Towards Responsible AI: Interpretability in Deep Learning. PhD Thesis Chapter.", status: "unpublished", consent: true)
+  (
+    citation: "Smith (2023). Towards Responsible AI: Interpretability in Deep Learning. PhD Thesis Chapter.",
+    status: "unpublished",
+    consent: true,
+  ),
 )
 
 === Conference Presentations
@@ -297,10 +309,17 @@ AI assistance in manuscript preparation:
   columns: (auto, auto, auto, auto),
   align: (left, left, left, left),
   table.header([*Date*], [*AI Tool*], [*Purpose*], [*Output Verification*]),
-  [2024-01-15], [ChatGPT-4], [Literature search assistance], [Manual review of all recommendations],
+  [2024-01-15],
+  [ChatGPT-4],
+  [Literature search assistance],
+  [Manual review of all recommendations],
+
   [2024-02-20], [GitHub Copilot], [Code suggestions], [Code review and testing],
   [2024-03-10], [Grammarly], [Text editing], [Final human proofreading],
-  [2024-04-05], [DALL-E], [Figure conceptualization], [Manual redrawing and validation]
+  [2024-04-05],
+  [DALL-E],
+  [Figure conceptualization],
+  [Manual redrawing and validation],
 )
 
 === Ethical Considerations

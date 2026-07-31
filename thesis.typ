@@ -24,7 +24,12 @@
   abstract: [
     This thesis investigates the computational behavior of quantum penguins in parallel processing environments. Through extensive experimentation with flightless birds and superconducting circuits, we demonstrate that penguin navigation algorithms can achieve quantum supremacy in certain Antarctic conditions. Results show that penguin-based processors outperform traditional silicon chips when the temperature drops below -40°C.
   ],
-  keywords: ("quantum penguins", "parallel processing", "antarctic computing", "flightless algorithms"),
+  keywords: (
+    "quantum penguins",
+    "parallel processing",
+    "antarctic computing",
+    "flightless algorithms",
+  ),
   acknowledgements: [
     I would like to thank my penguin research assistants for their unwavering dedication to the project, even when the lab temperature dropped to uncomfortable levels. Special thanks to the University of Melbourne for providing state-of-the-art freezers and the Australian Antarctic Division for supplying test subjects. Finally, thanks to my family for understanding why I smell like fish most days.
   ],
@@ -35,21 +40,58 @@
     The intersection of quantum computing and penguin behavior presents unique challenges and opportunities for computational research. This thesis explores how flightless birds might revolutionize our understanding of parallel processing, while also considering the ethical implications of using wildlife in computational experiments. Through rigorous testing in extreme conditions, this research pushes the boundaries of both computer science and ornithology.
   ],
   preface_contributions: (
-    (name: "Dr. Archibald Featherstone", role: "Primary author", percentage: "80%"),
-    (name: "Professor Jane Smith", role: "Supervisory guidance", percentage: "15%"),
-    (name: "Research Assistant", role: "Data collection support", percentage: "5%"),
+    (
+      name: "Dr. Archibald Featherstone",
+      role: "Primary author",
+      percentage: "80%",
+    ),
+    (
+      name: "Professor Jane Smith",
+      role: "Supervisory guidance",
+      percentage: "15%",
+    ),
+    (
+      name: "Research Assistant",
+      role: "Data collection support",
+      percentage: "5%",
+    ),
   ),
   preface_sections: (
-    (title: "Digital Assistance", content: [Generative AI was used to polish the clarity of several paragraphs describing penguin entanglement experiments. Logs of AI usage are available upon request.]),
-    (title: "Third-Party Assistance", content: [Specialist statisticians reviewed early drafts of the results chapter for methodological accuracy.]),
+    (
+      title: "Digital Assistance",
+      content: [Generative AI was used to polish the clarity of several paragraphs describing penguin entanglement experiments. Logs of AI usage are available upon request.],
+    ),
+    (
+      title: "Third-Party Assistance",
+      content: [Specialist statisticians reviewed early drafts of the results chapter for methodological accuracy.],
+    ),
   ),
   publications: (
-    (citation: "Featherstone et al. (2024). Quantum Penguins in Parallel. Journal of Antarctic Computing.", status: "published", consent: true, appendix: "Appendix A"),
-    (citation: "Featherstone & Smith (2023). Thermal Bounds on Penguin Processors.", status: "in revision", consent: true),
+    (
+      citation: "Featherstone et al. (2024). Quantum Penguins in Parallel. Journal of Antarctic Computing.",
+      status: "published",
+      consent: true,
+      appendix: "Appendix A",
+    ),
+    (
+      citation: "Featherstone & Smith (2023). Thermal Bounds on Penguin Processors.",
+      status: "in revision",
+      consent: true,
+    ),
   ),
   appendices: (
-    (title: "Penguin Processor Schematics", content: [Detailed circuit diagrams for the quantum penguin processor prototype, including superconducting qubit layouts and thermal management systems.]),
-    (title: "Raw Experimental Data", content: [Complete dataset from Antarctic field trials, including temperature readings, processing speeds, and penguin behavioral observations.], creative: (medium: "Digital dataset", description: "Tabular data files containing experimental measurements from quantum penguin processing trials.")),
+    (
+      title: "Penguin Processor Schematics",
+      content: [Detailed circuit diagrams for the quantum penguin processor prototype, including superconducting qubit layouts and thermal management systems.],
+    ),
+    (
+      title: "Raw Experimental Data",
+      content: [Complete dataset from Antarctic field trials, including temperature readings, processing speeds, and penguin behavioral observations.],
+      creative: (
+        medium: "Digital dataset",
+        description: "Tabular data files containing experimental measurements from quantum penguin processing trials.",
+      ),
+    ),
   ),
   // Blind review mode (uncomment for submission)
   // blind: true,
@@ -194,7 +236,7 @@ where $S subset {1, dots, d}$ is the selected feature set and $w in RR^d$ are th
       + Remove features where $s_i < tau$
       + Update $F$ with remaining features
     + *return* $F$
-  ]
+  ],
 )
 
 === Algorithm 2: Robust Ensemble Methods
@@ -255,7 +297,7 @@ Our proposed methods were compared against state-of-the-art baselines:
     [Our Method], [*89.4%*], [*82.7%*], [*94.2%*],
     [Improvement], [+2.3%], [+2.4%], [+2.4%],
   ),
-  caption: [Comparative performance results across benchmark datasets. Our method shows consistent improvements over baseline approaches.]
+  caption: [Comparative performance results across benchmark datasets. Our method shows consistent improvements over baseline approaches.],
 )
 
 === Statistical Significance
@@ -376,7 +418,7 @@ Our proposed methods were compared against state-of-the-art baselines:
 // any overlapping with header/footers or previous floats.
 pagebreak()
 block(breakable: true)[
-  #lorem(200)
+#lorem(200)
 ]
 
 == Supplementary Performance Metrics
@@ -407,7 +449,7 @@ block(breakable: true)[
   height: auto,
   width: auto,
   margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-  flipped: true
+  flipped: true,
 )
 
 = Landscape Section: Advanced Visualizations
@@ -418,16 +460,20 @@ This section demonstrates landscape-oriented pages for complex visualizations an
 
 Here we showcase beautifully formatted mathematical equations:
 
-$ nabla f(x) = (partial f)/(partial x_1), (partial f)/(partial x_2), dots, (partial f)/(partial x_n) $
+$
+  nabla f(x) = (partial f)/(partial x_1), (partial f)/(partial x_2), dots, (partial f)/(partial x_n)
+$
 
 The Hessian matrix is given by:
 
-$ H = nabla^2 f(x) = mat(
-  partial^2 f/(partial x_1^2), partial^2 f/(partial x_1 partial x_2), dots, partial^2 f/(partial x_1 partial x_n);
-  partial^2 f/(partial x_2 partial x_1), partial^2 f/(partial x_2^2), dots, partial^2 f/(partial x_2 partial x_n);
-  dots.v, dots.v, dots.down, dots.v;
-  partial^2 f/(partial x_n partial x_1), partial^2 f/(partial x_n partial x_2), dots, partial^2 f/(partial x_n^2)
-) $
+$
+  H = nabla^2 f(x) = mat(
+    partial^2 f/(partial x_1^2), partial^2 f/(partial x_1 partial x_2), dots, partial^2 f/(partial x_1 partial x_n);
+    partial^2 f/(partial x_2 partial x_1), partial^2 f/(partial x_2^2), dots, partial^2 f/(partial x_2 partial x_n);
+    dots.v, dots.v, dots.down, dots.v;
+    partial^2 f/(partial x_n partial x_1), partial^2 f/(partial x_n partial x_2), dots, partial^2 f/(partial x_n^2)
+  )
+$
 
 == Wide Table Example
 
@@ -436,7 +482,14 @@ $ H = nabla^2 f(x) = mat(
     columns: (auto, auto, auto, auto, auto, auto, auto, auto),
     align: (left, center, center, center, center, center, center, center),
     table.header(
-      [Dataset], [Size], [Features], [Classes], [Accuracy], [Precision], [Recall], [F1-Score]
+      [Dataset],
+      [Size],
+      [Features],
+      [Classes],
+      [Accuracy],
+      [Precision],
+      [Recall],
+      [F1-Score],
     ),
     [Iris], [150], [4], [3], [96.7%], [97.1%], [96.3%], [96.7%],
     [Wine], [178], [13], [3], [94.2%], [94.8%], [93.9%], [94.3%],
@@ -444,7 +497,7 @@ $ H = nabla^2 f(x) = mat(
     [Digits], [1797], [64], [10], [97.8%], [97.9%], [97.7%], [97.8%],
     [MNIST], [70000], [784], [10], [99.2%], [99.1%], [99.2%], [99.2%],
   ),
-  caption: [Performance comparison across multiple datasets showing scalability of the proposed methods.]
+  caption: [Performance comparison across multiple datasets showing scalability of the proposed methods.],
 )
 
 == Advanced Package Demonstrations
@@ -456,7 +509,12 @@ $ H = nabla^2 f(x) = mat(
     import cetz.draw: *
 
     // Draw a coordinate system
-    grid((-3, -3), (3, 3), step: 1, stroke: gray + 0.5pt)
+    grid(
+      (-3, -3),
+      (3, 3),
+      step: 1,
+      stroke: gray + 0.5pt,
+    )
 
     // Draw axes
     line((-3, 0), (3, 0), mark: (end: ">"))
@@ -473,14 +531,19 @@ $ H = nabla^2 f(x) = mat(
       prev_y = y_pos
     }
   }),
-  caption: [Visualization of a damped sinusoidal function using CeTZ plotting capabilities.]
+  caption: [Visualization of a damped sinusoidal function using CeTZ plotting capabilities.],
 )
 
 === Flowcharts with Fletcher
 
 #figure(
   align(center)[
-  #block(width: 100%, fill: rgb("#F8F9FA"), stroke: 1pt + rgb("#00539C"), inset: (x: 1em, y: 1.2em))[
+    #block(
+      width: 100%,
+      fill: rgb("#F8F9FA"),
+      stroke: 1pt + rgb("#00539C"),
+      inset: (x: 1em, y: 1.2em),
+    )[
       #align(top + center)[
         *Machine Learning Pipeline Flowchart*
 
@@ -490,11 +553,14 @@ $ H = nabla^2 f(x) = mat(
 
         #v(0.5em)
 
-        #text(size: 9pt, fill: gray)[Flowchart visualization using Fletcher package - diagram capabilities available]
+        #text(
+          size: 9pt,
+          fill: gray,
+        )[Flowchart visualization using Fletcher package - diagram capabilities available]
       ]
     ]
   ],
-  caption: [Machine learning pipeline flowchart created with Fletcher diagram package.]
+  caption: [Machine learning pipeline flowchart created with Fletcher diagram package.],
 )
 
 // Reset to portrait orientation
@@ -502,7 +568,7 @@ $ H = nabla^2 f(x) = mat(
   height: auto,
   width: auto,
   margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-  flipped: false
+  flipped: false,
 )
 
 // =================================

@@ -86,15 +86,20 @@
         // Semi-transparent overlay
         rect(width: 100%, height: 100%, fill: rgb(255, 255, 255, 95%))
         // Diagonal watermark text
-        place(center, rotate(24deg,
-          text(size: 72pt, fill: rgb(255, 0, 0, 8%), weight: "bold", font: style.fonts.sans)[DRAFT]
-        ))
+        place(center, rotate(24deg, text(
+          size: 72pt,
+          fill: rgb(255, 0, 0, 8%),
+          weight: "bold",
+          font: style.fonts.sans,
+        )[DRAFT]))
         // Corner timestamp for draft tracking
-        place(bottom + right, dx: -1cm, dy: -0.5cm,
-          text(size: 8pt, fill: rgb(150, 150, 150), font: style.fonts.mono)[
-            Draft - #(datetime.today().display())
-          ]
-        )
+        place(bottom + right, dx: -1cm, dy: -0.5cm, text(
+          size: 8pt,
+          fill: rgb(150, 150, 150),
+          font: style.fonts.mono,
+        )[
+          Draft - #(datetime.today().display())
+        ])
       },
       foreground: none,
     )
@@ -105,9 +110,12 @@
     set page(
       background: {
         // Subtle screen indicator
-        place(top + right, dx: -1cm, dy: 0.5cm,
-          text(size: 10pt, fill: rgb(0, 100, 255, 60%), font: style.fonts.sans, style: "italic")[Screen View]
-        )
+        place(top + right, dx: -1cm, dy: 0.5cm, text(
+          size: 10pt,
+          fill: rgb(0, 100, 255, 60%),
+          font: style.fonts.sans,
+          style: "italic",
+        )[Screen View])
       },
       foreground: none,
     )
@@ -143,11 +151,7 @@
 // Main Matter Layout
 // =================================
 
-#let main-matter-layout(ctx,
-  title: none,
-  double-sided: false,
-  body
-) = {
+#let main-matter-layout(ctx, title: none, double-sided: false, body) = {
   let style = resolve-style(ctx)
   let locale = resolve-locale(ctx)
   let profile = resolve-profile(ctx)
@@ -201,22 +205,30 @@
         // Semi-transparent overlay
         rect(width: 100%, height: 100%, fill: rgb(255, 255, 255, 95%))
         // Diagonal watermark text
-        place(center, rotate(24deg,
-          text(size: 72pt, fill: rgb(255, 0, 0, 8%), weight: "bold", font: style.fonts.sans)[DRAFT]
-        ))
+        place(center, rotate(24deg, text(
+          size: 72pt,
+          fill: rgb(255, 0, 0, 8%),
+          weight: "bold",
+          font: style.fonts.sans,
+        )[DRAFT]))
         // Corner timestamp for draft tracking
-        place(bottom + right, dx: -1cm, dy: -0.5cm,
-          text(size: 8pt, fill: rgb(150, 150, 150), font: style.fonts.mono)[
-            Draft - #(datetime.today().display())
-          ]
-        )
+        place(bottom + right, dx: -1cm, dy: -0.5cm, text(
+          size: 8pt,
+          fill: rgb(150, 150, 150),
+          font: style.fonts.mono,
+        )[
+          Draft - #(datetime.today().display())
+        ])
       }
     } else if profile == "screen" {
       // Subtle screen indicator
       {
-        place(top + right, dx: -1cm, dy: 0.5cm,
-          text(size: 10pt, fill: rgb(0, 100, 255, 60%), font: style.fonts.sans, style: "italic")[Screen View]
-        )
+        place(top + right, dx: -1cm, dy: 0.5cm, text(
+          size: 10pt,
+          fill: rgb(0, 100, 255, 60%),
+          font: style.fonts.sans,
+          style: "italic",
+        )[Screen View])
       }
     } else { none },
   )
@@ -289,7 +301,7 @@
       if current > 1 {
         line(length: 100%, stroke: 0.5pt)
       }
-    }
+    },
   )
 
   counter(page).update(1)
@@ -336,22 +348,30 @@
         // Semi-transparent overlay
         rect(width: 100%, height: 100%, fill: rgb(255, 255, 255, 95%))
         // Diagonal watermark text
-        place(center, rotate(24deg,
-          text(size: 72pt, fill: rgb(255, 0, 0, 8%), weight: "bold", font: style.fonts.sans)[DRAFT]
-        ))
+        place(center, rotate(24deg, text(
+          size: 72pt,
+          fill: rgb(255, 0, 0, 8%),
+          weight: "bold",
+          font: style.fonts.sans,
+        )[DRAFT]))
         // Corner timestamp for draft tracking
-        place(bottom + right, dx: -1cm, dy: -0.5cm,
-          text(size: 8pt, fill: rgb(150, 150, 150), font: style.fonts.mono)[
-            Draft - #(datetime.today().display())
-          ]
-        )
+        place(bottom + right, dx: -1cm, dy: -0.5cm, text(
+          size: 8pt,
+          fill: rgb(150, 150, 150),
+          font: style.fonts.mono,
+        )[
+          Draft - #(datetime.today().display())
+        ])
       }
     } else if profile == "screen" {
       // Subtle screen indicator
       {
-        place(top + right, dx: -1cm, dy: 0.5cm,
-          text(size: 10pt, fill: rgb(0, 100, 255, 60%), font: style.fonts.sans, style: "italic")[Screen View]
-        )
+        place(top + right, dx: -1cm, dy: 0.5cm, text(
+          size: 10pt,
+          fill: rgb(0, 100, 255, 60%),
+          font: style.fonts.sans,
+          style: "italic",
+        )[Screen View])
       }
     } else { none },
   )
@@ -367,7 +387,9 @@
       // serialize into the PDF text layer in edge cases.
       let appendix_label = "Appendix " + counter(heading).display()
       let appendix_title = if it.body != none { str(it.body) } else { "" }
-      let heading_text = if appendix_title != "" { appendix_label + ": " + appendix_title } else { appendix_label }
+      let heading_text = if appendix_title != "" {
+        appendix_label + ": " + appendix_title
+      } else { appendix_label }
       // The bookmarked heading is created above, so the bookmark will be generated
       text(size: 16pt, heading_text)
       v(style.spacing.heading-below.at(1, default: 1em))

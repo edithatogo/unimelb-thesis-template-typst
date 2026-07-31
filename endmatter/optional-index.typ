@@ -3,7 +3,11 @@
 // Include this in your thesis configuration to enable optional index features
 
 #import "../utils/style.typ": colors
-#import "../config/index.typ": index-term, extract-index-terms, auto-extract-index, get-index-terms, get-term-references, format-page-references, generate-index, generate-index-page, validate-index, get-index-stats
+#import "../config/index.typ": (
+  auto-extract-index, extract-index-terms, format-page-references,
+  generate-index, generate-index-page, get-index-stats, get-index-terms,
+  get-term-references, index-term, validate-index,
+)
 
 // Index entry function for marking terms in the document
 // Usage: #index("term") or #index("term", "subterm")
@@ -18,7 +22,12 @@
   // 3. Handle sub-entries and cross-references
 
   // Placeholder implementation - just returns invisible content
-  metadata((type: "index-entry", term: term, subterm: subterm, location: here()))
+  metadata((
+    type: "index-entry",
+    term: term,
+    subterm: subterm,
+    location: here(),
+  ))
   []
 }
 
@@ -26,21 +35,24 @@
 #let optional-index-page(
   custom-entries: (:),
   show-page-numbers: true,
-  columns: 2
+  columns: 2,
 ) = {
   // If custom entries are provided, add them to the automated index
   if custom-entries.len() > 0 {
     for (term, pages) in custom-entries.pairs() {
       // Parse page string like "15, 23, 45" into array
-      let page-nums = pages.split(", ").map(p => {
-        if p.contains("-") {
-          // Handle ranges like "23-25"
-          let parts = p.split("-")
-          range(int(parts.at(0)), int(parts.at(1)) + 1)
-        } else {
-          int(p)
-        }
-      }).flatten()
+      let page-nums = pages
+        .split(", ")
+        .map(p => {
+          if p.contains("-") {
+            // Handle ranges like "23-25"
+            let parts = p.split("-")
+            range(int(parts.at(0)), int(parts.at(1)) + 1)
+          } else {
+            int(p)
+          }
+        })
+        .flatten()
 
       // Add to automated index
       for page in page-nums {
@@ -56,7 +68,7 @@
     title: "Index",
     include-categories: true,
     include-statistics: true,
-    columns: columns
+    columns: columns,
   )
 }
 
@@ -64,21 +76,24 @@
 #let optional-index-with-subentries(
   entries: (:),
   show-page-numbers: true,
-  columns: 2
+  columns: 2,
 ) = {
   // Convert hierarchical entries to automated index format
   if entries.len() > 0 {
     for (main_term, sub_entries) in entries.pairs() {
       for (sub_term, pages) in sub_entries.pairs() {
         // Parse page string and add to index
-        let page_nums = pages.split(", ").map(p => {
-          if p.contains("-") {
-            let parts = p.split("-")
-            range(int(parts.at(0)), int(parts.at(1)) + 1)
-          } else {
-            int(p)
-          }
-        }).flatten()
+        let page_nums = pages
+          .split(", ")
+          .map(p => {
+            if p.contains("-") {
+              let parts = p.split("-")
+              range(int(parts.at(0)), int(parts.at(1)) + 1)
+            } else {
+              int(p)
+            }
+          })
+          .flatten()
 
         // Add main term and sub-term
         for page in page_nums {
@@ -93,7 +108,7 @@
     title: "Index with Sub-entries",
     include-categories: true,
     include-statistics: true,
-    columns: columns
+    columns: columns,
   )
 }
 
@@ -101,19 +116,22 @@
 #let optional-index-glossary-page(
   index-entries: (:),
   glossary-terms: (:),
-  show-statistics: true
+  show-statistics: true,
 ) = {
   // Add manual index entries to automated system
   if index-entries.len() > 0 {
     for (term, pages) in index-entries.pairs() {
-      let page-nums = pages.split(", ").map(p => {
-        if p.contains("-") {
-          let parts = p.split("-")
-          range(int(parts.at(0)), int(parts.at(1)) + 1)
-        } else {
-          int(p)
-        }
-      }).flatten()
+      let page-nums = pages
+        .split(", ")
+        .map(p => {
+          if p.contains("-") {
+            let parts = p.split("-")
+            range(int(parts.at(0)), int(parts.at(1)) + 1)
+          } else {
+            int(p)
+          }
+        })
+        .flatten()
 
       for page in page-nums {
         index-term(term, category: "manual")
@@ -126,7 +144,7 @@
     title: "Index",
     include-categories: true,
     include-statistics: show-statistics,
-    columns: 2
+    columns: 2,
   )
 
   pagebreak()
@@ -138,6 +156,6 @@
     include-abbreviations: false,
     include-manual-glossary: true,
     include-extracted-terms: false,
-    show-statistics: show-statistics
+    show-statistics: show-statistics,
   )
 }

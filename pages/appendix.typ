@@ -1,5 +1,7 @@
 #import "../utils/style.typ": *
-#import "../config/appendix.typ": appendix, reset-appendix-counter, creative-output-descriptor
+#import "../config/appendix.typ": (
+  appendix, creative-output-descriptor, reset-appendix-counter,
+)
 
 #let appendix-page(ctx, metadata) = {
   let style = ctx.style
@@ -11,7 +13,7 @@
 
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    numbering: "A"
+    numbering: "A",
   )
 
   // Render each appendix
@@ -30,7 +32,7 @@
           medium: creative.at("medium", default: none),
           dimensions: creative.at("dimensions", default: none),
           duration: creative.at("duration", default: none),
-          description: creative.at("description", default: none)
+          description: creative.at("description", default: none),
         )
       }
     ])

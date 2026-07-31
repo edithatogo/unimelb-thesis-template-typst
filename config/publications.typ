@@ -12,7 +12,12 @@
   }
   let status = entry.at("status", default: none)
   if status == none or not statuses.contains(status) {
-    panic("Publication entry missing valid status (" + statuses.join(", ") + "): " + repr(entry))
+    panic(
+      "Publication entry missing valid status ("
+        + statuses.join(", ")
+        + "): "
+        + repr(entry),
+    )
   }
   entry
 }
@@ -29,7 +34,9 @@
   ])
 }
 
-#let publication-appendix-entries(entries) = entries.filter(entry => entry.at("appendix", default: none) != none)
+#let publication-appendix-entries(entries) = entries.filter(entry => (
+  entry.at("appendix", default: none) != none
+))
 
 // =================================
 // Publication registry helpers
@@ -111,19 +118,21 @@
   if entries.len() == 0 {
     none
   } else {
-  let columns = if show_links { (3fr, auto, auto, auto) } else { (3fr, auto, auto) }
+    let columns = if show_links { (3fr, auto, auto, auto) } else {
+      (3fr, auto, auto)
+    }
     let header = if show_links {
       (
         table.cell(align: top + left)[*Citation*],
         table.cell(align: top + left)[*Status*],
         table.cell(align: top + left)[*Consent*],
-        table.cell(align: top + left)[*Appendix Ref*]
+        table.cell(align: top + left)[*Appendix Ref*],
       )
     } else {
       (
         table.cell(align: top + left)[*Citation*],
         table.cell(align: top + left)[*Status*],
-        table.cell(align: top + left)[*Consent*]
+        table.cell(align: top + left)[*Consent*],
       )
     }
 
@@ -139,11 +148,19 @@
           set par(justify: false, leading: 1.2em, spacing: 0.3em)
           v.at("citation", default: "")
         ]
-        let status-cell = table.cell(align: top + left, breakable: true)[v.at("status", default: "")]
-        let consent-cell = table.cell(align: top + left)[if v.at("consent", default: false) {"Yes"} else {"No"}]
+        let status-cell = table.cell(
+          align: top + left,
+          breakable: true,
+        )[v.at("status", default: "")]
+        let consent-cell = table.cell(
+          align: top + left,
+        )[if v.at("consent", default: false) {"Yes"} else {"No"}]
 
         if show_links {
-          let appendix-cell = table.cell(align: top + left, breakable: true)[publication-appendix-link(v) ?: ""]
+          let appendix-cell = table.cell(
+            align: top + left,
+            breakable: true,
+          )[publication-appendix-link(v) ?: ""]
           [
             citation-cell,
             status-cell,

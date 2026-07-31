@@ -5,7 +5,7 @@
   width: 512pt,
   height: 512pt,
   margin: 20pt,
-  fill: rgb("#f8f8f8")
+  fill: rgb("#f8f8f8"),
 )
 
 #set text(font: "Liberation Sans", size: 11pt)
@@ -20,7 +20,7 @@
     fill: white,
     inset: 30pt,
     radius: 8pt,
-    stroke: 2pt + rgb("#ddd")
+    stroke: 2pt + rgb("#ddd"),
   )[
     #align(center)[
       // Title area with university color
@@ -28,29 +28,29 @@
         width: 100%,
         fill: traditional-heritage-100,
         inset: 15pt,
-        radius: 4pt
+        radius: 4pt,
       )[
         #text(fill: white, size: 18pt, weight: "bold")[
           University of Melbourne
         ]
       ]
-      
+
       #v(20pt)
-      
+
       // Template name
       #text(size: 24pt, weight: "bold", fill: traditional-heritage-100)[
         Thesis Template
       ]
-      
+
       #v(10pt)
-      
+
       // Subtitle
       #text(size: 12pt, fill: gray)[
         Modern Typst Template
       ]
-      
+
       #v(30pt)
-      
+
       // Sample content blocks
       #grid(
         columns: (1fr, 1fr),
@@ -60,7 +60,7 @@
           height: 60pt,
           fill: magpie-light-25,
           radius: 3pt,
-          inset: 8pt
+          inset: 8pt,
         )[
           #text(size: 8pt, fill: magpie-dark-100)[
             *Chapter 1*\
@@ -72,17 +72,17 @@
           height: 60pt,
           fill: magpie-light-25,
           radius: 3pt,
-          inset: 8pt
+          inset: 8pt,
         )[
           #text(size: 8pt, fill: magpie-dark-100)[
             *Chapter 2*\
             Methodology...
           ]
-        ]
+        ],
       )
-      
+
       #v(15pt)
-      
+
       // Features list
       #align(left)[
         #text(size: 9pt, fill: gray)[
@@ -92,9 +92,9 @@
           ✓ Professional Formatting
         ]
       ]
-      
+
       #v(20pt)
-      
+
       // Footer
       #text(size: 8pt, fill: gray)[
         Version 0.2.0 • Apache-2.0 License

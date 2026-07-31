@@ -20,20 +20,20 @@
     [the thesis comprises only my original work towards the #degree;]
     [due acknowledgement has been made in the text to all other material used;]
     (if word_count != none {
-      [the thesis is #word_count words in length, exclusive of tables, maps, bibliographies and appendices;]
+    [the thesis is #word_count words in length, exclusive of tables, maps, bibliographies and appendices;]
     })
     (if includes_publications {
-      if percentage_dissertation != none and percentage_creative != none {
-        [the thesis comprises #percentage_dissertation% dissertation and #percentage_creative% creative outputs as agreed by the advisory committee at confirmation, where the total is 100.]
-      } else {
-        [the thesis comprises dissertation and creative outputs as agreed by the advisory committee at confirmation, totalling 100%.]
-      }
+    if percentage_dissertation != none and percentage_creative != none {
+    [the thesis comprises #percentage_dissertation% dissertation and #percentage_creative% creative outputs as agreed by the advisory committee at confirmation, where the total is 100.]
+    } else {
+    [the thesis comprises dissertation and creative outputs as agreed by the advisory committee at confirmation, totalling 100%.]
+    }
     })
     (if ai_usage != none {
-      [Generative or digital assistance used: #ai_usage]
+    [Generative or digital assistance used: #ai_usage]
     })
     (if third_party_assistance != none {
-      [Third-party human assistance received: #third_party_assistance]
+    [Third-party human assistance received: #third_party_assistance]
     })
   ]
 

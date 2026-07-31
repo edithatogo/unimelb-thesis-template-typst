@@ -9,62 +9,62 @@
     term: "Thesis",
     definition: "A long piece of writing on a particular subject, especially one that is done for a higher college or university degree.",
     category: "Academic",
-    related: ("Dissertation", "Research")
+    related: ("Dissertation", "Research"),
   ),
   (
     term: "Methodology",
     definition: "The system of methods followed in a particular discipline or field of study.",
     category: "Research",
-    related: ("Method", "Approach")
+    related: ("Method", "Approach"),
   ),
   (
     term: "Literature Review",
     definition: "A scholarly paper that includes the current knowledge including substantive findings, as well as theoretical and methodological contributions to a particular topic.",
     category: "Research",
-    related: ("Review", "Bibliography")
+    related: ("Review", "Bibliography"),
   ),
   (
     term: "Hypothesis",
     definition: "A supposition or proposed explanation made on the basis of limited evidence as a starting point for further investigation.",
     category: "Research",
-    related: ("Theory", "Proposition")
+    related: ("Theory", "Proposition"),
   ),
   (
     term: "Peer Review",
     definition: "The evaluation of work by one or more people with similar competencies as the producers of the work.",
     category: "Academic",
-    related: ("Review", "Evaluation")
+    related: ("Review", "Evaluation"),
   ),
   (
     term: "Citation",
     definition: "A reference to a source of information used in a scholarly work.",
     category: "Academic",
-    related: ("Reference", "Bibliography")
+    related: ("Reference", "Bibliography"),
   ),
   (
     term: "Plagiarism",
     definition: "The practice of taking someone else's work or ideas and passing them off as one's own.",
     category: "Academic",
-    related: ("Academic Integrity", "Ethics")
+    related: ("Academic Integrity", "Ethics"),
   ),
   (
     term: "Abstract",
     definition: "A brief summary of a research article, thesis, review, conference proceeding, or any in-depth analysis of a particular subject.",
     category: "Academic",
-    related: ("Summary", "Synopsis")
+    related: ("Summary", "Synopsis"),
   ),
   (
     term: "Bibliography",
     definition: "A list of the books referred to in a scholarly work, typically printed as an appendix.",
     category: "Academic",
-    related: ("References", "Works Cited")
+    related: ("References", "Works Cited"),
   ),
   (
     term: "Appendix",
     definition: "A section at the end of a book or document containing additional information.",
     category: "Academic",
-    related: ("Supplement", "Addendum")
-  )
+    related: ("Supplement", "Addendum"),
+  ),
 )
 
 // State for tracking extracted terms and their page references
@@ -83,7 +83,7 @@
         definition: definition,
         category: category,
         related: related,
-        auto-extracted: true
+        auto-extracted: true,
       )
       _extracted-terms.update(current-extracted + ((term): entry))
 
@@ -94,7 +94,9 @@
         _term-page-references.update(current-pages + ((term): (page-num,)))
       } else if page-num not in current-pages.at(term) {
         let existing-pages = current-pages.at(term)
-        _term-page-references.update(current-pages + ((term): existing-pages + (page-num,)))
+        _term-page-references.update(
+          current-pages + ((term): existing-pages + (page-num,)),
+        )
       }
     }
 
@@ -109,9 +111,9 @@
   // Simple pattern-based extraction (can be enhanced)
   // Look for capitalized words, technical patterns, etc.
   let patterns = (
-    regex("[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*"),  // Title case phrases
-    regex("\\b[A-Z]{2,}\\b"),  // Acronyms
-    regex("\\b[a-z]+(?:-[a-z]+)+\\b"),  // Hyphenated terms
+    regex("[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*"), // Title case phrases
+    regex("\\b[A-Z]{2,}\\b"), // Acronyms
+    regex("\\b[a-z]+(?:-[a-z]+)+\\b"), // Hyphenated terms
   )
 
   let extracted = ()
@@ -119,7 +121,11 @@
     let matches = text.matches(pattern)
     for match in matches {
       let term = match.text.trim()
-      if term.len() >= min-length and term.len() <= max-length and term not in extracted {
+      if (
+        term.len() >= min-length
+          and term.len() <= max-length
+          and term not in extracted
+      ) {
         extracted.push(term)
       }
     }
@@ -138,7 +144,7 @@
     // For now, we'll provide a framework that users can extend
     // In a more advanced implementation, this could analyze the content string
 
-    [#content]  // Return content unchanged, but could trigger extraction
+    [#content] // Return content unchanged, but could trigger extraction
   })
 }
 
@@ -162,10 +168,15 @@
 }
 
 // Generate comprehensive glossary including both manual and auto-extracted terms
-#let generate-full-glossary(include-auto-extracted: true, include-page-refs: true) = {
+#let generate-full-glossary(
+  include-auto-extracted: true,
+  include-page-refs: true,
+) = {
   locate(loc => {
     let manual-terms = glossary-entries
-    let auto-terms = if include-auto-extracted { get-extracted-glossary() } else { (:) }
+    let auto-terms = if include-auto-extracted {
+      get-extracted-glossary()
+    } else { (:) }
 
     // Combine and deduplicate (manual takes precedence)
     let all-terms = (:)
@@ -197,7 +208,10 @@
       errors.push("Missing 'term' field in glossary entry")
     }
     if "definition" not in entry {
-      errors.push("Missing 'definition' field for term: " + entry.at("term", default: "unknown"))
+      errors.push(
+        "Missing 'definition' field for term: "
+          + entry.at("term", default: "unknown"),
+      )
     }
   }
 
@@ -243,10 +257,14 @@
             let current-pages = _term-page-references.at(loc)
             let page-num = loc.page()
             if term not in current-pages {
-              _term-page-references.update(current-pages + ((term): (page-num,)))
+              _term-page-references.update(
+                current-pages + ((term): (page-num,)),
+              )
             } else if page-num not in current-pages.at(term) {
               let existing-pages = current-pages.at(term)
-              _term-page-references.update(current-pages + ((term): existing-pages + (page-num,)))
+              _term-page-references.update(
+                current-pages + ((term): existing-pages + (page-num,)),
+              )
             }
           }
         }
@@ -275,31 +293,37 @@
 // Search glossary by pattern
 #let search-glossary(pattern, field: "term") = {
   glossary-entries.filter(entry => {
-    let value = if field == "term" { entry.term }
-               else if field == "definition" { entry.definition }
-               else if field == "category" { entry.at("category", default: "") }
-               else { "" }
+    let value = if field == "term" { entry.term } else if (
+      field == "definition"
+    ) { entry.definition } else if field == "category" {
+      entry.at("category", default: "")
+    } else { "" }
     value.contains(pattern)
   })
 }
 
 // Get glossary terms by category
 #let get-glossary-by-category(category) = {
-  glossary-entries.filter(entry => entry.at("category", default: "") == category)
+  glossary-entries.filter(entry => (
+    entry.at("category", default: "") == category
+  ))
 }
 
 // Get all categories
 #let get-glossary-categories() = {
-  let categories = glossary-entries.map(e => e.at("category", default: "General"))
+  let categories = glossary-entries.map(e => e.at(
+    "category",
+    default: "General",
+  ))
   categories.dedup()
 }
 
 // Get sorted glossary entries
 #let get-sorted-glossary(sort-by: "term", reverse: false) = {
   let sorted = glossary-entries.sorted(key: e => {
-    if sort-by == "term" { e.term }
-    else if sort-by == "category" { e.at("category", default: "ZZZ") }
-    else { e.term }
+    if sort-by == "term" { e.term } else if sort-by == "category" {
+      e.at("category", default: "ZZZ")
+    } else { e.term }
   })
   if reverse {
     sorted.rev()
@@ -337,14 +361,18 @@
 #let get-glossary-stats() = {
   let total = glossary-entries.len()
   let categories = get-glossary-categories()
-  let avg-term-len = glossary-entries.map(e => e.term.len()).sum(default: 0) / total
-  let avg-def-len = glossary-entries.map(e => e.definition.len()).sum(default: 0) / total
+  let avg-term-len = (
+    glossary-entries.map(e => e.term.len()).sum(default: 0) / total
+  )
+  let avg-def-len = (
+    glossary-entries.map(e => e.definition.len()).sum(default: 0) / total
+  )
 
   (
     total: total,
     categories: categories.len(),
     avg-term-length: calc.round(avg-term-len, digits: 1),
-    avg-definition-length: calc.round(avg-def-len, digits: 1)
+    avg-definition-length: calc.round(avg-def-len, digits: 1),
   )
 }
 
@@ -358,7 +386,17 @@
     let csv-lines = ("Term,Category,Definition,Related",)
     for e in glossary-entries {
       let related-str = if "related" in e { e.related.join("; ") } else { "" }
-      let line = "\"" + e.term.replace("\"", "\"\"") + "\",\"" + e.at("category", default: "").replace("\"", "\"\"") + "\",\"" + e.definition.replace("\"", "\"\"") + "\",\"" + related-str.replace("\"", "\"\"") + "\""
+      let line = (
+        "\""
+          + e.term.replace("\"", "\"\"")
+          + "\",\""
+          + e.at("category", default: "").replace("\"", "\"\"")
+          + "\",\""
+          + e.definition.replace("\"", "\"\"")
+          + "\",\""
+          + related-str.replace("\"", "\"\"")
+          + "\""
+      )
       csv-lines.push(line)
     }
     csv-lines.join("\n")
@@ -371,8 +409,14 @@
 #let import-glossary(new-entries) = {
   // Validate format
   for entry in new-entries {
-    if type(entry) != dictionary or "term" not in entry or "definition" not in entry {
-      panic("Invalid glossary format. Expected: (term: \"...\", definition: \"...\", category: \"...\", related: (...))")
+    if (
+      type(entry) != dictionary
+        or "term" not in entry
+        or "definition" not in entry
+    ) {
+      panic(
+        "Invalid glossary format. Expected: (term: \"...\", definition: \"...\", category: \"...\", related: (...))",
+      )
     }
   }
 
@@ -422,7 +466,10 @@
   let found = false
   if check-abbrevs {
     import "abbreviations.typ": abbreviations
-    found = found or (abbreviations.find(e => e.key == term or e.short == term) != none)
+    found = (
+      found
+        or (abbreviations.find(e => e.key == term or e.short == term) != none)
+    )
   }
   if check-glossary {
     found = found or (glossary-entries.find(e => e.term == term) != none)
@@ -442,7 +489,7 @@
       key: abbrev.key,
       short: abbrev.short,
       long: abbrev.long,
-      definition: abbrev.long
+      definition: abbrev.long,
     )
   }
 
@@ -454,7 +501,7 @@
       term: glossary.term,
       definition: glossary.definition,
       category: glossary.at("category", default: "General"),
-      related: glossary.at("related", default: ())
+      related: glossary.at("related", default: ()),
     )
   }
 
@@ -501,16 +548,28 @@
   let results = ()
 
   if "abbreviations" in sources {
-    let abbrev-results = abbreviations.filter(entry => {
-      entry.key.contains(pattern) or entry.short.contains(pattern) or entry.long.contains(pattern)
-    }).map(entry => (type: "abbreviation", data: entry))
+    let abbrev-results = abbreviations
+      .filter(entry => {
+        (
+          entry.key.contains(pattern)
+            or entry.short.contains(pattern)
+            or entry.long.contains(pattern)
+        )
+      })
+      .map(entry => (type: "abbreviation", data: entry))
     results += abbrev-results
   }
 
   if "glossary" in sources {
-    let glossary-results = glossary-entries.filter(entry => {
-      entry.term.contains(pattern) or entry.definition.contains(pattern) or entry.at("category", default: "").contains(pattern)
-    }).map(entry => (type: "glossary", data: entry))
+    let glossary-results = glossary-entries
+      .filter(entry => {
+        (
+          entry.term.contains(pattern)
+            or entry.definition.contains(pattern)
+            or entry.at("category", default: "").contains(pattern)
+        )
+      })
+      .map(entry => (type: "glossary", data: entry))
     results += glossary-results
   }
 
@@ -528,7 +587,7 @@
     abbreviations: abbrev-stats,
     glossary: glossary-stats,
     total-terms: abbrev-stats.total + glossary-stats.total,
-    total-categories: glossary-stats.categories
+    total-categories: glossary-stats.categories,
   )
 }
 
@@ -544,25 +603,25 @@
   include-manual-glossary: true,
   include-extracted-terms: true,
   show-statistics: false,
-  show-validation: false
+  show-validation: false,
 ) = {
   locate(loc => {
     // Get all glossary terms
     let all-terms = generate-full-glossary(
       include-auto-extracted: include-auto-extracted,
-      include-page-refs: include-page-refs
+      include-page-refs: include-page-refs,
     )
 
     // Sort terms
     let sorted-terms = all-terms.sorted(key: e => {
-      if sort-by == "term" { e.term }
-      else if sort-by == "category" { e.at("category", default: "ZZZ") }
-      else { e.term }
+      if sort-by == "term" { e.term } else if sort-by == "category" {
+        e.at("category", default: "ZZZ")
+      } else { e.term }
     })
 
     // Create page
     set page(
-      margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+      margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
     )
 
     // Title
@@ -576,7 +635,10 @@
     if show-validation {
       let vres = validate-glossary()
       if vres.errors.len() > 0 {
-        text(fill: red, weight: "bold")["Glossary validation failed. Please fix the following errors:\n"]
+        text(
+          fill: red,
+          weight: "bold",
+        )["Glossary validation failed. Please fix the following errors:\n"]
         for e in vres.errors {
           [- #e "\n"]
         }
@@ -595,10 +657,15 @@
 
     // Group by category if requested
     if include-categories {
-      let categories = sorted-terms.map(e => e.at("category", default: "General")).dedup().sorted()
+      let categories = sorted-terms
+        .map(e => e.at("category", default: "General"))
+        .dedup()
+        .sorted()
 
       for category in categories {
-        let category-terms = sorted-terms.filter(e => e.at("category", default: "General") == category)
+        let category-terms = sorted-terms.filter(e => (
+          e.at("category", default: "General") == category
+        ))
 
         if category-terms.len() > 0 {
           heading(category, level: 2, numbering: none)
@@ -636,17 +703,17 @@
 
     // Page references
     if include-page-refs and "page-references" in entry {
-      let pages = entry.page-references
-      if pages.len() > 0 {
-        text(style: "italic", size: 9pt)[ (pp. #pages.map(str).join(", ")) ]
-      }
+    let pages = entry.page-references
+    if pages.len() > 0 {
+    text(style: "italic", size: 9pt)[ (pp. #pages.map(str).join(", ")) ]
+    }
     }
 
     // Related terms
     if "related" in entry and entry.related.len() > 0 {
-      text(fill: colors.secondary, size: 9pt)[
-        \ *See also:* #entry.related.join(", ")
-      ]
+    text(fill: colors.secondary, size: 9pt)[
+    \ *See also:* #entry.related.join(", ")
+    ]
     }
   ]
 }
@@ -658,17 +725,19 @@
 
   // Default patterns for technical terms
   let default-patterns = (
-    regex("\\b[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)+\\b"),  // Multi-word capitalized terms
-    regex("\\b[A-Z]{2,}\\b"),  // Acronyms
-    regex("\\b[a-z]+(?:-[a-z]+)+\\b"),  // Hyphenated technical terms
+    regex("\\b[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)+\\b"), // Multi-word capitalized terms
+    regex("\\b[A-Z]{2,}\\b"), // Acronyms
+    regex("\\b[a-z]+(?:-[a-z]+)+\\b"), // Hyphenated technical terms
   )
 
-  let patterns = if context-patterns.len() > 0 { context-patterns } else { default-patterns }
+  let patterns = if context-patterns.len() > 0 { context-patterns } else {
+    default-patterns
+  }
 
   // Note: Actual extraction would require content to be processed
   // This provides the framework for users to implement custom extraction
 
-  (:)  // Return empty dict as placeholder
+  (:) // Return empty dict as placeholder
 }
 
 // Batch add terms to glossary from a dictionary
@@ -680,7 +749,7 @@
         definition: data.definition,
         category: data.at("category", default: "General"),
         related: data.at("related", default: ()),
-        auto-extracted: data.at("auto-extracted", default: false)
+        auto-extracted: data.at("auto-extracted", default: false),
       )
       glossary-entries.push(entry)
     }
@@ -690,7 +759,7 @@
 // Create glossary index page
 #let generate-glossary-index() = {
   set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
   )
 
   align(center)[

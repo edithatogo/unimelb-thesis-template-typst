@@ -8,42 +8,42 @@
 #import "@preview/cetz:0.3.1": plot
 #import "@preview/codly:1.1.0": *
 #import "@preview/i-figured:0.2.4"
-#import "@preview/tablex:0.0.8": tablex, gridx, hlinex, vlinex
+#import "@preview/tablex:0.0.8": gridx, hlinex, tablex, vlinex
 #import "@preview/unify:0.7.0": unit
 #import "@preview/theorion:0.4.0": *
-#import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
+#import "@preview/fletcher:0.5.1" as fletcher: diagram, edge, node
 #import "@preview/lovelace:0.3.0": *
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/zebraw:0.4.0": zebraw
 #import "@preview/equate:0.2.1": *
 #import "@preview/showybox:2.0.1": showybox
 #import "@preview/codetastic:0.2.2": qrcode
-#import "@preview/glossarium:0.5.1": make-glossary, print-glossary, gls, glspl
+#import "@preview/glossarium:0.5.1": gls, glspl, make-glossary, print-glossary
 
 #let make-thesis-style(font_theme: "unimelb", profile: "default") = {
   let fonts = font-theme(name: font_theme)
-  
+
   // Profile-aware color definitions
   let color-space = if profile == "print" { cmyk } else { rgb }
-  
+
   (
     fonts: fonts,
-  colors: (
-    primary: color-space(traditional-heritage-100),      // Official UoM blue #000F46
-    secondary: color-space(magpie-dark-100),             // Official dark grey #2D2D2D
-    accent: color-space(sheoak-light-100),               // Official red #FF2D3C
-    success: color-space(red-gum-light-100),             // Official green #9FB825
-    warning: color-space(yam-daisy-100),                 // Official yellow #FFD629
-    link: color-space(link),                             // Official link color #083973
-    background: color-space(white),                      // White background
-    surface: color-space(magpie-light-25),               // Light grey surface #F1F1F1
-  ),
-  spacing: (
-    paragraph-leading: 1.2em,
-    heading-above: ("1": 2em, "2": 1.5em, "3": 1em),
-    heading-below: ("1": 1em, "2": 0.8em, "3": 0.5em),
-  ),
-)
+    colors: (
+      primary: color-space(traditional-heritage-100), // Official UoM blue #000F46
+      secondary: color-space(magpie-dark-100), // Official dark grey #2D2D2D
+      accent: color-space(sheoak-light-100), // Official red #FF2D3C
+      success: color-space(red-gum-light-100), // Official green #9FB825
+      warning: color-space(yam-daisy-100), // Official yellow #FFD629
+      link: color-space(link), // Official link color #083973
+      background: color-space(white), // White background
+      surface: color-space(magpie-light-25), // Light grey surface #F1F1F1
+    ),
+    spacing: (
+      paragraph-leading: 1.2em,
+      heading-above: ("1": 2em, "2": 1.5em, "3": 1em),
+      heading-below: ("1": 1em, "2": 0.8em, "3": 0.5em),
+    ),
+  )
 }
 
 #let thesis-style = make-thesis-style(profile: "default")
@@ -125,7 +125,7 @@
   body,
   caption: none,
   title: none,
-  breakable: false
+  breakable: false,
 ) = {
   algorithm-counter.step()
   let algorithm-title = if title != none {
@@ -142,7 +142,7 @@
       body,
       booktabs: true,
       numbered-title: algorithm-title,
-    )
+    ),
   )
 }
 
@@ -180,7 +180,7 @@
   lang: none,
   caption: none,
   numbers: true,
-  breakable: false
+  breakable: false,
 ) = {
   if caption != none {
     figure(
@@ -191,7 +191,7 @@
         zebraw(body, lang: lang)
       } else {
         raw(body, lang: lang, block: true)
-      }
+      },
     )
   } else {
     if numbers {
@@ -249,7 +249,7 @@
 // Profile-aware image function with compression for draft/screen profiles
 #let thesis-image(path, ..args) = {
   let profile = sys.inputs.at("profile", default: "default")
-  
+
   // Apply compression optimizations based on profile
   if profile == "draft" {
     // Maximum compression for draft - convert to low-quality PNG
@@ -278,14 +278,28 @@
 
 // Format dates
 #let format-date(date) = {
-  let months = ("January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December")
+  let months = (
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  )
   [#date.day() #months.at(date.month() - 1) #date.year()]
 }
 
 // Create a placeholder for unimelb logo
 #let unimelb-logo(custom: none) = {
-  let path = if custom != none { custom } else { "../assets/logos/unimelb-logo-official.svg" }
+  let path = if custom != none { custom } else {
+    "../assets/logos/unimelb-logo-official.svg"
+  }
   thesis-image(path, width: 4cm)
 }
 
@@ -318,36 +332,36 @@
   frame: (
     border-color: rgb(traditional-heritage-100),
     title-color: rgb(traditional-heritage-100),
-    body-color: rgb(traditional-heritage-100).lighten(95%)
+    body-color: rgb(traditional-heritage-100).lighten(95%),
   ),
   title-style: (
     color: white,
-    weight: "bold"
-  )
+    weight: "bold",
+  ),
 )
 
 #let warning-box = showybox.with(
   frame: (
     border-color: rgb(sheoak-light-100),
     title-color: rgb(sheoak-light-100),
-    body-color: rgb(sheoak-light-100).lighten(95%)
+    body-color: rgb(sheoak-light-100).lighten(95%),
   ),
   title-style: (
     color: white,
-    weight: "bold"
-  )
+    weight: "bold",
+  ),
 )
 
 #let success-box = showybox.with(
   frame: (
     border-color: rgb(red-gum-light-100),
     title-color: rgb(red-gum-light-100),
-    body-color: rgb(red-gum-light-100).lighten(95%)
+    body-color: rgb(red-gum-light-100).lighten(95%),
   ),
   title-style: (
     color: white,
-    weight: "bold"
-  )
+    weight: "bold",
+  ),
 )
 
 // =================================
@@ -357,7 +371,7 @@
 #let generate-qr = qrcode.with(
   width: 2cm,
   height: 2cm,
-  error-correction: "M"
+  error-correction: "M",
 )
 
 // =================================
@@ -370,14 +384,14 @@
   set page(
     paper: "a4",
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    flipped: true
+    flipped: true,
   )
   body
   // Restore to portrait A4 after the landscape content.
   set page(
     paper: "a4",
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    flipped: false
+    flipped: false,
   )
 }
 

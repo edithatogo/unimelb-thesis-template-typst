@@ -1,6 +1,10 @@
 #import "../utils/style.typ": *
-#import "../pages/preface-helpers.typ": contribution-table, ai-usage-note, preface-publications_section
-#import "../config/publications.typ": publication-status-table, publication-chapter-footnote
+#import "../pages/preface-helpers.typ": (
+  ai-usage-note, contribution-table, preface-publications_section,
+)
+#import "../config/publications.typ": (
+  publication-chapter-footnote, publication-status-table,
+)
 
 #let preface-page(ctx, metadata) = {
   let style = ctx.style
@@ -12,7 +16,7 @@
 
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    numbering: "i"
+    numbering: "i",
   )
 
   heading("Preface", numbering: none, outlined: true)
@@ -33,8 +37,12 @@
   }
 
   for section in sections {
-    let sec-title = if type(section) == dictionary { section.at("title", default: "") } else { section.at(0, default: "") }
-    let sec-content = if type(section) == dictionary { section.at("content", default: []) } else { section.at(1, default: []) }
+    let sec-title = if type(section) == dictionary {
+      section.at("title", default: "")
+    } else { section.at(0, default: "") }
+    let sec-content = if type(section) == dictionary {
+      section.at("content", default: [])
+    } else { section.at(1, default: []) }
     heading(level: 2, sec-title)
     v(0.5em)
     sec-content
@@ -46,9 +54,9 @@
     heading(level: 2, "Publications (demo)")
     v(0.5em)
     // Add a chapter-level footnote referring to the first publication (if any)
-  set text(size: 12pt)
-  text("This chapter refers to an associated publication.")
-  publication-chapter-footnote(publications, 0)
+    set text(size: 12pt)
+    text("This chapter refers to an associated publication.")
+    publication-chapter-footnote(publications, 0)
     v(0.5em)
     // Show the status table including appendix links where available
     publication-status-table(publications, show_links: true)

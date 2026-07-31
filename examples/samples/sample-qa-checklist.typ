@@ -197,13 +197,15 @@ Quality assurance (QA) is essential for producing a thesis that meets academic s
 #table(
   columns: (auto, auto, auto, auto),
   align: (left, center, center, center),
-  table.header([*QA Category*], [*Items Checked*], [*Status*], [*Date Completed*]),
+  table.header(
+    [*QA Category*], [*Items Checked*], [*Status*], [*Date Completed*]
+  ),
   [Research Methodology], [12], [Complete], [2024-12-01],
   [Data Analysis], [10], [Complete], [2024-12-02],
   [Writing Quality], [8], [Complete], [2024-12-03],
   [Technical Formatting], [8], [Complete], [2024-12-04],
   [Research Ethics], [8], [Complete], [2024-12-05],
-  [Publication Impact], [8], [Complete], [2024-12-06]
+  [Publication Impact], [8], [Complete], [2024-12-06],
 )
 
 === Final QA Sign-off

@@ -44,7 +44,7 @@
     "healthcare",
     "explainable AI",
     "medical imaging",
-    "deep learning"
+    "deep learning",
   ),
 
   // Acknowledgements
@@ -66,7 +66,7 @@
 
     Some of the work in Chapter 4 has been published as: Mordaunt, D. A., Rodriguez, M., & Thompson, J. (2024). "Interpretable Deep Learning for Medical Image Analysis". In Proceedings of the International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI).
 
-  The thesis contains approximately 10,000 words.
+    The thesis contains approximately 10,000 words.
   ],
 
   // Preface (optional)

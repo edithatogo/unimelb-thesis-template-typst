@@ -17,7 +17,12 @@ The University of Melbourne allows candidates to include published works in thei
 The following section is adapted from a published journal article:
 
 #(config.publications.publication-footnote)(
-  (citation: "Smith et al. (2024). Machine Learning Interpretability: A Comprehensive Framework. Journal of Artificial Intelligence Research, 68, 123-145.", status: "published", consent: true, appendix: "Appendix A")
+  (
+    citation: "Smith et al. (2024). Machine Learning Interpretability: A Comprehensive Framework. Journal of Artificial Intelligence Research, 68, 123-145.",
+    status: "published",
+    consent: true,
+    appendix: "Appendix A",
+  ),
 )
 
 #lorem(100)
@@ -29,7 +34,12 @@ As demonstrated in the literature, machine learning interpretability remains a c
 Research findings from conference presentations can also be integrated:
 
 #(config.publications.publication-footnote)(
-  (citation: "Johnson & Smith (2023). Neural Network Explanations for Critical Applications. Proceedings of the International Conference on Machine Learning (ICML), 2023.", status: "published", consent: true, appendix: "Appendix B")
+  (
+    citation: "Johnson & Smith (2023). Neural Network Explanations for Critical Applications. Proceedings of the International Conference on Machine Learning (ICML), 2023.",
+    status: "published",
+    consent: true,
+    appendix: "Appendix B",
+  ),
 )
 
 #lorem(80)
@@ -41,7 +51,11 @@ The conference paper presented preliminary results that informed the development
 Thesis chapters that have not been published can also be documented:
 
 #(config.publications.publication-footnote)(
-  (citation: "Smith (2024). Advanced Interpretability Techniques for Deep Learning Models. Chapter 3 of PhD Thesis.", status: "unpublished", consent: true)
+  (
+    citation: "Smith (2024). Advanced Interpretability Techniques for Deep Learning Models. Chapter 3 of PhD Thesis.",
+    status: "unpublished",
+    consent: true,
+  ),
 )
 
 #lorem(60)
@@ -79,7 +93,11 @@ Published figures and tables should be:
 #figure(
   caption: [Example publication figure integration],
   // image("../figures/sample-figure.png", width: 80%) // Placeholder for actual figure
-  rect(width: 80%, height: 4cm, fill: blue.lighten(80%))[Sample Figure Placeholder]
+  rect(
+    width: 80%,
+    height: 4cm,
+    fill: blue.lighten(80%),
+  )[Sample Figure Placeholder],
 )
 
 === Citation Practices

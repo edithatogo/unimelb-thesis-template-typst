@@ -7,7 +7,7 @@
 // Basic index page with placeholder content
 // This serves as a fallback when the optional index system is not used
 #set page(
-  margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+  margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
 )
 
 #align(center)[

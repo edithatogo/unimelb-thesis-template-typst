@@ -5,7 +5,7 @@
     height: auto,
     width: auto,
     margin: (top: 2.5cm, bottom: 2.5cm, left: 2cm, right: 2cm),
-    flipped: true
+    flipped: true,
   )
 
   align(center)[
@@ -29,26 +29,30 @@
   [= Matrix Example]
 
   align(center)[
-    $ A = mat(
-      a_11, a_12, a_13;
-      a_21, a_22, a_23;
-      a_31, a_32, a_33
-    ) $
+    $
+      A = mat(
+        a_11, a_12, a_13;
+        a_21, a_22, a_23;
+        a_31, a_32, a_33
+      )
+    $
   ]
 
   [= System of Equations]
 
   align(center)[
-    $ cases(
-      2x + y = 5,
-      x - y = 1
-    ) $
+    $
+      cases(
+        2x + y = 5,
+        x - y = 1
+      )
+    $
   ]
 
   set page(
     height: auto,
     width: auto,
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    flipped: false
+    flipped: false,
   )
 }

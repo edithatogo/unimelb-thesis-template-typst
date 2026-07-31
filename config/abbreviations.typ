@@ -2,53 +2,53 @@
   (
     key: "Machine Learning",
     short: "ML",
-    long: "A method of data analysis that automates analytical model building."
+    long: "A method of data analysis that automates analytical model building.",
   ),
   (
     key: "Deep Learning",
     short: "DL",
-    long: "A subset of machine learning using neural networks with multiple layers."
+    long: "A subset of machine learning using neural networks with multiple layers.",
   ),
   (
     key: "Neural Network",
     short: "NN",
-    long: "A computing system inspired by biological neural networks."
+    long: "A computing system inspired by biological neural networks.",
   ),
   (
     key: "Algorithm",
     short: "Algo",
-    long: "A procedure or formula for solving a problem."
+    long: "A procedure or formula for solving a problem.",
   ),
   (
     key: "Artificial Intelligence",
     short: "AI",
-    long: "The simulation of human intelligence processes by machines."
+    long: "The simulation of human intelligence processes by machines.",
   ),
   (
     key: "Natural Language Processing",
     short: "NLP",
-    long: "A subfield of AI focused on the interaction between computers and humans in natural language."
+    long: "A subfield of AI focused on the interaction between computers and humans in natural language.",
   ),
   (
     key: "Computer Vision",
     short: "CV",
-    long: "A field of AI that trains computers to interpret and understand visual information from the world."
+    long: "A field of AI that trains computers to interpret and understand visual information from the world.",
   ),
   (
     key: "Support Vector Machine",
     short: "SVM",
-    long: "A supervised learning algorithm used for classification and regression tasks."
+    long: "A supervised learning algorithm used for classification and regression tasks.",
   ),
   (
     key: "Random Forest",
     short: "RF",
-    long: "An ensemble learning method that constructs multiple decision trees."
+    long: "An ensemble learning method that constructs multiple decision trees.",
   ),
   (
     key: "Gradient Boosting",
     short: "GB",
-    long: "A machine learning technique for regression and classification problems."
-  )
+    long: "A machine learning technique for regression and classification problems.",
+  ),
 )
 
 #let get-abbreviation(short) = {
@@ -81,7 +81,7 @@
         entry.key,
         entry.short,
         entry.long
-      ])
+      ]),
     )
   }
 }
@@ -153,10 +153,9 @@
 // Search abbreviations by pattern
 #let search-abbreviations(pattern, field: "key") = {
   abbreviations.filter(entry => {
-    let value = if field == "key" { entry.key }
-               else if field == "short" { entry.short }
-               else if field == "long" { entry.long }
-               else { "" }
+    let value = if field == "key" { entry.key } else if field == "short" {
+      entry.short
+    } else if field == "long" { entry.long } else { "" }
     value.contains(pattern)
   })
 }
@@ -164,10 +163,9 @@
 // Get all abbreviations sorted by field
 #let get-sorted-abbreviations(sort-by: "key", reverse: false) = {
   let sorted = abbreviations.sorted(key: e => {
-    if sort-by == "key" { e.key }
-    else if sort-by == "short" { e.short }
-    else if sort-by == "long" { e.long }
-    else { e.key }
+    if sort-by == "key" { e.key } else if sort-by == "short" {
+      e.short
+    } else if sort-by == "long" { e.long } else { e.key }
   })
   if reverse {
     sorted.rev()
@@ -210,14 +208,20 @@
       errors.push("Empty abbreviation found for key: " + entry.key)
     }
     if entry.long.trim() == "" {
-      warnings.push("Empty definition for: " + entry.key + " (" + entry.short + ")")
+      warnings.push(
+        "Empty definition for: " + entry.key + " (" + entry.short + ")",
+      )
     }
   }
 
   // Check for inconsistent formatting
   for entry in abbreviations {
     if entry.short.match(regex("^[A-Z]{2,8}$")) == none {
-      warnings.push("Non-standard abbreviation format: " + entry.short + " (recommended: 2-8 uppercase letters)")
+      warnings.push(
+        "Non-standard abbreviation format: "
+          + entry.short
+          + " (recommended: 2-8 uppercase letters)",
+      )
     }
   }
 
@@ -255,9 +259,20 @@
     // Note: This would require JSON serialization in Typst
     [#repr(abbreviations)]
   } else if format == "csv" {
-    let csv-lines = ("Key,Abbreviation,Definition",) + abbreviations.map(e => {
-      "\"" + e.key.replace("\"", "\"\"") + "\",\"" + e.short.replace("\"", "\"\"") + "\",\"" + e.long.replace("\"", "\"\"") + "\""
-    })
+    let csv-lines = (
+      ("Key,Abbreviation,Definition",)
+        + abbreviations.map(e => {
+          (
+            "\""
+              + e.key.replace("\"", "\"\"")
+              + "\",\""
+              + e.short.replace("\"", "\"\"")
+              + "\",\""
+              + e.long.replace("\"", "\"\"")
+              + "\""
+          )
+        })
+    )
     csv-lines.join("\n")
   } else {
     panic("Unsupported export format: " + format)
@@ -268,8 +283,13 @@
 #let import-abbreviations(new-abbrevs) = {
   // Validate format
   for entry in new-abbrevs {
-    if type(entry) != dictionary or not ("key" in entry and "short" in entry and "long" in entry) {
-      panic("Invalid abbreviation format. Expected: (key: \"...\", short: \"...\", long: \"...\")")
+    if (
+      type(entry) != dictionary
+        or not ("key" in entry and "short" in entry and "long" in entry)
+    ) {
+      panic(
+        "Invalid abbreviation format. Expected: (key: \"...\", short: \"...\", long: \"...\")",
+      )
     }
   }
 
@@ -293,14 +313,18 @@
 #let get-abbreviation-stats() = {
   let total = abbreviations.len()
   let avg-key-len = abbreviations.map(e => e.key.len()).sum(default: 0) / total
-  let avg-short-len = abbreviations.map(e => e.short.len()).sum(default: 0) / total
-  let avg-long-len = abbreviations.map(e => e.long.len()).sum(default: 0) / total
+  let avg-short-len = (
+    abbreviations.map(e => e.short.len()).sum(default: 0) / total
+  )
+  let avg-long-len = (
+    abbreviations.map(e => e.long.len()).sum(default: 0) / total
+  )
 
   (
     total: total,
     avg-key-length: calc.round(avg-key-len, digits: 1),
     avg-abbrev-length: calc.round(avg-short-len, digits: 1),
-    avg-definition-length: calc.round(avg-long-len, digits: 1)
+    avg-definition-length: calc.round(avg-long-len, digits: 1),
   )
 }
 
@@ -346,16 +370,24 @@
 
 // Get abbreviations by category
 #let get-abbrevs-by-category(category) = {
-  abbreviations.filter(entry => entry.at("category", default: "General") == category)
+  abbreviations.filter(entry => (
+    entry.at("category", default: "General") == category
+  ))
 }
 
 // Add category information to abbreviations (enhancement)
 #let abbreviations-with-categories = abbreviations.map(entry => {
-  let category = if entry.key.contains("Learning") or entry.key.contains("Network") {
+  let category = if (
+    entry.key.contains("Learning") or entry.key.contains("Network")
+  ) {
     "Machine Learning"
   } else if entry.key.contains("Language") or entry.key.contains("Vision") {
     "AI Applications"
-  } else if entry.key.contains("Algorithm") or entry.key.contains("Machine") or entry.key.contains("Forest") {
+  } else if (
+    entry.key.contains("Algorithm")
+      or entry.key.contains("Machine")
+      or entry.key.contains("Forest")
+  ) {
     "Algorithms"
   } else {
     "General"
@@ -465,9 +497,21 @@
     let abbrev-count = text.matches(regex(entry.short)).len()
 
     if full-form-count > 0 and abbrev-count == 0 {
-      issues.push("Term '" + entry.key + "' used in full form but abbreviation '" + entry.short + "' not found")
+      issues.push(
+        "Term '"
+          + entry.key
+          + "' used in full form but abbreviation '"
+          + entry.short
+          + "' not found",
+      )
     } else if abbrev-count > 0 and full-form-count == 0 {
-      issues.push("Abbreviation '" + entry.short + "' used but full term '" + entry.key + "' not found")
+      issues.push(
+        "Abbreviation '"
+          + entry.short
+          + "' used but full term '"
+          + entry.key
+          + "' not found",
+      )
     }
   }
 
@@ -480,13 +524,19 @@
     total: abbreviations.len(),
     categories: abbreviations-with-categories.map(e => e.category).dedup(),
     export-date: datetime.today().display(),
-    version: "1.0"
+    version: "1.0",
   )
 
   if format == "typst" {
     (metadata: metadata, abbreviations: abbreviations-with-categories)
   } else if format == "json" {
-    "(metadata: " + repr(metadata) + ", abbreviations: " + repr(abbreviations-with-categories) + ")"
+    (
+      "(metadata: "
+        + repr(metadata)
+        + ", abbreviations: "
+        + repr(abbreviations-with-categories)
+        + ")"
+    )
   } else {
     panic("Unsupported format: " + format)
   }
@@ -512,7 +562,7 @@
       new-abbrevs.push((
         key: parts.at(0).trim().trim("\""),
         short: parts.at(1).trim().trim("\""),
-        long: parts.at(2).trim().trim("\"")
+        long: parts.at(2).trim().trim("\""),
       ))
     }
   }

@@ -14,9 +14,41 @@
   locate(loc => {
     let count = appendix-counter.at(loc)
     appendix-counter.update(count + 1)
-    let letter = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z").at(count)
+    let letter = (
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+    ).at(count)
 
-    heading("Appendix " + letter + ": " + title, level: 1, numbering: none, outlined: true)
+    heading(
+      "Appendix " + letter + ": " + title,
+      level: 1,
+      numbering: none,
+      outlined: true,
+    )
     v(1em)
     content
   })
@@ -24,7 +56,12 @@
 
 // Creative output descriptor for theses with creative works
 // Usage: creative-output-descriptor(medium: "Oil on canvas", dimensions: "100cm x 80cm", description: "Abstract landscape...")
-#let creative-output-descriptor(medium: none, dimensions: none, duration: none, description: none) = {
+#let creative-output-descriptor(
+  medium: none,
+  dimensions: none,
+  duration: none,
+  description: none,
+) = {
   let fields = ()
   if medium != none { fields.push(("Medium", medium)) }
   if dimensions != none { fields.push(("Dimensions", dimensions)) }
@@ -38,7 +75,7 @@
       columns: 2,
       column-gutter: 1em,
       [*Attribute*, *Details*],
-      ..fields.map(f => [f.at(0), f.at(1)])
+      ..fields.map(f => [f.at(0), f.at(1)]),
     )
     v(1em)
   }
@@ -53,10 +90,12 @@
       columns: 2,
       column-gutter: 1em,
       [*Appendix*, *Title*],
-      ..entries.enumerate().map(((i, title)) => [
-        "Appendix " + ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z").at(i),
-        title
-      ])
+      ..entries
+        .enumerate()
+        .map(((i, title)) => [
+          "Appendix " + ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z").at(i),
+          title
+        ]),
     )
   }
 }

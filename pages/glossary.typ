@@ -1,10 +1,18 @@
 #import "../utils/style.typ": *
-#import "../config/abbreviations.typ": abbreviations, validate-abbreviations-detailed, print-validation-report, get-sorted-abbreviations, get-abbreviation-stats, abbreviations-with-categories, get-abbrevs-by-category, create-abbrev-groups
-#import "../config/glossary.typ": glossary-entries, validate-glossary, get-sorted-glossary, get-glossary-categories, get-glossary-stats, get-glossary-by-category, generate-glossary-page, generate-full-glossary, get-extracted-glossary, get-combined-stats
+#import "../config/abbreviations.typ": (
+  abbreviations, abbreviations-with-categories, create-abbrev-groups,
+  get-abbreviation-stats, get-abbrevs-by-category, get-sorted-abbreviations,
+  print-validation-report, validate-abbreviations-detailed,
+)
+#import "../config/glossary.typ": (
+  generate-full-glossary, generate-glossary-page, get-combined-stats,
+  get-extracted-glossary, get-glossary-by-category, get-glossary-categories,
+  get-glossary-stats, get-sorted-glossary, glossary-entries, validate-glossary,
+)
 
 #let glossary-page() = {
   set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
   )
 
   align(center)[
@@ -18,7 +26,10 @@
   // Enhanced validation with detailed reporting
   let validation = validate-abbreviations-detailed()
   if validation.errors.len() > 0 {
-    text(fill: red, weight: "bold")[Abbreviation validation failed. Please fix the following errors:\n]
+    text(
+      fill: red,
+      weight: "bold",
+    )[Abbreviation validation failed. Please fix the following errors:\n]
     for error in validation.errors {
       [- #error\n]
     }
@@ -49,7 +60,7 @@
 
 #let abbreviations-page() = {
   set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
   )
 
   align(center)[
@@ -63,7 +74,10 @@
   // Enhanced validation with detailed reporting
   let validation = validate-abbreviations-detailed()
   if validation.errors.len() > 0 {
-    text(fill: red, weight: "bold")[Abbreviation validation failed. Please fix the following errors:\n]
+    text(
+      fill: red,
+      weight: "bold",
+    )[Abbreviation validation failed. Please fix the following errors:\n]
     for error in validation.errors {
       [- #error\n]
     }
@@ -84,7 +98,7 @@
         entry.short,
         entry.key,
         entry.long
-      ])
+      ]),
     )
 
     // Show statistics
@@ -98,7 +112,7 @@
 
 #let comprehensive-glossary-page() = {
   set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
   )
 
   // Use the automated glossary generation system

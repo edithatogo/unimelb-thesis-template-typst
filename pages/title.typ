@@ -1,6 +1,7 @@
-#import "../utils/style.typ": thesis-style, format-date, unimelb-logo
+#import "../utils/style.typ": format-date, thesis-style, unimelb-logo
 
-#let title-page(ctx,
+#let title-page(
+  ctx,
   title: none,
   subtitle: none,
   author: none,
@@ -69,7 +70,9 @@
       text(size: 12pt)[#labels.co_supervisor_label: #co_supervisor]
     }
     #v(1em)
-    #text(size: 12pt)[#labels.submission_date_label: #format-date(submission_date)]
+    #text(
+      size: 12pt,
+    )[#labels.submission_date_label: #format-date(submission_date)]
   ]
 
   pagebreak()

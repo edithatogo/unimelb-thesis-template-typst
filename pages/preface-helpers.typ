@@ -1,5 +1,7 @@
 #import "../utils/style.typ": *
-#import "../config/publications.typ": publication-status-table, publication-appendix-entries
+#import "../config/publications.typ": (
+  publication-appendix-entries, publication-status-table,
+)
 
 #let contribution-table(contributions) = {
   if contributions.len() == 0 {
@@ -10,13 +12,13 @@
       (
         row.at("name", default: ""),
         row.at("role", default: ""),
-        row.at("percentage", default: "")
+        row.at("percentage", default: ""),
       )
     } else {
       (
         row.at(0, default: ""),
         row.at(1, default: ""),
-        row.at(2, default: "")
+        row.at(2, default: ""),
       )
     })
 
@@ -24,7 +26,7 @@
       columns: 3,
       column-gutter: 1em,
       [*Name*, *Role*, *Contribution (%)*],
-      ..rows.map(r => [r.at(0), r.at(1), r.at(2)])
+      ..rows.map(r => [r.at(0), r.at(1), r.at(2)]),
     )
   }
 }
@@ -42,11 +44,21 @@
     v(0.5em)
     // Each entry expected to be a dictionary with keys: tool, date, purpose, prompt, output
     for e in ai_entries {
-      let tool = if type(e) == dictionary { e.at("tool", default: "") } else { e.at(0, default: "") }
-      let date = if type(e) == dictionary { e.at("date", default: "") } else { e.at(1, default: "") }
-      let purpose = if type(e) == dictionary { e.at("purpose", default: "") } else { e.at(2, default: "") }
-      let prompt = if type(e) == dictionary { e.at("prompt", default: "") } else { e.at(3, default: "") }
-      let output_ref = if type(e) == dictionary { e.at("output_ref", default: "") } else { e.at(4, default: "") }
+      let tool = if type(e) == dictionary { e.at("tool", default: "") } else {
+        e.at(0, default: "")
+      }
+      let date = if type(e) == dictionary { e.at("date", default: "") } else {
+        e.at(1, default: "")
+      }
+      let purpose = if type(e) == dictionary {
+        e.at("purpose", default: "")
+      } else { e.at(2, default: "") }
+      let prompt = if type(e) == dictionary {
+        e.at("prompt", default: "")
+      } else { e.at(3, default: "") }
+      let output_ref = if type(e) == dictionary {
+        e.at("output_ref", default: "")
+      } else { e.at(4, default: "") }
 
       paragraph[bold(tool + " — " + date)]
       v(0.25em)

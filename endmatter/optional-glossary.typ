@@ -2,13 +2,16 @@
 // This module provides automatic glossary generation from abbreviation data
 // Include this in your thesis configuration to enable optional glossary features
 
-#import "../config/abbreviations.typ": abbreviations, validate-abbreviations-detailed, get-sorted-abbreviations, get-abbreviation-stats
+#import "../config/abbreviations.typ": (
+  abbreviations, get-abbreviation-stats, get-sorted-abbreviations,
+  validate-abbreviations-detailed,
+)
 #import "../utils/style.typ": colors
 
 // Generate optional glossary page with automatic content from abbreviations
 #let optional-glossary-page(show-validation: true, show-statistics: true) = {
   set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
   )
 
   align(center)[
@@ -33,7 +36,9 @@
 
   // Check if we have abbreviations to display
   if abbreviations.len() == 0 {
-    text(fill: gray)[No glossary terms defined. Add abbreviations using the abbreviation management system.]
+    text(
+      fill: gray,
+    )[No glossary terms defined. Add abbreviations using the abbreviation management system.]
   } else {
     // Generate glossary from abbreviations, sorted alphabetically by full term
     let sorted-abbrevs = get-sorted-abbreviations(sort-by: "key")
@@ -57,9 +62,12 @@
 }
 
 // Generate optional abbreviations list page
-#let optional-abbreviations-page(show-validation: true, show-statistics: true) = {
+#let optional-abbreviations-page(
+  show-validation: true,
+  show-statistics: true,
+) = {
   set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
   )
 
   align(center)[
@@ -74,7 +82,10 @@
   if show-validation {
     let validation = validate-abbreviations-detailed()
     if validation.errors.len() > 0 {
-      text(fill: red, weight: "bold")[Abbreviation validation issues detected:\n]
+      text(
+        fill: red,
+        weight: "bold",
+      )[Abbreviation validation issues detected:\n]
       for error in validation.errors {
         [- #error\n]
       }
@@ -84,7 +95,9 @@
 
   // Check if we have abbreviations to display
   if abbreviations.len() == 0 {
-    text(fill: gray)[No abbreviations defined. Add abbreviations using the abbreviation management system.]
+    text(
+      fill: gray,
+    )[No abbreviations defined. Add abbreviations using the abbreviation management system.]
   } else {
     // Generate table from abbreviations, sorted by abbreviation
     let sorted-abbrevs = get-sorted-abbreviations(sort-by: "short")
@@ -94,11 +107,13 @@
       column-gutter: 1em,
       align: (left, left, left),
       table.header([*Abbreviation*], [*Full Term*], [*Definition*]),
-      ..sorted-abbrevs.map(entry => (
-        text(weight: "bold")[#entry.short],
-        entry.key,
-        entry.long
-      )).flatten()
+      ..sorted-abbrevs
+        .map(entry => (
+          text(weight: "bold")[#entry.short],
+          entry.key,
+          entry.long,
+        ))
+        .flatten(),
     )
 
     // Optional statistics
@@ -116,16 +131,22 @@
 #let optional-glossary-abbreviations-page(
   show-validation: true,
   show-statistics: true,
-  separate-pages: true
+  separate-pages: true,
 ) = {
   if separate-pages {
-    optional-glossary-page(show-validation: show-validation, show-statistics: show-statistics)
+    optional-glossary-page(
+      show-validation: show-validation,
+      show-statistics: show-statistics,
+    )
     pagebreak()
-    optional-abbreviations-page(show-validation: show-validation, show-statistics: show-statistics)
+    optional-abbreviations-page(
+      show-validation: show-validation,
+      show-statistics: show-statistics,
+    )
   } else {
     // Single page with both sections
     set page(
-      margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm)
+      margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
     )
 
     align(center)[
@@ -171,8 +192,8 @@
         table.header([*Abbreviation*], [*Full Term and Definition*]),
         ..sorted-by-short.map(entry => (
           text(weight: "bold")[#entry.short],
-          [#entry.key: #entry.long]
-        ))
+          [#entry.key: #entry.long],
+        )),
       )
 
       // Statistics
