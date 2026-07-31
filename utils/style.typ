@@ -5,7 +5,6 @@
 
 // Package imports
 #import "@preview/cetz:0.5.2"
-#import "@preview/cetz:0.5.2": plot
 #import "@preview/codly:1.3.0": *
 #import "@preview/i-figured:0.2.4"
 #import "@preview/tablex:0.0.8": gridx, hlinex, tablex, vlinex
