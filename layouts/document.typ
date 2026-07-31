@@ -282,10 +282,10 @@
         // Compute a safe string for the header. Some callers may pass
         // nodes or structured content for `title`; convert those to a
         // plain string.
-        let header_text = if type(header_title) == "string" {
+        let header_text = if type(header_title) == str {
           header_title
-        } else if header_title != none and header_title.body != none {
-          str(header_title.body)
+        } else if header_title == none {
+          ""
         } else {
           str(header_title)
         }
