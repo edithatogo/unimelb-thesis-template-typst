@@ -1,0 +1,35 @@
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: read
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: typst-community/setup-typst@63ac138db421d586de61f7f5ac3bcef6a2e6c78c # v5.1.0
+        with:
+          typst-version: "0.15.1"
+      - name: Require tag to match package version
+        run: |
+          VERSION=$(sed -n 's/^version = "\(.*\)"/\1/p' typst.toml | head -1)
+          test "v$VERSION" = "$GITHUB_REF_NAME"
+      - name: Compile and validate
+        run: |
+          mkdir -p build
+          typst compile --root . thesis.typ build/thesis.pdf
+          sudo apt-get update
+          sudo apt-get install --yes qpdf poppler-utils
+          qpdf --check build/thesis.pdf
+          pdftotext build/thesis.pdf - | grep -q '[^[:space:]]'
+      - uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # v3.0.2
+        with:
+          files: build/thesis.pdf
+          generate_release_notes: true
