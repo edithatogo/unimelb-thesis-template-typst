@@ -33,7 +33,7 @@ or shell-script coverage. Reports are written to `build/coverage.xml` and
 
 The Maintenance workflow runs on every PR, pushes to main, merge groups,
 manual dispatch and a weekly schedule. It retains coverage reports for 14 days;
-the Quality gates workflow retains the compilation evidence and PDFs. Its separate upload job uses Codecov OIDC; only that job receives
+the Quality gates workflow retains the compilation evidence and PDFs. The Maintenance workflow's separate upload job uses Codecov OIDC; only that job receives
 `id-token: write`. Fork PRs still run checks and retain their evidence; they do
 not enter the OIDC upload job. Upload errors fail the upload job.
 

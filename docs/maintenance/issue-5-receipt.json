@@ -141,18 +141,119 @@
     "python": "3.12.14",
     "unit_tests": 54,
     "result": "passed",
-    "scope": "Python unit tests and desired/observed policy comparison; full repository compilation requires hosted tools",
+    "scope": "Full checked-out candidate: source validation, deterministic properties, 54 maintenance unit tests, policy check, actual Typst compilation and PDF checks; hosted Python 3.15.1 remains pending.",
     "commands": [
-      "python3 -m unittest discover -s tests/maintenance -v",
+      "make verify",
       "make coverage with coverage.py 7.17.3",
-      "python3 -m compileall -q scripts tests",
-      "make -n verify",
-      "YAML parsing and trigger/permission assertions"
+      "actionlint 1.7.12",
+      "typstyle 0.15.0 --check .",
+      "Shared workflow equivalent: Typst 0.15.1 compile plus qpdf, pdfinfo and nonempty pdftotext for default/draft/screen/print"
     ],
     "policy_results": {
       "desired": "valid desired-only",
       "empty_baseline_observation": "drift (exit 1)",
       "unavailable_observation": "unknown (covered by unit tests)"
+    },
+    "tested_commit": "33c9a4fb4c27a906d7e6fb8bd037feb8bef05724",
+    "properties": {
+      "tests": 10,
+      "cases_per_property": 64,
+      "generated_cases": 640,
+      "seed": 20261115,
+      "result": "passed"
+    },
+    "tools": {
+      "python": "3.12.14",
+      "typst": "0.15.1 (9dfd3a08)",
+      "qpdf": "12.4.2",
+      "actionlint": "1.7.12",
+      "typstyle": "0.15.0",
+      "coverage": "7.17.3"
+    },
+    "compiled_documents": [
+      {
+        "source": "thesis.typ",
+        "pages": 55,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "source": "sample-chapter.typ",
+        "pages": 7,
+        "pdf_valid": true,
+        "text_nonempty": true
+      }
+    ],
+    "profile_results": [
+      {
+        "profile": "default",
+        "compiled": true,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "profile": "draft",
+        "compiled": true,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "profile": "screen",
+        "compiled": true,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "profile": "print",
+        "compiled": true,
+        "pdf_valid": true,
+        "text_nonempty": true
+      }
+    ],
+    "formatting": {
+      "exit_code": 0,
+      "limitation": "Existing typstyle parse warnings for unchanged fragments; not evidence that all example fragments parse.",
+      "warned_files": [
+        "README.typ",
+        "docs/source-material/modern-uit-global.typ",
+        "examples/samples/sample-ai-disclosure.typ",
+        "examples/samples/sample-creative-outputs.typ",
+        "frontmatter/preface.typ"
+      ]
     }
+  },
+  "hosted_validation": {
+    "head_sha": "33c9a4fb4c27a906d7e6fb8bd037feb8bef05724",
+    "state": "queued",
+    "runs": [
+      {
+        "workflow": "Maintenance",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605934855"
+      },
+      {
+        "workflow": "Quality gates",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605934963"
+      },
+      {
+        "workflow": "Privacy and secrets",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605934749"
+      }
+    ],
+    "qualified": false
+  },
+  "independent_review": {
+    "head_sha": "33c9a4fb4c27a906d7e6fb8bd037feb8bef05724",
+    "blocking_findings": 0,
+    "reviewed_areas": [
+      "CI permissions",
+      "coverage/artifact paths",
+      "policy failure semantics",
+      "Makefile integration",
+      "documentation and acceptance boundaries"
+    ],
+    "minor_doc_findings_corrected": [
+      "Document both required Poppler executables.",
+      "Name the Maintenance workflow as the OIDC upload owner."
+    ]
   }
 }

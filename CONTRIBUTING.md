@@ -6,7 +6,7 @@ Keep each PR focused, link its issue and explain any changes to thesis output.
 ## Set up
 
 Use Python 3.11 or newer (CI uses 3.15.1), GNU Make, Typst 0.15.1,
-qpdf and Poppler's `pdftotext`. The Typst version is also recorded
+qpdf and Poppler's `pdftotext` and `pdfinfo`. The Typst version is also recorded
 in `typst.toml`; keep the build workflows consistent with it.
 
 For coverage, install the pinned development dependency in an isolated environment:
