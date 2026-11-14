@@ -313,12 +313,14 @@ class Bundle:
     def _check_configuration(self, config):
         final = config["purpose"] != "draft"
         standards = set(config["pdf_standards"])
+        # Each selected profile constrains the effective PDF version. See the
+        # dated PDF Association references in docs/thesis-contract.md.
+        requires_17 = bool(standards.intersection({"pdf-1.7", "pdf/ua-1", "pdf/a-2a", "pdf/a-3a"}))
+        requires_20 = bool(standards.intersection({"pdf-2.0", "pdf/ua-2", "pdf/a-4", "pdf/a-4f"}))
         if ((final and (config["identity"] == "blind-review" or config["output"] != "pdf"))
                 or (config["output"] != "pdf" and standards)
-                or {"pdf/ua-1", "pdf/ua-2"} <= standards
-                or {"pdf-1.7", "pdf-2.0"} <= standards
-                or len([s for s in standards if s.startswith("pdf/a-")]) > 1
-                or ("pdf/ua-1" in standards and standards.intersection({"pdf-2.0", "pdf/a-4", "pdf/a-4f"}))):
+                or (requires_17 and requires_20)
+                or len([s for s in standards if s.startswith("pdf/a-")]) > 1):
             raise ContractError("invalid-combination", "purpose, identity or output standards conflict")
         required = ["title", "author.student_record_name", "degree.kind", "degree.course",
                     "academic_units", "submission.month", "abstract",

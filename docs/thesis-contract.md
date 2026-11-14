@@ -115,6 +115,14 @@ from label locale: a non-English final-purpose input requires an English summary
 and a reference for the relevant human decision. A decision reference remains a
 human-review-required diagnostic; its presence is not verified approval.
 
+PDF targets must use one compatible base-version family: PDF/UA-1 and the
+declared PDF/A-2a or PDF/A-3a profiles use PDF 1.7; PDF/UA-2 and the PDF/A-4
+profiles use PDF 2.0. Combining the families fails before rendering. This follows
+the PDF Association's [Tagged PDF FAQ](https://pdfa.org/resource/tagged-pdf-q-a/)
+and [standards table](https://pdfa.org/pdf-standards/), reviewed on
+14 November 2026. Accepting a compatible target selection does not establish
+compiler support or PDF conformance; those require the separate output gates.
+
 The normalized configuration hash uses SHA-256 over UTF-8 JSON serialized with
 sorted keys, separators (comma, colon), ensure_ascii=False and allow_nan=False.
 This is the reference Python encoding recipe, not a claim of RFC 8785

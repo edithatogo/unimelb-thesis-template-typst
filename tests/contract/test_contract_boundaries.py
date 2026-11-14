@@ -114,5 +114,43 @@ class ReportedConfigurationBoundaryTests(unittest.TestCase):
         self.assertEqual(caught.exception.code, "invalid-value")
 
 
+
+class PdfStandardCombinationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.bundle = load_bundle(root=CONTRACT_ROOT)
+
+    def test_incompatible_pdf_base_versions_and_profiles_are_rejected(self):
+        # PDF Association, Tagged PDF FAQ and PDF standards table, read 2026-11-14.
+        # These are invalid target selections, regardless of renderer support.
+        invalid_pairs = (
+            ("pdf/ua-2", "pdf-1.7"),
+            ("pdf/ua-2", "pdf/a-2a"),
+            ("pdf/ua-2", "pdf/a-3a"),
+            ("pdf-2.0", "pdf/a-2a"),
+            ("pdf-2.0", "pdf/a-3a"),
+            ("pdf-1.7", "pdf/a-4"),
+            ("pdf-1.7", "pdf/a-4f"),
+        )
+        for pair in invalid_pairs:
+            for standards in (list(pair), list(reversed(pair))):
+                with self.subTest(standards=standards):
+                    with self.assertRaises(ContractError) as caught:
+                        self.bundle.normalize(metadata={"pdf_standards": standards})
+                    self.assertEqual(caught.exception.code, "invalid-combination")
+
+    def test_compatible_families_remain_inputs_without_certifying_output(self):
+        for standards in (
+            ["pdf-1.7", "pdf/ua-1", "pdf/a-2a"],
+            ["pdf/ua-1", "pdf/a-3a"],
+            ["pdf-2.0", "pdf/ua-2", "pdf/a-4"],
+            ["pdf/ua-2", "pdf/a-4f"],
+        ):
+            with self.subTest(standards=standards):
+                normalized = self.bundle.normalize(metadata={"pdf_standards": standards})
+                self.assertEqual(normalized["configuration"]["pdf_standards"], standards)
+                self.assertEqual(normalized["configuration"]["purpose"], "draft")
+
+
 if __name__ == "__main__":
     unittest.main()
