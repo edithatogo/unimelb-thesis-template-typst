@@ -1,0 +1,103 @@
+[
+  {
+    "id": 27266891,
+    "name": "solo-maintainer-main",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "edithatogo/unimelb-thesis-template-typst",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~DEFAULT_BRANCH"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": true,
+          "require_extra_approval_for_unattributed_changes": false,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "compile (draft) / build",
+              "integration_id": 15368
+            },
+            {
+              "context": "compile (print) / build",
+              "integration_id": 15368
+            },
+            {
+              "context": "Workflow lint",
+              "integration_id": 15368
+            },
+            {
+              "context": "privacy-and-secrets",
+              "integration_id": 15368
+            },
+            {
+              "context": "Verify template and properties",
+              "integration_id": 15368
+            },
+            {
+              "context": "compile (default) / build",
+              "integration_id": 15368
+            },
+            {
+              "context": "compile (screen) / build",
+              "integration_id": 15368
+            },
+            {
+              "context": "Python validation coverage",
+              "integration_id": 15368
+            }
+          ]
+        }
+      }
+    ],
+    "node_id": "RRS_lACqUmVwb3NpdG9yec4-3_n-zgGgD0s",
+    "created_at": "2026-11-15T02:19:04.588+11:00",
+    "updated_at": "2026-11-15T02:47:03.712+11:00",
+    "bypass_actors": [
+      {
+        "actor_id": 15080672,
+        "actor_type": "User",
+        "bypass_mode": "always"
+      }
+    ],
+    "current_user_can_bypass": "always",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets/27266891"
+      },
+      "html": {
+        "href": "https://github.com/edithatogo/unimelb-thesis-template-typst/rules/27266891"
+      }
+    }
+  }
+]

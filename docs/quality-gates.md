@@ -13,7 +13,7 @@ source validation, helper behavior, successful compilation and readable PDFs.
 | Least privilege | Workflows default to `contents: read`. Checkouts do not persist credentials. Only the existing tag-triggered release job receives `contents: write`. |
 | Concurrency | PR/main quality and compile runs cancel stale work. Release runs use tag-specific groups and do not cancel a release already running. |
 | Immutable actions | Actions and reusable workflows use full commit SHAs. The standalone actionlint download is versioned and SHA-256 verified before execution. |
-| Dependency updates | The existing shared Renovate preset owns updates. Explicit GitHub Actions digest pinning reinforces it. A second Dependabot configuration would duplicate that responsibility and is excluded. |
+| Dependency updates | The shared Renovate preset owns routine version updates, with explicit GitHub Actions digest pinning. A second Dependabot version-update configuration is excluded. Existing Dependabot security updates remain enabled until Renovate's effective vulnerability processing is qualified; no security-update handoff is claimed. |
 | CodeQL | Applicable to Python helpers and GitHub Actions, not Typst. The repository already has GitHub default setup for `python` and `actions`; a conflicting advanced workflow is excluded. See the execution-status qualification below. |
 | Dependency review | PRs fail for newly introduced high or critical vulnerabilities in GitHub-supported dependency snapshots, including development and unknown scopes. This is not a Typst package-registry vulnerability audit. |
 | Workflow lint | actionlint checks all workflow YAML, expressions and supported embedded shell checks. It runs on PRs, main, merge groups and the weekly lane. |
@@ -41,6 +41,8 @@ contain at least one page and contain extractable text. Missing executables,
 compiler-version mismatches, nonzero exits and command timeouts fail the gate.
 Each compile/PDF command has a 60-second timeout. Output is written under
 `build/verification/`, with a JSON result and command logs.
+The integrated maintenance increment adds unit tests, package checks and
+desired-policy validation to the same command; see [maintenance](maintenance.md).
 
 The shared Typst workflow additionally checks formatting and compiles
 the thesis under all four profiles: default, draft, screen and print. Its pinned
@@ -126,28 +128,40 @@ missing artifact is not a passing test.
 Review the checks for the exact PR head before integration.
 
 Hosted qualification snapshot, 15 November 2026 (Australia/Brisbane):
-source head `c60bebd294fe2991ae2d29f15f0a87ee80aad153` passed
-[Quality gates](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605767014)
-(full verification, workflow lint, dependency review and all four profiles)
-and [Privacy and secrets](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605766686).
-The extended corpus was correctly skipped for the ordinary PR event.
+final PR #10 head `0f2f2ecc4b4a0ba3e99a1bb2f84bf5cec5ee5068` passed
+[Quality gates](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43608082998)
+(full verification, workflow lint, dependency review and all four profiles),
+[Privacy and secrets](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43608082658)
+and [CodeQL Python/Actions](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43608078096).
+The CodeQL result reported no new alerts in changed code. The extended corpus
+was intentionally skipped for the ordinary PR event.
 
-[CodeQL default setup](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605)
-passed Python and Actions analysis on baseline
-`6d4652936b4eabaac29462ab8caf86e248c0f96a`. Setup completed after that PR
-source head was published, and no analysis for that head was present at this
-snapshot. The baseline result cannot certify changed Python or workflow code.
-[Default setup scans subsequent PR commits](https://docs.github.com/en/code-security/concepts/code-scanning/setup-types);
-verify the resulting current-head analysis and all applicable checks before
-integration. Later commits require their own check results; configuration,
-historical success and skipped jobs are not substitutes for executed analysis.
+PR #10 merged as `b947d5ea0ad1a9c118a9c3670bcb82200052c9a2`; its receiving
+[Quality](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609103472),
+[Privacy](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609103263)
+and [CodeQL](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609102803)
+runs also passed. PR-only dependency review and the scheduled/manual extended
+corpus were intentionally skipped on the push event. Later commits require their
+own applicable results; configuration, historical success and skipped jobs do
+not replace execution. The [parent evidence](quality-frontier-evidence.md) and
+[integration receipt](maintenance/issue-5-integration-receipt.json) record later
+integration. Earlier baseline and local-test observations remain in the
+[historical maintenance receipt](maintenance/issue-5-receipt.json).
 
-No load testing, distributed-system tests or service deployment lanes are
-warranted for this template. Typst itself is outside CodeQL's language coverage.
+Separate load testing, distributed-system tests and service deployment lanes
+were not warranted for issue #4's original foundation. Typst itself is outside
+CodeQL's language coverage.
 The property suite is not a proof of all rendering combinations, a full Typst
 fuzzer, a scientific-content validator or an accessibility conformance audit.
 The normal compile/PDF lane requires the existing package/tool downloads and
 is not described as offline security qualification.
+
+The foundation also did not require a separate consumer/provider contract-test
+lane for its inspected boundaries. This is a scoped historical decision, not
+a repository-wide exclusion. [Issue #14](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/14)
+owns the shared UMTHESIS schemas, fixtures and adapter boundary; its acceptance
+must reassess and test those new contracts through the existing verification
+orchestration. That planned work is not represented as already implemented.
 
 No Conductor directory exists at the inspected baseline. This document records
 the issue's scope, acceptance commands and exclusions without creating a
