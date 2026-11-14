@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "issue": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/5",
+  "audit_date": "2026-11-15",
+  "audit_timezone": "Australia/Brisbane",
+  "baseline_commit": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
+  "branch_observation": {
+    "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/branches/main",
+    "name": "main",
+    "protected": false
+  },
+  "rulesets_observation": {
+    "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets?includes_parents=true",
+    "snapshot_file": "issue-5-observed-rulesets.json",
+    "result": "absent",
+    "desired_state_applied": false
+  },
+  "private_reporting": {
+    "state": "unknown",
+    "reason": "Activation could not be verified through the available integration."
+  },
+  "renovate": {
+    "preset": "github>edithatogo/renovate-config",
+    "dashboard": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/7",
+    "dashboard_author": "renovate[bot]",
+    "dashboard_updated_at": "2026-11-10T08:56:35Z",
+    "state": "active_dependency_discovery",
+    "dependabot_config_present": false
+  },
+  "baseline_checks": [
+    {
+      "name": "Analyze (python)",
+      "head_sha": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
+      "status": "queued",
+      "conclusion": null,
+      "app_id": 15368,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605/job/132476127186"
+    },
+    {
+      "name": "Analyze (actions)",
+      "head_sha": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
+      "status": "queued",
+      "conclusion": null,
+      "app_id": 15368,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605/job/132476126900"
+    },
+    {
+      "name": "privacy-and-secrets",
+      "head_sha": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/42786418792/job/129728646191"
+    }
+  ],
+  "historical_compile_evidence": {
+    "head_sha": "28bb38fd3b2965b8d102acd97e0abcbf1cd961b6",
+    "run": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/37292010225",
+    "conclusion": "success",
+    "contexts": [
+      "compile (default) / build",
+      "compile (draft) / build",
+      "compile (screen) / build",
+      "compile (print) / build"
+    ],
+    "qualification": "historical; recheck the final proposed head before activation"
+  },
+  "candidate_checks": {
+    "contexts": [
+      "compile (default) / build",
+      "compile (draft) / build",
+      "compile (screen) / build",
+      "compile (print) / build",
+      "privacy-and-secrets",
+      "Workflow lint",
+      "Verify template and properties",
+      "Python validation coverage"
+    ],
+    "integration_id": 15368,
+    "final_head_qualified": false
+  },
+  "coverage": {
+    "scope": [
+      "scripts/preflight.py",
+      "scripts/validate_template.py",
+      "scripts/check_repository_policy.py"
+    ],
+    "minimum_percent": 80,
+    "mode": "line_and_branch",
+    "execution": "local Python 3.12.14 passed; hosted Python 3.15.1 pending",
+    "codecov_repository_active": "unverified",
+    "codecov_commit_status": "unverified",
+    "not_measured": [
+      "Typst source and layout",
+      "other Python helpers",
+      "shell scripts"
+    ],
+    "local_result": {
+      "combined_percent": 97.5925925925926,
+      "covered_lines": 357,
+      "statements": 366,
+      "covered_branches": 170,
+      "branches": 174,
+      "excluded_lines": 0
+    },
+    "source_sha256": {
+      "scripts/check_repository_policy.py": "7496ae616f04baedbdfad9918278199a1b83ffce4491065d066ae744c72f40cb",
+      "scripts/preflight.py": "6c98b519178a46eacc99d6fc70d00fe8e2324631072cc40d1435875a7ce635b6",
+      "scripts/validate_template.py": "2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98"
+    }
+  },
+  "external_blockers": [
+    "Ruleset activation: available GitHub connector has no administration-write operation; cloud browser has no signed-in GitHub session.",
+    "Hosted execution and Codecov activation: exact candidate runs and service status must still be verified."
+  ],
+  "held_work": {
+    "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9",
+    "head_sha": "52b9ce77354183fcfe7c4a663a3901b6665e702c",
+    "state": "draft",
+    "requirements": [
+      "isolated runner",
+      "pinned scanner image",
+      "local GLiNER provisioning",
+      "real integration validation"
+    ]
+  },
+  "acceptance": {
+    "issue_complete": false,
+    "required_human_approvals": 0,
+    "codeowners_gate": false,
+    "team_gate": false,
+    "owner_recovery_preserved_in_desired_policy": true
+  },
+  "integration_base": {
+    "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/10",
+    "branch": "fix/issue-4-quality-gates",
+    "head_sha": "c60bebd294fe2991ae2d29f15f0a87ee80aad153",
+    "reason": "Reuse its canonical verify command, property harness and TOML fixes rather than duplicate them."
+  },
+  "local_validation": {
+    "python": "3.12.14",
+    "unit_tests": 54,
+    "result": "passed",
+    "scope": "Python unit tests and desired/observed policy comparison; full repository compilation requires hosted tools",
+    "commands": [
+      "python3 -m unittest discover -s tests/maintenance -v",
+      "make coverage with coverage.py 7.17.3",
+      "python3 -m compileall -q scripts tests",
+      "make -n verify",
+      "YAML parsing and trigger/permission assertions"
+    ],
+    "policy_results": {
+      "desired": "valid desired-only",
+      "empty_baseline_observation": "drift (exit 1)",
+      "unavailable_observation": "unknown (covered by unit tests)"
+    }
+  }
+}

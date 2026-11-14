@@ -1,0 +1,141 @@
+# Solo-maintainer maintenance
+
+Issue [#5](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/5)
+tracks source checks, protection settings, dependency updates and coverage.
+The machine-readable [audit receipt](maintenance/issue-5-receipt.json) separates
+observed settings from the intended configuration. A committed ruleset file
+does not activate GitHub protection.
+
+## Reproduce the checks
+
+Install the tools and Python coverage dependency described in
+[CONTRIBUTING.md](../CONTRIBUTING.md), then run from the repository root:
+
+```sh
+make verify
+make coverage
+```
+
+The first command extends issue #4's canonical verification: unit tests, structural
+and package checks, the bounded property suite, desired-policy validation, and
+thesis/sample compilation with PDF integrity/text checks. The shared Typst matrix in Quality gates
+separately checks formatting and all four thesis build profiles. It fails on any failing command.
+The structural delimiter scan remains advisory; Typst compilation is the syntax
+gate. Renovate, rather than the legacy package inventory script, checks updates.
+
+Coverage is line and branch execution in `scripts/preflight.py`,
+`scripts/validate_template.py` and `scripts/check_repository_policy.py`.
+The 80% floor applies to those three validation tools only. Tests use synthetic
+repositories and mocked compiler failures; the separate build invokes real
+Typst. The report does not measure Typst/layout coverage, every Python helper,
+or shell-script coverage. Reports are written to `build/coverage.xml` and
+`build/coverage.json`.
+
+The Maintenance workflow runs on every PR, pushes to main, merge groups,
+manual dispatch and a weekly schedule. It retains coverage reports for 14 days;
+the Quality gates workflow retains the compilation evidence and PDFs. Its separate upload job uses Codecov OIDC; only that job receives
+`id-token: write`. Fork PRs still run checks and retain their evidence; they do
+not enter the OIDC upload job. Upload errors fail the upload job.
+
+## Dependency and bot inventory
+
+Renovate's [Dependency Dashboard #7](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/7)
+was observed with current workflow and Typst dependencies on 15 November 2026
+(Brisbane time). `renovate.json` already inherits
+`github>edithatogo/renovate-config`. There is no Dependabot configuration to
+remove. Keep one updater per ecosystem and verify fresh bot-produced evidence
+before changing update coverage.
+
+GitHub Actions is the observed check producer (app ID 15368). The candidate
+ruleset requires these exact contexts:
+
+| Context | Purpose |
+| --- | --- |
+| `compile (default) / build` | Shared default-profile format/build/PDF check |
+| `compile (draft) / build` | Existing draft-profile check |
+| `compile (screen) / build` | Existing screen-profile check |
+| `compile (print) / build` | Existing print-profile check |
+| `privacy-and-secrets` | Existing Presidio and Gitleaks baseline |
+| `Workflow lint` | Workflow syntax and shell validation from issue #4 |
+| `Verify template and properties` | Canonical source, property, unit and PDF verification |
+| `Python validation coverage` | Validation-tool tests, policy and coverage floor |
+
+The compile contexts have historical success. The quality and coverage contexts
+are new in PR #10 and this change.
+Require successful, completed runs on the current candidate before activating
+this list. Check names alone, skipped jobs and queued runs are insufficient.
+Keep Codecov service contexts, queued CodeQL setup and the conditional offline
+security pipeline out of required checks until independently qualified.
+No bot receives a ruleset bypass.
+
+## Activate and verify protection
+
+The intended configuration is
+[`.github/rulesets/solo-maintainer.json`](../.github/rulesets/solo-maintainer.json).
+It prevents default-branch deletion and force pushes, requires PRs and current
+automated checks, and sets mandatory approving reviews to zero. It adds no
+CODEOWNERS or team-review gate. The sole recovery actor is repository owner
+`edithatogo` (GitHub user ID 15080672), with audited `always` bypass rather than
+`exempt` bypass.
+
+As recorded in the baseline receipt, main was unprotected and the ruleset list
+was empty. Administration writes were unavailable to the integration, and the cloud browser
+was signed out of GitHub, so activation is a separate outstanding operation.
+
+After every candidate context has succeeded, an administrator can import the
+JSON under repository **Settings → Rules → Rulesets**, or create it with:
+
+```sh
+gh api --method POST repos/edithatogo/unimelb-thesis-template-typst/rulesets \
+  --input .github/rulesets/solo-maintainer.json
+```
+
+Re-read the ruleset list first. If this named ruleset now exists, compare its
+full settings and update its existing ID rather than creating a duplicate.
+Do not create an admin credential or grant additional app access just to run
+this command in CI. GitHub's [rules REST API](https://docs.github.com/en/rest/repos/rules)
+requires administration write permission for activation.
+
+Export every full applicable ruleset, including bypass actors, into a JSON
+array. The collection/list response contains summaries and is insufficient
+when the list is nonempty. Then compare the fresh snapshot:
+
+```sh
+python3 scripts/check_repository_policy.py \
+  --desired .github/rulesets/solo-maintainer.json \
+  --observed build/observed-rulesets.json
+```
+
+The checker returns 0 for a matching supplied snapshot, 1 for drift, and 2 for
+unknown/unreadable evidence. With `--desired` alone, success validates only the
+intended policy. The checked-in empty baseline snapshot should produce drift:
+
+```sh
+python3 scripts/check_repository_policy.py \
+  --desired .github/rulesets/solo-maintainer.json \
+  --observed docs/maintenance/issue-5-observed-rulesets.json
+```
+
+Record the observation time, exact source commit, URLs, ruleset ID and outcome
+when updating the receipt. This offline checker does not prove snapshot
+freshness or cover separate legacy branch-protection settings; inspect those
+as well. HTTP 403/404 and missing bypass evidence remain unknown.
+
+Use owner recovery only to repair a lockout or broken policy. Record the reason,
+affected commit, checks available at the time and restoration in an issue/PR.
+Restore normal checks after recovery. Routine dependency updates use the same
+automated gates as other changes.
+
+## Outstanding external evidence
+
+A successful coverage upload is only transport evidence. Verify that
+[the Codecov repository](https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst)
+shows the report for the exact tested SHA, then inspect GitHub for the resulting
+`codecov/project` or `codecov/patch` context. Keep the issue open until both
+service activation and commit-status evidence are recorded.
+
+Private vulnerability reporting was not independently verified; follow the
+conditional reporting route in [SECURITY.md](../SECURITY.md).
+[PR #9](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9) retains
+its isolated-runner, pinned-image, local-GLiNER and real-integration conditions.
+The issue #5 changes do not satisfy those conditions.

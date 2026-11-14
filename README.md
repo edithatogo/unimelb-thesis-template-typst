@@ -2,6 +2,11 @@
 
 A Typst template for University of Melbourne theses.
 
+For contributor setup and the canonical `make verify` command, see
+[CONTRIBUTING.md](CONTRIBUTING.md). Repository protection, dependency updates,
+coverage scope and outstanding activation evidence are documented in
+[Maintenance](docs/maintenance.md).
+
 ## ⚠️ Important Disclaimer
 
 **This template contains fabricated, absurd content for demonstration purposes only.**

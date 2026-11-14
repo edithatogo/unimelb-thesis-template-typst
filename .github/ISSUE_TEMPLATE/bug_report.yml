@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a reproducible template or tooling problem.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use a small synthetic example. Do not attach private theses, research data
+        or credentials. For vulnerabilities, read SECURITY.md before posting.
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Include the command, source example and steps needed to reproduce.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Toolchain and build profile
+      description: Include OS, Typst version, Python version if relevant, profile and template commit.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      description: Include relevant make verify output or a hosted CI link; remove private paths and content.
+    validations:
+      required: false
