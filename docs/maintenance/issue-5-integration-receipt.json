@@ -118,9 +118,9 @@
       "Python validation coverage"
     ],
     "integration_id": 15368,
-    "final_head_qualified": false,
+    "final_head_qualified": true,
     "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
-    "observed_at": "2026-11-14T15:52:18Z",
+    "observed_at": "2026-11-14T16:26Z",
     "required_actions_qualified": true,
     "evidence": [
       {
@@ -196,7 +196,7 @@
         "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/job/132491525752"
       }
     ],
-    "qualification": "All eight intended GitHub Actions contexts passed on this source head. CodeQL also passed. The coverage upload and Codecov-owned result remain pending, so overall provider acceptance is not complete."
+    "qualification": "All eight intended GitHub Actions contexts, applicable source checks and CodeQL passed on this source head. The OIDC upload and Codecov-owned result also succeeded. Receiving-main and final documentation qualification remain separate."
   },
   "coverage": {
     "scope": [
@@ -206,9 +206,9 @@
     ],
     "minimum_percent": 80,
     "mode": "line_and_branch",
-    "execution": "Local canonical verification and hosted Python validation coverage passed on Python 3.15.1 for the current head. The separate OIDC upload job is queued and no current-head Codecov-owned result was observed.",
-    "codecov_repository_active": "evidenced by service-owned check for 66beec5cd7b78a9cdc1aad37dd288350184ef14d",
-    "codecov_commit_status": "pending for 7e2d09c934c3c9805a222f39c6fd073885196b48; historical success remains scoped to 66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "execution": "Local canonical verification and hosted Python validation coverage passed on Python 3.15.1 for the current source head. The separate OIDC upload and Codecov-owned check also completed successfully for that exact SHA.",
+    "codecov_repository_active": "evidenced by Codecov-owned check 132503365652 for 7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "codecov_commit_status": "success for 7e2d09c934c3c9805a222f39c6fd073885196b48; receiving-main evidence remains pending",
     "not_measured": [
       "Typst source and layout",
       "other Python helpers",
@@ -241,29 +241,38 @@
     "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
     "current_service_evidence": {
       "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
-      "observed_at": "2026-11-14T15:52:18Z",
+      "observed_at": "2026-11-14T16:26Z",
       "check_runs_url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/7e2d09c934c3c9805a222f39c6fd073885196b48/check-runs?per_page=100",
-      "state": "not_reported",
-      "observed_check_count": 14,
+      "state": "completed",
+      "observed_check_count": 15,
       "check_inventory_complete": true,
       "expected_check": "codecov/patch",
       "expected_app_id": 254,
-      "check_id": null,
-      "conclusion": null,
+      "check_id": 132503365652,
+      "conclusion": "success",
       "upload": {
         "run_id": 43609602102,
         "job_id": 132495689999,
-        "status": "queued",
-        "conclusion": null,
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/job/132495689999"
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/job/132495689999",
+        "oidc_step_conclusion": "success"
       },
-      "qualification": "No Codecov app 254 check was present for this head at the recorded read. Historical service activity is not a pass for this revision."
+      "qualification": "Codecov app 254 processed this exact source SHA and its patch check passed. The 98.91% patch measure is distinct from 97.74% combined helper coverage; neither qualifies receiving-main execution.",
+      "check": "codecov/patch",
+      "app_id": 254,
+      "status": "completed",
+      "completed_at": "2026-11-14T16:03:15Z",
+      "diff_percent": 98.91,
+      "target_percent": 80,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/runs/132503365652",
+      "details_url": "https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/12"
     }
   },
   "external_blockers": [
-    "Current-head coverage-upload job 132495689999 remains queued; an actual Codecov-owned result for 7e2d09c934c3c9805a222f39c6fd073885196b48 is still required.",
-    "PR12 receiving-main SHA, its applicable hosted checks and provider evidence remain pending integration.",
-    "Draft central classification PR142 awaits final consumer Codecov and receiving-main qualification before merge."
+    "Actual PR12 receiving main 937579897af22d7d28f20a49e94a1bdbe4e05855 has five queued runs, no started jobs and no Codecov-owned result at the recorded observation; receiving-main qualification remains pending.",
+    "Required central classification PR142 records the qualified source/provider evidence but still requires consumer receiving-main qualification and its own final-head gates before integration.",
+    "The final refreshed documentation head and its receiving revision still require their applicable checks."
   ],
   "held_work": {
     "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9",
@@ -285,7 +294,7 @@
     "live_ruleset_match": true,
     "required_actions_passed_on_source_head": true,
     "codeql_passed_on_source_head": true,
-    "current_head_codecov_passed": false,
+    "current_head_codecov_passed": true,
     "receiving_main_qualified": false,
     "central_classification_published": true,
     "central_classification_merged": false,
@@ -383,8 +392,8 @@
   },
   "hosted_validation": {
     "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
-    "observed_at": "2026-11-14T15:52:18Z",
-    "state": "provider_pending",
+    "observed_at": "2026-11-14T16:26Z",
+    "state": "completed",
     "runs": [
       {
         "workflow": "Quality gates",
@@ -398,8 +407,8 @@
         "workflow": "Maintenance",
         "run_id": 43609602102,
         "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
-        "status": "queued",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
         "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102"
       },
       {
@@ -440,8 +449,8 @@
       "conclusion": "success",
       "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/runs/132495787788"
     },
-    "qualified": false,
-    "qualification": "Quality gates, Privacy, Python validation coverage and CodeQL passed on this source head. Maintenance as a whole remains incomplete because coverage-upload is queued; no current-head Codecov result was observed. The scheduled extended property corpus was intentionally skipped on this ordinary PR."
+    "qualified": true,
+    "qualification": "All applicable source-head quality, privacy, maintenance and CodeQL checks passed, including the OIDC coverage upload and Codecov-owned result. The scheduled extended property corpus was intentionally skipped on this ordinary PR. These source-head results do not qualify receiving-main or a later documentation head."
   },
   "independent_review": {
     "head_sha": "33c9a4fb4c27a906d7e6fb8bd037feb8bef05724",
@@ -521,7 +530,7 @@
       "excluded_lines": 0
     }
   },
-  "observed_at": "2026-11-14T15:52:18Z",
+  "observed_at": "2026-11-14T16:30:42Z",
   "source_revision": {
     "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
     "tree": "dad36e87cc3971538228056a04c091e59023ab98",
@@ -694,18 +703,65 @@
   },
   "receiving_main": {
     "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/12",
-    "state": "pending_integration",
-    "commit": null,
-    "tree": null,
+    "state": "merged_execution_pending",
+    "commit": "937579897af22d7d28f20a49e94a1bdbe4e05855",
+    "tree": "dad36e87cc3971538228056a04c091e59023ab98",
     "qualified": false,
-    "runs": [],
+    "runs": [
+      {
+        "workflow": "Quality gates",
+        "run_id": 43613548339,
+        "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339"
+      },
+      {
+        "workflow": "Maintenance",
+        "run_id": 43613547923,
+        "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923"
+      },
+      {
+        "workflow": "Privacy and secrets",
+        "run_id": 43613547805,
+        "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547805"
+      },
+      {
+        "workflow": "CodeQL default setup",
+        "run_id": 43613547696,
+        "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547696"
+      },
+      {
+        "workflow": "Dependency graph update",
+        "run_id": 43613554074,
+        "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613554074"
+      }
+    ],
     "codecov": {
-      "state": "pending_receiving_revision",
-      "head_sha": null,
+      "state": "not_reported",
+      "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
+      "expected_app_id": 254,
       "check_id": null,
-      "conclusion": null
+      "conclusion": null,
+      "check_runs_url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/937579897af22d7d28f20a49e94a1bdbe4e05855/check-runs?per_page=100"
     },
-    "qualification": "Populate only from the actual receiving commit and its executed checks; do not substitute a candidate head or GitHub's speculative merge commit."
+    "qualification": "Actual PR12 merge identity is recorded. At the stated minute-resolution observation, all five registered runs were queued, no job had started, and no receiving-main Codecov-owned result was observed. Matching the qualified source tree is not an executed receiving-revision pass. Final documentation and its receiving revision also require applicable checks.",
+    "source_head": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "source_tree_matches": true,
+    "observed_at": "2026-11-14T16:26Z",
+    "job_execution_started": false
   },
   "central_classification": {
     "repository": "edithatogo/repository-standards",
@@ -713,22 +769,23 @@
     "baseline_commit": "10e59936e132f28597cb7d2f10efa27629dc4837",
     "state": "draft_pull_request",
     "pull_request": "https://github.com/edithatogo/repository-standards/pull/142",
-    "head_sha": "ca8b9ecc50f9862502b17d035be951e807da7b1c",
-    "tree": "5ab3a216a9c8ad4424d2495d76890d0f12034f52",
+    "head_sha": "41382752a2a6d0e9c95ecb0d4669bd0432ddf041",
+    "tree": "19824d4343013134dcb765b771f27453f23ab2d9",
     "paths": [
       "registry/repositories.json (this consumer's row only)",
       "docs/typesetting-unimelb-typst-assessment.md"
     ],
-    "codecov_evidence_revision": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "codecov_evidence_revision": "7e2d09c934c3c9805a222f39c6fd073885196b48",
     "receiving_main_qualified": false,
     "archetype": "typesetting-template",
     "profile": "typst",
     "supply_chain_profile": "published",
-    "qualification": "Draft PR142 awaits current consumer Codecov and receiving-main qualification before merge. Classification and component evidence only; no new collector enforcement or completed artifact-bound attestation chain is claimed.",
+    "qualification": "Central integration remains an explicit issue5/6 dependency. The refreshed draft PR142 records qualified source/provider evidence for 7e2d09c and actual consumer merge 9375798; its pinned assessment and PR metadata were read back before updating this receipt. Consumer receiving-main qualification and the central PR final-head gates remain pending. This classification does not claim new collector enforcement or a completed artifact-bound attestation chain.",
     "overlapping_registry_pull_requests": [
       119,
       141
-    ]
+    ],
+    "observed_at": "2026-11-14T16:30:42Z"
   },
   "scope": {
     "parent_issue": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/6",

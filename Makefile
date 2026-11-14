@@ -1,7 +1,7 @@
 # Makefile for University of Melbourne Thesis Template
 # Provides automated compile/watch/clean recipes with profile support
 
-.PHONY: verify verify-source test-properties test-properties-deep help compile compile-sample compile-all compile-parallel compile-timed watch watch-sample watch-all clean clean-all clean-profile clean-logs clean-build clean-cache full-clean profiles test validate status profile-build
+.PHONY: verify-python verify-typst coverage verify verify-source test-properties test-properties-deep help compile compile-sample compile-all compile-parallel compile-timed watch watch-sample watch-all clean clean-all clean-profile clean-logs clean-build clean-cache full-clean profiles test validate status profile-build
 
 # Default target
 help:
@@ -28,6 +28,9 @@ help:
 	@echo "  profile-build [PROFILE=<profile>] - Analyze build performance and dependencies"
 	@echo "  verify                          - Run source, property and PDF verification"
 	@echo "  verify-source                   - Run source validation and bounded properties"
+	@echo "  verify-python                   - Unit tests and source/policy checks"
+	@echo "  verify-typst                    - Compile and validate thesis/sample PDFs"
+	@echo "  coverage                        - Measure Python validation-tool coverage"
 	@echo "  test-properties-deep            - Run the larger replayable property suite"
 	@echo "  test                            - Run validation tests"
 	@echo "  validate                        - Run preflight validation"
@@ -296,3 +299,23 @@ test-properties:
 
 test-properties-deep:
 	$(PYTHON) tests/test_properties.py --seed $(PROPERTY_SEED) --cases 512 --report build/property-tests-scheduled.json
+
+# Extend the issue #4 verification gate without replacing its properties/PDF checks.
+verify: verify-python
+
+verify-python:
+	$(PYTHON) -m unittest discover -s tests/maintenance -v
+	$(PYTHON) scripts/validate_template.py
+	$(PYTHON) scripts/check_packages.py
+	$(PYTHON) scripts/check_repository_policy.py --desired .github/rulesets/solo-maintainer.json
+
+verify-typst:
+	$(PYTHON) scripts/verify.py
+
+coverage:
+	@mkdir -p build
+	$(PYTHON) -m coverage erase
+	$(PYTHON) -m coverage run -m unittest discover -s tests/maintenance -v
+	$(PYTHON) -m coverage xml -o build/coverage.xml
+	$(PYTHON) -m coverage json -o build/coverage.json
+	$(PYTHON) -m coverage report --show-missing --fail-under=80

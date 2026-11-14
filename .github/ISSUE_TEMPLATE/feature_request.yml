@@ -1,0 +1,29 @@
+name: Feature request
+description: Suggest a focused template or tooling improvement.
+title: "[Feature] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic examples and avoid private thesis content or research data.
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What problem does the current template leave unresolved?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the result and any compatibility requirements.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: What example, rendered result or automated check would show that this works?
+    validations:
+      required: true

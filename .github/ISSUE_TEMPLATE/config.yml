@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security reporting
+    url: https://github.com/edithatogo/unimelb-thesis-template-typst/security/policy
+    about: Read the reporting policy before sharing any vulnerability details.

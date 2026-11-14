@@ -1,0 +1,27 @@
+# Coverage is limited to the three Python validation tools in .coveragerc.
+# Typst layout correctness is checked by compilation/PDF validation separately.
+codecov:
+  require_ci_to_pass: true
+
+coverage:
+  status:
+    project:
+      default:
+        target: 80%
+        threshold: 0%
+        flags:
+          - validation-tools
+    patch:
+      default:
+        target: 80%
+        flags:
+          - validation-tools
+
+flags:
+  validation-tools:
+    paths:
+      - scripts/preflight.py
+      - scripts/validate_template.py
+      - scripts/check_repository_policy.py
+
+comment: false

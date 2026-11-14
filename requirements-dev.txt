@@ -1,0 +1,2 @@
+# Test coverage only; validation and unittest need no third-party packages.
+coverage==7.17.3
