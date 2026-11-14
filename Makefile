@@ -96,13 +96,19 @@ compile-parallel: validate_profile
 	@echo "Compiling thesis and sample chapter in parallel with profile: $(PROFILE)"
 	@if [ "$(PROFILE)" = "default" ]; then \
 		($(TYPST_COMPILE) $(THESIS_SRC) $(THESIS_OUT) && echo "Thesis compiled: $(THESIS_OUT)") & \
+		thesis_pid=$$!; \
 		($(TYPST_COMPILE) $(SAMPLE_SRC) $(SAMPLE_OUT) && echo "Sample chapter compiled: $(SAMPLE_OUT)") & \
-		wait; \
+		sample_pid=$$!; \
 	else \
 		($(TYPST_COMPILE) --input profile=$(PROFILE) $(THESIS_SRC) $(THESIS_OUT) && echo "Thesis compiled: $(THESIS_OUT)") & \
+		thesis_pid=$$!; \
 		($(TYPST_COMPILE) --input profile=$(PROFILE) $(SAMPLE_SRC) $(SAMPLE_OUT) && echo "Sample chapter compiled: $(SAMPLE_OUT)") & \
-		wait; \
-	fi
+		sample_pid=$$!; \
+	fi; \
+	compile_status=0; \
+	wait "$$thesis_pid" || compile_status=$$?; \
+	wait "$$sample_pid" || compile_status=$$?; \
+	exit "$$compile_status"
 	@echo "Parallel compilation complete"
 
 # Timed compilation
