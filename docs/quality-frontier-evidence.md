@@ -15,8 +15,9 @@ This is a dated acceptance record, not a live settings monitor.
 
 ## Latest foundation and integration status
 
-Final integration observation: **2026-11-14T21:31:11Z** (15 November 2026,
-Brisbane). The parallel [citation metadata PR #26](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/26)
+Latest reconciliation: **2026-11-14T21:36:50Z** (15 November 2026,
+Brisbane). The branch/ruleset capture remains `2026-11-14T21:31:11Z`;
+later central receiving-check observations have their own receipt timestamp. The parallel [citation metadata PR #26](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/26)
 added only `CITATION.cff` to main `7d7e6a713486cd83cc06cbbac0c1a967a1c87f07`.
 This update incorporates that commit and preserves the citation blob unchanged;
 the implementation and workflow blobs still match qualified main `9375798`.

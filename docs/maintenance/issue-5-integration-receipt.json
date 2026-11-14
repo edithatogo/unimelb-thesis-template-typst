@@ -538,7 +538,7 @@
       "excluded_lines": 0
     }
   },
-  "observed_at": "2026-11-14T21:31:11Z",
+  "observed_at": "2026-11-14T21:36:50Z",
   "source_revision": {
     "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
     "tree": "dad36e87cc3971538228056a04c091e59023ab98",
@@ -976,7 +976,7 @@
       119,
       141
     ],
-    "observed_at": "2026-11-14T21:31:11Z",
+    "observed_at": "2026-11-14T21:36:50Z",
     "merge_commit": "e195af3b0f46db74e797c5bf2e177b7882085186",
     "merge_method": "squash",
     "merged_at": "2026-11-14T21:30:48Z",
@@ -1114,7 +1114,8 @@
           "url": "https://github.com/edithatogo/repository-standards/actions/runs/43643210056/job/132595104740"
         }
       ],
-      "qualification": "All five registered push checks completed successfully on this exact receiving commit. The PR-only policy gate was qualified on the final source head; identical trees were verified after squash integration."
+      "qualification": "All five registered push checks completed successfully on this exact receiving commit. The PR-only policy gate was qualified on the final source head; identical trees were verified after squash integration.",
+      "observed_at": "2026-11-14T21:36:50Z"
     }
   },
   "scope": {
@@ -1344,5 +1345,6 @@
     "production_source_hashes_match_measured_files": true,
     "qualification": "Executed locally during this evidence refresh; the later citation and central-reference edits change only metadata/docs. Final published-head hosted checks remain separately required.",
     "python_resolution": "CPython 3.15.1 selected through the Makefile PYTHON variable"
-  }
+  },
+  "observation_scope": "Overall reconciliation time includes the latest central receiving-check read. Earlier branch/ruleset capture timestamps and individual result timestamps are retained in their own sections."
 }
