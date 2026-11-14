@@ -14,7 +14,7 @@ import sys
 
 ACTIONS_APP_ID = 15368
 OWNER_ID = 15080672
-REQUIRED_RULES = {"deletion", "non_fast_forward", "required_status_checks"}
+REQUIRED_RULES = {"deletion", "non_fast_forward", "pull_request", "required_status_checks"}
 PR_FLAGS = {
     "dismiss_stale_reviews_on_push", "require_code_owner_review",
     "require_last_push_approval", "required_review_thread_resolution",
@@ -126,6 +126,8 @@ def validate_ruleset(data):
                 elif flag in {"require_code_owner_review", "require_last_push_approval",
                               "require_extra_approval_for_unattributed_changes"} and value:
                     errors.append(f"human approval gate is forbidden: {flag}")
+            if params.get("required_review_thread_resolution") is not True:
+                errors.append("review conversation resolution must be required")
             if params.get("required_reviewers", []) != []:
                 errors.append("required user/team reviewers are forbidden")
             methods = params.get("allowed_merge_methods", ["merge", "squash", "rebase"])

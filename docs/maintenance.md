@@ -75,14 +75,24 @@ No bot receives a ruleset bypass.
 The intended configuration is
 [`.github/rulesets/solo-maintainer.json`](../.github/rulesets/solo-maintainer.json).
 It prevents default-branch deletion and force pushes, requires PRs and current
-automated checks, and sets mandatory approving reviews to zero. It adds no
+automated checks, requires review conversations to be resolved, and sets
+mandatory approving reviews to zero. It adds no
 CODEOWNERS or team-review gate. The sole recovery actor is repository owner
 `edithatogo` (GitHub user ID 15080672), with audited `always` bypass rather than
 `exempt` bypass.
 
+[UMTHESIS GOV-01 and section 7](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13)
+require conversation resolution while preserving zero mandatory approvals. The
+policy validator rejects a missing pull-request rule and a false or omitted
+`required_review_thread_resolution` setting. Verify the explicit `true` value
+in the saved GitHub ruleset as part of settings readback.
+
 As recorded in the baseline receipt, main was unprotected and the ruleset list
-was empty. Administration writes were unavailable to the integration, and the cloud browser
-was signed out of GitHub, so activation is a separate outstanding operation.
+was empty. An authenticated settings inspection on 15 November 2026 confirmed
+that no ruleset or classic branch-protection rule had yet been created.
+Administration writes remain unavailable to the connector; the authenticated
+settings interface can apply the policy after the final candidate checks pass.
+Activation and full readback are still required.
 
 After every candidate context has succeeded, an administrator can import the
 JSON under repository **Settings → Rules → Rulesets**, or create it with:
@@ -151,8 +161,15 @@ against the 80% target. This establishes that the service processed that
 repository/commit. The subsequent policy-checker fix needs its own hosted
 coverage and service result; protection activation/readback remains outstanding.
 
-Private vulnerability reporting was not independently verified; follow the
-conditional reporting route in [SECURITY.md](../SECURITY.md).
+The authenticated [Advanced Security settings](https://github.com/edithatogo/unimelb-thesis-template-typst/settings/security_analysis)
+inspection on 15 November 2026 confirmed that private vulnerability reporting,
+Dependabot alerts and secret push protection are enabled. Dependabot security
+updates are also enabled, although no version-update configuration exists.
+Renovate's inherited preset enables vulnerability handling; dashboard activity
+alone does not establish its effective alert permissions or security-fix
+execution. Preserve the existing security-update coverage until a replacement
+is qualified, and do not claim that no security-update capabilities overlap.
+Follow [SECURITY.md](../SECURITY.md) for confidential reports.
 [PR #9](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9) retains
 its isolated-runner, pinned-image, local-GLiNER and real-integration conditions.
 The issue #5 changes do not satisfy those conditions.

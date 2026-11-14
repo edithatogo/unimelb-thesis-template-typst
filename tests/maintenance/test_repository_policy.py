@@ -36,6 +36,7 @@ def valid_policy():
                 "required_approving_review_count": 0,
                 "require_code_owner_review": False,
                 "require_last_push_approval": False,
+                "required_review_thread_resolution": True,
             }},
         ],
     }
@@ -50,10 +51,14 @@ class PolicyValidationTests(unittest.TestCase):
         errors = policy.validate_ruleset(value)
         self.assertTrue(any(fragment in error for error in errors), errors)
 
+    def test_checked_in_desired_policy_meets_solo_maintainer_contract(self):
+        path = Path(__file__).resolve().parents[2] / ".github/rulesets/solo-maintainer.json"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(policy.validate_ruleset(data), [])
+
     def test_minimal_valid_policy_and_owner_recovery(self):
         data = valid_policy()
         self.assertEqual(policy.validate_ruleset(data), [])
-        data["rules"] = data["rules"][:3]
         data["conditions"]["ref_name"]["include"] = ["refs/heads/main"]
         data["bypass_actors"] = [
             {"actor_id": 15080672, "actor_type": "User", "bypass_mode": "always"}
@@ -82,12 +87,23 @@ class PolicyValidationTests(unittest.TestCase):
         data["conditions"] = {"ref_name": {}, "repository_name": {}}
         self.assert_invalid(data, "conditions must contain only")
 
-    def test_deletion_and_force_push_protection_are_mandatory(self):
-        for kind in ("deletion", "non_fast_forward", "required_status_checks"):
+    def test_protection_and_pull_request_rules_are_mandatory(self):
+        for kind in ("deletion", "non_fast_forward", "required_status_checks", "pull_request"):
             with self.subTest(kind=kind):
                 data = valid_policy()
                 data["rules"] = [item for item in data["rules"] if item["type"] != kind]
                 self.assert_invalid(data, f"missing required rule: {kind}")
+
+    def test_review_conversation_resolution_must_be_explicitly_required(self):
+        for omit in (False, True):
+            with self.subTest(omit=omit):
+                data = valid_policy()
+                params = rule(data, "pull_request")["parameters"]
+                if omit:
+                    del params["required_review_thread_resolution"]
+                else:
+                    params["required_review_thread_resolution"] = False
+                self.assert_invalid(data, "review conversation resolution must be required")
 
     def test_approval_and_team_gates_are_rejected(self):
         mutations = [
