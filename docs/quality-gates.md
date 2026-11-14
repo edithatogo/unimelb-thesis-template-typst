@@ -123,11 +123,24 @@ missing artifact is not a passing test.
 
 ## Acceptance and exclusions
 
-Review the checks for the exact PR head before integration. The CodeQL default
-setup was observed in [run 43604503605](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605)
-with Python and Actions jobs queued when this change was prepared. Configuration
-alone is not successful analysis; require completed CodeQL evidence and do not
-represent that queued run as passing.
+Review the checks for the exact PR head before integration.
+
+Hosted qualification snapshot, 15 November 2026 (Australia/Brisbane):
+source head `c60bebd294fe2991ae2d29f15f0a87ee80aad153` passed
+[Quality gates](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605767014)
+(full verification, workflow lint, dependency review and all four profiles)
+and [Privacy and secrets](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605766686).
+The extended corpus was correctly skipped for the ordinary PR event.
+
+[CodeQL default setup](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605)
+passed Python and Actions analysis on baseline
+`6d4652936b4eabaac29462ab8caf86e248c0f96a`. Setup completed after that PR
+source head was published, and no analysis for that head was present at this
+snapshot. The baseline result cannot certify changed Python or workflow code.
+[Default setup scans subsequent PR commits](https://docs.github.com/en/code-security/concepts/code-scanning/setup-types);
+verify the resulting current-head analysis and all applicable checks before
+integration. Later commits require their own check results; configuration,
+historical success and skipped jobs are not substitutes for executed analysis.
 
 No load testing, distributed-system tests or service deployment lanes are
 warranted for this template. Typst itself is outside CodeQL's language coverage.

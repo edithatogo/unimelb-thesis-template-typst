@@ -146,9 +146,13 @@
   },
   "integration_base": {
     "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/10",
-    "branch": "fix/issue-4-quality-gates",
-    "head_sha": "c60bebd294fe2991ae2d29f15f0a87ee80aad153",
-    "reason": "Reuse its canonical verify command, property harness and TOML fixes rather than duplicate them."
+    "branch": "main",
+    "head_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+    "qualified_pr_head": "0f2f2ecc4b4a0ba3e99a1bb2f84bf5cec5ee5068",
+    "merge_method": "merge",
+    "tree": "24f3dfbafd35c239bca8a43c77cf1b4aadb738cc",
+    "reason": "PR10 was integrated after all applicable head checks passed. GitHub automatically retargeted PR12 to main; this follow-up incorporates that receiving revision.",
+    "receiving_hosted_validation": "pending at this snapshot"
   },
   "local_validation": {
     "python": "3.12.14",
@@ -328,6 +332,8 @@
       "Malformed secondary ruleset classification now returns UNKNOWN (exit 2), rather than MATCH.",
       "Additional active push rulesets now return DRIFT (exit 1), rather than MATCH."
     ],
-    "hosted_qualification": "pending for the published follow-up head and receiving revision"
+    "hosted_qualification": "pending for the published follow-up head and receiving revision",
+    "published_fix_commit": "b1b465c74324f75c815cf199ef45d7ff631d20d5",
+    "integration_qualification": "Production/test blobs are unchanged while incorporating main; current-head CodeQL, other hosted checks and receiving-main validation remain required."
   }
 }
