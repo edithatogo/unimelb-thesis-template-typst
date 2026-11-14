@@ -6,7 +6,7 @@ Validates the structure and integrity of the University of Melbourne Typst thesi
 
 import os
 import sys
-import yaml
+import tomllib
 from pathlib import Path
 import re
 
@@ -77,22 +77,26 @@ def validate_required_files():
     return True
 
 def validate_typst_toml():
-    """Validate typst.toml configuration."""
+    """Parse TOML and require nonempty package metadata, not matching comments."""
     try:
-        with open('typst.toml', 'r') as f:
-            content = f.read()
+        with open('typst.toml', 'rb') as f:
+            manifest = tomllib.load(f)
 
-        # Check for required fields
-        required_fields = ['name', 'version', 'entrypoint']
-        for field in required_fields:
-            if f'{field} =' not in content:
-                print(f"❌ Missing required field in typst.toml: {field}")
+        package = manifest.get('package')
+        if not isinstance(package, dict):
+            print("❌ Missing [package] table in typst.toml")
+            return False
+
+        for field in ('name', 'version', 'entrypoint'):
+            value = package.get(field)
+            if not isinstance(value, str) or not value.strip():
+                print(f"❌ Package field '{field}' must be a non-empty string")
                 return False
 
         print("✅ typst.toml is valid")
         return True
-    except Exception as e:
-        print(f"❌ Error reading typst.toml: {e}")
+    except (OSError, UnicodeError, tomllib.TOMLDecodeError) as exc:
+        print(f"❌ Error reading typst.toml: {exc}")
         return False
 
 def validate_color_definitions():

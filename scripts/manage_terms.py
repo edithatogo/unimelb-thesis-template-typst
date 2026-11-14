@@ -48,7 +48,7 @@ def validate_abbreviations(abbrevs: List[Dict[str, Any]]) -> Dict[str, List[str]
 
         # Check for duplicate abbreviations
         for j, other in enumerate(abbrevs):
-            if i != j and entry.get("short") == other.get("short"):
+            if i != j and isinstance(other, dict) and entry.get("short") == other.get("short"):
                 errors.append(f"Duplicate abbreviation '{entry.get('short')}' in entries {i} and {j}")
 
     return {"errors": errors, "warnings": warnings}
@@ -76,7 +76,7 @@ def validate_glossary(glossary: List[Dict[str, Any]]) -> Dict[str, List[str]]:
 
         # Check for duplicate terms
         for j, other in enumerate(glossary):
-            if i != j and entry.get("term") == other.get("term"):
+            if i != j and isinstance(other, dict) and entry.get("term") == other.get("term"):
                 errors.append(f"Duplicate term '{entry.get('term')}' in entries {i} and {j}")
 
     return {"errors": errors, "warnings": warnings}
