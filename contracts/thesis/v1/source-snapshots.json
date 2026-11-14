@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "snapshots": {
+    "umthesis-contract": "sources/umthesis-1.0.0.md",
+    "legacy-ears-requirements": "sources/legacy-ears-requirements.txt",
+    "legacy-docs-tasks": "sources/legacy-docs-tasks.txt",
+    "legacy-root-tasks": "sources/legacy-root-tasks.txt",
+    "central-solo-maintainer": "sources/central-solo-maintainer.txt",
+    "central-continuous-conformance": "sources/central-continuous-conformance.txt",
+    "central-product-metadata": "sources/central-product-metadata.txt",
+    "central-receipt-schema-planning": "sources/central-receipt-schema-planning.txt",
+    "central-receipt-schema-current": "sources/central-receipt-schema-current.txt",
+    "latex-legacy-todo": "sources/latex-legacy-todo.txt"
+  }
+}

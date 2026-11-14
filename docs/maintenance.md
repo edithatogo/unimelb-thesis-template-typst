@@ -25,10 +25,11 @@ The structural delimiter scan remains advisory; Typst compilation is the syntax
 gate. Renovate, rather than the legacy package inventory script, checks updates.
 
 Coverage is line and branch execution in `scripts/preflight.py`,
-`scripts/validate_template.py` and `scripts/check_repository_policy.py`.
-The 80% floor applies to those three validation tools only. Tests use synthetic
-repositories and mocked compiler failures; the separate build invokes real
-Typst. The report does not measure Typst/layout coverage, every Python helper,
+`scripts/validate_template.py`, `scripts/check_repository_policy.py` and
+`scripts/thesis_contract.py`. Both the local report and Codecov's validation-tools
+flag include these four helpers, with the existing 80% floors. Tests use synthetic
+repositories, configuration fixtures and mocked compiler failures; the separate
+build invokes real Typst. The report does not measure Typst/layout coverage, every Python helper,
 or shell-script coverage. Reports are written to `build/coverage.xml` and
 `build/coverage.json`.
 
@@ -162,7 +163,9 @@ shows the report for the exact tested SHA, then inspect GitHub for the resulting
 `codecov/project` or `codecov/patch` context. Keep the issue open until both
 service activation and commit-status evidence are recorded.
 
-The final implementation-head job log records **61 passing tests**. Its coverage
+The historical issue #5 implementation-head job log records **61 passing tests**.
+Its three-tool coverage scope predates the shared contract validator; use the
+current revision's four-tool report for new qualification. Its coverage
 artifact reports **97.74% combined line/branch coverage** (374/383 lines and 188/192 branches,
 zero exclusions) under coverage.py 7.17.3 and Python 3.15.1. The artifact's
 archive digest and exact source hashes are recorded in the receipt.

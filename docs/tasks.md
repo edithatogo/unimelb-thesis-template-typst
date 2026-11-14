@@ -1,5 +1,12 @@
 # tasks
 
+> Historical record. Current delivery obligations and evidence are tracked by
+> [UMTHESIS v1](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13)
+> and the [shared contract guide](thesis-contract.md). The
+> [legacy crosswalk](../contracts/thesis/v1/legacy-crosswalk.json) maps these identifiers to their current owners.
+> Checkmarks and completion statements below describe the earlier implementation;
+> they do not establish current rendered-output or submission conformance.
+
 ## Layout & Metada## Imple## Implementation Scaffolding
 - [x] R-IMP-001/R-IMP-002: Introduce modular `config/` layer and metadata interface exposed via Typst dictionaries.
 - [x] R-IMP-003: Supply contribution matrix templates.

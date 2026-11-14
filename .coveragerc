@@ -5,6 +5,7 @@ source_pkgs =
     scripts.preflight
     scripts.validate_template
     scripts.check_repository_policy
+    scripts.thesis_contract
 
 [report]
 precision = 2

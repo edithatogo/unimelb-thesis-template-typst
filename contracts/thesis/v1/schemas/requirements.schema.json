@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/unimelb-thesis-template-typst/contracts/thesis/v1/schemas/requirements.schema.json",
+  "title": "UMTHESIS 1.0.0 requirement catalogue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_version",
+    "requirements"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "contract_version": {
+      "const": "1.0.0"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "outcome",
+          "owners",
+          "applicability",
+          "source_refs",
+          "acceptance_cases"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/requirementId"
+          },
+          "outcome": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "owners": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/owner"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "applicability": {
+            "$ref": "#/$defs/applicability"
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/sourceRef"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "acceptance_cases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/acceptanceCase"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      },
+      "minItems": 51,
+      "maxItems": 51
+    }
+  },
+  "$defs": {
+    "requirementId": {
+      "type": "string",
+      "enum": [
+        "CON-01",
+        "CON-02",
+        "CON-03",
+        "CON-04",
+        "COR-01",
+        "COR-02",
+        "COR-03",
+        "COR-04",
+        "COR-05",
+        "TYP-01",
+        "TYP-02",
+        "TYP-03",
+        "TYP-04",
+        "TYP-05",
+        "POL-01",
+        "POL-02",
+        "POL-03",
+        "POL-04",
+        "POL-05",
+        "POL-06",
+        "POL-07",
+        "TST-01",
+        "TST-02",
+        "TST-03",
+        "ACC-01",
+        "ACC-02",
+        "ACC-03",
+        "REP-01",
+        "REP-02",
+        "REP-03",
+        "PKG-01",
+        "PKG-02",
+        "PKG-03",
+        "EVD-01",
+        "EVD-02",
+        "EVD-03",
+        "SCI-01",
+        "SCI-02",
+        "DEP-01",
+        "DEP-02",
+        "DEP-03",
+        "WEB-01",
+        "WEB-02",
+        "BEN-01",
+        "BEN-02",
+        "BEN-03",
+        "BEN-04",
+        "GOV-01",
+        "GOV-02",
+        "GOV-03",
+        "GOV-04"
+      ]
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "issue"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "enum": [
+            "edithatogo/unimelb-thesis-template-typst",
+            "edithatogo/unimelb-thesis-template-latex"
+          ]
+        },
+        "issue": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate",
+        "scope"
+      ],
+      "properties": {
+        "predicate": {
+          "type": "string",
+          "enum": [
+            "always",
+            "engine-typst",
+            "identity-blind-review",
+            "purpose-submission",
+            "output-pdf",
+            "purpose-deposit-public",
+            "purpose-deposit",
+            "output-html-or-bundle",
+            "output-bundle"
+          ],
+          "description": "Declarative case selector, never executable code. It does not waive a programme delivery obligation or turn an unsupported mandatory feature into non-applicability."
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "sourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "clause"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "clause": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "acceptanceCase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "description",
+        "implementation_state",
+        "fixture_ids",
+        "evidence_refs"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^AC-[A-Z]{3}-[0-9]{2}(?:-[a-z0-9]+)*$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "implementation_state": {
+          "enum": [
+            "planned",
+            "implemented"
+          ]
+        },
+        "fixture_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

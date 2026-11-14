@@ -1,0 +1,14 @@
+{
+  "id": "unknown-field",
+  "metadata": {
+    "unexpected": true
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "invalid",
+    "values": {},
+    "diagnostic_codes": [],
+    "error_code": "unknown-key"
+  }
+}

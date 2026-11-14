@@ -1,0 +1,14 @@
+{
+  "id": "string-boolean",
+  "metadata": {
+    "double_sided": "false"
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "invalid",
+    "values": {},
+    "diagnostic_codes": [],
+    "error_code": "invalid-type"
+  }
+}

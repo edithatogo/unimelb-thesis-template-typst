@@ -1,0 +1,18 @@
+{
+  "id": "draft-minimal",
+  "metadata": {},
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "valid",
+    "values": {
+      "purpose": "draft",
+      "layout": "default",
+      "double_sided": false,
+      "metadata": {}
+    },
+    "diagnostic_codes": [
+      "missing-metadata"
+    ]
+  }
+}

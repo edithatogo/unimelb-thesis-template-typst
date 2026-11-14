@@ -1,0 +1,19 @@
+{
+  "id": "cli-false",
+  "metadata": {
+    "double_sided": true
+  },
+  "cli": [
+    "double_sided=false"
+  ],
+  "explicit": {},
+  "expected": {
+    "result": "valid",
+    "values": {
+      "double_sided": false
+    },
+    "diagnostic_codes": [
+      "missing-metadata"
+    ]
+  }
+}

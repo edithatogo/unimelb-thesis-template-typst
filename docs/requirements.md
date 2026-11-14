@@ -1,5 +1,12 @@
 # requirements
 
+> Historical record. Current delivery obligations and evidence are tracked by
+> [UMTHESIS v1](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13)
+> and the [shared contract guide](thesis-contract.md). The
+> [legacy crosswalk](../contracts/thesis/v1/legacy-crosswalk.json) maps these identifiers to their current owners.
+> Checkmarks and completion statements below describe the earlier implementation;
+> they do not establish current rendered-output or submission conformance.
+
 This document captures the functional and documentation requirements for the University of Melbourne Typst thesis template. Requirements are expressed using the Easy Approach to Requirements Syntax (EARS). Each entry follows a Kiro-style structure with an identifier, priority, cited source(s), the EARS statement, and supporting notes.
 
 ## Legend

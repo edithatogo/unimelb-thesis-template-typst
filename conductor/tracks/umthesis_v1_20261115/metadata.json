@@ -1,0 +1,24 @@
+{
+  "track_id": "umthesis_v1_20261115",
+  "status": "in_progress",
+  "created": "2026-11-15",
+  "parent_issue": 13,
+  "initial_issue": 14,
+  "contract_version": "1.0.0",
+  "contract_path": "contracts/thesis/v1",
+  "implementation_issues": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "companion_issue": "https://github.com/edithatogo/unimelb-thesis-template-latex/issues/18"
+}

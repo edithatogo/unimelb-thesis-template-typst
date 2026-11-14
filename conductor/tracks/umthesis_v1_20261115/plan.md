@@ -1,0 +1,22 @@
+# Execution plan
+
+- [x] Reconcile the completed #4/#5/#6 foundation and current main.
+- [x] Reproduce and repair swallowed parallel compiler failures through PR #27;
+  source and receiving gates passed. Remaining TST-03 requirements stay open.
+- [x] Prepare the #14 schema/API candidate, provenance snapshots, full legacy
+  crosswalk, synthetic configuration fixtures and independent negative tests.
+- [ ] Qualify the final candidate source and receiving revision through the
+  existing Actions, provider and independent review gates; retain exact IDs in
+  the PR and #14 checkpoint.
+- [ ] Execute minimal shared metadata/order/invalid-input cases in both document
+  adapters; preserve the LaTeX issue #18 ownership boundary.
+- [ ] Integrate normalized configuration and repaired rendered semantics (#15),
+  native capabilities (#16) and document regression oracles (#18).
+- [ ] Implement source-dated Melbourne requirements (#17).
+- [ ] Qualify accessibility, locked replay, evidence and packaging (#19–#22).
+- [ ] Deliver full/public deposit and experimental web projections (#23–#24).
+- [ ] Complete comparative and genuine human evaluation (#25).
+
+Archive only after the mapped requirements have executed acceptance or legitimate
+recorded non-applicability. A candidate schema, configured job or approval
+reference does not supply missing document, runtime or human evidence.

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/unimelb-thesis-template-typst/contracts/thesis/v1/fixture.schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "metadata": {},
+    "cli": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "explicit": {},
+    "expected": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "invalid"
+          ]
+        },
+        "error_code": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "values": {
+          "type": "object",
+          "additionalProperties": {}
+        },
+        "diagnostic_codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "result",
+        "values",
+        "diagnostic_codes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "metadata",
+    "cli",
+    "explicit",
+    "expected"
+  ],
+  "additionalProperties": false
+}

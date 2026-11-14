@@ -9,7 +9,7 @@ Use Python 3.11 or newer (CI uses 3.15.1), GNU Make, Typst 0.15.1,
 qpdf and Poppler's `pdftotext` and `pdfinfo`. The Typst version is also recorded
 in `typst.toml`; keep the build workflows consistent with it.
 
-For coverage, install the pinned development dependency in an isolated environment:
+Install the pinned validation and coverage dependencies in an isolated environment:
 
 ```sh
 python3 -m venv .venv
@@ -37,7 +37,8 @@ These narrower commands do not replace the complete check before a change is
 reported as verified. Inspect the affected rendered pages for layout changes.
 
 Coverage reports measure line and branch execution in `scripts/preflight.py`,
-`scripts/validate_template.py` and `scripts/check_repository_policy.py`.
+`scripts/validate_template.py`, `scripts/check_repository_policy.py` and
+`scripts/thesis_contract.py`.
 They do not measure Typst source, visual fidelity or the other helper scripts.
 
 ## Pull requests
@@ -57,3 +58,11 @@ records discovered dependencies and pending updates. Avoid competing update bots
 
 Read [AGENTS.md](AGENTS.md), [SECURITY.md](SECURITY.md) and
 [the maintenance guide](docs/maintenance.md) for the applicable safeguards.
+
+## Shared thesis contract
+
+`make verify-contract` validates the versioned bundle, source snapshots, legacy
+crosswalk, configuration fixtures and adapter-result bindings. It is part of
+`make verify` and `make verify-python`. Read [the contract guide](docs/thesis-contract.md)
+for typed CLI inputs, precedence, adapter pins, migration and the remaining
+rendered-output qualification. Configuration validity does not certify a thesis.

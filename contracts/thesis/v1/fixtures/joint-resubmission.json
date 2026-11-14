@@ -1,0 +1,49 @@
+{
+  "id": "joint-resubmission",
+  "metadata": {
+    "purpose": "examination",
+    "metadata": {
+      "title": "Illustrative synthetic research",
+      "author": {
+        "student_record_name": "Synthetic Student",
+        "orcid": "0000-0000-0000-0001"
+      },
+      "degree": {
+        "kind": "doctoral",
+        "course": "Doctor of Philosophy"
+      },
+      "academic_units": [
+        "Synthetic School"
+      ],
+      "submission": {
+        "month": "2026-11",
+        "resubmission_month": "2027-02"
+      },
+      "abstract": "Synthetic abstract for configuration validation only.",
+      "declarations": {
+        "original_work": true,
+        "word_count": 1200
+      },
+      "joint_award": {
+        "institutions": [
+          "Synthetic Institution A",
+          "Synthetic Institution B"
+        ]
+      }
+    },
+    "approval_refs": {
+      "joint_award": "SYNTHETIC-JOINT-01"
+    }
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "valid",
+    "values": {
+      "metadata.submission.resubmission_month": "2027-02"
+    },
+    "diagnostic_codes": [
+      "human-review-required"
+    ]
+  }
+}

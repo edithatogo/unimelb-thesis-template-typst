@@ -1,0 +1,23 @@
+{
+  "id": "blind-draft",
+  "metadata": {
+    "identity": "blind-review",
+    "metadata": {
+      "author": {
+        "student_record_name": "Synthetic Student"
+      }
+    }
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "valid",
+    "values": {
+      "identity": "blind-review",
+      "purpose": "draft"
+    },
+    "diagnostic_codes": [
+      "missing-metadata"
+    ]
+  }
+}

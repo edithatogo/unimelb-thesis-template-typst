@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/unimelb-thesis-template-typst/contracts/thesis/v1/schemas/legacy-crosswalk.schema.json",
+  "title": "UMTHESIS 1.0.0 historical requirement crosswalk",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_version",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "contract_version": {
+      "const": "1.0.0"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "legacy_id",
+          "legacy_sources",
+          "disposition",
+          "requirement_ids",
+          "rationale"
+        ],
+        "properties": {
+          "legacy_id": {
+            "type": "string",
+            "pattern": "^R-[A-Z]+(?:-[A-Z]+)*-[0-9]{3}$"
+          },
+          "legacy_sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/legacySource"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "disposition": {
+            "enum": [
+              "retained",
+              "corrected",
+              "superseded",
+              "non-applicable"
+            ]
+          },
+          "requirement_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/requirementId"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        }
+      },
+      "minItems": 53,
+      "maxItems": 53
+    }
+  },
+  "$defs": {
+    "requirementId": {
+      "type": "string",
+      "enum": [
+        "CON-01",
+        "CON-02",
+        "CON-03",
+        "CON-04",
+        "COR-01",
+        "COR-02",
+        "COR-03",
+        "COR-04",
+        "COR-05",
+        "TYP-01",
+        "TYP-02",
+        "TYP-03",
+        "TYP-04",
+        "TYP-05",
+        "POL-01",
+        "POL-02",
+        "POL-03",
+        "POL-04",
+        "POL-05",
+        "POL-06",
+        "POL-07",
+        "TST-01",
+        "TST-02",
+        "TST-03",
+        "ACC-01",
+        "ACC-02",
+        "ACC-03",
+        "REP-01",
+        "REP-02",
+        "REP-03",
+        "PKG-01",
+        "PKG-02",
+        "PKG-03",
+        "EVD-01",
+        "EVD-02",
+        "EVD-03",
+        "SCI-01",
+        "SCI-02",
+        "DEP-01",
+        "DEP-02",
+        "DEP-03",
+        "WEB-01",
+        "WEB-02",
+        "BEN-01",
+        "BEN-02",
+        "BEN-03",
+        "BEN-04",
+        "GOV-01",
+        "GOV-02",
+        "GOV-03",
+        "GOV-04"
+      ]
+    },
+    "legacySource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "heading"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "heading": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    }
+  }
+}

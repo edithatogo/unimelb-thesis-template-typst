@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "adapter_api_version": "1.0.0",
+  "supported_contract_versions": [
+    "1.0.0"
+  ],
+  "precedence": [
+    "built-in defaults",
+    "selected profile defaults",
+    "metadata file",
+    "parsed CLI overrides",
+    "explicit function arguments"
+  ],
+  "merge_semantics": "Recursively merge objects; replace arrays/scalars; validate every layer before overriding. Select the highest-precedence layout before applying its defaults.",
+  "adapters": [
+    {
+      "engine": "typst",
+      "repository": "edithatogo/unimelb-thesis-template-typst",
+      "issue": 15,
+      "implementation_state": "planned",
+      "executed_minimal_set": false
+    },
+    {
+      "engine": "latex",
+      "repository": "edithatogo/unimelb-thesis-template-latex",
+      "issue": 18,
+      "implementation_state": "planned",
+      "executed_minimal_set": false
+    }
+  ],
+  "deprecated_aliases": [],
+  "versioning": {
+    "breaking": "major",
+    "compatible_addition": "minor",
+    "clarification": "patch",
+    "policy_change": "Dated source-ledger revision and reviewed semantic diff; requalify affected requirements."
+  },
+  "rollback": {
+    "tuple_fields": [
+      "engine",
+      "compiler",
+      "template_revision",
+      "contract_sha256",
+      "fixture_manifest_sha256"
+    ],
+    "qualified_tuples": []
+  }
+}

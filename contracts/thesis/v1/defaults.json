@@ -1,0 +1,17 @@
+{
+  "contract_version": "1.0.0",
+  "purpose": "draft",
+  "layout": "default",
+  "double_sided": false,
+  "identity": "identified",
+  "output": "pdf",
+  "pdf_standards": [],
+  "language": "en",
+  "label_locale": "en",
+  "bibliography": {
+    "mode": "unified",
+    "style": "apa"
+  },
+  "metadata": {},
+  "approval_refs": {}
+}

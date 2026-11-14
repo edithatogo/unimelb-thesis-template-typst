@@ -1,0 +1,1028 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "entries": [
+    {
+      "legacy_id": "R-FMT-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FMT-001 — A4 layout and margins"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FMT-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "POL-01",
+        "COR-02",
+        "DEP-03"
+      ],
+      "rationale": "Retain A4, margins, logical pagination and named final output; current source-dated rules must establish the applicable numeric limits instead of treating the historical margin text as current policy."
+    },
+    {
+      "legacy_id": "R-FMT-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FMT-002 — Print-ready spreads"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FMT-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "CON-02",
+        "COR-03",
+        "POL-01"
+      ],
+      "rationale": "Retain double-sided print support and applicable binding guidance, but use independent layout/purpose dimensions and explicit-value precedence rather than forcing profile defaults over an explicit argument."
+    },
+    {
+      "legacy_id": "R-FMT-003",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FMT-003 — University branding compliance"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FMT-003; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-01"
+      ],
+      "rationale": "The prohibition on University logos and misleading branding remains; acceptance requires inspection of the applicable rendered output, not an old checked task."
+    },
+    {
+      "legacy_id": "R-FMT-004",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FMT-004 — Declaration without signatures"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FMT-004; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "COR-01",
+        "POL-01",
+        "POL-07"
+      ],
+      "rationale": "Render the required declaration content without signature lines; external signed submission forms remain separate and are not inserted into the thesis."
+    },
+    {
+      "legacy_id": "R-FMT-005",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FMT-005 — Lists and copyright register"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FMT-005; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-02",
+        "POL-02"
+      ],
+      "rationale": "Keep populated lists and the third-party rights inventory, but evaluate each condition against the current policy instead of coupling every inventory to the historical ten-item threshold."
+    },
+    {
+      "legacy_id": "R-FM-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FM-001 — Title page completeness"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FM-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "CON-02",
+        "POL-01"
+      ],
+      "rationale": "Use typed student-record identity, ORCID, academic-unit and submission/resubmission/joint-award metadata, with tested title order and no invented missing values."
+    },
+    {
+      "legacy_id": "R-FM-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FM-002 — Abstract obligations"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FM-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-02",
+        "POL-04"
+      ],
+      "rationale": "Retain abstract length and creative-output description requirements under the source-dated policy, while keeping non-English thesis and English-summary rules distinct."
+    },
+    {
+      "legacy_id": "R-FM-003",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FM-003 — Funding acknowledgements"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FM-003; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-05"
+      ],
+      "rationale": "Retain applicable funding, grant and RTP acknowledgements and inspect the actual rendered disclosure rather than only the existence of metadata slots."
+    },
+    {
+      "legacy_id": "R-PRE-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PRE-001 — Contribution disclosure scaffold"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PRE-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-01",
+        "POL-05",
+        "POL-06",
+        "EVD-03"
+      ],
+      "rationale": "Retain structured contribution, location and assistance disclosures, but separate public statements from private prompts and assistance logs so sensitive records are not embedded by default."
+    },
+    {
+      "legacy_id": "R-PRE-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PRE-002 — Publication status register"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PRE-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-06"
+      ],
+      "rationale": "Retain a structured publication-status register; a recorded status is metadata and does not by itself establish rights, approval or executed policy acceptance."
+    },
+    {
+      "legacy_id": "R-PRE-003",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PRE-003 — Declaration wording and word limits"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PRE-003; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-01",
+        "POL-03",
+        "POL-04"
+      ],
+      "rationale": "Retain rendered declarations and applicable creative proportions; word-count exceptions require their actual approval reference and cannot be enabled by an unrestricted numeric override."
+    },
+    {
+      "legacy_id": "R-PUB-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PUB-001 — Inclusion criteria reminders"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PUB-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "POL-06",
+        "DEP-03"
+      ],
+      "rationale": "Retain candidature, contribution and permission records, while leaving supervisor/co-author/rights decisions with the responsible humans; a present field is not proof of approval."
+    },
+    {
+      "legacy_id": "R-PUB-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PUB-002 — Chapter linkage and footnotes"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PUB-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-01",
+        "COR-02",
+        "POL-06"
+      ],
+      "rationale": "Retain publication linkage, source footnotes and appropriate bibliography treatment, qualified against the current incorporated-publication rule and actual rendered references."
+    },
+    {
+      "legacy_id": "R-PUB-003",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PUB-003 — Publication status updates"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PUB-003; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-06",
+        "EVD-02"
+      ],
+      "rationale": "Retain publication-status updates across examination and deposit, binding the updated state to the new artifact rather than transferring acceptance from an earlier version."
+    },
+    {
+      "legacy_id": "R-PUB-004",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PUB-004 — Literature review supplementation"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PUB-004; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-06",
+        "SCI-02"
+      ],
+      "rationale": "Retain guidance for an integrated literature review and research argument; its adequacy remains a human scholarly decision rather than an automated originality or validity claim."
+    },
+    {
+      "legacy_id": "R-PUB-005",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PUB-005 — iThenticate guidance block"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PUB-005; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "POL-07"
+      ],
+      "rationale": "Retain source-dated originality-report and submission instructions, but record their human decisions in the exact-artifact checklist instead of treating a tool invocation as originality approval."
+    },
+    {
+      "legacy_id": "R-PUB-006",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-PUB-006 — Declaration form handling"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-PUB-006; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-06",
+        "POL-07",
+        "DEP-03"
+      ],
+      "rationale": "Retain the publication declaration workflow and keep signed forms separate from the thesis; package and checklist evidence must describe the actual submitted artifacts."
+    },
+    {
+      "legacy_id": "R-APP-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-APP-001 — Supportive appendices only"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-APP-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-02",
+        "POL-02"
+      ],
+      "rationale": "Retain appendix ordering and supporting-material guidance under the current matter-order contract; whether material supports the argument remains a scholarly judgment."
+    },
+    {
+      "legacy_id": "R-APP-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-APP-002 — Creative output linkage"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-APP-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-04",
+        "DEP-03"
+      ],
+      "rationale": "Retain creative-output descriptions, proportions and stable resource links, including examination integrity and durable component packaging."
+    },
+    {
+      "legacy_id": "R-AI-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-AI-001 — Digital assistance log prompt"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-AI-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "POL-05",
+        "EVD-03"
+      ],
+      "rationale": "Retain assistance disclosures and private records of tools, dates, prompts and verification; publish only appropriate references or summaries, never confidential logs by default."
+    },
+    {
+      "legacy_id": "R-AI-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-AI-002 — Confidentiality warning"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-AI-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "EVD-03",
+        "DEP-01",
+        "SCI-02"
+      ],
+      "rationale": "Retain confidentiality protection, but do not interpret institutional hosting as blanket permission to disclose data; rights, privacy and explicit network decisions remain separate."
+    },
+    {
+      "legacy_id": "R-AI-003",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-AI-003 — Verification and citation guidance"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-AI-003; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "POL-05",
+        "SCI-02"
+      ],
+      "rationale": "Retain source-dated assistance and citation guidance while distinguishing metadata checks, source support, scientific validity and permission; confidential prompts remain private."
+    },
+    {
+      "legacy_id": "R-EDT-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-EDT-001 — Supervisor intervention limits"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-EDT-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "POL-05"
+      ],
+      "rationale": "Retain author responsibility and source-dated editing guidance; applicability of institutional/ASEP limits and the suitability of a human intervention must not become an automated approval claim."
+    },
+    {
+      "legacy_id": "R-EDT-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-EDT-002 — Third-party and tool limits"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-EDT-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "POL-05"
+      ],
+      "rationale": "Retain disclosure and current source-dated limits for human and digital assistance, with responsible-author decisions kept distinct from schema validation or PR approval policy."
+    },
+    {
+      "legacy_id": "R-SUB-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-SUB-001 — Originality reporting reminder"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-SUB-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-07"
+      ],
+      "rationale": "Retain the originality and required declaration checklist, tied to the actual submission artifact and unresolved human decisions rather than a generic completion badge."
+    },
+    {
+      "legacy_id": "R-SUB-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-SUB-002 — Final copy compliance"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-SUB-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "POL-07",
+        "DEP-03"
+      ],
+      "rationale": "Retain final amendment, durability and repository-deposit obligations and revalidate the final distributed bytes after changes."
+    },
+    {
+      "legacy_id": "R-IMP-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-001 — Modular project layout"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "PKG-03",
+        "COR-05"
+      ],
+      "rationale": "Retain reusable configuration, chapter, asset and reference structure through documented stable authoring interfaces; existing modular files alone do not establish output acceptance."
+    },
+    {
+      "legacy_id": "R-IMP-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-002 — Rich metadata interface"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "superseded",
+      "requirement_ids": [
+        "CON-02",
+        "COR-03"
+      ],
+      "rationale": "The canonical typed metadata schema and single precedence resolver replace the older informal rich-metadata interface while retaining its author, supervisor, academic-unit, degree, ORCID, keyword and date semantics."
+    },
+    {
+      "legacy_id": "R-IMP-003",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-003 — Preface contribution matrix"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-003; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "COR-01",
+        "POL-06"
+      ],
+      "rationale": "Retain optional per-publication/task contribution tables with typed values and independent checks of their actual rendered content."
+    },
+    {
+      "legacy_id": "R-IMP-004",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-004 — Automated lists and indices"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-004; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-02",
+        "COR-05"
+      ],
+      "rationale": "Retain automatically populated navigation and declared optional lists; absent or empty required structures must fail, and optional sections follow explicit applicability."
+    },
+    {
+      "legacy_id": "R-IMP-005",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-005 — Abbreviations and glossary support"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-005; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "COR-02",
+        "COR-05",
+        "POL-02"
+      ],
+      "rationale": "Retain first-use abbreviation expansion and generated lists, with their actual placement governed by the current matter-order contract and declared optional-section behavior."
+    },
+    {
+      "legacy_id": "R-IMP-006",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-006 — Code and algorithm styling"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-006; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "COR-05",
+        "TST-01",
+        "PKG-03"
+      ],
+      "rationale": "Retain documented consistent code/algorithm highlighting and captioning as declared features, with semantic/visual samples and conditional behavior instead of treating sample presence as completion."
+    },
+    {
+      "legacy_id": "R-IMP-007",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-007 — Bibliography integration"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-007; inclusive ID ranges are expanded"
+        },
+        {
+          "source_id": "legacy-root-tasks",
+          "heading": "Historical task reference to R-IMP-007; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "TYP-02",
+        "COR-02",
+        "PKG-03"
+      ],
+      "rationale": "Retain bibliography integration and author guidance while using engine-appropriate APIs and testing citation scope, targets and reference integrity."
+    },
+    {
+      "legacy_id": "R-IMP-008",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-008 — Build automation guidance"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-008; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "superseded",
+      "requirement_ids": [
+        "GOV-02",
+        "PKG-03"
+      ],
+      "rationale": "The delivered canonical make verify and documented author build/watch/clean workflows own this automation; do not introduce a competing generic verifier."
+    },
+    {
+      "legacy_id": "R-IMP-009",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-009 — Multilingual readiness"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "CON-02",
+        "POL-04"
+      ],
+      "rationale": "Separate thesis language from label locale; locale selection cannot establish non-English permission or determine English-summary applicability."
+    },
+    {
+      "legacy_id": "R-IMP-010",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-IMP-010 — Sample content and QA prompts"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-IMP-010; inclusive ID ranges are expanded"
+        },
+        {
+          "source_id": "legacy-root-tasks",
+          "heading": "Historical task reference to R-IMP-010; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "CON-03",
+        "TST-01",
+        "PKG-03"
+      ],
+      "rationale": "Retain licensed synthetic examples of scholarly objects, publications and checklists, with explicit expected semantics and executed output assertions."
+    },
+    {
+      "legacy_id": "R-STR-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-STR-001 — Template section structure"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-STR-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-02",
+        "POL-02"
+      ],
+      "rationale": "Retain front/core/end-matter scaffolding, but qualify actual ordering against the pinned current policy rather than assuming the historical checklist sequence is authoritative."
+    },
+    {
+      "legacy_id": "R-OPT-DED-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-OPT-DED-001 — Optional dedication page"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-OPT-DED-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-05",
+        "POL-02"
+      ],
+      "rationale": "Retain the optional dedication while validating its applicability and position without overriding required matter order for the chosen purpose."
+    },
+    {
+      "legacy_id": "R-OPT-AUTH-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-OPT-AUTH-001 — Statement of authorship"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-OPT-AUTH-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "COR-01",
+        "COR-05",
+        "POL-05"
+      ],
+      "rationale": "Retain structured optional authorship/contribution presentation, with actual rendered semantics and no removal of a separately mandatory declaration."
+    },
+    {
+      "legacy_id": "R-OPT-GLOS-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-OPT-GLOS-001 — Glossary and abbreviations"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-OPT-GLOS-001; inclusive ID ranges are expanded"
+        },
+        {
+          "source_id": "legacy-root-tasks",
+          "heading": "Historical task reference to R-OPT-GLOS-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-02",
+        "COR-05",
+        "POL-02"
+      ],
+      "rationale": "Retain glossary/abbreviation generation and first-use expansion; resolve the legacy front-versus-end-matter inconsistency through the current explicit ordering contract."
+    },
+    {
+      "legacy_id": "R-OPT-IDX-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-OPT-IDX-001 — Optional index"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-OPT-IDX-001; inclusive ID ranges are expanded"
+        },
+        {
+          "source_id": "legacy-root-tasks",
+          "heading": "Historical task reference to R-OPT-IDX-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "COR-02",
+        "COR-05"
+      ],
+      "rationale": "Retain the optional index and document its inputs, requiring correct observed entries and destinations whenever the feature applies."
+    },
+    {
+      "legacy_id": "R-FNT-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-FNT-001 — Font theme profiles"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-FNT-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "TYP-03",
+        "REP-01",
+        "ACC-01"
+      ],
+      "rationale": "Retain licensed static and optional variable-font profiles with explicit inputs, axes, embedding and glyph checks; a font theme alone does not qualify contrast or accessibility."
+    },
+    {
+      "legacy_id": "R-LOC-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-LOC-001 — Localised labels"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-LOC-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "CON-02",
+        "POL-04"
+      ],
+      "rationale": "Retain localised labels while separating them from thesis language, permission and English-summary obligations; an English fallback does not establish policy compliance."
+    },
+    {
+      "legacy_id": "R-BLD-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-BLD-001 — Build profiles"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-BLD-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "CON-02",
+        "COR-03",
+        "TST-02"
+      ],
+      "rationale": "Retain default/draft/screen/print layouts with explicit typed options and precedence; profile choice must not silently change purpose, identity or mandatory policy."
+    },
+    {
+      "legacy_id": "R-QA-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-QA-001 — Preflight validation command"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-QA-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "superseded",
+      "requirement_ids": [
+        "GOV-02",
+        "TST-03",
+        "POL-07"
+      ],
+      "rationale": "Extend the existing canonical verifier and exact-artifact checklist; missing required checks must fail rather than merely warn, while unresolved human decisions stay explicit."
+    },
+    {
+      "legacy_id": "R-SMP-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-SMP-001 — Expanded sample library"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-SMP-001; inclusive ID ranges are expanded"
+        },
+        {
+          "source_id": "legacy-root-tasks",
+          "heading": "Historical task reference to R-SMP-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "CON-03",
+        "PKG-03"
+      ],
+      "rationale": "Retain public/synthetic publication, creative-output, assistance, funding and checklist examples with stable fixture identities and declared outcomes."
+    },
+    {
+      "legacy_id": "R-BIB-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-BIB-001 — Bibliography style presets"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-BIB-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "TYP-02",
+        "COR-03"
+      ],
+      "rationale": "Retain selectable bibliography styles through typed consistent configuration and engine-specific APIs, tested for actual scope and reference behavior."
+    },
+    {
+      "legacy_id": "R-CI-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-CI-001 — CI matrix builds"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-CI-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "superseded",
+      "requirement_ids": [
+        "GOV-02",
+        "TST-02"
+      ],
+      "rationale": "The existing stable CI checks and canonical verifier own matrix execution; extend their bounded declared interaction coverage instead of adding a duplicate CI harness."
+    },
+    {
+      "legacy_id": "R-CI-002",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-CI-002 — Typst compatibility audit"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-CI-002; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "TYP-05"
+      ],
+      "rationale": "Retain scheduled compiler compatibility checks with pinned canaries, migration diagnostics and explicit semantic/layout regression evidence."
+    },
+    {
+      "legacy_id": "R-CI-003",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-ears-requirements",
+          "heading": "R-CI-003 — Automated Typst upgrade helper"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "heading": "Historical task reference to R-CI-003; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "TYP-05",
+        "REP-03",
+        "PKG-02"
+      ],
+      "rationale": "Retain upgrade assistance but require deliberate qualification, consistent authoritative pins and rollback before adopting a new compiler or publishing changed artifacts."
+    },
+    {
+      "legacy_id": "R-APP-PDF-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-root-tasks",
+          "heading": "Historical task reference to R-APP-PDF-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "ACC-03",
+        "POL-06"
+      ],
+      "rationale": "The task-only embedded-PDF claim is limited by selected standards and tag preservation; require rejection of incompatible combinations or a separately qualified accessible alternative."
+    },
+    {
+      "legacy_id": "R-BUG-TBL-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-root-tasks",
+          "heading": "Historical task reference to R-BUG-TBL-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "retained",
+      "requirement_ids": [
+        "COR-01",
+        "TST-01"
+      ],
+      "rationale": "Retain the publication-table overlap regression as an actual rendered semantic/visual case with controlled fonts; the historical completed task is not its execution evidence."
+    },
+    {
+      "legacy_id": "R-FMT-PAG-001",
+      "legacy_sources": [
+        {
+          "source_id": "legacy-root-tasks",
+          "heading": "Historical task reference to R-FMT-PAG-001; inclusive ID ranges are expanded"
+        }
+      ],
+      "disposition": "corrected",
+      "requirement_ids": [
+        "COR-02",
+        "POL-01"
+      ],
+      "rationale": "The task-only page-numbering claim maps to actual logical page labels and policy-aware pagination checks; source-level numbering statements alone are not acceptance."
+    }
+  ]
+}

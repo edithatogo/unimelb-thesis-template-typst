@@ -1,0 +1,52 @@
+{
+  "id": "non-english-creative",
+  "metadata": {
+    "purpose": "examination",
+    "metadata": {
+      "title": "Illustrative synthetic research",
+      "author": {
+        "student_record_name": "Synthetic Student",
+        "orcid": "0000-0000-0000-0001"
+      },
+      "degree": {
+        "kind": "doctoral",
+        "course": "Doctor of Philosophy"
+      },
+      "academic_units": [
+        "Synthetic School"
+      ],
+      "submission": {
+        "month": "2026-11"
+      },
+      "abstract": "Synthetic abstract for configuration validation only.",
+      "declarations": {
+        "original_work": true,
+        "word_count": 1200
+      },
+      "english_summary": "Synthetic English summary.",
+      "creative_outputs": [
+        {
+          "id": "synthetic-creative",
+          "description": "Synthetic creative component.",
+          "proportion": 20
+        }
+      ]
+    },
+    "language": "fr",
+    "approval_refs": {
+      "non_english": "SYNTHETIC-LANGUAGE-01"
+    }
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "valid",
+    "values": {
+      "language": "fr",
+      "label_locale": "en"
+    },
+    "diagnostic_codes": [
+      "human-review-required"
+    ]
+  }
+}
