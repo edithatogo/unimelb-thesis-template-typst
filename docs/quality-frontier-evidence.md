@@ -136,6 +136,34 @@ separate from the independently executed helper evidence above. Hosted Python
 3.15.1, CodeQL, integration and final-main verification remain open. Missing and
 pending runs are not passing evidence.
 
+## Unmerged implementation: PR #12
+
+The security/maintainer lane has opened [PR #12][security-pr] at
+`33c9a4fb4c27a906d7e6fb8bd037feb8bef05724`, stacked on PR #10's
+`fix/issue-4-quality-gates` branch. It reuses that verification command and adds
+issue forms, updated contributor/security context, desired-ruleset validation,
+a drift checker, maintenance tests, and a pinned Codecov OIDC upload job.
+
+The [child's receipt][security-receipt] records **54 passing local unit tests**
+on Python 3.12.14 and **97.59% combined line/branch coverage**, with an 80% floor.
+Those are the child implementer's recorded results, not a second execution by
+this audit. Coverage is explicitly limited to `scripts/preflight.py`,
+`scripts/validate_template.py` and `scripts/check_repository_policy.py`.
+It does not measure the whole repository or Typst rendering.
+
+The desired ruleset is **not activated**. The receipt reports no settings-write
+operation in the available connector and no authenticated GitHub browser
+session. The [maintenance run][maintenance-run] is queued; Codecov repository
+activation and commit status are still unverified. Neither a valid policy JSON
+nor a queued Codecov app suite proves those acceptance criteria.
+
+Integration order: qualify and integrate #10, retarget #12 to main, then qualify
+its final head and the receiving revision. Apply and read back the ruleset only
+after the intended stable checks have demonstrated success, preserving zero
+mandatory approvals and owner recovery. Refresh #6's evidence after both child
+changes are integrated. Do not merge the stacked PR into the #10 feature branch
+as a substitute for integration into main.
+
 ## Applicability decisions
 
 These decisions retain the original audit's narrow scope and should be revisited
@@ -204,3 +232,6 @@ do not provision it here or add it as a third dependency of #6.
 [pr-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605193200
 [current-quality-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605767014
 [current-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605766686
+[security-pr]: https://github.com/edithatogo/unimelb-thesis-template-typst/pull/12
+[security-receipt]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/33c9a4fb4c27a906d7e6fb8bd037feb8bef05724/docs/maintenance/issue-5-receipt.json
+[maintenance-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605934855
