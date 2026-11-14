@@ -22,6 +22,18 @@ defaults:
     shell: bash
 
 jobs:
+  compile:
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [default, draft, screen, print]
+    uses: edithatogo/repository-standards/.github/workflows/typst-ci.yml@f37a6c6a9764766ac25d2c65c7ec71f3a7a9fd87 # main
+    with:
+      root-file: thesis.typ
+      output-file: build/thesis-${{ matrix.profile }}.pdf
+      artifact-name: typst-thesis-${{ matrix.profile }}
+      profile: ${{ matrix.profile }}
+
   workflow-lint:
     name: Workflow lint
     runs-on: ubuntu-24.04

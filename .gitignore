@@ -31,6 +31,10 @@ Thumbs.db
 # Node modules (if any)
 node_modules/
 
+# Python validation/test caches
+__pycache__/
+*.py[cod]
+
 # Build directories
 build/
 dist/

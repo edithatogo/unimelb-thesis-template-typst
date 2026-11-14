@@ -42,9 +42,13 @@ compiler-version mismatches, nonzero exits and command timeouts fail the gate.
 Each compile/PDF command has a 60-second timeout. Output is written under
 `build/verification/`, with a JSON result and command logs.
 
-The existing shared Typst workflow additionally checks formatting and compiles
-the thesis under all four profiles: default, draft, screen and print. Those
-checks are preserved. PDF structural checks do not replace visual inspection
+The shared Typst workflow additionally checks formatting and compiles
+the thesis under all four profiles: default, draft, screen and print. Its pinned
+matrix now runs from `quality.yml`. The former `ci-cd.yml` controller was
+disabled by GitHub for inactivity on 5 October 2026 and is retired to avoid
+retaining a dormant gate or duplicating jobs if it is later re-enabled. The
+shared implementation, profile inputs and artifacts are preserved. PDF
+structural checks do not replace visual inspection
 when making layout, typography or accessibility changes.
 
 For source-only work:
