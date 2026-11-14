@@ -1,8 +1,9 @@
 # Quality frontier: evidence and closure for issue #6
 
 This record reconciles [#6][parent] with its two implementation issues,
-[#4][testing] and [#5][security]. **The parent remains open.** Candidate checks,
-historical baseline evidence and receiving-main acceptance are recorded
+[#4][testing] and [#5][security]. Final closure is recorded on those issues
+after this evidence commit and its receiving revision are qualified. Candidate
+checks, historical baseline evidence and receiving-main acceptance are recorded
 separately. Update the issue checklist only after the implementation and
 applicable checks have been verified on the integrated revision.
 
@@ -14,13 +15,19 @@ This is a dated acceptance record, not a live settings monitor.
 
 ## Latest foundation and integration status
 
+Final integration observation: **2026-11-14T21:31:11Z** (15 November 2026,
+Brisbane). The parallel [citation metadata PR #26](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/26)
+added only `CITATION.cff` to main `7d7e6a713486cd83cc06cbbac0c1a967a1c87f07`.
+This update incorporates that commit and preserves the citation blob unchanged;
+the implementation and workflow blobs still match qualified main `9375798`.
+
 | Scope | Latest recorded evidence | Outstanding acceptance |
 | --- | --- | --- |
 | #4 / PR #10 | Merged as `b947d5ea0ad1a9c118a9c3670bcb82200052c9a2`; #4 is closed. The receiving-main [quality][receiving-quality-run], [privacy][receiving-privacy-run] and [CodeQL][receiving-codeql-run] workflows all succeeded. | The #4 foundation is integrated and qualified at this revision. Preserve these checks after #12 and the final evidence updates. |
-| #5 / PR #12 | Qualified source `7e2d09c934c3c9805a222f39c6fd073885196b48` merged as `937579897af22d7d28f20a49e94a1bdbe4e05855`. All applicable source checks and the [OIDC upload][current-upload-job] passed. The [Codecov-owned check][current-codecov-check] passed with 98.91% patch coverage; combined three-tool coverage remains 97.74%. Local canonical verification passed 61 unit tests, 640 property iterations and real PDF checks. | Qualify the actual receiving revision and final documentation head. Source-head provider acceptance is complete; it does not certify receiving-main execution. |
+| #5 / PR #12 | Qualified source `7e2d09c934c3c9805a222f39c6fd073885196b48` merged as `937579897af22d7d28f20a49e94a1bdbe4e05855`. Source and receiving workflows, coverage uploads and Codecov results passed. Source patch coverage is 98.91%; combined three-tool coverage is 97.74%. Canonical verification passed 61 unit tests, 640 property iterations and real PDF checks. | Implementation and receiving main are qualified at these revisions. Qualify this final documentation head and its receiving revision separately. |
 | Live protection | [Ruleset 27266891][live-ruleset] is active with eight Actions contexts, required conversation resolution, zero required approvals and owner-only recovery. The [full inventory][qualified-rulesets] returned **MATCH / exit 0**, observed at `2026-11-14T15:51:12Z`. | Retain the qualified snapshot and its provenance; confirm freshness before final closure. The earlier two mismatches have been corrected. |
-| Receiving main | #12 receiving SHA `937579897af22d7d28f20a49e94a1bdbe4e05855` has the same tree `dad36e87cc3971538228056a04c091e59023ab98` as its qualified source. #10's earlier receiving revision is separately qualified. | **#12 receiving checks remain queued as of 14 November 2026, 16:26 UTC; no job had started and no receiving-main Codecov result was observed.** Tree equality is not an executed pass. |
-| Central classification | Draft [central PR #142][central-classification-pr] corrects this consumer's executable-helper coverage and published-artifact applicability while retaining its Typst profile. Its refreshed `41382752` head records the qualified source/provider result and actual consumer merge. | **Central integration remains required and pending.** Qualify the consumer receiving revision and the central PR's own final head before integration. |
+| Receiving main | #12 receiving SHA `937579897af22d7d28f20a49e94a1bdbe4e05855` passed all five workflows and received successful Codecov legacy status `58926800850` from `codecov[bot]`. Its independently measured coverage and exact producer metadata are recorded below. | The earlier queued observation is superseded by actual execution. Subsequent citation metadata in main `7d7e6a7` is preserved by this evidence update. |
+| Central classification | [Central PR #142][central-classification-pr] merged as `e195af3b0f46db74e797c5bf2e177b7882085186` after all applicable checks passed on `a54fc107`. Receiving tree `db2e61f6` equals the tested tree. The registry records qualified receiving-main coverage and published-artifact applicability. | The classification dependency is integrated. Broader collector/release controls retain their separate owners. |
 
 ## Historical baseline acceptance and ownership
 
@@ -180,7 +187,7 @@ main revision `b947d5ea0ad1a9c118a9c3670bcb82200052c9a2`; all had succeeded by
 The identical source tree explains which implementation was integrated; the
 post-merge runs establish the separate receiving-revision execution evidence.
 
-## PR #12: source qualified and integrated; receiving checks pending
+## PR #12: source and receiving main qualified
 
 The security/maintainer lane's [PR #12][security-pr] was merged into **main** as
 `937579897af22d7d28f20a49e94a1bdbe4e05855` after qualifying source head
@@ -191,8 +198,9 @@ revision `b947d5ea0ad1a9c118a9c3670bcb82200052c9a2`.
 It reuses the integrated verification command and adds
 issue forms, updated contributor/security context, desired-ruleset validation,
 a drift checker, maintenance tests, and a pinned Codecov OIDC upload job.
-Its source head, including provider acceptance, is qualified; receiving-main
-execution and final documentation qualification remain open.
+Its source head and receiving main, including provider acceptance, are
+qualified at their exact recorded commits. Final documentation qualification
+remains separate.
 
 ### Historical PR #12 candidate
 
@@ -281,7 +289,7 @@ The [current integration receipt][qualified-receipt] preserves the baseline
 empty-ruleset observation and the earlier 59-test source/coverage evidence with
 their original revision attribution. It separately records current local and
 hosted results, live MATCH, successful source Codecov processing and the actual
-PR #12 receiving SHA with its unexecuted checks. The
+PR #12 receiving SHA with its completed workflow and provider results. The
 [historical maintenance receipt][historical-maintenance-receipt] remains
 unchanged; the separate integration receipt preserves that earlier record.
 
@@ -313,42 +321,68 @@ not independently reverified in this refresh. The live-ruleset readback above
 is separate evidence.
 
 The actual receiving revision is `937579897af22d7d28f20a49e94a1bdbe4e05855`.
-At **14 November 2026, 16:26 UTC**, these registered runs were queued and no
-job had started; no Codecov-owned result was observed for that receiving SHA:
+The following exact-revision workflows completed successfully. This supersedes
+the historical queued observation at 14 November 2026, 16:26 UTC:
 
 | Receiving-main workflow | Run | Recorded result |
 | --- | --- | --- |
-| Quality gates | [43613548339][security-receiving-quality-run] | Queued; unexecuted. |
-| Maintenance | [43613547923][security-receiving-maintenance-run] | Queued; unexecuted. |
-| Privacy and secrets | [43613547805][security-receiving-privacy-run] | Queued; unexecuted. |
-| CodeQL default setup | [43613547696][security-receiving-codeql-run] | Queued; unexecuted. |
-| Dependency graph update | [43613554074][security-receiving-graph-run] | Queued; unexecuted. |
+| Quality gates | [43613548339][security-receiving-quality-run] | Success; all four profiles, workflow lint and canonical verification. |
+| Maintenance | [43613547923][security-receiving-maintenance-run] | Success; 61 tests, measured coverage and OIDC upload. |
+| Privacy and secrets | [43613547805][security-receiving-privacy-run] | Success. |
+| CodeQL default setup | [43613547696][security-receiving-codeql-run] | Success for Python and Actions. |
+| Dependency graph update | [43613554074][security-receiving-graph-run] | Success. |
 
-Qualify those actual receiving results and confirm live-policy freshness before
-closing #5/#6. The final refreshed documentation head and its receiving main
-also require their applicable checks. Refresh the receipt with observed
-workflow/provider results rather than treating the matching source tree as a pass.
+The receiving [coverage job][receiving-coverage-job] independently ran **61 tests**
+on Python 3.15.1 with coverage.py 7.17.3. Its report reproduced **97.74% combined
+coverage**: 374/383 statements and 188/192 branches, zero excluded lines.
+The test count is evidenced by the job log; the artifact retains the XML/JSON
+coverage reports. GitHub metadata identifies artifact **14121984203**, digest
+`sha256:091be1f0f40822bf1c990b772a831417050ad9ac943a893f0ed653557243a0a3`,
+and template-verification artifact **14122449066**, digest
+`sha256:1a175ec43896894a6c57a1e90c1d5d5dc8ba5cdc278bdcffbebe9f854a549cae`.
+Those archive digests were read from GitHub metadata, not independently
+recomputed in this refresh. Dependency review and the extended corpus are
+expected main-push exclusions, recorded as skips.
+
+The [receiving OIDC upload][receiving-upload-job] completed successfully at
+`2026-11-14T17:10:14Z`. The [commit-status objects][receiving-statuses] then
+recorded **codecov/patch: success**, status **58926800850**, at
+`2026-11-14T17:10:25Z`, from **codecov[bot]**, user ID **22429695**. Its
+[exact-commit report][receiving-codecov] reports unchanged coverage when comparing
+`7e2d09c...9375798`. This is a legacy commit status, not a check-run; no check
+ID or inferred app identity is assigned to it. It does not remeasure the source
+PR's 98.91% patch coverage.
+
+The prior evidence head `1df319593c1df31d2a7314fbb309d23a8391d86f` also passed
+all applicable checks and Codecov check **132524110046** from app **254**.
+This refreshed documentation head and its receiving main require their own
+applicable checks. Their final execution and closure evidence are recorded on
+PR #11 and issues #5/#6 after publication; the versioned receipt remains a dated
+observation rather than attempting to contain its own future commit identity.
 
 ## Central classification and programme ownership
 
-Draft [central PR #142][central-classification-pr], owned by
-[central typesetting #5][central-typesetting], updates only this consumer's
-`registry/repositories.json` row and adds
-`docs/typesetting-unimelb-typst-assessment.md`. Its head is
-`41382752a2a6d0e9c95ecb0d4669bd0432ddf041`, tree
-`19824d4343013134dcb765b771f27453f23ab2d9`, based on
-`10e59936e132f28597cb7d2f10efa27629dc4837`. It retains the
-`typesetting-template` archetype and `typst` profile, marks executable-helper
-coverage warranted, and binds Codecov evidence to qualified source
-`7e2d09c934c3c9805a222f39c6fd073885196b48`. It records the actual consumer merge
-`937579897af22d7d28f20a49e94a1bdbe4e05855`; receiving-main qualification remains
-false. This refreshed central assessment and PR metadata were read back before
-updating their identities here. **Central integration remains required and
-pending**, subject to consumer receiving-main qualification and the central
-PR's own final-head checks. The overlapping
-central registry changes in PR #119 (genomics) and PR #141 (LaTeX) retain their
-existing ownership and rows.
+[Central PR #142][central-classification-pr], owned by
+[central typesetting #5][central-typesetting], is merged as
+`e195af3b0f46db74e797c5bf2e177b7882085186` at `2026-11-14T21:30:48Z`.
+The repository permits squash merges. Its qualified head was
+`a54fc10734f8c84396019e3a39c98241dae3df40`; the actual receiving tree is
+`db2e61f61672ced4a8bd45324415f661b89e85de`, identical to the tested tree.
+All applicable final-head policy, privacy, security-lint and Python/Actions
+CodeQL checks passed. All five registered push checks also succeeded on
+receiving commit `e195af3`; their identities are retained in the integration
+receipt. Estate collection/publication were expected PR-event skips, not
+executed estate conformance.
 
+The central correction changes only this consumer's registry row and its
+component assessment. It retains the `typesetting-template` archetype and
+`typst` profile, marks executable-helper coverage warranted, and binds Codecov
+evidence to qualified receiving main
+`937579897af22d7d28f20a49e94a1bdbe4e05855`, with receiving qualification
+true. The [central merge][central-classification-merge] and full tree were
+read back before recording integration. Separate genomics and LaTeX changes
+in PRs #119/#141 retain their existing ownership; this merge preserved their
+registry entries.
 The classification also makes published-artifact supply-chain applicability
 explicit: source releases exist and the [tag-only workflow][current-release]
 is configured to publish a compiled PDF. This does not establish executed
@@ -384,18 +418,20 @@ would justify only the unsupported portion of a check, with evidence.
 1. Retain #4's completed implementation and receiving-main evidence. Re-read #5
    and current main, and link each remaining acceptance item to an executed
    result or specific applicability exclusion. Issue state alone is insufficient.
-2. Finish #12's receiving-main qualification. Record the PR head tested, actual
-   receiving-main SHA, canonical verification, applicable hosted checks,
-   commands/tool versions and workflow URLs. Distinguish candidate results from
-   receiving-revision results.
+2. Retain #12's completed source and receiving-main qualification, including
+   the exact Codecov producer/status identities and measured component scope.
+   Qualify the final evidence PR and its actual receiving revision separately.
 3. Confirm the live ruleset, stable required checks, bot operation and owner
    recovery without mandatory human approvals. Verify Codecov activity and its
    actual coverage scope. Keep missing authorization or external activation
    explicitly open.
-4. Qualify and integrate central PR #142 with the final consumer evidence,
-   refresh #5's receipt and this record, and link them from #6. Complete #5's
-   checkbox and close #6 only when its original child requirements are satisfied
-   or have evidence-backed exclusions. Keep #13–25 under their existing owners.
+4. Retain the completed central PR #142 integration and qualify this final
+   evidence PR and its receiving revision. Record their exact results on PR #11
+   and issues #5/#6 after publication. Complete #5's checklist only when those
+   gates pass; the parent may close once its original children are satisfied.
+   The dated receipt remains immutable evidence of its observation, while
+   issue closure records the later integration event. Keep #13–25 under their
+   existing owners.
 
 [Offline security PR #9][offline-pr] is a separate conditional rollout. Its
 [earlier offline run][offline-run] was queued when inspected; its body requires
@@ -470,3 +506,10 @@ do not provision it here or add it as a third dependency of #6.
 [security-receiving-codeql-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547696
 [security-receiving-graph-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613554074
 [document-contract]: https://github.com/edithatogo/unimelb-thesis-template-typst/issues/14
+
+[receiving-coverage-job]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923/job/132503590597
+[receiving-upload-job]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923/job/132516395426
+[receiving-statuses]: https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/937579897af22d7d28f20a49e94a1bdbe4e05855/statuses
+[receiving-codecov]: https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/commit/937579897af22d7d28f20a49e94a1bdbe4e05855
+
+[central-classification-merge]: https://github.com/edithatogo/repository-standards/commit/e195af3b0f46db74e797c5bf2e177b7882085186

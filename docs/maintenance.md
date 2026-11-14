@@ -162,8 +162,8 @@ shows the report for the exact tested SHA, then inspect GitHub for the resulting
 `codecov/project` or `codecov/patch` context. Keep the issue open until both
 service activation and commit-status evidence are recorded.
 
-The final implementation-head coverage artifact reports **61 tests** and
-**97.74% combined line/branch coverage** (374/383 lines and 188/192 branches,
+The final implementation-head job log records **61 passing tests**. Its coverage
+artifact reports **97.74% combined line/branch coverage** (374/383 lines and 188/192 branches,
 zero exclusions) under coverage.py 7.17.3 and Python 3.15.1. The artifact's
 archive digest and exact source hashes are recorded in the receipt.
 For source `7e2d09c934c3c9805a222f39c6fd073885196b48`, the
@@ -175,11 +175,22 @@ This is actual provider processing for that source revision.
 
 [PR #12](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/12)
 merged as `937579897af22d7d28f20a49e94a1bdbe4e05855`, with the same source
-tree `dad36e87cc3971538228056a04c091e59023ab98`. At **2026-11-14 16:30 UTC**,
-the receiving Quality, Maintenance, Privacy, CodeQL and dependency-graph runs
-were still queued. Receiving-main execution and provider qualification remain
-pending in that snapshot; identical trees and successful source checks do not
-replace those results. The integration receipt retains their exact identities.
+tree `dad36e87cc3971538228056a04c091e59023ab98`. All five receiving workflows
+now completed successfully: Quality, Maintenance, Privacy, CodeQL and the
+dependency-graph update. The receiving coverage job independently ran all
+61 tests on Python 3.15.1 and reproduced the same scoped coverage. Dependency
+review and the extended corpus were expected push-event skips.
+
+The [receiving OIDC upload](https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923/job/132516395426)
+succeeded at `2026-11-14T17:10:14Z`. GitHub's
+[receiving commit statuses](https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/937579897af22d7d28f20a49e94a1bdbe4e05855/statuses)
+then recorded **codecov/patch: success**, status **58926800850**, from
+**codecov[bot]** at `2026-11-14T17:10:25Z`. The
+[exact-commit report](https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/commit/937579897af22d7d28f20a49e94a1bdbe4e05855)
+reports unchanged coverage across the merge. This is a legacy commit status,
+so checking only check-runs would miss it; its result is distinct from the
+source PR's 98.91% patch measurement. The integration receipt retains both
+producer representations and exact revisions.
 
 The authenticated [Advanced Security settings](https://github.com/edithatogo/unimelb-thesis-template-typst/settings/security_analysis)
 inspection on 15 November 2026 confirmed that private vulnerability reporting,

@@ -14,9 +14,9 @@
   "branch_observation": {
     "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/branches/main",
     "name": "main",
-    "head_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+    "head_sha": "7d7e6a713486cd83cc06cbbac0c1a967a1c87f07",
     "protected": true,
-    "observed_at": "2026-11-14T15:52:18Z"
+    "observed_at": "2026-11-14T21:31:11Z"
   },
   "rulesets_observation": {
     "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets?includes_parents=true",
@@ -49,6 +49,15 @@
       "replay_command": "python scripts/check_repository_policy.py --desired .github/rulesets/solo-maintainer.json --observed docs/maintenance/issue-5-qualified-rulesets.json",
       "independent_replay_python": "3.12.14",
       "qualification": "The checker validates the supplied complete inventory; observation freshness and provenance remain separately recorded."
+    },
+    "freshness_recheck": {
+      "observed_at": "2026-11-14T21:31:11Z",
+      "inventory_count": 1,
+      "structurally_identical_to_retained_snapshot": true,
+      "result": "MATCH",
+      "exit_code": 0,
+      "checker_commit": "1df319593c1df31d2a7314fbb309d23a8391d86f",
+      "qualification": "The original snapshot and capture time are retained. A fresh full API read and current checker reproduce the same policy; this is not continuous monitoring."
     }
   },
   "private_reporting": {
@@ -208,7 +217,7 @@
     "mode": "line_and_branch",
     "execution": "Local canonical verification and hosted Python validation coverage passed on Python 3.15.1 for the current source head. The separate OIDC upload and Codecov-owned check also completed successfully for that exact SHA.",
     "codecov_repository_active": "evidenced by Codecov-owned check 132503365652 for 7e2d09c934c3c9805a222f39c6fd073885196b48",
-    "codecov_commit_status": "success for 7e2d09c934c3c9805a222f39c6fd073885196b48; receiving-main evidence remains pending",
+    "codecov_commit_status": "Source 7e2d09c934c3c9805a222f39c6fd073885196b48: successful Codecov App 254 check 132503365652. Receiving main 937579897af22d7d28f20a49e94a1bdbe4e05855: successful Codecov-owned legacy status 58926800850; see receiving_main.codecov.",
     "not_measured": [
       "Typst source and layout",
       "other Python helpers",
@@ -270,9 +279,7 @@
     }
   },
   "external_blockers": [
-    "Actual PR12 receiving main 937579897af22d7d28f20a49e94a1bdbe4e05855 has five queued runs, no started jobs and no Codecov-owned result at the recorded observation; receiving-main qualification remains pending.",
-    "Required central classification PR142 records the qualified source/provider evidence but still requires consumer receiving-main qualification and its own final-head gates before integration.",
-    "The final refreshed documentation head and its receiving revision still require their applicable checks."
+    "The final refreshed documentation head and its receiving revision require their applicable checks. Final execution and closure evidence is recorded on PR11 and issue5 after publication; the receipt is a dated pre-publication observation."
   ],
   "held_work": {
     "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9",
@@ -295,10 +302,11 @@
     "required_actions_passed_on_source_head": true,
     "codeql_passed_on_source_head": true,
     "current_head_codecov_passed": true,
-    "receiving_main_qualified": false,
+    "receiving_main_qualified": true,
     "central_classification_published": true,
-    "central_classification_merged": false,
-    "owner_recovery_preserved_in_observed_policy": true
+    "central_classification_merged": true,
+    "owner_recovery_preserved_in_observed_policy": true,
+    "observation_boundary": "This versioned receipt records qualified implementation/settings/provider evidence and the central integration observed before publication. Final evidence-PR and receiving-revision qualification is recorded on PR11 and issue5 after publication, avoiding a self-referential receipt update."
   },
   "integration_base": {
     "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/10",
@@ -530,7 +538,7 @@
       "excluded_lines": 0
     }
   },
-  "observed_at": "2026-11-14T16:30:42Z",
+  "observed_at": "2026-11-14T21:31:11Z",
   "source_revision": {
     "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
     "tree": "dad36e87cc3971538228056a04c091e59023ab98",
@@ -703,89 +711,411 @@
   },
   "receiving_main": {
     "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/12",
-    "state": "merged_execution_pending",
+    "state": "merged_and_qualified",
     "commit": "937579897af22d7d28f20a49e94a1bdbe4e05855",
     "tree": "dad36e87cc3971538228056a04c091e59023ab98",
-    "qualified": false,
+    "qualified": true,
     "runs": [
       {
         "workflow": "Quality gates",
         "run_id": 43613548339,
         "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
-        "status": "queued",
-        "conclusion": null,
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339"
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339",
+        "updated_at": "2026-11-14T16:51:14Z"
       },
       {
         "workflow": "Maintenance",
         "run_id": 43613547923,
         "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
-        "status": "queued",
-        "conclusion": null,
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923"
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923",
+        "updated_at": "2026-11-14T17:10:15Z"
       },
       {
         "workflow": "Privacy and secrets",
         "run_id": 43613547805,
         "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
-        "status": "queued",
-        "conclusion": null,
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547805"
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547805",
+        "updated_at": "2026-11-14T16:49:03Z"
       },
       {
         "workflow": "CodeQL default setup",
         "run_id": 43613547696,
         "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
-        "status": "queued",
-        "conclusion": null,
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547696"
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547696",
+        "updated_at": "2026-11-14T16:46:51Z"
       },
       {
         "workflow": "Dependency graph update",
         "run_id": 43613554074,
         "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
-        "status": "queued",
-        "conclusion": null,
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613554074"
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613554074",
+        "updated_at": "2026-11-14T16:48:16Z"
       }
     ],
     "codecov": {
-      "state": "not_reported",
+      "evidence_type": "legacy_commit_status",
       "head_sha": "937579897af22d7d28f20a49e94a1bdbe4e05855",
-      "expected_app_id": 254,
-      "check_id": null,
-      "conclusion": null,
-      "check_runs_url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/937579897af22d7d28f20a49e94a1bdbe4e05855/check-runs?per_page=100"
+      "status_id": 58926800850,
+      "context": "codecov/patch",
+      "state": "success",
+      "created_at": "2026-11-14T17:10:25Z",
+      "updated_at": "2026-11-14T17:10:25Z",
+      "creator": {
+        "login": "codecov[bot]",
+        "id": 22429695,
+        "html_url": "https://github.com/apps/codecov"
+      },
+      "description": "Coverage not affected when comparing 7e2d09c...9375798",
+      "target_url": "https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/commit/937579897af22d7d28f20a49e94a1bdbe4e05855",
+      "statuses_url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/937579897af22d7d28f20a49e94a1bdbe4e05855/statuses",
+      "qualification": "Actual Codecov-owned status for this receiving commit. It reports unchanged coverage across the merge, not a new 98.91% patch measurement. Do not treat this legacy status as a check-run or assign it an inferred app/check ID."
     },
-    "qualification": "Actual PR12 merge identity is recorded. At the stated minute-resolution observation, all five registered runs were queued, no job had started, and no receiving-main Codecov-owned result was observed. Matching the qualified source tree is not an executed receiving-revision pass. Final documentation and its receiving revision also require applicable checks.",
+    "qualification": "The exact receiving commit has five completed successful workflows, all eight required contexts, Python/Actions CodeQL, coverage upload and a successful Codecov-owned legacy status. Two main-push event exclusions are recorded as skips. Later final documentation and its receiving revision still require their own applicable checks.",
     "source_head": "7e2d09c934c3c9805a222f39c6fd073885196b48",
     "source_tree_matches": true,
-    "observed_at": "2026-11-14T16:26Z",
-    "job_execution_started": false
+    "observed_at": "2026-11-14T21:25:56Z",
+    "job_execution_started": true,
+    "checks": [
+      {
+        "name": "coverage-upload",
+        "id": 132516395426,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:10:14Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923/job/132516395426"
+      },
+      {
+        "name": "update-pip-graph",
+        "id": 132503613253,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:48:15Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613554074/job/132503613253"
+      },
+      {
+        "name": "Analyze (actions)",
+        "id": 132503594188,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:46:27Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547696/job/132503594188"
+      },
+      {
+        "name": "Analyze (python)",
+        "id": 132503593905,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:46:51Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547696/job/132503593905"
+      },
+      {
+        "name": "Dependency review",
+        "id": 132503593768,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "skipped",
+        "completed_at": "2026-11-14T16:04:01Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339/job/132503593768"
+      },
+      {
+        "name": "Extended property corpus",
+        "id": 132503592792,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "skipped",
+        "completed_at": "2026-11-14T16:04:01Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339/job/132503592792"
+      },
+      {
+        "name": "compile (default) / build",
+        "id": 132503592301,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:51:14Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339/job/132503592301"
+      },
+      {
+        "name": "compile (screen) / build",
+        "id": 132503592272,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:51:12Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339/job/132503592272"
+      },
+      {
+        "name": "compile (print) / build",
+        "id": 132503592184,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:48:21Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339/job/132503592184"
+      },
+      {
+        "name": "Workflow lint",
+        "id": 132503592078,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:48:24Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339/job/132503592078"
+      },
+      {
+        "name": "compile (draft) / build",
+        "id": 132503592060,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:47:37Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339/job/132503592060"
+      },
+      {
+        "name": "Verify template and properties",
+        "id": 132503591791,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:47:33Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613548339/job/132503591791"
+      },
+      {
+        "name": "Python validation coverage",
+        "id": 132503590597,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:49:53Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923/job/132503590597"
+      },
+      {
+        "name": "privacy-and-secrets",
+        "id": 132503589973,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:49:03Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547805/job/132503589973"
+      }
+    ],
+    "expected_skips": [
+      "Dependency review (main push)",
+      "Extended property corpus (ordinary main push)"
+    ],
+    "coverage": {
+      "python": "3.15.1",
+      "coverage_version": "7.17.3",
+      "unit_tests": 61,
+      "test_count_evidence": "coverage job log",
+      "job_id": 132503590597,
+      "job_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923/job/132503590597",
+      "result": {
+        "combined_percent": 97.73913043478261,
+        "covered_lines": 374,
+        "statements": 383,
+        "covered_branches": 188,
+        "branches": 192,
+        "excluded_lines": 0
+      },
+      "upload_job_id": 132516395426,
+      "upload_conclusion": "success",
+      "upload_completed_at": "2026-11-14T17:10:14Z",
+      "upload_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43613547923/job/132516395426",
+      "artifacts": [
+        {
+          "id": 14121984203,
+          "name": "maintenance-evidence",
+          "digest": "sha256:091be1f0f40822bf1c990b772a831417050ad9ac943a893f0ed653557243a0a3",
+          "expired_at_observation": false,
+          "provenance": "Digest read from GitHub artifact metadata; not independently rehashed in this refresh."
+        },
+        {
+          "id": 14122449066,
+          "name": "template-verification",
+          "digest": "sha256:1a175ec43896894a6c57a1e90c1d5d5dc8ba5cdc278bdcffbebe9f854a549cae",
+          "expired_at_observation": false,
+          "provenance": "Digest read from GitHub artifact metadata; not independently rehashed in this refresh."
+        }
+      ]
+    }
   },
   "central_classification": {
     "repository": "edithatogo/repository-standards",
     "owner_issue": "https://github.com/edithatogo/repository-standards/issues/5",
     "baseline_commit": "10e59936e132f28597cb7d2f10efa27629dc4837",
-    "state": "draft_pull_request",
+    "state": "merged",
     "pull_request": "https://github.com/edithatogo/repository-standards/pull/142",
-    "head_sha": "41382752a2a6d0e9c95ecb0d4669bd0432ddf041",
-    "tree": "19824d4343013134dcb765b771f27453f23ab2d9",
+    "head_sha": "a54fc10734f8c84396019e3a39c98241dae3df40",
+    "tree": "db2e61f61672ced4a8bd45324415f661b89e85de",
     "paths": [
       "registry/repositories.json (this consumer's row only)",
       "docs/typesetting-unimelb-typst-assessment.md"
     ],
-    "codecov_evidence_revision": "7e2d09c934c3c9805a222f39c6fd073885196b48",
-    "receiving_main_qualified": false,
+    "codecov_evidence_revision": "937579897af22d7d28f20a49e94a1bdbe4e05855",
+    "receiving_main_qualified": true,
     "archetype": "typesetting-template",
     "profile": "typst",
     "supply_chain_profile": "published",
-    "qualification": "Central integration remains an explicit issue5/6 dependency. The refreshed draft PR142 records qualified source/provider evidence for 7e2d09c and actual consumer merge 9375798; its pinned assessment and PR metadata were read back before updating this receipt. Consumer receiving-main qualification and the central PR final-head gates remain pending. This classification does not claim new collector enforcement or a completed artifact-bound attestation chain.",
+    "qualification": "Central PR142 merged after all applicable checks succeeded on a54fc107. The receiving commit e195af3 has exactly the tested tree db2e61f. This integrates the Typst-only classification and assessment while preserving the separate LaTeX/genomics owners. It does not implement the broader collector or release-assurance controls.",
     "overlapping_registry_pull_requests": [
       119,
       141
     ],
-    "observed_at": "2026-11-14T16:30:42Z"
+    "observed_at": "2026-11-14T21:31:11Z",
+    "merge_commit": "e195af3b0f46db74e797c5bf2e177b7882085186",
+    "merge_method": "squash",
+    "merged_at": "2026-11-14T21:30:48Z",
+    "merge_tree": "db2e61f61672ced4a8bd45324415f661b89e85de",
+    "tested_tree_matches_receiving_tree": true,
+    "final_head_checks": [
+      {
+        "name": "CodeQL",
+        "id": 132593730577,
+        "app_id": 57789,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/repository-standards/runs/132593730577"
+      },
+      {
+        "name": "zizmor",
+        "id": 132593461415,
+        "app_id": 57789,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/repository-standards/runs/132593461415"
+      },
+      {
+        "name": "publish-aggregate",
+        "id": 132593440777,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "skipped",
+        "url": "https://github.com/edithatogo/repository-standards/actions/runs/43642638210/job/132593440777"
+      },
+      {
+        "name": "reconcile-estate",
+        "id": 132593440412,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "skipped",
+        "url": "https://github.com/edithatogo/repository-standards/actions/runs/43642638210/job/132593440412"
+      },
+      {
+        "name": "validate-policy",
+        "id": 132593349974,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/repository-standards/actions/runs/43642638210/job/132593349974"
+      },
+      {
+        "name": "policy-gate",
+        "id": 132593349703,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/repository-standards/actions/runs/43642638099/job/132593349703"
+      },
+      {
+        "name": "privacy-and-secrets",
+        "id": 132593349639,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/repository-standards/actions/runs/43642638098/job/132593349639"
+      },
+      {
+        "name": "zizmor",
+        "id": 132593349332,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/repository-standards/actions/runs/43642638113/job/132593349332"
+      },
+      {
+        "name": "Analyze (actions)",
+        "id": 132593335752,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/repository-standards/actions/runs/43642632866/job/132593335752"
+      },
+      {
+        "name": "Analyze (python)",
+        "id": 132593335584,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/repository-standards/actions/runs/43642632866/job/132593335584"
+      }
+    ],
+    "receiving_validation": {
+      "head_sha": "e195af3b0f46db74e797c5bf2e177b7882085186",
+      "state": "qualified",
+      "checks": [
+        {
+          "name": "Analyze (python)",
+          "id": 132595105934,
+          "app_id": 15368,
+          "status": "completed",
+          "conclusion": "success",
+          "completed_at": "2026-11-14T21:32:40Z",
+          "url": "https://github.com/edithatogo/repository-standards/actions/runs/43643209048/job/132595105934"
+        },
+        {
+          "name": "Analyze (actions)",
+          "id": 132595105676,
+          "app_id": 15368,
+          "status": "completed",
+          "conclusion": "success",
+          "completed_at": "2026-11-14T21:32:15Z",
+          "url": "https://github.com/edithatogo/repository-standards/actions/runs/43643209048/job/132595105676"
+        },
+        {
+          "name": "analysis",
+          "id": 132595104918,
+          "app_id": 15368,
+          "status": "completed",
+          "conclusion": "success",
+          "completed_at": "2026-11-14T21:31:35Z",
+          "url": "https://github.com/edithatogo/repository-standards/actions/runs/43643210134/job/132595104918"
+        },
+        {
+          "name": "zizmor",
+          "id": 132595104810,
+          "app_id": 15368,
+          "status": "completed",
+          "conclusion": "success",
+          "completed_at": "2026-11-14T21:31:25Z",
+          "url": "https://github.com/edithatogo/repository-standards/actions/runs/43643210047/job/132595104810"
+        },
+        {
+          "name": "privacy-and-secrets",
+          "id": 132595104740,
+          "app_id": 15368,
+          "status": "completed",
+          "conclusion": "success",
+          "completed_at": "2026-11-14T21:31:57Z",
+          "url": "https://github.com/edithatogo/repository-standards/actions/runs/43643210056/job/132595104740"
+        }
+      ],
+      "qualification": "All five registered push checks completed successfully on this exact receiving commit. The PR-only policy gate was qualified on the final source head; identical trees were verified after squash integration."
+    }
   },
   "scope": {
     "parent_issue": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/6",
@@ -796,5 +1126,223 @@
     "separate_document_programme": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13",
     "separate_document_implementation_issues": "14-25",
     "separate_conditional_offline_rollout": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9"
+  },
+  "previous_integration_observation": {
+    "observed_at": "2026-11-14T16:26Z",
+    "state": "merged_execution_pending",
+    "qualified": false,
+    "branch_observation": {
+      "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/branches/main",
+      "name": "main",
+      "head_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+      "protected": true,
+      "observed_at": "2026-11-14T15:52:18Z"
+    },
+    "central_classification": {
+      "repository": "edithatogo/repository-standards",
+      "owner_issue": "https://github.com/edithatogo/repository-standards/issues/5",
+      "baseline_commit": "10e59936e132f28597cb7d2f10efa27629dc4837",
+      "state": "draft_pull_request",
+      "pull_request": "https://github.com/edithatogo/repository-standards/pull/142",
+      "head_sha": "41382752a2a6d0e9c95ecb0d4669bd0432ddf041",
+      "tree": "19824d4343013134dcb765b771f27453f23ab2d9",
+      "paths": [
+        "registry/repositories.json (this consumer's row only)",
+        "docs/typesetting-unimelb-typst-assessment.md"
+      ],
+      "codecov_evidence_revision": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+      "receiving_main_qualified": false,
+      "archetype": "typesetting-template",
+      "profile": "typst",
+      "supply_chain_profile": "published",
+      "qualification": "Central integration remains an explicit issue5/6 dependency. The refreshed draft PR142 records qualified source/provider evidence for 7e2d09c and actual consumer merge 9375798; its pinned assessment and PR metadata were read back before updating this receipt. Consumer receiving-main qualification and the central PR final-head gates remain pending. This classification does not claim new collector enforcement or a completed artifact-bound attestation chain.",
+      "overlapping_registry_pull_requests": [
+        119,
+        141
+      ],
+      "observed_at": "2026-11-14T16:30:42Z"
+    },
+    "qualification": "Historical pending observation superseded by the receiving execution evidence below."
+  },
+  "documentation_validation": {
+    "head_sha": "1df319593c1df31d2a7314fbb309d23a8391d86f",
+    "observed_at": "2026-11-14T21:25:56Z",
+    "state": "qualified_prior_evidence_revision",
+    "checks": [
+      {
+        "name": "codecov/patch",
+        "id": 132524110046,
+        "app_id": 254,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:17:03Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/runs/132524110046"
+      },
+      {
+        "name": "CodeQL",
+        "id": 132519237697,
+        "app_id": 57789,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:00:18Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/runs/132519237697"
+      },
+      {
+        "name": "coverage-upload",
+        "id": 132518737071,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:16:02Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616315466/job/132518737071"
+      },
+      {
+        "name": "Extended property corpus",
+        "id": 132512079506,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "skipped",
+        "completed_at": "2026-11-14T16:34:11Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616316001/job/132512079506"
+      },
+      {
+        "name": "compile (draft) / build",
+        "id": 132512047060,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:00:24Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616316001/job/132512047060"
+      },
+      {
+        "name": "Workflow lint",
+        "id": 132512046994,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:03:32Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616316001/job/132512046994"
+      },
+      {
+        "name": "Dependency review",
+        "id": 132512046992,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:02:27Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616316001/job/132512046992"
+      },
+      {
+        "name": "compile (default) / build",
+        "id": 132512046942,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:00:08Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616316001/job/132512046942"
+      },
+      {
+        "name": "compile (print) / build",
+        "id": 132512046925,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:00:29Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616316001/job/132512046925"
+      },
+      {
+        "name": "Verify template and properties",
+        "id": 132512046922,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:02:23Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616316001/job/132512046922"
+      },
+      {
+        "name": "compile (screen) / build",
+        "id": 132512046681,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:59:10Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616316001/job/132512046681"
+      },
+      {
+        "name": "privacy-and-secrets",
+        "id": 132512045287,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:59:18Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616315525/job/132512045287"
+      },
+      {
+        "name": "Python validation coverage",
+        "id": 132512041100,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T16:58:24Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616315466/job/132512041100"
+      },
+      {
+        "name": "Analyze (actions)",
+        "id": 132512032288,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:00:52Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616311432/job/132512032288"
+      },
+      {
+        "name": "Analyze (python)",
+        "id": 132512031908,
+        "app_id": 15368,
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-14T17:00:26Z",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43616311432/job/132512031908"
+      }
+    ],
+    "qualification": "All applicable checks and Codecov succeeded for this earlier evidence revision. These results do not qualify the subsequent receipt refresh; its final head and receiving checks must be recorded in PR11 and issue5 after publication."
+  },
+  "integration_context": {
+    "receiving_branch_before_documentation": "7d7e6a713486cd83cc06cbbac0c1a967a1c87f07",
+    "parallel_pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/26",
+    "changed_paths_since_qualified_implementation": [
+      "CITATION.cff"
+    ],
+    "qualification": "The parallel citation metadata merge is incorporated without modification. Its only change from qualified implementation main9375798 is the citation file; executable and workflow blobs remain unchanged."
+  },
+  "final_local_verification": {
+    "python": "3.15.1",
+    "command": "make verify",
+    "result": "passed",
+    "unit_tests": 61,
+    "properties": {
+      "tests": 10,
+      "cases_per_property": 64,
+      "generated_cases": 640,
+      "seed": 20261115
+    },
+    "compiler": "typst 0.15.1 (9dfd3a08)",
+    "documents": [
+      {
+        "source": "thesis.typ",
+        "pages": 55,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "source": "sample-chapter.typ",
+        "pages": 7,
+        "pdf_valid": true,
+        "text_nonempty": true
+      }
+    ],
+    "production_source_hashes_match_measured_files": true,
+    "qualification": "Executed locally during this evidence refresh; the later citation and central-reference edits change only metadata/docs. Final published-head hosted checks remain separately required.",
+    "python_resolution": "CPython 3.15.1 selected through the Makefile PYTHON variable"
   }
 }
