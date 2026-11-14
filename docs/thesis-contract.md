@@ -152,7 +152,7 @@ python scripts/thesis_contract.py validate-result result.json \
 ~~~
 
 Unknown/stale contract, fixture or adapter identities; a self-consistent hash for
-the wrong configuration; unrelated requirement/source references; contradictory
+the wrong configuration; missing or unrelated requirement/source references; contradictory
 states; missing evidence; and missing/changed/escaping artifacts fail. Actual
 execution claims require an implemented adapter, clean declared source, command,
 exit status and bound evidence. Result validation checks those bindings; the

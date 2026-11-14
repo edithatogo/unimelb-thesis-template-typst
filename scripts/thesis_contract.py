@@ -206,8 +206,9 @@ class Bundle:
     @staticmethod
     def _check_schema_references(node):
         if isinstance(node, dict):
-            if "$ref" in node and not node["$ref"].startswith("#"):
-                raise ContractError("bundle-invalid", "external schema references are forbidden")
+            for keyword in ("$ref", "$dynamicRef"):
+                if keyword in node and not node[keyword].startswith("#"):
+                    raise ContractError("bundle-invalid", "external schema references are forbidden")
             if "format" in node and node["format"] not in FORMATS.checkers:
                 raise ContractError("bundle-invalid", "schema format has no installed validator")
             for child in node.values():
@@ -392,7 +393,7 @@ class Bundle:
                     value = parse_json(raw)
                 except json.JSONDecodeError as exc:
                     raise ContractError("invalid-type", "CLI value must use its declared JSON type") from exc
-            validate(schema, value)
+            validate(schema, value, partial=True)
             target = patch
             for part in parts[:-1]:
                 target = target.setdefault(part, {})
@@ -447,7 +448,12 @@ class Bundle:
         except ContractError:
             config = None
         expected_hash = configuration_digest(config) if config is not None else None
-        if result["normalized_configuration"] != config or result["configuration_sha256"] != expected_hash:
+        reported = result["normalized_configuration"]
+        if reported is not None:
+            validate(self.schemas["metadata"], reported)
+        reported_hash = configuration_digest(reported) if reported is not None else None
+        if (reported != config or reported_hash != expected_hash
+                or result["configuration_sha256"] != reported_hash):
             raise ContractError("invalid-value", "result configuration does not match its fixture")
         adapter = next(a for a in self.compatibility["adapters"] if a["engine"] == result["engine"]["name"])
         if result["engine"]["adapter_version"] != self.compatibility["adapter_api_version"]:
@@ -491,6 +497,8 @@ class Bundle:
                 raise ContractError("invalid-value", "mandatory contract obligation cannot be waived")
             if not set(item["evidence_refs"]) <= paths:
                 raise ContractError("invalid-value", "result evidence is not bound to a retained artifact")
+        if seen != set(fixture["requirements"]):
+            raise ContractError("invalid-value", "result omits a declared fixture requirement")
         for name in ("dependencies", "fonts", "toolchain"):
             ref = result["manifest_refs"][name]
             if ref is not None and ref not in paths:

@@ -60,7 +60,7 @@ def unexecuted_result(bundle) -> dict:
         "configuration_sha256": configuration_sha256(configuration),
         "run": {"id": "synthetic", "generated_at": "2026-11-15T00:00:00Z"},
         "requirements": [{
-            "requirement_id": "CON-02",
+            "requirement_id": requirement_id,
             "source_refs": ["umthesis-contract"],
             "applicability": "applicable",
             "reason": "Synthetic interface specimen; rendering unexecuted.",
@@ -73,7 +73,7 @@ def unexecuted_result(bundle) -> dict:
             "duration_seconds": 0,
             "evidence_refs": [],
             "human_decision_refs": [],
-        }],
+        } for requirement_id in ("CON-02", "CON-03")],
         "artifacts": [],
         "manifest_refs": {"dependencies": None, "fonts": None,
                           "toolchain": None, "validators": []},
@@ -451,6 +451,32 @@ class CliParsingTests(unittest.TestCase):
             },
         })
 
+    def test_object_cli_patch_matches_dotted_patch_and_preserves_defaults(self):
+        whole = self.bundle.parse_cli(['bibliography={"style":"ieee"}'])
+        dotted = self.bundle.parse_cli(["bibliography.style=ieee"])
+        self.assertEqual(whole, {"bibliography": {"style": "ieee"}})
+        self.assertEqual(whole, dotted)
+        resolved = self.bundle.normalize(cli=whole)
+        self.assertEqual(resolved, self.bundle.normalize(cli=dotted))
+        self.assertEqual(
+            resolved["configuration"]["bibliography"],
+            {"mode": "unified", "style": "ieee"},
+        )
+
+    def test_array_entries_keep_required_fields_when_cli_objects_are_patches(self):
+        valid = self.bundle.parse_cli([
+            'metadata.funding=[{"funder":"Synthetic Council"}]',
+        ])
+        self.assertEqual(valid, {"metadata": {"funding": [{"funder": "Synthetic Council"}]}})
+        for assignment in (
+            'metadata.funding=[{"grant":"SYNTHETIC-1"}]',
+            'metadata={"funding":[{"grant":"SYNTHETIC-1"}]}',
+        ):
+            with self.subTest(assignment=assignment):
+                with self.assertRaises(ContractError) as caught:
+                    self.bundle.parse_cli([assignment])
+                self.assertEqual(caught.exception.code, "invalid-value")
+
     def test_cli_preserves_string_equals_and_unicode(self):
         self.assertEqual(self.bundle.parse_cli(["metadata.title=Énergie = μ × fréquence"]),
                          {"metadata": {"title": "Énergie = μ × fréquence"}})
@@ -766,6 +792,11 @@ class ResultValidationTests(unittest.TestCase):
         self.assertIsNone(self.bundle.validate_result(result, expected_revision="1" * 40))
         self.assertEqual(result, original)
         self.assertEqual(result["requirements"][0]["result"], "unexecuted")
+
+    def test_result_cannot_omit_a_requirement_mapped_to_its_fixture(self):
+        result = unexecuted_result(self.bundle)
+        del result["requirements"][1]  # Remove CON-03 while retaining CON-02.
+        self.assert_result_error(result)
 
     def test_wrong_contract_digest_does_not_qualify_a_result(self):
         result = unexecuted_result(self.bundle)

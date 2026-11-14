@@ -1,5 +1,12 @@
 # Implementation Tasks Status
 
+> Historical record. Current delivery obligations and evidence are tracked by
+> [UMTHESIS v1](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13)
+> and the [shared contract guide](docs/thesis-contract.md). The
+> [legacy crosswalk](contracts/thesis/v1/legacy-crosswalk.json) maps these identifiers to their current owners.
+> Checkmarks and completion statements below describe the earlier implementation;
+> they do not establish current rendered-output or submission conformance.
+
 ## Completed Tasks ✅
 
 ### R-IMP-007: Bibliography Workflow Documentation
