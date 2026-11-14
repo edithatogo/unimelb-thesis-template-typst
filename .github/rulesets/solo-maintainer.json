@@ -1,0 +1,80 @@
+{
+  "name": "solo-maintainer-main",
+  "target": "branch",
+  "enforcement": "active",
+  "bypass_actors": [
+    {
+      "actor_id": 15080672,
+      "actor_type": "User",
+      "bypass_mode": "always"
+    }
+  ],
+  "conditions": {
+    "ref_name": {
+      "include": [
+        "~DEFAULT_BRANCH"
+      ],
+      "exclude": []
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 0,
+        "dismiss_stale_reviews_on_push": false,
+        "require_code_owner_review": false,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": true,
+        "required_reviewers": []
+      }
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": true,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "compile (default) / build",
+            "integration_id": 15368
+          },
+          {
+            "context": "compile (draft) / build",
+            "integration_id": 15368
+          },
+          {
+            "context": "compile (screen) / build",
+            "integration_id": 15368
+          },
+          {
+            "context": "compile (print) / build",
+            "integration_id": 15368
+          },
+          {
+            "context": "privacy-and-secrets",
+            "integration_id": 15368
+          },
+          {
+            "context": "Workflow lint",
+            "integration_id": 15368
+          },
+          {
+            "context": "Verify template and properties",
+            "integration_id": 15368
+          },
+          {
+            "context": "Python validation coverage",
+            "integration_id": 15368
+          }
+        ]
+      }
+    }
+  ]
+}

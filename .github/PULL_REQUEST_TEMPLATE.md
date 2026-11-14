@@ -1,35 +1,26 @@
-<!-- Describe the purpose of this pull request and link any relevant issue. -->
+## Problem
 
-Summary of changes:
+Describe the concrete problem and link the issue.
 
-- (short description)
+## Change
 
-Example PR title/body (copy & paste)
+Explain what changes and the resulting behavior. Note any thesis interface or
+layout impact.
 
-Title: Fix font mapping in utils/style.typ
+## Validation
 
-Body:
+- Commit tested:
+- Commands and actual results (`make verify`, and `make coverage` for Python changes):
+- Hosted workflow links:
+- Rendered pages inspected for layout changes:
+- Unexecuted checks or remaining service/settings dependencies:
 
-- What: Corrected font family mapping to use Fraunces variable font in
-  `utils/style.typ`.
-- Why: The previous mapping caused fallback fonts to be used on Linux CI.
-- Validation: Compiled `sample-chapter.typ` locally and attached `thesis.pdf`.
+## Checks
 
-Checklist for contributors
+- [ ] Examples, logs and attachments contain no private thesis material, research data or credentials.
+- [ ] Existing automated gates and tag-only publication remain intact.
+- [ ] Any live-settings claim has separate evidence from validating configuration files.
+- [ ] I have described failures or unavailable checks accurately.
 
-- [ ] I ran `typst compile thesis.typ`.
-- [ ] For chapter/layout changes, I also ran `typst compile sample-chapter.typ` and
-  verified the PDF renders as expected.
-- [ ] I ran `python scripts/check_packages.py` and addressed any issues it
-  reported.
-- [ ] For style/layout changes: I attached the generated `thesis.pdf` or a
-  screenshot of the affected pages to this PR.
-- [ ] I kept changes minimal and documented any edits to fonts, colors, or
-  layouts in the PR description.
-
-Notes for reviewers
-
-- Prefer small, incremental PRs for layout or font changes.
-  If a change affects many pages, include a brief migration note and a compiled
-  `thesis.pdf` snapshot.
-
+Mandatory human approvals remain at zero. Do not use this checklist to replace
+the automated checks or to imply that an unavailable check passed.

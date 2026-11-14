@@ -6,7 +6,6 @@ Checks for outdated Typst packages and suggests updates.
 
 import os
 import sys
-import requests
 import re
 from pathlib import Path
 
