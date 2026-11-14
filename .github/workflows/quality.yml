@@ -1,0 +1,144 @@
+name: Quality gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  merge_group:
+    types: [checks_requested]
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  compile:
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [default, draft, screen, print]
+    uses: edithatogo/repository-standards/.github/workflows/typst-ci.yml@f37a6c6a9764766ac25d2c65c7ec71f3a7a9fd87 # main
+    with:
+      root-file: thesis.typ
+      output-file: build/thesis-${{ matrix.profile }}.pdf
+      artifact-name: typst-thesis-${{ matrix.profile }}
+      profile: ${{ matrix.profile }}
+
+  workflow-lint:
+    name: Workflow lint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install checksum-verified actionlint
+        env:
+          ACTIONLINT_VERSION: "1.7.12"
+          ACTIONLINT_SHA256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
+        run: |
+          curl --fail --location --silent --show-error --retry 3 \
+            --output "$RUNNER_TEMP/actionlint.tar.gz" \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          echo "$ACTIONLINT_SHA256  $RUNNER_TEMP/actionlint.tar.gz" | sha256sum --check -
+          tar -xzf "$RUNNER_TEMP/actionlint.tar.gz" -C "$RUNNER_TEMP" actionlint
+          "$RUNNER_TEMP/actionlint" -version
+      - name: Validate every workflow
+        run: |
+          mkdir -p build
+          "$RUNNER_TEMP/actionlint" 2>&1 | tee build/actionlint.log
+      - name: Retain lint evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: workflow-lint
+          path: build/actionlint.log
+          if-no-files-found: error
+          retention-days: 14
+
+  verify:
+    name: Verify template and properties
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.15.1"
+      - uses: typst-community/setup-typst@63ac138db421d586de61f7f5ac3bcef6a2e6c78c # v5.1.0
+        with:
+          typst-version: "0.15.1"
+      - name: Install PDF validators
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends qpdf poppler-utils
+      - name: Run the repository verification command
+        run: |
+          mkdir -p build
+          make verify 2>&1 | tee build/verify.log
+      - name: Retain verification evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: template-verification
+          path: |
+            build/verify.log
+            build/property-tests.json
+            build/verification/
+          if-no-files-found: error
+          retention-days: 14
+
+  dependency-review:
+    name: Dependency review
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: high
+          fail-on-scopes: runtime, development, unknown
+          comment-summary-in-pr: never
+          show-openssf-scorecard: false
+          retry-on-snapshot-warnings: true
+          retry-on-snapshot-warnings-timeout: 60
+
+  scheduled-properties:
+    name: Extended property corpus
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.15.1"
+      - name: Exercise the bounded extended corpus
+        run: |
+          mkdir -p build
+          python tests/test_properties.py --seed 20261115 --cases 512 \
+            --report build/property-tests-scheduled.json 2>&1 | tee build/property-tests-scheduled.log
+      - name: Retain replay evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: extended-property-evidence
+          path: |
+            build/property-tests-scheduled.json
+            build/property-tests-scheduled.log
+          if-no-files-found: error
+          retention-days: 30

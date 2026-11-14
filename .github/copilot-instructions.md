@@ -3,7 +3,7 @@
 This repository is a Typst template for University of Melbourne theses. Keep changes small, document them, and prefer non-breaking edits to templates used by students.
 
 Quick actionable commands
-- Compile main thesis: `typst compile thesis.typ` (CI uses Typst v0.13)
+- Run the contribution gate: `make verify` (CI pins Typst 0.15.1)
 - Watch for changes locally: `typst watch thesis.typ` or `./automate.sh watch`
 - Quick compile of sample chapter: `typst compile sample-chapter.typ`
 - Validate template and packages: `python scripts/validate_template.py` and `python scripts/check_packages.py`
@@ -23,8 +23,8 @@ Project-specific patterns to follow
 - Keep alterations to `thesis.typ` backward compatible; students rely on the template structure (title metadata, front-matter, and `#show: thesis.with(...)`).
 
 CI and compatibility notes
-- CI compiles `thesis.typ` and `sample-chapter.typ` and runs Python validators. Tests assume Typst v0.13; avoid introducing syntax that requires newer Typst features without updating `typst.toml` and CI workflow.
-- The workflow also lints Markdown and builds docs under `docs/` (see `.github/workflows/ci-cd.yml`).
+- CI compiles `thesis.typ` and `sample-chapter.typ` and runs Python validators and seeded property tests. Use the Typst version declared in `typst.toml` (currently 0.15.1).
+- The quality workflow also checks Typst formatting, four thesis profiles, workflow syntax and dependency changes (see `.github/workflows/quality.yml` and `docs/quality-gates.md`).
 
 Typical developer workflows for PRs
 1. Run `typst compile thesis.typ` locally and fix layout/compile errors.
@@ -35,7 +35,7 @@ Typical developer workflows for PRs
 When to change what
 - Small content changes: edit files in `pages/` or `thesis.typ`.
 - Style/layout changes: edit `utils/style.typ`, `lib.typ`, or `layouts/` and include screenshots or generated `thesis.pdf` snippets in the PR.
-- Dependency or toolchain bumps: update `typst.toml` and `.github/workflows/ci-cd.yml` together; include migration notes.
+- Dependency or toolchain bumps: update `typst.toml` and `.github/workflows/quality.yml` together; include migration notes and reconcile the pinned shared compiler workflow.
 
 If you're unsure
 - Rebuild locally and attach `thesis.pdf` to your draft PR. Reference the lines in `thesis.typ` you edited and run the Python validation scripts before opening PRs.
@@ -47,7 +47,7 @@ Debugging & quick checks
 	- `typst compile sample-chapter.typ`
 - Check for package/import issues: `grep -R "#import \"@preview/" -n .` and run `python scripts/check_packages.py` to surface mismatched or unused package entries.
 - If fonts cause layout issues, verify fonts exist in `assets/fonts/` and match `lib.typ`/`utils/style.typ` entries.
-- For CI parity, ensure your local Typst version is compatible with `typst.toml` (CI uses v0.13) — run `typst --version` to check.
+- For CI parity, use the exact Typst version in `typst.toml` — run `typst --version` to check.
 
 Common Typst compile errors and fixes
 
