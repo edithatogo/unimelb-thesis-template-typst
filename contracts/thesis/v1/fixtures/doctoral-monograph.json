@@ -1,0 +1,38 @@
+{
+  "id": "doctoral-monograph",
+  "metadata": {
+    "purpose": "examination",
+    "metadata": {
+      "title": "Illustrative synthetic research",
+      "author": {
+        "student_record_name": "Synthetic Student",
+        "orcid": "0000-0000-0000-0001"
+      },
+      "degree": {
+        "kind": "doctoral",
+        "course": "Doctor of Philosophy"
+      },
+      "academic_units": [
+        "Synthetic School"
+      ],
+      "submission": {
+        "month": "2026-11"
+      },
+      "abstract": "Synthetic abstract for configuration validation only.",
+      "declarations": {
+        "original_work": true,
+        "word_count": 1200
+      }
+    }
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "valid",
+    "values": {
+      "purpose": "examination",
+      "metadata.degree.kind": "doctoral"
+    },
+    "diagnostic_codes": []
+  }
+}

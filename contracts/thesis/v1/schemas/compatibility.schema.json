@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/unimelb-thesis-template-typst/contracts/thesis/v1/compatibility.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "contract_version": {
+      "const": "1.0.0"
+    },
+    "adapter_api_version": {
+      "const": "1.0.0"
+    },
+    "supported_contract_versions": {
+      "type": "array",
+      "items": {
+        "const": "1.0.0"
+      },
+      "minItems": 1,
+      "maxItems": 1
+    },
+    "precedence": {
+      "const": [
+        "built-in defaults",
+        "selected profile defaults",
+        "metadata file",
+        "parsed CLI overrides",
+        "explicit function arguments"
+      ]
+    },
+    "merge_semantics": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "adapters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "engine": {
+            "type": "string",
+            "enum": [
+              "typst",
+              "latex"
+            ]
+          },
+          "repository": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "issue": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "implementation_state": {
+            "type": "string",
+            "enum": [
+              "planned",
+              "implemented"
+            ]
+          },
+          "executed_minimal_set": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "engine",
+          "repository",
+          "issue",
+          "implementation_state",
+          "executed_minimal_set"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "deprecated_aliases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "replacement": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "remove_in": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "alias",
+          "replacement",
+          "remove_in"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "versioning": {
+      "type": "object",
+      "properties": {
+        "breaking": {
+          "const": "major"
+        },
+        "compatible_addition": {
+          "const": "minor"
+        },
+        "clarification": {
+          "const": "patch"
+        },
+        "policy_change": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "breaking",
+        "compatible_addition",
+        "clarification",
+        "policy_change"
+      ],
+      "additionalProperties": false
+    },
+    "rollback": {
+      "type": "object",
+      "properties": {
+        "tuple_fields": {
+          "const": [
+            "engine",
+            "compiler",
+            "template_revision",
+            "contract_sha256",
+            "fixture_manifest_sha256"
+          ]
+        },
+        "qualified_tuples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "engine": {
+                "type": "string",
+                "enum": [
+                  "typst",
+                  "latex"
+                ]
+              },
+              "compiler": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "template_revision": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "fixture_manifest_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "engine",
+              "compiler",
+              "template_revision",
+              "contract_sha256",
+              "fixture_manifest_sha256"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "tuple_fields",
+        "qualified_tuples"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_version",
+    "adapter_api_version",
+    "supported_contract_versions",
+    "precedence",
+    "merge_semantics",
+    "adapters",
+    "deprecated_aliases",
+    "versioning",
+    "rollback"
+  ],
+  "additionalProperties": false
+}

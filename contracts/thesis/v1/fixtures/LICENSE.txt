@@ -1,0 +1,8 @@
+SPDX-License-Identifier: CC0-1.0
+
+These synthetic configuration fixtures are dedicated to the public domain under
+CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+
+Names, institutions, approvals, grants and research content are invented test
+data. The check-digit-valid ORCID is synthetic, not a claimed researcher ID.
+These fixtures do not establish permission, policy compliance or rendered output.

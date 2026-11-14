@@ -1,0 +1,18 @@
+{
+  "id": "bad-month",
+  "metadata": {
+    "metadata": {
+      "submission": {
+        "month": "2026-13"
+      }
+    }
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "invalid",
+    "values": {},
+    "diagnostic_codes": [],
+    "error_code": "invalid-date"
+  }
+}

@@ -1,2 +1,3 @@
-# Test coverage only; validation and unittest need no third-party packages.
+# Contract validation and Python test coverage.
+-r requirements-contract.txt
 coverage==7.17.3

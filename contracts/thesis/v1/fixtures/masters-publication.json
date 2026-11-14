@@ -1,0 +1,83 @@
+{
+  "id": "masters-publication",
+  "metadata": {
+    "purpose": "examination",
+    "metadata": {
+      "title": "Illustrative synthetic research",
+      "author": {
+        "student_record_name": "Synthetic Student",
+        "orcid": "0000-0000-0000-0001"
+      },
+      "degree": {
+        "kind": "research-masters",
+        "course": "Master of Philosophy"
+      },
+      "academic_units": [
+        "Synthetic School"
+      ],
+      "submission": {
+        "month": "2026-11"
+      },
+      "abstract": "Synthetic abstract for configuration validation only.",
+      "declarations": {
+        "original_work": true,
+        "word_count": 1200
+      },
+      "publications": [
+        {
+          "id": "synthetic-publication",
+          "title": "Illustrative contribution",
+          "status": "submitted",
+          "version": "author-manuscript",
+          "contributions": [
+            {
+              "name": "Synthetic Student",
+              "role": "writing",
+              "percentage": 100
+            }
+          ]
+        }
+      ],
+      "funding": [
+        {
+          "funder": "Synthetic Funder",
+          "grant": "SYNTHETIC-GRANT"
+        }
+      ],
+      "assistance": [
+        {
+          "kind": "human",
+          "description": "Synthetic editing disclosure."
+        },
+        {
+          "kind": "ai",
+          "description": "Synthetic digital assistance disclosure."
+        }
+      ]
+    }
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "valid",
+    "values": {
+      "metadata.degree.kind": "research-masters",
+      "metadata.publications": [
+        {
+          "id": "synthetic-publication",
+          "title": "Illustrative contribution",
+          "status": "submitted",
+          "version": "author-manuscript",
+          "contributions": [
+            {
+              "name": "Synthetic Student",
+              "role": "writing",
+              "percentage": 100
+            }
+          ]
+        }
+      ]
+    },
+    "diagnostic_codes": []
+  }
+}

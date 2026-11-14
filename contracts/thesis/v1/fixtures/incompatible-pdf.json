@@ -1,0 +1,17 @@
+{
+  "id": "incompatible-pdf",
+  "metadata": {
+    "pdf_standards": [
+      "pdf/ua-1",
+      "pdf/a-4"
+    ]
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "invalid",
+    "values": {},
+    "diagnostic_codes": [],
+    "error_code": "invalid-combination"
+  }
+}

@@ -286,7 +286,7 @@ profile-build: validate_profile
 		echo "Output size: $$(du -h "$(THESIS_OUT)" | cut -f1)"; \
 	fi
 
-# Required contribution gate. Python helpers use only the standard library.
+# Required contribution gate. Install requirements-dev.txt for contract validation.
 # Override PROPERTY_SEED / PROPERTY_CASES to replay a recorded failure.
 PYTHON ?= python3
 PROPERTY_SEED ?= 20261115
@@ -309,7 +309,7 @@ test-properties-deep:
 # Extend the issue #4 verification gate without replacing its properties/PDF checks.
 verify: verify-python
 
-verify-python:
+verify-python: verify-contract
 	$(PYTHON) -m unittest discover -s tests/maintenance -v
 	$(PYTHON) scripts/validate_template.py
 	$(PYTHON) scripts/check_packages.py
@@ -322,6 +322,15 @@ coverage:
 	@mkdir -p build
 	$(PYTHON) -m coverage erase
 	$(PYTHON) -m coverage run -m unittest discover -s tests/maintenance -v
+	$(PYTHON) -m coverage run --append -m unittest discover -s tests/contract -v
+	$(PYTHON) -m coverage run --append -m scripts.thesis_contract check --report build/contract/report.json
+	$(PYTHON) -m coverage run --append -m scripts.thesis_contract normalize --set double_sided=false --output build/contract/normalized-example.json
 	$(PYTHON) -m coverage xml -o build/coverage.xml
 	$(PYTHON) -m coverage json -o build/coverage.json
 	$(PYTHON) -m coverage report --show-missing --fail-under=80
+
+# Shared document contract: schema/API checks, not rendered conformance.
+.PHONY: verify-contract
+verify-contract:
+	$(PYTHON) -m unittest discover -s tests/contract -v
+	$(PYTHON) scripts/thesis_contract.py check --report build/contract/report.json

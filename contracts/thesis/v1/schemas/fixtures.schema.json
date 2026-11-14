@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/unimelb-thesis-template-typst/contracts/thesis/v1/fixtures.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "contract_version": {
+      "const": "1.0.0"
+    },
+    "fixtures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "licence": {
+            "const": "CC0-1.0"
+          },
+          "classification": {
+            "const": "synthetic"
+          },
+          "requirements": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}-[0-9]{2}$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "scope": {
+            "const": "configuration"
+          },
+          "expected_result": {
+            "type": "string",
+            "enum": [
+              "valid",
+              "invalid"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "path",
+          "sha256",
+          "licence",
+          "classification",
+          "requirements",
+          "scope",
+          "expected_result"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_version",
+    "fixtures"
+  ],
+  "additionalProperties": false
+}

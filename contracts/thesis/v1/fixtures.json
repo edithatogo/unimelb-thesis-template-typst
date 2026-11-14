@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "fixtures": [
+    {
+      "id": "bad-month",
+      "path": "fixtures/bad-month.json",
+      "sha256": "743e8612ca3a0f9c26ab837d74c873a2abdd164fbfa93d57bd4551d665f59ba6",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    },
+    {
+      "id": "bad-orcid",
+      "path": "fixtures/bad-orcid.json",
+      "sha256": "767ce58bb5cc8f7dd9b942e687d457fb89c9280775ae17a30dbb0b6c2364615f",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    },
+    {
+      "id": "blind-draft",
+      "path": "fixtures/blind-draft.json",
+      "sha256": "b766757d828c1330dd83dcc8de2aea14d6f3d439d75e10ba33cad3661ec945b2",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "blind-examination",
+      "path": "fixtures/blind-examination.json",
+      "sha256": "92577f4a54b04bddeff5c850bfd810b770948f1b0b1ad4c2587432a28a78fa0a",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    },
+    {
+      "id": "cli-false",
+      "path": "fixtures/cli-false.json",
+      "sha256": "30b8c434765a4c8e7a49b63522948493ebcf7174531dfe6275a9b5ded765a4ff",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "doctoral-monograph",
+      "path": "fixtures/doctoral-monograph.json",
+      "sha256": "9f5fede93ab19d258364671aa4533b87a47849ee651edbe0265ab0b90615d3ba",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "draft-minimal",
+      "path": "fixtures/draft-minimal.json",
+      "sha256": "bf137034ce9e70fc7033f87ff821a08358ee00d4a671eb984cec8efc5ee1fa05",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "incompatible-pdf",
+      "path": "fixtures/incompatible-pdf.json",
+      "sha256": "0833d2691238dc5179d1a26a828c0a494dcdfec4a29252c0d30caf3f96eaea2f",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    },
+    {
+      "id": "joint-resubmission",
+      "path": "fixtures/joint-resubmission.json",
+      "sha256": "f75466fa1d333cc692e264a227d1ebb086dfdf81f5a56929a859048498fcfa56",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "masters-publication",
+      "path": "fixtures/masters-publication.json",
+      "sha256": "3563d0507545ef9c18f44e40f90a2ebf6554d1a6c7d9ebf05c0b4a62cda52ace",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "missing-final-title",
+      "path": "fixtures/missing-final-title.json",
+      "sha256": "b48abeda08fead9edd818e90ea4975792d80ab19c0e0009dda5954d9cbcd5874",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    },
+    {
+      "id": "missing-language-approval",
+      "path": "fixtures/missing-language-approval.json",
+      "sha256": "cbc44e28146ce31b39c2bedb4151b91c2f10fbf68678a476f1596eb146407012",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    },
+    {
+      "id": "non-english-creative",
+      "path": "fixtures/non-english-creative.json",
+      "sha256": "cc78efdc8375184ebcd61928b1f1ae905aff32e991e1731a8d33af9458185c7b",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "placeholder-final-title",
+      "path": "fixtures/placeholder-final-title.json",
+      "sha256": "0d814357a114e225f0a6dce29c3a83d1e74ff5a59538bb8d7303d675f3c9658a",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    },
+    {
+      "id": "print-explicit-false",
+      "path": "fixtures/print-explicit-false.json",
+      "sha256": "36102dea34475dab8d8df72c5375216cbb7f7b40ab769e9461342eea725550a4",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "public-deposit-input",
+      "path": "fixtures/public-deposit-input.json",
+      "sha256": "b9038aaf7844662a94ff2d2435f1d09406a52855f8236f428b0f7516f445e982",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "valid"
+    },
+    {
+      "id": "string-boolean",
+      "path": "fixtures/string-boolean.json",
+      "sha256": "ec48db2b4b59a74edc0d22a7b40dc1956fdfa01489bbda958603598e4e333bf2",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    },
+    {
+      "id": "unknown-field",
+      "path": "fixtures/unknown-field.json",
+      "sha256": "3dd332ac8fc5559da072a45567cc8911c1a8a97ebf358248376e6bf136b2a333",
+      "licence": "CC0-1.0",
+      "classification": "synthetic",
+      "requirements": [
+        "CON-02",
+        "CON-03"
+      ],
+      "scope": "configuration",
+      "expected_result": "invalid"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "print-explicit-false",
+  "metadata": {
+    "layout": "print"
+  },
+  "cli": [],
+  "explicit": {
+    "double_sided": false
+  },
+  "expected": {
+    "result": "valid",
+    "values": {
+      "layout": "print",
+      "double_sided": false
+    },
+    "diagnostic_codes": [
+      "missing-metadata"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "bad-orcid",
+  "metadata": {
+    "metadata": {
+      "author": {
+        "orcid": "0000-0000-0000-0002"
+      }
+    }
+  },
+  "cli": [],
+  "explicit": {},
+  "expected": {
+    "result": "invalid",
+    "values": {},
+    "diagnostic_codes": [],
+    "error_code": "invalid-orcid"
+  }
+}

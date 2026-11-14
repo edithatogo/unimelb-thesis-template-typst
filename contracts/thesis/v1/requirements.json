@@ -1,0 +1,1557 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.0.0",
+  "requirements": [
+    {
+      "id": "CON-01",
+      "outcome": "Version the normative contract, source ledger, legacy-requirement crosswalk, migration policy and requirement-to-test-to-evidence map; preserve one canonical owner.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 14
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement CON-01; primary owner: contract"
+        },
+        {
+          "source_id": "legacy-ears-requirements",
+          "clause": "All 50 EARS headings; historical crosswalk input"
+        },
+        {
+          "source_id": "legacy-docs-tasks",
+          "clause": "Historical task references; not acceptance evidence"
+        },
+        {
+          "source_id": "legacy-root-tasks",
+          "clause": "Historical task-only IDs and completion claims"
+        },
+        {
+          "source_id": "latex-legacy-todo",
+          "clause": "Historical LaTeX checklist; reconciliation remains with the existing companion owner"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-CON-01",
+          "description": "Check exact catalogue parity with the retained parent contract, complete legacy-ID mappings, source digests, declared owners and requirement-to-case links; reject a removed ID, dangling reference or altered source.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "CON-02",
+      "outcome": "Validate typed metadata and independent purpose/layout/identity/language/output dimensions, precedence and invalid combinations before rendering.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 14
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement CON-02; primary owner: contract"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-CON-02",
+          "description": "Normalize the same typed layered inputs with the documented precedence; reject unknown keys, malformed dates/ORCID, string booleans in typed data, contradictory modes and absent required approval references, while preserving explicit false and absent values.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "CON-03",
+      "outcome": "Both engines consume the same versioned synthetic fixtures and expected scholarly/policy semantics through independent adapters; report unsupported cases explicitly.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 14
+        },
+        {
+          "repository": "edithatogo/unimelb-thesis-template-latex",
+          "issue": 18
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement CON-03; primary owner: contract"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-CON-03",
+          "description": "Run a shared valid metadata/order case and an intended invalid-input case through independently implemented Typst and LaTeX adapters, and compare their observed semantics against the same pinned expectations and fixture digests.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "CON-04",
+      "outcome": "Version schemas and policy snapshots; distinguish implementation progress, executed results, applicability, unresolved human review and institutional approval.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 14
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement CON-04; primary owner: contract"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-CON-04",
+          "description": "Exercise a compatible addition, a breaking default/meaning change and an independently changed policy source; require version/migration decisions and preserve planned, executed, unsupported and human-review states separately.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "COR-01",
+      "outcome": "Render declaration clauses, contribution/publication tables and footnotes as intended content, never as source expressions or unfinished placeholders.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 15
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement COR-01; primary owner: correctness"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-COR-01",
+          "description": "Compile minimal synthetic declarations, contribution/publication tables and footnotes; assert the complete expected text and reject literal source expressions, unfinished placeholders and overlapping table content.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "COR-02",
+      "outcome": "Produce populated and correctly linked contents, lists, references, bookmarks, logical page labels, appendices, abbreviations, glossary and index.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 15
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement COR-02; primary owner: correctness"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-COR-02",
+          "description": "Build populated contents, lists, references, appendices, glossary and index cases; inspect actual destinations, page labels and required ordering, including deliberate missing or broken entries.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "COR-03",
+      "outcome": "Resolve configuration once with documented precedence and typed CLI parsing; propagate layout profile, double-sided mode, bibliography, declaration and assistance fields consistently.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 15
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement COR-03; primary owner: correctness"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-COR-03",
+          "description": "Apply conflicting profile, file, CLI and explicit-argument settings once; inspect all affected renderers for the same resolved profile, double-sided, bibliography, declaration and assistance values.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "COR-04",
+      "outcome": "Blind review output removes declared author identifiers from all emitted public surfaces, including declaration, PDF metadata, tags and supporting evidence.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 15
+        }
+      ],
+      "applicability": {
+        "predicate": "identity-blind-review",
+        "scope": "Cases using blind-review identity, including output and reviewer-safe evidence. This selector does not waive delivery of the blind-review feature."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement COR-04; primary owner: correctness"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-COR-04",
+          "description": "Place synthetic author identifiers in every supported source field and verify their absence from all blind-review public surfaces and reviewer-facing evidence; retain full provenance separately.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "COR-05",
+      "outcome": "Optional sections render on their own applicability conditions; invalid metadata and unfinished automation produce actionable diagnostics rather than silent fallback or fabricated success.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 15
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement COR-05; primary owner: correctness"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-COR-05",
+          "description": "Exercise each declared optional section both present and absent and inject invalid metadata or unfinished automation; require the intended section behavior and precise failure diagnostics.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "TYP-01",
+      "outcome": "Initially qualify Typst 0.15.1 as the latest stable compiler and package minimum, retain the separate exact repository build pin, and recheck latest stable at execution.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 16
+        }
+      ],
+      "applicability": {
+        "predicate": "engine-typst",
+        "scope": "Typst engine cases. The LaTeX consumer may record engine-specific non-applicability with a reason; shared scholarly semantics remain required."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement TYP-01; primary owner: typst"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-TYP-01",
+          "description": "Check the declared package compiler floor and exact repository pin against an actually executed, deliberately qualified Typst release; reject a mismatched or unqualified compiler.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "TYP-02",
+      "outcome": "Use native multiple bibliographies/targets/groups and typed resource paths where appropriate; verify bibliography scope, numbering and installed-package resource resolution.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 16
+        }
+      ],
+      "applicability": {
+        "predicate": "engine-typst",
+        "scope": "Typst engine cases. The LaTeX consumer may record engine-specific non-applicability with a reason; shared scholarly semantics remain required."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement TYP-02; primary owner: typst"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-TYP-02",
+          "description": "Compile scoped multiple-bibliography cases and a freshly installed package with typed resource paths; inspect citation targets, numbering and resource resolution rather than only compilation success.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "TYP-03",
+      "outcome": "Offer an optional licensed variable-font profile with fixed axes, embedding, glyph coverage and math pairing; retain a qualified static profile.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 16
+        }
+      ],
+      "applicability": {
+        "predicate": "engine-typst",
+        "scope": "Typst engine cases. The LaTeX consumer may record engine-specific non-applicability with a reason; shared scholarly semantics remain required."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement TYP-03; primary owner: typst"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-TYP-03",
+          "description": "Render the licensed static profile and opt-in fixed-axis variable-font profile; verify exact font inputs, embedding, required glyphs and mathematics pairing with disclosed unsupported cases.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "TYP-04",
+      "outcome": "Use fail-closed typst eval and native dependency JSON as validated evidence inputs; supplement path inventories with explicit compiler/font/package/asset hashes.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 16
+        }
+      ],
+      "applicability": {
+        "predicate": "engine-typst",
+        "scope": "Typst engine cases. The LaTeX consumer may record engine-specific non-applicability with a reason; shared scholarly semantics remain required."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement TYP-04; primary owner: typst"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-TYP-04",
+          "description": "Inject failed eval, malformed dependency JSON and missing dependency identities; require failure and verify that recorded paths are supplemented by independent compiler/font/package/asset hashes.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "TYP-05",
+      "outcome": "Maintain a tested compiler/support matrix, migration notes and bounded upgrade canaries; detect layout convergence warnings and relevant semantic/layout regressions.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 16
+        }
+      ],
+      "applicability": {
+        "predicate": "engine-typst",
+        "scope": "Typst engine cases. The LaTeX consumer may record engine-specific non-applicability with a reason; shared scholarly semantics remain required."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement TYP-05; primary owner: typst"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-TYP-05",
+          "description": "Execute the declared compiler/support matrix and a bounded upgrade canary; inspect migration diagnostics, convergence warnings and semantic/layout regressions before changing a qualified pin.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "POL-01",
+      "outcome": "Enforce A4, applicable margins, logical pagination, ordered title metadata and the university prohibitions on logos and signatures.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 17
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-submission",
+        "scope": "Examination, deposit-full or deposit-public cases. Draft metadata may remain incomplete with diagnostics and cannot be presented as submission-qualified."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement POL-01; primary owner: policy"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-POL-01",
+          "description": "For applicable submission PDF cases, inspect actual page size, margins, page labels and ordered title fields, and reject logos, signatures and invalid joint-award/resubmission metadata under the pinned policy.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "POL-02",
+      "outcome": "Enforce the prescribed front/core/end-matter order, abstract range and conditional third-party copyright inventory.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 17
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-submission",
+        "scope": "Examination, deposit-full or deposit-public cases. Draft metadata may remain incomplete with diagnostics and cannot be presented as submission-qualified."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement POL-02; primary owner: policy"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-POL-02",
+          "description": "Compare observed matter order, abstract bounds and applicable third-party inventory against source-dated rules; include missing, reordered and out-of-range synthetic cases.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "POL-03",
+      "outcome": "Implement degree/course-specific word limits, explicit count scope and approved exceptions; never equate a raw source/text count with the institutional count.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 17
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-submission",
+        "scope": "Examination, deposit-full or deposit-public cases. Draft metadata may remain incomplete with diagnostics and cannot be presented as submission-qualified."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement POL-03; primary owner: policy"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-POL-03",
+          "description": "Exercise degree/course word-count scope, limits and real-reference exception fields; reject unsupported overrides and demonstrate that raw extracted/source counts are not institutional approval.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "POL-04",
+      "outcome": "Handle approved non-English theses and English-summary limits independently of UI locale; validate creative-output description, proportions and durable components.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 17
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-submission",
+        "scope": "Examination, deposit-full or deposit-public cases. Draft metadata may remain incomplete with diagnostics and cannot be presented as submission-qualified."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement POL-04; primary owner: policy"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-POL-04",
+          "description": "Test non-English language independently from label locale, required permission references and English summaries, plus creative-output descriptions, proportions and durable component references.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "POL-05",
+      "outcome": "Render applicable funding/grant/RTP acknowledgement, prior work, human editing and digital/AI assistance disclosures; keep private assistance logs separate.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 17
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-submission",
+        "scope": "Examination, deposit-full or deposit-public cases. Draft metadata may remain incomplete with diagnostics and cannot be presented as submission-qualified."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement POL-05; primary owner: policy"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-POL-05",
+          "description": "Render applicable funding, grant/RTP, prior-work and human/digital-assistance disclosures; verify public output while keeping confidential assistance logs outside emitted evidence.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "POL-06",
+      "outcome": "Represent publication identity, version/status/location/contributions/permissions and integrated argument; apply incorporated-publication bibliography rules and keep signed forms separate.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 17
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-submission",
+        "scope": "Examination, deposit-full or deposit-public cases. Draft metadata may remain incomplete with diagnostics and cannot be presented as submission-qualified."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement POL-06; primary owner: policy"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-POL-06",
+          "description": "Exercise publication identity, status, version, location, contribution and rights records; inspect rendered integration and bibliography behavior and keep signed declaration forms separate.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "POL-07",
+      "outcome": "Generate an exact-artifact submission checklist covering originality report, supervisor review, exceptions, TES naming and final amendments without claiming institutional approval.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 17
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-submission",
+        "scope": "Examination, deposit-full or deposit-public cases. Draft metadata may remain incomplete with diagnostics and cannot be presented as submission-qualified."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement POL-07; primary owner: policy"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-POL-07",
+          "description": "Generate a checklist bound to exact final artifact hashes with originality, review, exception, naming and amendment decisions; unresolved human decisions must remain unresolved.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "TST-01",
+      "outcome": "Use rendered text, metadata, structure and controlled visual baselines as independent oracles; retain minimal regressions for every reproduced audit defect.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 18
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement TST-01; primary owner: testing"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-TST-01",
+          "description": "Demonstrate failing-before/passing-after semantic, metadata, structure and controlled visual oracles for each reproduced rendering defect, with pinned tools and justified image tolerances.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "TST-02",
+      "outcome": "Exercise the supported profile/feature matrix with bounded seeded properties, negative fixtures and targeted fault injection; record scoped applicability rather than ceremonial test counts.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 18
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement TST-02; primary owner: testing"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-TST-02",
+          "description": "Run a bounded declared interaction matrix and seeded generated cases, then inject wrong content, missing navigation, leaked identity and stale evidence to prove the intended failure is detected.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "TST-03",
+      "outcome": "Extend the canonical verifier to reject missing fixtures/tools, stale outputs, swallowed subprocess failures, timeouts and invalid reports; retain deterministic failure evidence.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 18
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement TST-03; primary owner: testing"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-TST-03",
+          "description": "Inject missing fixtures/tools, false or empty required assertions, malformed/null reports, stale artifacts, child failures and timeouts; every required failure must propagate without suppressing valid optional values.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "ACC-01",
+      "outcome": "Preserve semantic headings, tables, figures, lists, citations and equations with language, reading order, usable descriptions and appropriate decorative artifacts.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 19
+        }
+      ],
+      "applicability": {
+        "predicate": "output-pdf",
+        "scope": "PDF cases under the selected engine-supported profile. Required accessibility delivery remains open until qualified, including human review."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement ACC-01; primary owner: accessibility"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-ACC-01",
+          "description": "Inspect full synthetic documents for semantic headings, tables, figures, lists, citations, equations, language and reading order, and record descriptions and decorative artifacts separately.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "ACC-02",
+      "outcome": "Qualify full examples against an explicit engine-supported PDF/UA plus compatible PDF/A profile using compiler checks, a named external validator and recorded human accessibility review.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 19
+        }
+      ],
+      "applicability": {
+        "predicate": "output-pdf",
+        "scope": "PDF cases under the selected engine-supported profile. Required accessibility delivery remains open until qualified, including human review."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement ACC-02; primary owner: accessibility"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-ACC-02",
+          "description": "Validate an engine-supported PDF/UA plus compatible PDF/A output with named tools and an independent recorded human accessibility review; separate automated success from unresolved human findings.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "ACC-03",
+      "outcome": "Reject incompatible standards and unsupported PDF-image embedding combinations; isolate unstable accessibility helpers and disclose target/web-app capability limits.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 19
+        }
+      ],
+      "applicability": {
+        "predicate": "output-pdf",
+        "scope": "PDF cases under the selected engine-supported profile. Required accessibility delivery remains open until qualified, including human review."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement ACC-03; primary owner: accessibility"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-ACC-03",
+          "description": "Attempt incompatible standard combinations and PDF-image embedding, plus unstable helpers and unsupported web-app paths; require rejection or explicit unsupported outcomes with a qualified alternative.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "REP-01",
+      "outcome": "Record immutable compiler, package, font, asset and toolchain inputs; demonstrate a clean provisioned offline build without hidden system-font or cache dependence.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 20
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement REP-01; primary owner: reproducibility"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-REP-01",
+          "description": "Rebuild with provisioned immutable compiler/package/font/asset/tool inputs in a clean offline environment and fail on hidden system-font, mutable network or cache dependence.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "REP-02",
+      "outcome": "Control time, locale and nondeterministic inputs; require independently rebuilt byte identity for deterministic-build claims in a pinned environment, failing mismatches, and distinguish semantic repeatability elsewhere.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 20
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement REP-02; primary owner: reproducibility"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-REP-02",
+          "description": "Perform independent rebuilds in the declared pinned environment and compare complete artifact digests; any mismatch must fail a deterministic-byte claim while semantic repeatability remains separately reported.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "REP-03",
+      "outcome": "Publish only explicit tagged, qualified artifacts bound to source and evidence hashes; provide checksums, warranted provenance/SBOM, consumer verification and rollback guidance.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 20
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement REP-03; primary owner: reproducibility"
+        },
+        {
+          "source_id": "central-continuous-conformance",
+          "clause": "Release and publication"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-REP-03",
+          "description": "Qualify an explicit tagged artifact, bind its source/evidence/checksums and warranted provenance, then exercise consumer verification and documented rollback without publishing from an ordinary branch.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "PKG-01",
+      "outcome": "Validate official package metadata, compiler floor, resource boundaries, real thumbnail and exclusions; compile a freshly installed starter outside the repository.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 21
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement PKG-01; primary owner: packaging"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-PKG-01",
+          "description": "Validate package metadata, compiler floor, resource boundaries, thumbnail and exclusions, then install and compile the starter outside the repository rather than reusing the working checkout.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "PKG-02",
+      "outcome": "Reduce unjustified font/dependency payload; preserve rights and licence decisions and keep authoritative version, changelog, citation and release metadata consistent.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 21
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement PKG-02; primary owner: packaging"
+        },
+        {
+          "source_id": "central-product-metadata",
+          "clause": "Licensing and rights; Version authority; Citation"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-PKG-02",
+          "description": "Inspect dependency/font payload, rights and licensing decisions and all authoritative version/changelog/citation/release metadata; reject unexplained conflicts and unsupported completion claims.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "PKG-03",
+      "outcome": "Provide tested CLI/web-app authoring, watch/build/verification/migration guides and actionable diagnostics; replace stale completion/compliance claims with evidence-linked status.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 21
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement PKG-03; primary owner: packaging"
+        },
+        {
+          "source_id": "central-product-metadata",
+          "clause": "README contract; Validation"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-PKG-03",
+          "description": "Execute the documented authoring, watch, build, verification and migration paths on supported CLI/web-app targets; verify useful failure diagnostics and evidence-linked status statements.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "EVD-01",
+      "outcome": "Emit a central-schema-valid verification receipt linking independently versioned native report sidecars, exact source revision, commands and SHA-256 artifacts.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 22
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement EVD-01; primary owner: evidence"
+        },
+        {
+          "source_id": "central-receipt-schema-planning",
+          "clause": "Pinned parent-contract baseline, schema_version 1"
+        },
+        {
+          "source_id": "central-receipt-schema-current",
+          "clause": "Rechecked current central schema, unchanged from the planning pin"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-EVD-01",
+          "description": "Validate the central wrapper against the pinned unmodified schema and independently versioned sidecars; reject extra wrapper fields, wrong revisions and missing or altered artifact hashes.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "EVD-02",
+      "outcome": "Generate per-requirement policy/evidence reports with source clause/date/hash, applicability, observed result, artifact binding and separate human decisions.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 22
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement EVD-02; primary owner: evidence"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-EVD-02",
+          "description": "Generate one outcome per applicable requirement with source clause/date/hash, reason, observed result and exact artifact binding; preserve human decisions and unresolved required work separately.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "EVD-03",
+      "outcome": "Validate and privacy-filter reports, logs and public evidence on success and failure; reject stale, malformed, missing or unrelated evidence.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 22
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement EVD-03; primary owner: evidence"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-EVD-03",
+          "description": "Exercise valid and failing report paths with synthetic restricted content, malformed/stale records and unrelated artifacts; reject invalid evidence and prevent private data from entering public output.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "SCI-01",
+      "outcome": "Trace each generated result/figure/table to input identity/digest, analysis revision/environment, parameters/seed/transforms, output digest and rights.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 22
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement SCI-01; primary owner: evidence"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-SCI-01",
+          "description": "Trace a synthetic figure/table/result through input digests, analysis revision/environment, parameters, seeds, transformations, output digest and rights, and reject a tampered provenance link.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "SCI-02",
+      "outcome": "Keep bibliographic metadata checks, citation-support review, reproducibility and scientific validity as separate claims; integrations remain optional, local-first and explicitly network-enabled.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 22
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement SCI-02; primary owner: evidence"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-SCI-02",
+          "description": "Keep bibliographic metadata validation, citation-support review, reproducibility and scientific validity as separate outcomes; test that optional integrations stay local unless network access is explicitly enabled.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "DEP-01",
+      "outcome": "Produce examination/full/public-deposit variants from explicit permitted content projections, retaining private rights and redaction records outside public artifacts.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 23
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-submission",
+        "scope": "Examination, deposit-full or deposit-public cases. Draft metadata may remain incomplete with diagnostics and cannot be presented as submission-qualified."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement DEP-01; primary owner: deposit"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-DEP-01",
+          "description": "Produce examination/full/public variants from an explicit rights projection and verify that private rights and redaction records are excluded from distributed artifacts.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "DEP-02",
+      "outcome": "Verify synthetic restricted content is absent from every public output surface and archive, while preserving the declared placeholder/pagination contract.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 23
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-deposit-public",
+        "scope": "Public-deposit projection and all emitted public surfaces. Required public-variant delivery is not waived by testing only a full variant."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement DEP-02; primary owner: deposit"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-DEP-02",
+          "description": "Inject restricted synthetic text/images/attachments and inspect every public output and archive surface for their absence, while verifying required placeholders, page numbering and declared pagination behavior.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "DEP-03",
+      "outcome": "Generate a durable deposit package and exact-artifact checklist, keep signed forms and confidential logs separate, and leave permissions/access/embargo decisions explicitly human.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 23
+        }
+      ],
+      "applicability": {
+        "predicate": "purpose-deposit",
+        "scope": "Deposit-full or deposit-public cases and their complete distributed packages."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement DEP-03; primary owner: deposit"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-DEP-03",
+          "description": "Validate a durable, correctly named deposit package and final-byte checklist; keep signed forms and confidential logs separate and retain unresolved permissions/access/embargo decisions as human work.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "WEB-01",
+      "outcome": "Provide an opt-in experimental HTML/MathML rendition with equivalent scholarly content and identifiers, usable navigation and separately tested browser accessibility.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 24
+        }
+      ],
+      "applicability": {
+        "predicate": "output-html-or-bundle",
+        "scope": "Opt-in experimental HTML or bundle cases. Optional author use does not remove this programme's delivery and qualification obligation."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement WEB-01; primary owner: web"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-WEB-01",
+          "description": "Render the opt-in experimental HTML/MathML target and inspect scholarly content, identifiers, navigation, keyboard behavior and separate browser accessibility outcomes.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "WEB-02",
+      "outcome": "Qualify opt-in bundle outputs, assets, links, path safety and public-content projection; document CLI/web-app limitations and preserve a stable PDF/deposit route.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 24
+        }
+      ],
+      "applicability": {
+        "predicate": "output-bundle",
+        "scope": "Opt-in experimental bundle cases, including all assets and rights projections."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement WEB-02; primary owner: web"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-WEB-02",
+          "description": "Build and inspect a complete experimental bundle for safe unique paths, assets, cross-document links and the verified public-content projection; reject restricted bytes and unsupported deployment claims.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "BEN-01",
+      "outcome": "Predeclare and run a licensed cross-engine semantic/policy benchmark corpus with failures, selection limits and engine-specific output expectations reported.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 25
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement BEN-01; primary owner: qualification"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-BEN-01",
+          "description": "Execute a predeclared licensed corpus against both engines and declared comparators, reporting semantic/policy failures, unsupported cases, selection limits and engine-specific output expectations.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "BEN-02",
+      "outcome": "Measure cold/warm/watch latency, memory, output size and failure rate on declared hardware; establish justified regression budgets from observed variance.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 25
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement BEN-02; primary owner: qualification"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-BEN-02",
+          "description": "Measure repeated cold/warm/watch runs on declared hardware and toolchains with latency, memory, output size, failure rate and variance, then justify regression budgets from those observations.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "BEN-03",
+      "outcome": "Execute novice, experienced-author and assistive-technology task protocols; record completion/recovery/error evidence separately from automated test success.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 25
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement BEN-03; primary owner: qualification"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-BEN-03",
+          "description": "Run actual novice, experienced-author and assistive-technology tasks and record completion, recovery, error and privacy-aware qualitative findings; simulated walkthroughs cannot satisfy this case.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "BEN-04",
+      "outcome": "Issue dated, scoped and revocable qualification claims only after applicable gates pass on the final integrated revision; separate machine conformance, human review and comparative advantage.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 25
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement BEN-04; primary owner: qualification"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-BEN-04",
+          "description": "Qualify the final integrated revision and distributed artifacts with dated scope, comparator versions, limits and expiry/review triggers; keep machine, human and comparative claims distinct.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "GOV-01",
+      "outcome": "Preserve zero mandatory approvals/CODEOWNERS/team gates, owner recovery, blocked force-push/deletion and required conversation resolution; activate and read back actual settings.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 5
+        },
+        {
+          "repository": "edithatogo/unimelb-thesis-template-latex",
+          "issue": 8
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement GOV-01; primary owner: Typst #5; LaTeX #8"
+        },
+        {
+          "source_id": "central-solo-maintainer",
+          "clause": "Solo-maintainer repository standard"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-GOV-01",
+          "description": "Read back each applicable repository's live protection and verify zero mandatory approvals, owner recovery, blocked deletion/force-push and conversation resolution against its existing governance owner.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "GOV-02",
+      "outcome": "Reuse canonical make verify, stable automated checks, least privilege, immutable actions, bounded execution, fast PR/deep scheduled lanes and qualified dependency/security gates.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 4
+        },
+        {
+          "repository": "edithatogo/unimelb-thesis-template-latex",
+          "issue": 7
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement GOV-02; primary owner: Typst completed #4; LaTeX completed #7"
+        },
+        {
+          "source_id": "central-continuous-conformance",
+          "clause": "Harness and receipt; Policy-as-code"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-GOV-02",
+          "description": "Run the existing canonical verification entry point and stable required checks on the final revision; verify bounded execution, immutable actions, least privilege and applicable scheduled/dependency/security lanes.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "GOV-03",
+      "outcome": "Reconcile registry and executable-helper coverage/CodeQL applicability using actual measured components and provider evidence; assess release supply-chain profile without fabricated coverage.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 5
+        },
+        {
+          "repository": "edithatogo/unimelb-thesis-template-latex",
+          "issue": 8
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement GOV-03; primary owner: Typst #5; LaTeX #8"
+        },
+        {
+          "source_id": "central-continuous-conformance",
+          "clause": "Policy-as-code; Release and publication"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-GOV-03",
+          "description": "Compare the registry's component/coverage/CodeQL and release applicability with actual executable files, measured scope and provider evidence; reject fabricated or transferred percentages.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "GOV-04",
+      "outcome": "Reconcile integrated revisions and evidence, time-bound exceptions and existing owners; preserve the separate offline-runner provisioning hold and prevent duplicate hardening trackers.",
+      "owners": [
+        {
+          "repository": "edithatogo/unimelb-thesis-template-typst",
+          "issue": 6
+        },
+        {
+          "repository": "edithatogo/unimelb-thesis-template-latex",
+          "issue": 9
+        }
+      ],
+      "applicability": {
+        "predicate": "always",
+        "scope": "A programme-wide obligation or supporting interface; individual conditional features and the selected execution scope must still be recorded."
+      },
+      "source_refs": [
+        {
+          "source_id": "umthesis-contract",
+          "clause": "Section 2, requirement GOV-04; primary owner: Typst #6; LaTeX #9"
+        },
+        {
+          "source_id": "central-continuous-conformance",
+          "clause": "Safe rollout order; Lifecycle"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "AC-GOV-04",
+          "description": "Reconcile exact source and receiving revisions with their evidence and existing issue owners; preserve time-bounded exceptions and the separate offline rollout hold without duplicating foundation trackers.",
+          "implementation_state": "planned",
+          "fixture_ids": [],
+          "evidence_refs": []
+        }
+      ]
+    }
+  ]
+}
