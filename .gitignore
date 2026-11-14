@@ -43,3 +43,9 @@ out/
 # Personal files
 personal-notes.md
 drafts/
+
+# Coverage and isolated Python environments
+.coverage
+.coverage.*
+htmlcov/
+.venv/
