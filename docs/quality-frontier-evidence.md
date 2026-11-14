@@ -90,7 +90,7 @@ status is not a passing test result. The nested duplicate-check loops call
 retain regression cases alongside generated malformed-input cases. Do not
 replace that lane with a second testing framework.
 
-## Pending implementation: PR #10
+## Unmerged implementation: PR #10
 
 The testing lane has opened [PR #10][testing-pr] at
 `4b6107b7b024305c609885037ee049612bb54d75`. Its source fixes the mixed-entry
@@ -121,11 +121,20 @@ qualify hosted Python 3.15.1 or PDF compilation. Invoking the new
 `scripts/verify.py` failed closed with `Required executable not found: typst`
 (exit 1) in this environment.
 
-At inspection, [quality checks][quality-run] and [privacy checks][pr-privacy-run]
-were queued for this PR head; the extended corpus is intentionally skipped on
-ordinary PRs. No four-profile Typst or CodeQL run was found for that exact head.
-Missing and pending runs are not passing evidence. Integration and final-main
-verification remain open.
+For that tested head, [quality checks][quality-run] and
+[privacy checks][pr-privacy-run] were queued; no four-profile Typst or CodeQL
+run was found.
+
+The subsequent head `c60bebd294fe2991ae2d29f15f0a87ee80aad153` moves the preserved
+four-profile matrix into `quality.yml`. All three tested Python blobs are
+unchanged, as verified from GitHub. The [new quality run][current-quality-run]
+now contains all four profile jobs alongside verification, lint and dependency
+review; these and the [new privacy run][current-privacy-run] remain queued.
+The extended corpus is intentionally skipped on ordinary PRs. The PR author
+also reports full local verification in the PR description; that report is
+separate from the independently executed helper evidence above. Hosted Python
+3.15.1, CodeQL, integration and final-main verification remain open. Missing and
+pending runs are not passing evidence.
 
 ## Applicability decisions
 
@@ -135,7 +144,7 @@ when the implementation changes.
 | Technique | Decision | Evidence and boundary |
 | --- | --- | --- |
 | Property-based testing | Warranted; incomplete. | The [Python helpers][terms] validate structured data and transform CSV. Mixed-entry rejection, duplicate handling and normalized round trips have concrete, bounded invariants. Tests must state the supported input domain and normalization rules. |
-| Mutation testing | Exclude a dedicated mutation lane for this increment. | The first useful gap is an executable regression/property suite for the small helper surface. A mutation service, score gate and equivalent-mutant maintenance are not proportionate evidence for this template now. Reassess after the baseline suite exists or logic grows. |
+| Mutation testing | Exclude a dedicated mutation lane for this increment. | The small helper surface has concrete input/output oracles covered by the regression/property increment. A separate mutation service, score gate and equivalent-mutant maintenance are not proportionate to this template's current scope. Reassess if validation logic grows or review finds that the ordinary suite misses meaningful faults. |
 | Deterministic simulation testing (DST) | Not applicable to the inspected application. | The repository builds documents and runs local helpers; it contains no distributed service, replicated state machine or simulated event scheduler requiring a separate fault-simulation harness. |
 | Metamorphic testing (MT) | No separate mandatory lane. | Normalized round trips and input permutations can be expressed within the property suite. This excludes a duplicate framework/job, not useful metamorphic assertions. |
 | Consumer/provider contract testing | No separate mandatory framework. | The source exposes Typst macros and local helper commands, not an independently deployed producer/consumer protocol. Compile examples and helper input/output tests remain necessary. Revisit if an external service or versioned interchange contract is introduced. |
@@ -193,3 +202,5 @@ do not provision it here or add it as a third dependency of #6.
 [testing-evidence]: https://github.com/edithatogo/unimelb-thesis-template-typst/pull/10#issuecomment-6878924654
 [quality-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605193230
 [pr-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605193200
+[current-quality-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605767014
+[current-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605766686
