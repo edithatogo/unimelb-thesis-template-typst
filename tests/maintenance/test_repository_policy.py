@@ -227,6 +227,51 @@ class ObservedSettingsTests(unittest.TestCase):
         extra["enforcement"] = "disabled"
         self.assertEqual(policy.compare_rulesets(desired, [desired, extra]), [])
 
+    def test_malformed_extra_observations_are_unknown(self):
+        # A matching primary policy must not hide an incomplete secondary one.
+        mutations = [
+            ("name", None), ("name", ""),
+            ("target", None), ("target", []), ("target", "unknown"),
+            ("enforcement", None), ("enforcement", []), ("enforcement", "unknown"),
+            ("conditions", []), ("conditions", None),
+            ("bypass_actors", {}), ("bypass_actors", [None]),
+            ("rules", {}), ("rules", [None]),
+            ("rules", [{"type": None}]),
+            ("rules", [{"type": "deletion", "parameters": []}]),
+        ]
+        for field, value in mutations:
+            with self.subTest(field=field, value=value):
+                desired = valid_policy()
+                extra = copy.deepcopy(desired)
+                extra.update(name="secondary", target="tag")
+                extra[field] = value
+                with self.assertRaises(policy.ObservationUnavailable):
+                    policy.compare_rulesets(desired, [desired, extra])
+
+    def test_additional_active_push_ruleset_requires_review(self):
+        desired = valid_policy()
+        extra = {
+            "name": "restrict template pushes",
+            "target": "push",
+            "enforcement": "active",
+            "conditions": None,
+            "bypass_actors": [],
+            "rules": [{"type": "file_extension_restriction", "parameters": {
+                "restricted_file_extensions": [".typ"],
+            }}],
+        }
+        errors = policy.compare_rulesets(desired, [desired, extra])
+        self.assertTrue(any("branch/push rulesets require review" in error for error in errors))
+
+    def test_valid_non_enforcing_and_tag_rulesets_are_outside_branch_inventory(self):
+        desired = valid_policy()
+        for target, enforcement in (("push", "disabled"), ("push", "evaluate"),
+                                    ("tag", "active")):
+            with self.subTest(target=target, enforcement=enforcement):
+                extra = copy.deepcopy(desired)
+                extra.update(name="secondary", target=target, enforcement=enforcement)
+                self.assertEqual(policy.compare_rulesets(desired, [desired, extra]), [])
+
 
 class CommandLineTests(unittest.TestCase):
     def run_cli(self, desired, observed=...):
@@ -283,6 +328,24 @@ class CommandLineTests(unittest.TestCase):
                 status = policy.main(["--desired", str(missing)])
             self.assertEqual(status, 2)
             self.assertIn("UNKNOWN", output.getvalue())
+
+    def test_unknown_extra_observation_cannot_produce_match(self):
+        desired = valid_policy()
+        extra = copy.deepcopy(desired)
+        extra.update(name="unknown", target=None, enforcement=None)
+        status, output = self.run_cli(json.dumps(desired), json.dumps([desired, extra]))
+        self.assertEqual(status, 2)
+        self.assertIn("UNKNOWN", output)
+        self.assertNotIn("MATCH", output)
+
+    def test_active_push_ruleset_produces_drift(self):
+        desired = valid_policy()
+        extra = copy.deepcopy(desired)
+        extra.update(name="push restrictions", target="push")
+        status, output = self.run_cli(json.dumps(desired), json.dumps([desired, extra]))
+        self.assertEqual(status, 1)
+        self.assertIn("DRIFT", output)
+        self.assertNotIn("MATCH", output)
 
 
 if __name__ == "__main__":

@@ -60,12 +60,14 @@ ruleset requires these exact contexts:
 | `Verify template and properties` | Canonical source, property, unit and PDF verification |
 | `Python validation coverage` | Validation-tool tests, policy and coverage floor |
 
-The compile contexts have historical success. The quality and coverage contexts
-are new in PR #10 and this change.
+The compile, quality and coverage contexts have executed success on earlier
+PR #10/#12 candidates; the receipt records their exact revisions and runs.
 Require successful, completed runs on the current candidate before activating
 this list. Check names alone, skipped jobs and queued runs are insufficient.
-Keep Codecov service contexts, queued CodeQL setup and the conditional offline
-security pipeline out of required checks until independently qualified.
+CodeQL default setup and Codecov have also produced successful results, but
+those results do not qualify later commits. Verify their current-head results
+separately. The conditional offline security pipeline remains outside the
+required list until its infrastructure and integration are qualified.
 No bot receives a ruleset bypass.
 
 ## Activate and verify protection
@@ -121,6 +123,14 @@ when updating the receipt. This offline checker does not prove snapshot
 freshness or cover separate legacy branch-protection settings; inspect those
 as well. HTTP 403/404 and missing bypass evidence remain unknown.
 
+Every observed ruleset must have recognized target/enforcement values and
+correctly shaped fields before comparison. Malformed secondary observations
+remain unknown even when the named policy matches. Additional active branch
+or push rulesets yield drift for review because they can constrain main-branch
+updates. Valid tag rulesets and non-enforcing (`disabled`/`evaluate`) secondary
+rulesets are outside this branch-policy inventory; inspect release-tag rules
+separately. A match does not validate every possible GitHub rule parameter.
+
 Use owner recovery only to repair a lockout or broken policy. Record the reason,
 affected commit, checks available at the time and restoration in an issue/PR.
 Restore normal checks after recovery. Routine dependency updates use the same
@@ -133,6 +143,13 @@ A successful coverage upload is only transport evidence. Verify that
 shows the report for the exact tested SHA, then inspect GitHub for the resulting
 `codecov/project` or `codecov/patch` context. Keep the issue open until both
 service activation and commit-status evidence are recorded.
+
+The 15 November 2026 snapshot records successful OIDC upload and a Codecov-owned
+`codecov/patch` check (app ID 254) for
+`66beec5cd7b78a9cdc1aad37dd288350184ef14d`, with 98.80% of the diff covered
+against the 80% target. This establishes that the service processed that
+repository/commit. The subsequent policy-checker fix needs its own hosted
+coverage and service result; protection activation/readback remains outstanding.
 
 Private vulnerability reporting was not independently verified; follow the
 conditional reporting route in [SECURITY.md](../SECURITY.md).

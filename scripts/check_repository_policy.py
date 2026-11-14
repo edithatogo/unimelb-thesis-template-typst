@@ -162,22 +162,47 @@ def normalized(data):
     return result
 
 
+def require_observation_shape(item):
+    """Validate enough response structure to classify every ruleset safely."""
+    if not isinstance(item, dict) or not OBSERVATION_FIELDS <= item.keys():
+        raise ObservationUnavailable("observed ruleset lacks full settings or bypass actors")
+    if not isinstance(item["name"], str) or not item["name"].strip():
+        raise ObservationUnavailable("observed ruleset name must be nonempty")
+    for field, values in (("target", {"branch", "tag", "push"}),
+                          ("enforcement", {"active", "disabled", "evaluate"})):
+        if not isinstance(item[field], str) or item[field] not in values:
+            raise ObservationUnavailable(f"observed ruleset has unknown {field}")
+    # Push rulesets can have no ref conditions; branch/tag rulesets need an object.
+    if not isinstance(item["conditions"], dict) and not (
+        item["target"] == "push" and item["conditions"] is None
+    ):
+        raise ObservationUnavailable("observed ruleset conditions have an invalid type")
+    for field in ("bypass_actors", "rules"):
+        if not isinstance(item[field], list) or any(
+            not isinstance(entry, dict) for entry in item[field]
+        ):
+            raise ObservationUnavailable(f"observed ruleset {field} must be an array of objects")
+    for rule in item["rules"]:
+        if (not isinstance(rule.get("type"), str) or not rule["type"].strip()
+                or not isinstance(rule.get("parameters", {}), dict)):
+            raise ObservationUnavailable("observed ruleset contains a malformed rule")
+
+
 def compare_rulesets(desired, observed):
     """Return drift; raise when a complete observation is unavailable."""
     if not isinstance(observed, list):
         raise ObservationUnavailable("observed data must be a list of full rulesets")
     for item in observed:
-        if not isinstance(item, dict) or not OBSERVATION_FIELDS <= item.keys():
-            raise ObservationUnavailable("observed ruleset lacks full settings or bypass actors")
+        require_observation_shape(item)
     matches = [item for item in observed if item["name"] == desired["name"]]
     if len(matches) != 1:
         return [f"expected one observed ruleset named {desired['name']!r}; found {len(matches)}"]
     actual = matches[0]
     errors = [f"observed: {error}" for error in validate_ruleset(actual)]
     extras = [item["name"] for item in observed if item is not actual
-              and item["target"] == "branch" and item["enforcement"] == "active"]
+              and item["target"] in {"branch", "push"} and item["enforcement"] == "active"]
     if extras:
-        errors.append(f"additional active branch rulesets require review: {extras!r}")
+        errors.append(f"additional active branch/push rulesets require review: {extras!r}")
     if errors:
         return errors
     expected = normalized(desired)
@@ -219,7 +244,7 @@ def main(argv=None):
     if drift:
         print("DRIFT in observed settings:\n- " + "\n- ".join(drift), file=sys.stderr)
         return 1
-    print("MATCH: supplied observed settings match the desired policy; "
+    print("MATCH: supplied branch policy and active branch/push inventory match; "
           "snapshot freshness and provenance must be verified separately.")
     return 0
 

@@ -7,13 +7,15 @@
   "branch_observation": {
     "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/branches/main",
     "name": "main",
-    "protected": false
+    "protected": false,
+    "observed_at": "2026-11-14T15:06:54Z"
   },
   "rulesets_observation": {
     "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets?includes_parents=true",
     "snapshot_file": "issue-5-observed-rulesets.json",
     "result": "absent",
-    "desired_state_applied": false
+    "desired_state_applied": false,
+    "observed_at": "2026-11-14T15:06:54Z"
   },
   "private_reporting": {
     "state": "unknown",
@@ -23,7 +25,7 @@
     "preset": "github>edithatogo/renovate-config",
     "dashboard": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/7",
     "dashboard_author": "renovate[bot]",
-    "dashboard_updated_at": "2026-11-10T08:56:35Z",
+    "dashboard_updated_at": "2026-11-14T14:31:01Z",
     "state": "active_dependency_discovery",
     "dependabot_config_present": false
   },
@@ -31,16 +33,16 @@
     {
       "name": "Analyze (python)",
       "head_sha": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
-      "status": "queued",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "app_id": 15368,
       "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605/job/132476127186"
     },
     {
       "name": "Analyze (actions)",
       "head_sha": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
-      "status": "queued",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
       "app_id": 15368,
       "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605/job/132476126900"
     },
@@ -87,31 +89,42 @@
     ],
     "minimum_percent": 80,
     "mode": "line_and_branch",
-    "execution": "local Python 3.12.14 passed; hosted Python 3.15.1 pending",
-    "codecov_repository_active": "unverified",
-    "codecov_commit_status": "unverified",
+    "execution": "Local policy-fix snapshot passed on Python 3.15.1; earlier hosted head 66beec5 passed on Python 3.15.1. Final follow-up hosted qualification is pending.",
+    "codecov_repository_active": "evidenced by service-owned check for 66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "codecov_commit_status": "success for 66beec5cd7b78a9cdc1aad37dd288350184ef14d; follow-up head pending",
     "not_measured": [
       "Typst source and layout",
       "other Python helpers",
       "shell scripts"
     ],
     "local_result": {
-      "combined_percent": 97.5925925925926,
-      "covered_lines": 357,
-      "statements": 366,
-      "covered_branches": 170,
-      "branches": 174,
+      "combined_percent": 97.72329246935202,
+      "covered_lines": 372,
+      "statements": 381,
+      "covered_branches": 186,
+      "branches": 190,
       "excluded_lines": 0
     },
     "source_sha256": {
-      "scripts/check_repository_policy.py": "7496ae616f04baedbdfad9918278199a1b83ffce4491065d066ae744c72f40cb",
       "scripts/preflight.py": "6c98b519178a46eacc99d6fc70d00fe8e2324631072cc40d1435875a7ce635b6",
-      "scripts/validate_template.py": "2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98"
+      "scripts/validate_template.py": "2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98",
+      "scripts/check_repository_policy.py": "1e3e207fbb44db3ea4e4ea741eac480653f1c8227d676f6e85656fc9b45b8fd0"
+    },
+    "service_evidence": {
+      "head_sha": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+      "check": "codecov/patch",
+      "app_id": 254,
+      "check_id": 132487159477,
+      "conclusion": "success",
+      "diff_percent": 98.8,
+      "target_percent": 80,
+      "url": "https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/12",
+      "qualification": "GitHub check-runs evidence that Codecov processed this repository and exact commit; not a claim about a later head."
     }
   },
   "external_blockers": [
-    "Ruleset activation: available GitHub connector has no administration-write operation; cloud browser has no signed-in GitHub session.",
-    "Hosted execution and Codecov activation: exact candidate runs and service status must still be verified."
+    "Ruleset activation/readback: available GitHub connector has no administration-write operation; cloud browser has no signed-in GitHub session.",
+    "Final policy-fix head and receiving-main hosted verification, including CodeQL and the Codecov-owned check, remain pending. Earlier successful runs are scoped to their recorded SHAs."
   ],
   "held_work": {
     "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9",
@@ -141,7 +154,7 @@
     "python": "3.12.14",
     "unit_tests": 54,
     "result": "passed",
-    "scope": "Full checked-out candidate: source validation, deterministic properties, 54 maintenance unit tests, policy check, actual Typst compilation and PDF checks; hosted Python 3.15.1 remains pending.",
+    "scope": "Historical full local run on 33c9a4f using Python 3.12.14. The later hosted results and policy-fix follow-up are recorded separately below.",
     "commands": [
       "make verify",
       "make coverage with coverage.py 7.17.3",
@@ -223,23 +236,32 @@
     }
   },
   "hosted_validation": {
-    "head_sha": "33c9a4fb4c27a906d7e6fb8bd037feb8bef05724",
-    "state": "queued",
+    "head_sha": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "state": "completed",
     "runs": [
       {
         "workflow": "Maintenance",
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605934855"
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355606",
+        "conclusion": "success"
       },
       {
         "workflow": "Quality gates",
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605934963"
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355918",
+        "conclusion": "success"
       },
       {
         "workflow": "Privacy and secrets",
-        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605934749"
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355629",
+        "conclusion": "success"
       }
     ],
-    "qualified": false
+    "python": "3.15.1",
+    "unit_tests": 54,
+    "combined_coverage_percent": 97.59,
+    "artifact_id": 14118535958,
+    "artifact_sha256": "d2dcfbed47a3abae83e5b348fa33426584c0a641cd84c7145b940ef04e3548e4",
+    "qualified": false,
+    "qualification": "These earlier-head workflow results do not certify the follow-up policy fix. Current-head CodeQL, other applicable checks and receiving-main verification remain required."
   },
   "independent_review": {
     "head_sha": "33c9a4fb4c27a906d7e6fb8bd037feb8bef05724",
@@ -254,6 +276,58 @@
     "minor_doc_findings_corrected": [
       "Document both required Poppler executables.",
       "Name the Maintenance workflow as the OIDC upload owner."
-    ]
+    ],
+    "followup": {
+      "reviewed_head": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+      "reproduced_findings": 2,
+      "fixed_in_followup": true,
+      "new_test_methods": 5,
+      "red_before_fix": true,
+      "targeted_policy_tests_after_fix": 23,
+      "full_maintenance_tests_after_fix": 59,
+      "python": "3.15.1"
+    }
+  },
+  "local_followup_validation": {
+    "based_on_commit": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "source_sha256": {
+      "scripts/preflight.py": "6c98b519178a46eacc99d6fc70d00fe8e2324631072cc40d1435875a7ce635b6",
+      "scripts/validate_template.py": "2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98",
+      "scripts/check_repository_policy.py": "1e3e207fbb44db3ea4e4ea741eac480653f1c8227d676f6e85656fc9b45b8fd0"
+    },
+    "python": "3.15.1",
+    "coverage_version": "7.17.3",
+    "unit_tests": 59,
+    "result": "passed",
+    "commands": [
+      "make verify PYTHON=<Python 3.15.1>",
+      "make coverage PYTHON=<Python 3.15.1 with coverage.py 7.17.3>"
+    ],
+    "properties": {
+      "tests": 10,
+      "cases_per_property": 64,
+      "generated_cases": 640,
+      "seed": 20261115,
+      "result": "passed"
+    },
+    "compiled_documents": [
+      {
+        "source": "thesis.typ",
+        "pages": 55,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "source": "sample-chapter.typ",
+        "pages": 7,
+        "pdf_valid": true,
+        "text_nonempty": true
+      }
+    ],
+    "regressions": [
+      "Malformed secondary ruleset classification now returns UNKNOWN (exit 2), rather than MATCH.",
+      "Additional active push rulesets now return DRIFT (exit 1), rather than MATCH."
+    ],
+    "hosted_qualification": "pending for the published follow-up head and receiving revision"
   }
 }
