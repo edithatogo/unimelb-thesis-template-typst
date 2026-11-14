@@ -1,0 +1,743 @@
+{
+  "schema_version": 1,
+  "receipt_kind": "integration_observation",
+  "historical_receipt": {
+    "source_commit": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "path": "docs/maintenance/issue-5-receipt.json",
+    "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/blob/7e2d09c934c3c9805a222f39c6fd073885196b48/docs/maintenance/issue-5-receipt.json",
+    "retained_unchanged": true
+  },
+  "issue": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/5",
+  "audit_date": "2026-11-15",
+  "audit_timezone": "Australia/Brisbane",
+  "baseline_commit": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
+  "branch_observation": {
+    "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/branches/main",
+    "name": "main",
+    "head_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+    "protected": true,
+    "observed_at": "2026-11-14T15:52:18Z"
+  },
+  "rulesets_observation": {
+    "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets?includes_parents=true",
+    "snapshot_file": "issue-5-qualified-rulesets.json",
+    "snapshot_sha256": "e000963b1a67731ed577595d8891d1d14be1ad3e267ed251162a660e7357a4a1",
+    "result": "match",
+    "desired_state_applied": true,
+    "observed_at": "2026-11-14T15:51:12Z",
+    "inventory_scope": "Full settings for every ruleset returned by the repository collection including parents.",
+    "inventory_count": 1,
+    "ruleset_ids": [
+      27266891
+    ],
+    "required_status_check_count": 8,
+    "required_status_check_app_id": 15368,
+    "required_review_thread_resolution": true,
+    "required_human_approvals": 0,
+    "owner_recovery": {
+      "actor_type": "User",
+      "actor_id": 15080672,
+      "bypass_mode": "always"
+    },
+    "verification": {
+      "result": "MATCH",
+      "exit_code": 0,
+      "checker_commit": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+      "checker_sha256": "36707d2ad9ca2a6ed0931549c878d04a960597018a1ed75a7e93b0f5781c7ad1",
+      "desired_file": ".github/rulesets/solo-maintainer.json",
+      "desired_sha256": "7ff84013f1c38f158cc4d620403bdc0fe6839edbf63c3fc87c0787449d454655",
+      "replay_command": "python scripts/check_repository_policy.py --desired .github/rulesets/solo-maintainer.json --observed docs/maintenance/issue-5-qualified-rulesets.json",
+      "independent_replay_python": "3.12.14",
+      "qualification": "The checker validates the supplied complete inventory; observation freshness and provenance remain separately recorded."
+    }
+  },
+  "private_reporting": {
+    "state": "enabled_as_recorded_by_authenticated_inspection",
+    "inspection_date": "2026-11-15",
+    "inspection_timezone": "Australia/Brisbane",
+    "evidence_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/blob/7e2d09c934c3c9805a222f39c6fd073885196b48/docs/maintenance.md",
+    "independently_reverified_this_refresh": false,
+    "qualification": "Preserves the existing authenticated settings inspection record. The follow-up could not reopen a native browser window; repository metadata omitted security_and_analysis, so this refresh does not claim independent verification of Advanced Security settings."
+  },
+  "renovate": {
+    "preset": "github>edithatogo/renovate-config",
+    "dashboard": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/7",
+    "dashboard_author": "renovate[bot]",
+    "dashboard_updated_at": "2026-11-14T15:15:29Z",
+    "state": "active_dependency_discovery",
+    "dependabot_config_present": false,
+    "qualification": "Dashboard activity establishes dependency discovery. Effective Renovate vulnerability-processing coverage has not been independently qualified; the existing authenticated inspection records Dependabot security updates as enabled."
+  },
+  "baseline_checks": [
+    {
+      "name": "Analyze (python)",
+      "head_sha": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605/job/132476127186"
+    },
+    {
+      "name": "Analyze (actions)",
+      "head_sha": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43604503605/job/132476126900"
+    },
+    {
+      "name": "privacy-and-secrets",
+      "head_sha": "6d4652936b4eabaac29462ab8caf86e248c0f96a",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/42786418792/job/129728646191"
+    }
+  ],
+  "historical_compile_evidence": {
+    "head_sha": "28bb38fd3b2965b8d102acd97e0abcbf1cd961b6",
+    "run": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/37292010225",
+    "conclusion": "success",
+    "contexts": [
+      "compile (default) / build",
+      "compile (draft) / build",
+      "compile (screen) / build",
+      "compile (print) / build"
+    ],
+    "qualification": "historical; recheck the final proposed head before activation"
+  },
+  "candidate_checks": {
+    "contexts": [
+      "compile (default) / build",
+      "compile (draft) / build",
+      "compile (screen) / build",
+      "compile (print) / build",
+      "privacy-and-secrets",
+      "Workflow lint",
+      "Verify template and properties",
+      "Python validation coverage"
+    ],
+    "integration_id": 15368,
+    "final_head_qualified": false,
+    "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "observed_at": "2026-11-14T15:52:18Z",
+    "required_actions_qualified": true,
+    "evidence": [
+      {
+        "name": "compile (default) / build",
+        "check_id": 132491526720,
+        "app_id": 15368,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602381/job/132491526720"
+      },
+      {
+        "name": "compile (draft) / build",
+        "check_id": 132491526753,
+        "app_id": 15368,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602381/job/132491526753"
+      },
+      {
+        "name": "compile (screen) / build",
+        "check_id": 132491526867,
+        "app_id": 15368,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602381/job/132491526867"
+      },
+      {
+        "name": "compile (print) / build",
+        "check_id": 132491526814,
+        "app_id": 15368,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602381/job/132491526814"
+      },
+      {
+        "name": "privacy-and-secrets",
+        "check_id": 132491524770,
+        "app_id": 15368,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602093/job/132491524770"
+      },
+      {
+        "name": "Workflow lint",
+        "check_id": 132491526996,
+        "app_id": 15368,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602381/job/132491526996"
+      },
+      {
+        "name": "Verify template and properties",
+        "check_id": 132491526840,
+        "app_id": 15368,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602381/job/132491526840"
+      },
+      {
+        "name": "Python validation coverage",
+        "check_id": 132491525752,
+        "app_id": 15368,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/job/132491525752"
+      }
+    ],
+    "qualification": "All eight intended GitHub Actions contexts passed on this source head. CodeQL also passed. The coverage upload and Codecov-owned result remain pending, so overall provider acceptance is not complete."
+  },
+  "coverage": {
+    "scope": [
+      "scripts/preflight.py",
+      "scripts/validate_template.py",
+      "scripts/check_repository_policy.py"
+    ],
+    "minimum_percent": 80,
+    "mode": "line_and_branch",
+    "execution": "Local canonical verification and hosted Python validation coverage passed on Python 3.15.1 for the current head. The separate OIDC upload job is queued and no current-head Codecov-owned result was observed.",
+    "codecov_repository_active": "evidenced by service-owned check for 66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "codecov_commit_status": "pending for 7e2d09c934c3c9805a222f39c6fd073885196b48; historical success remains scoped to 66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "not_measured": [
+      "Typst source and layout",
+      "other Python helpers",
+      "shell scripts"
+    ],
+    "local_result": {
+      "combined_percent": 97.73913043478261,
+      "covered_lines": 374,
+      "statements": 383,
+      "covered_branches": 188,
+      "branches": 192,
+      "excluded_lines": 0
+    },
+    "source_sha256": {
+      "scripts/preflight.py": "6c98b519178a46eacc99d6fc70d00fe8e2324631072cc40d1435875a7ce635b6",
+      "scripts/validate_template.py": "2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98",
+      "scripts/check_repository_policy.py": "36707d2ad9ca2a6ed0931549c878d04a960597018a1ed75a7e93b0f5781c7ad1"
+    },
+    "service_evidence": {
+      "head_sha": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+      "check": "codecov/patch",
+      "app_id": 254,
+      "check_id": 132487159477,
+      "conclusion": "success",
+      "diff_percent": 98.8,
+      "target_percent": 80,
+      "url": "https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/12",
+      "qualification": "GitHub check-runs evidence that Codecov processed this repository and exact commit; not a claim about a later head."
+    },
+    "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "current_service_evidence": {
+      "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+      "observed_at": "2026-11-14T15:52:18Z",
+      "check_runs_url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/7e2d09c934c3c9805a222f39c6fd073885196b48/check-runs?per_page=100",
+      "state": "not_reported",
+      "observed_check_count": 14,
+      "check_inventory_complete": true,
+      "expected_check": "codecov/patch",
+      "expected_app_id": 254,
+      "check_id": null,
+      "conclusion": null,
+      "upload": {
+        "run_id": 43609602102,
+        "job_id": 132495689999,
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/job/132495689999"
+      },
+      "qualification": "No Codecov app 254 check was present for this head at the recorded read. Historical service activity is not a pass for this revision."
+    }
+  },
+  "external_blockers": [
+    "Current-head coverage-upload job 132495689999 remains queued; an actual Codecov-owned result for 7e2d09c934c3c9805a222f39c6fd073885196b48 is still required.",
+    "PR12 receiving-main SHA, its applicable hosted checks and provider evidence remain pending integration.",
+    "Draft central classification PR142 awaits final consumer Codecov and receiving-main qualification before merge."
+  ],
+  "held_work": {
+    "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9",
+    "head_sha": "52b9ce77354183fcfe7c4a663a3901b6665e702c",
+    "state": "draft",
+    "requirements": [
+      "isolated runner",
+      "pinned scanner image",
+      "local GLiNER provisioning",
+      "real integration validation"
+    ]
+  },
+  "acceptance": {
+    "issue_complete": false,
+    "required_human_approvals": 0,
+    "codeowners_gate": false,
+    "team_gate": false,
+    "owner_recovery_preserved_in_desired_policy": true,
+    "live_ruleset_match": true,
+    "required_actions_passed_on_source_head": true,
+    "codeql_passed_on_source_head": true,
+    "current_head_codecov_passed": false,
+    "receiving_main_qualified": false,
+    "central_classification_published": true,
+    "central_classification_merged": false,
+    "owner_recovery_preserved_in_observed_policy": true
+  },
+  "integration_base": {
+    "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/10",
+    "branch": "main",
+    "head_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+    "qualified_pr_head": "0f2f2ecc4b4a0ba3e99a1bb2f84bf5cec5ee5068",
+    "merge_method": "merge",
+    "tree": "24f3dfbafd35c239bca8a43c77cf1b4aadb738cc",
+    "reason": "PR10 was integrated after all applicable head checks passed. GitHub automatically retargeted PR12 to main; this follow-up incorporates that receiving revision.",
+    "receiving_hosted_validation": "passed",
+    "receiving_observed_at": "2026-11-14T15:33:46Z",
+    "receiving_runs": [
+      {
+        "workflow": "Quality gates",
+        "run_id": 43609103472,
+        "head_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609103472"
+      },
+      {
+        "workflow": "Privacy and secrets",
+        "run_id": 43609103263,
+        "head_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609103263"
+      },
+      {
+        "workflow": "CodeQL default setup",
+        "run_id": 43609102803,
+        "head_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609102803"
+      }
+    ]
+  },
+  "local_validation": {
+    "tested_commit": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "tree": "dad36e87cc3971538228056a04c091e59023ab98",
+    "python": "3.15.1",
+    "coverage_version": "7.17.3",
+    "unit_tests": 61,
+    "result": "passed",
+    "commands": [
+      "make verify PYTHON=<Python 3.15.1>",
+      "make coverage PYTHON=<Python 3.15.1 with coverage.py 7.17.3>"
+    ],
+    "source_sha256": {
+      "scripts/preflight.py": "6c98b519178a46eacc99d6fc70d00fe8e2324631072cc40d1435875a7ce635b6",
+      "scripts/validate_template.py": "2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98",
+      "scripts/check_repository_policy.py": "36707d2ad9ca2a6ed0931549c878d04a960597018a1ed75a7e93b0f5781c7ad1"
+    },
+    "properties": {
+      "tests": 10,
+      "cases_per_property": 64,
+      "generated_cases": 640,
+      "seed": 20261115,
+      "result": "passed"
+    },
+    "tools": {
+      "python": "3.15.1",
+      "typst": "0.15.1 (9dfd3a08)",
+      "qpdf": "12.4.2",
+      "coverage": "7.17.3"
+    },
+    "compiled_documents": [
+      {
+        "source": "thesis.typ",
+        "pages": 55,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "source": "sample-chapter.typ",
+        "pages": 7,
+        "pdf_valid": true,
+        "text_nonempty": true
+      }
+    ],
+    "reports": {
+      "build/verification/report.json": {
+        "sha256": "fa8b2530e8dac1d02f98356b09117648a343ab0845c8a54c45f83a07cb3f6aa0"
+      },
+      "build/property-tests.json": {
+        "sha256": "e387fab25e300535307af9e73dc75c31386e7f395ad493f619d30e429c19f7f5"
+      },
+      "build/coverage.json": {
+        "sha256": "80a9b93e6cc3630225c1106dd49f2ecf85f81eb7b687d2a83e49af3d4f2b7eb2"
+      }
+    },
+    "qualification": "Actual integrator execution at this source head; document layout and other unmeasured helper coverage are not inferred from the Python coverage percentage."
+  },
+  "hosted_validation": {
+    "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "observed_at": "2026-11-14T15:52:18Z",
+    "state": "provider_pending",
+    "runs": [
+      {
+        "workflow": "Quality gates",
+        "run_id": 43609602381,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602381"
+      },
+      {
+        "workflow": "Maintenance",
+        "run_id": 43609602102,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102"
+      },
+      {
+        "workflow": "Privacy and secrets",
+        "run_id": 43609602093,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602093"
+      },
+      {
+        "workflow": "CodeQL default setup",
+        "run_id": 43609599167,
+        "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609599167"
+      }
+    ],
+    "python": "3.15.1",
+    "unit_tests": 61,
+    "combined_coverage_percent_reported": 97.74,
+    "coverage_job": {
+      "job_id": 132491525752,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/job/132491525752",
+      "log_verified": true
+    },
+    "artifact_id": 14120206858,
+    "artifact_name": "maintenance-evidence",
+    "artifact_sha256": "1e90c3a5af3591a32ba8543e6c21aeaeedbd4f4546691dc3de0d8c01eb2a3a50",
+    "artifact_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/artifacts/14120206858",
+    "codeql_producer_check": {
+      "check_id": 132495787788,
+      "app_id": 57789,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/runs/132495787788"
+    },
+    "qualified": false,
+    "qualification": "Quality gates, Privacy, Python validation coverage and CodeQL passed on this source head. Maintenance as a whole remains incomplete because coverage-upload is queued; no current-head Codecov result was observed. The scheduled extended property corpus was intentionally skipped on this ordinary PR."
+  },
+  "independent_review": {
+    "head_sha": "33c9a4fb4c27a906d7e6fb8bd037feb8bef05724",
+    "blocking_findings": 0,
+    "reviewed_areas": [
+      "CI permissions",
+      "coverage/artifact paths",
+      "policy failure semantics",
+      "Makefile integration",
+      "documentation and acceptance boundaries"
+    ],
+    "minor_doc_findings_corrected": [
+      "Document both required Poppler executables.",
+      "Name the Maintenance workflow as the OIDC upload owner."
+    ],
+    "followup": {
+      "reviewed_head": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+      "reproduced_findings": 2,
+      "fixed_in_followup": true,
+      "new_test_methods": 5,
+      "red_before_fix": true,
+      "targeted_policy_tests_after_fix": 23,
+      "full_maintenance_tests_after_fix": 59,
+      "python": "3.15.1",
+      "published_fix_commit": "b1b465c74324f75c815cf199ef45d7ff631d20d5"
+    }
+  },
+  "local_followup_validation": {
+    "based_on_commit": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "source_sha256": {
+      "scripts/preflight.py": "6c98b519178a46eacc99d6fc70d00fe8e2324631072cc40d1435875a7ce635b6",
+      "scripts/validate_template.py": "2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98",
+      "scripts/check_repository_policy.py": "1e3e207fbb44db3ea4e4ea741eac480653f1c8227d676f6e85656fc9b45b8fd0"
+    },
+    "python": "3.15.1",
+    "coverage_version": "7.17.3",
+    "unit_tests": 59,
+    "result": "passed",
+    "commands": [
+      "make verify PYTHON=<Python 3.15.1>",
+      "make coverage PYTHON=<Python 3.15.1 with coverage.py 7.17.3>"
+    ],
+    "properties": {
+      "tests": 10,
+      "cases_per_property": 64,
+      "generated_cases": 640,
+      "seed": 20261115,
+      "result": "passed"
+    },
+    "compiled_documents": [
+      {
+        "source": "thesis.typ",
+        "pages": 55,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "source": "sample-chapter.typ",
+        "pages": 7,
+        "pdf_valid": true,
+        "text_nonempty": true
+      }
+    ],
+    "regressions": [
+      "Malformed secondary ruleset classification now returns UNKNOWN (exit 2), rather than MATCH.",
+      "Additional active push rulesets now return DRIFT (exit 1), rather than MATCH."
+    ],
+    "hosted_qualification": "Historical local result for published fix b1b465c74324f75c815cf199ef45d7ff631d20d5. Current candidate/provider and receiving-revision evidence are recorded separately.",
+    "published_fix_commit": "b1b465c74324f75c815cf199ef45d7ff631d20d5",
+    "integration_qualification": "The 59-test evidence and its source hashes belong to b1b465c and the preserved main synchronization. The later 7e2d09c governance correction changes the policy/checker and adds two tests; its 61-test results are separate.",
+    "coverage_result": {
+      "combined_percent": 97.72329246935202,
+      "covered_lines": 372,
+      "statements": 381,
+      "covered_branches": 186,
+      "branches": 190,
+      "excluded_lines": 0
+    }
+  },
+  "observed_at": "2026-11-14T15:52:18Z",
+  "source_revision": {
+    "head_sha": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "tree": "dad36e87cc3971538228056a04c091e59023ab98",
+    "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/12",
+    "base_branch": "main",
+    "base_sha": "b947d5ea0ad1a9c118a9c3670bcb82200052c9a2",
+    "qualification": "This receipt records dated observations for the stated source revision. A later published documentation head and the actual receiving revision require their own applicable checks."
+  },
+  "baseline_branch_observation": {
+    "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/branches/main",
+    "name": "main",
+    "protected": false,
+    "observed_at": "2026-11-14T15:06:54Z"
+  },
+  "baseline_rulesets_observation": {
+    "url": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets?includes_parents=true",
+    "snapshot_file": "issue-5-observed-rulesets.json",
+    "result": "absent",
+    "desired_state_applied": false,
+    "observed_at": "2026-11-14T15:06:54Z",
+    "snapshot_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "qualification": "Historical empty collection at the original baseline; preserved and not overwritten by the qualified snapshot.",
+    "snapshot_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/blob/7e2d09c934c3c9805a222f39c6fd073885196b48/docs/maintenance/issue-5-observed-rulesets.json"
+  },
+  "baseline_private_reporting": {
+    "state": "unknown",
+    "reason": "Activation could not be verified through the available integration."
+  },
+  "security_settings_inspection": {
+    "evidence_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/blob/7e2d09c934c3c9805a222f39c6fd073885196b48/docs/maintenance.md",
+    "recorded_date": "2026-11-15",
+    "recorded_timezone": "Australia/Brisbane",
+    "reported_enabled": [
+      "private_vulnerability_reporting",
+      "dependabot_alerts",
+      "secret_push_protection",
+      "dependabot_security_updates"
+    ],
+    "independently_reverified_this_refresh": false,
+    "followup_limitations": [
+      "Native browser follow-up produced no usable window.",
+      "Repository metadata omitted security_and_analysis.",
+      "Classic branch-protection details returned HTTP 403 to the integration; this is an access limitation, not evidence of absent protection."
+    ],
+    "live_ruleset_verified_separately": true
+  },
+  "historical_local_validation": {
+    "python": "3.12.14",
+    "unit_tests": 54,
+    "result": "passed",
+    "scope": "Historical full local run on 33c9a4f using Python 3.12.14. The later hosted results and policy-fix follow-up are recorded separately below.",
+    "commands": [
+      "make verify",
+      "make coverage with coverage.py 7.17.3",
+      "actionlint 1.7.12",
+      "typstyle 0.15.0 --check .",
+      "Shared workflow equivalent: Typst 0.15.1 compile plus qpdf, pdfinfo and nonempty pdftotext for default/draft/screen/print"
+    ],
+    "policy_results": {
+      "desired": "valid desired-only",
+      "empty_baseline_observation": "drift (exit 1)",
+      "unavailable_observation": "unknown (covered by unit tests)"
+    },
+    "tested_commit": "33c9a4fb4c27a906d7e6fb8bd037feb8bef05724",
+    "properties": {
+      "tests": 10,
+      "cases_per_property": 64,
+      "generated_cases": 640,
+      "seed": 20261115,
+      "result": "passed"
+    },
+    "tools": {
+      "python": "3.12.14",
+      "typst": "0.15.1 (9dfd3a08)",
+      "qpdf": "12.4.2",
+      "actionlint": "1.7.12",
+      "typstyle": "0.15.0",
+      "coverage": "7.17.3"
+    },
+    "compiled_documents": [
+      {
+        "source": "thesis.typ",
+        "pages": 55,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "source": "sample-chapter.typ",
+        "pages": 7,
+        "pdf_valid": true,
+        "text_nonempty": true
+      }
+    ],
+    "profile_results": [
+      {
+        "profile": "default",
+        "compiled": true,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "profile": "draft",
+        "compiled": true,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "profile": "screen",
+        "compiled": true,
+        "pdf_valid": true,
+        "text_nonempty": true
+      },
+      {
+        "profile": "print",
+        "compiled": true,
+        "pdf_valid": true,
+        "text_nonempty": true
+      }
+    ],
+    "formatting": {
+      "exit_code": 0,
+      "limitation": "Existing typstyle parse warnings for unchanged fragments; not evidence that all example fragments parse.",
+      "warned_files": [
+        "README.typ",
+        "docs/source-material/modern-uit-global.typ",
+        "examples/samples/sample-ai-disclosure.typ",
+        "examples/samples/sample-creative-outputs.typ",
+        "frontmatter/preface.typ"
+      ]
+    }
+  },
+  "historical_hosted_validation": {
+    "head_sha": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "state": "completed",
+    "runs": [
+      {
+        "workflow": "Maintenance",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355606",
+        "conclusion": "success"
+      },
+      {
+        "workflow": "Quality gates",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355918",
+        "conclusion": "success"
+      },
+      {
+        "workflow": "Privacy and secrets",
+        "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355629",
+        "conclusion": "success"
+      }
+    ],
+    "python": "3.15.1",
+    "unit_tests": 54,
+    "combined_coverage_percent": 97.59,
+    "artifact_id": 14118535958,
+    "artifact_sha256": "d2dcfbed47a3abae83e5b348fa33426584c0a641cd84c7145b940ef04e3548e4",
+    "qualified": false,
+    "qualification": "Successful workflow and Codecov evidence for historical head 66beec5cd7b78a9cdc1aad37dd288350184ef14d only; it does not qualify later source or a receiving revision."
+  },
+  "governance_followup": {
+    "published_commit": "7e2d09c934c3c9805a222f39c6fd073885196b48",
+    "previous_fix_commit": "b1b465c74324f75c815cf199ef45d7ff631d20d5",
+    "requires_pull_request_rule": true,
+    "requires_conversation_resolution": true,
+    "new_test_methods": 2,
+    "policy_test_methods": 25,
+    "maintenance_test_methods": 61,
+    "preserved_human_approvals": 0,
+    "preserved_owner_recovery": true
+  },
+  "receiving_main": {
+    "pull_request": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/12",
+    "state": "pending_integration",
+    "commit": null,
+    "tree": null,
+    "qualified": false,
+    "runs": [],
+    "codecov": {
+      "state": "pending_receiving_revision",
+      "head_sha": null,
+      "check_id": null,
+      "conclusion": null
+    },
+    "qualification": "Populate only from the actual receiving commit and its executed checks; do not substitute a candidate head or GitHub's speculative merge commit."
+  },
+  "central_classification": {
+    "repository": "edithatogo/repository-standards",
+    "owner_issue": "https://github.com/edithatogo/repository-standards/issues/5",
+    "baseline_commit": "10e59936e132f28597cb7d2f10efa27629dc4837",
+    "state": "draft_pull_request",
+    "pull_request": "https://github.com/edithatogo/repository-standards/pull/142",
+    "head_sha": "ca8b9ecc50f9862502b17d035be951e807da7b1c",
+    "tree": "5ab3a216a9c8ad4424d2495d76890d0f12034f52",
+    "paths": [
+      "registry/repositories.json (this consumer's row only)",
+      "docs/typesetting-unimelb-typst-assessment.md"
+    ],
+    "codecov_evidence_revision": "66beec5cd7b78a9cdc1aad37dd288350184ef14d",
+    "receiving_main_qualified": false,
+    "archetype": "typesetting-template",
+    "profile": "typst",
+    "supply_chain_profile": "published",
+    "qualification": "Draft PR142 awaits current consumer Codecov and receiving-main qualification before merge. Classification and component evidence only; no new collector enforcement or completed artifact-bound attestation chain is claimed.",
+    "overlapping_registry_pull_requests": [
+      119,
+      141
+    ]
+  },
+  "scope": {
+    "parent_issue": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/6",
+    "original_children": [
+      4,
+      5
+    ],
+    "separate_document_programme": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13",
+    "separate_document_implementation_issues": "14-25",
+    "separate_conditional_offline_rollout": "https://github.com/edithatogo/unimelb-thesis-template-typst/pull/9"
+  }
+}

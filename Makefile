@@ -1,7 +1,7 @@
 # Makefile for University of Melbourne Thesis Template
 # Provides automated compile/watch/clean recipes with profile support
 
-.PHONY: help compile compile-sample compile-all compile-parallel compile-timed watch watch-sample watch-all clean clean-all clean-profile clean-logs clean-build clean-cache full-clean profiles test validate status profile-build
+.PHONY: verify verify-source test-properties test-properties-deep help compile compile-sample compile-all compile-parallel compile-timed watch watch-sample watch-all clean clean-all clean-profile clean-logs clean-build clean-cache full-clean profiles test validate status profile-build
 
 # Default target
 help:
@@ -26,6 +26,9 @@ help:
 	@echo "  profiles                        - List available build profiles"
 	@echo "  status                          - Show build status and file information"
 	@echo "  profile-build [PROFILE=<profile>] - Analyze build performance and dependencies"
+	@echo "  verify                          - Run source, property and PDF verification"
+	@echo "  verify-source                   - Run source validation and bounded properties"
+	@echo "  test-properties-deep            - Run the larger replayable property suite"
 	@echo "  test                            - Run validation tests"
 	@echo "  validate                        - Run preflight validation"
 	@echo "  help                            - Show this help message"
@@ -273,3 +276,23 @@ profile-build: validate_profile
 	@if [ -f "$(THESIS_OUT)" ]; then \
 		echo "Output size: $$(du -h "$(THESIS_OUT)" | cut -f1)"; \
 	fi
+
+# Required contribution gate. Python helpers use only the standard library.
+# Override PROPERTY_SEED / PROPERTY_CASES to replay a recorded failure.
+PYTHON ?= python3
+PROPERTY_SEED ?= 20261115
+PROPERTY_CASES ?= 64
+
+verify-source:
+	$(PYTHON) -m compileall -q scripts tests
+	$(PYTHON) scripts/validate_template.py
+	$(MAKE) --no-print-directory test-properties
+
+verify: verify-source
+	$(PYTHON) scripts/verify.py
+
+test-properties:
+	$(PYTHON) tests/test_properties.py --seed $(PROPERTY_SEED) --cases $(PROPERTY_CASES) --report build/property-tests.json
+
+test-properties-deep:
+	$(PYTHON) tests/test_properties.py --seed $(PROPERTY_SEED) --cases 512 --report build/property-tests-scheduled.json

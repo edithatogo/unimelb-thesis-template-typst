@@ -1,29 +1,43 @@
 # Quality frontier: evidence and closure for issue #6
 
 This record reconciles [#6][parent] with its two implementation issues,
-[#4][testing] and [#5][security]. **The parent remains open.** Neither child was
-complete at this snapshot. Update the issue checklist only after the evidence
-below has been refreshed against the integrated revision.
+[#4][testing] and [#5][security]. **The parent remains open.** Candidate checks,
+historical baseline evidence and receiving-main acceptance are recorded
+separately. Update the issue checklist only after the implementation and
+applicable checks have been verified on the integrated revision.
 
-Snapshot: 15 November 2026 (Australia/Brisbane).
-Inspected main: `6d4652936b4eabaac29462ab8caf86e248c0f96a`.
-The [complete source tree][tree] contains three committed workflows, Python
+Refreshed: 15 November 2026 (Australia/Brisbane).
+Historical baseline main: `6d4652936b4eabaac29462ab8caf86e248c0f96a`.
+The [baseline source tree][tree] contains three committed workflows, Python
 helpers and Typst templates. The original one-workflow audit is historical.
 This is a dated acceptance record, not a live settings monitor.
 
-## Acceptance and ownership
+## Latest foundation and integration status
+
+| Scope | Latest recorded evidence | Outstanding acceptance |
+| --- | --- | --- |
+| #4 / PR #10 | Merged as `b947d5ea0ad1a9c118a9c3670bcb82200052c9a2`; #4 is closed. The receiving-main [quality][receiving-quality-run], [privacy][receiving-privacy-run] and [CodeQL][receiving-codeql-run] workflows all succeeded. | The #4 foundation is integrated and qualified at this revision. Preserve these checks as #12 is integrated. |
+| #5 / PR #12 | Current head `7e2d09c934c3c9805a222f39c6fd073885196b48`, based on main. Local canonical verification passed with 61 unit tests, 640 property iterations and real PDF checks; scoped combined coverage is 97.74%. Hosted [quality][security-current-quality-run], [privacy][security-current-privacy-run], [CodeQL][security-current-codeql-run] and the [Python validation coverage job][current-coverage-job] passed. | The separate [coverage-upload job][current-upload-job] remains queued and no current-head Codecov-owned result was observed. Complete provider acceptance, integrate #12, and qualify the receiving revision. Earlier `66beec5` service evidence remains historical. |
+| Live protection | [Ruleset 27266891][live-ruleset] is active with eight Actions contexts, required conversation resolution, zero required approvals and owner-only recovery. The [full inventory][qualified-rulesets] returned **MATCH / exit 0**, observed at `2026-11-14T15:51:12Z`. | Retain the qualified snapshot and its provenance; confirm freshness before final closure. The earlier two mismatches have been corrected. |
+| Receiving main | #10 receiving SHA `b947d5ea0ad1a9c118a9c3670bcb82200052c9a2` is qualified. Live policy MATCH is separately evidenced. | **PR #12 receiving SHA and runs: pending.** A candidate head does not establish receiving-main acceptance. |
+| Central classification | Draft [central PR #142][central-classification-pr] corrects this consumer's executable-helper coverage and published-artifact applicability while retaining its Typst profile. | **Central integration remains pending.** The draft awaits current consumer Codecov and receiving-main qualification before merge; no receiving-main coverage qualification is claimed yet. |
+
+## Historical baseline acceptance and ownership
 
 "Present" describes source/configuration. "Passed" requires executed evidence at
 the stated commit. Missing access, queued jobs and unavailable infrastructure are
 blockers or unknowns; they are never applicability exclusions.
+The table below preserves the gaps at baseline `6d4652936b4eabaac29462ab8caf86e248c0f96a`.
+The integrated #4 implementation and later #5 work are reconciled in their own
+sections; these historical gaps do not describe current main.
 
-| Requirement | Evidence at the inspected revision | Remaining owner/action |
+| Requirement | Evidence at the inspected revision | Original owner / acceptance |
 | --- | --- | --- |
 | Property-based tests | No property suite in the tree. Python validators and CSV helpers provide meaningful targets; see the reproducer below. | #4: bounded, deterministic cases, replay instructions and failure thresholds. |
 | Permissions, concurrency, immutable actions | [CI][ci] and [privacy][privacy] restrict default permissions and cancel superseded runs. Their action/workflow references are immutable. | #4: preserve these controls when adding checks. |
 | Compilation and retained PDFs | The [CI caller][ci] selects four profiles. The [pinned reusable workflow][shared] provides formatting, compilation and PDF checks, a 30-minute job limit and 14-day artifacts. | #4: successful execution on the integrated revision; historical runs do not certify it. |
 | Workflow lint and dependency review | Neither gate is invoked by the inspected caller or reusable workflow. | #4: implement applicable checks or record a narrow, source-backed exclusion. |
-| CodeQL | A [setup run][codeql-run] for Python and Actions is queued on the inspected main. | #4: verify completed analysis; setup presence is not a pass. |
+| CodeQL | The [baseline default-setup run][codeql-run] completed successfully, including the Python and Actions analysis jobs. | #4: obtain candidate and receiving-revision analysis; a successful baseline run does not certify later code. |
 | Secret/privacy scanning | [Run 42786418792][privacy-run] passed on the inspected main. | Preserve the passing baseline and obtain final-revision evidence. |
 | Dependency maintenance | [Renovate configuration][renovate] inherits the central preset. [Dashboard #7][dashboard], authored by renovate[bot], lists detected Typst/Actions dependencies and scheduled updates. No Dependabot file is present. | #5: existing bot access/activity is evidenced; preserve update coverage. |
 | Solo-maintainer context | [AGENTS.md][agents], [CONTRIBUTING.md][contributing] and [SECURITY.md][policy] exist. Source policy prohibits required reviewers, CODEOWNERS approval and team gates. | #5: complete repository-specific guidance and owner recovery evidence. |
@@ -33,11 +47,11 @@ blockers or unknowns; they are never applicability exclusions.
 | Real coverage and Codecov | No coverage suite/uploader in the inspected tree; no Codecov check on the inspected main. | #5 with #4: measure executable Python code, upload with OIDC and verify repository/commit activity. Do not describe Python coverage as Typst layout coverage. |
 | Publishing | [Release workflow][release] triggers on version tags, checks package/tag agreement and scopes write permission to the release job. | Preserve tag-only publishing and zero mandatory human approvals. |
 
-The protection-detail API is not available to the auditing integration. That
-access denial is an unknown, not evidence that protection is absent; the
-readable ruleset collection and branch summary are the separate observations
-reported above. Live settings endpoints and the dashboard can change after this
-snapshot.
+The baseline protection-detail API denial was an unknown, not evidence that
+protection was absent. The readable empty ruleset collection and unprotected
+branch summary were separate baseline observations. Later settings access and
+initial drift and the subsequent verified match are recorded below. Live endpoints and the
+dependency dashboard can change after a snapshot.
 
 ## Executed evidence and limits
 
@@ -45,7 +59,7 @@ snapshot.
 | --- | --- | --- |
 | [Privacy and secrets][privacy-run] | `6d4652936b4eabaac29462ab8caf86e248c0f96a` | Passed, push run on 10 November 2026. |
 | [Historical Typst matrix][typst-run] | `28bb38fd3b2965b8d102acd97e0abcbf1cd961b6` | Passed on 5 October 2026. This is not a pass for the inspected main. Artifact retention does not imply old PDFs remain downloadable. |
-| [CodeQL setup][codeql-run] | `6d4652936b4eabaac29462ab8caf86e248c0f96a` | Queued when inspected; no successful analysis claimed. |
+| [CodeQL default setup][codeql-run] | `6d4652936b4eabaac29462ab8caf86e248c0f96a` | Subsequently completed successfully: both `Analyze (python)` and `Analyze (actions)` ran their CodeQL analysis steps. This qualifies the baseline only. |
 | `make verify` against the inspected Makefile | Makefile blob `b7a7cfde434018194c496413cc977ebaa301d81d` | Failed: `No rule to make target 'verify'`, exit 2. Compilation was not reached. |
 | Python validator probe below | manage_terms.py blob `9e3f9932466090bfd8556148de3369b4ea8a905c` | Valid entries returned no errors. Mixed valid/non-dictionary entries raised `AttributeError` in both orders for both validators. This is failing baseline evidence. |
 
@@ -90,14 +104,19 @@ status is not a passing test result. The nested duplicate-check loops call
 retain regression cases alongside generated malformed-input cases. Do not
 replace that lane with a second testing framework.
 
-## Unmerged implementation: PR #10
+## PR #10: integrated and qualified on main
 
-The testing lane has opened [PR #10][testing-pr] at
-`4b6107b7b024305c609885037ee049612bb54d75`. Its source fixes the mixed-entry
-crash, uses TOML parsing for package metadata, adds the canonical verification
-command, and adds properties, workflow lint and dependency review. It remains
-unmerged; the main-only gaps above must not be read as a request to duplicate
-those changes.
+The testing lane's [PR #10][testing-pr] was merged as
+`b947d5ea0ad1a9c118a9c3670bcb82200052c9a2`. Its qualified PR head was
+`0f2f2ecc4b4a0ba3e99a1bb2f84bf5cec5ee5068`; both commits have source tree
+`24f3dfbafd35c239bca8a43c77cf1b4aadb738cc`. The change fixes the mixed-entry
+crash, uses TOML parsing for package metadata, supplies the canonical
+verification command, and adds properties, workflow lint and dependency review.
+Issue #4 is closed. Its historical main-only gaps above are resolved by this
+integrated implementation.
+
+The first independent helper execution below used the earlier candidate
+`4b6107b7b024305c609885037ee049612bb54d75`.
 
 Independent execution used exact GitHub file snapshots, verified against their
 Git blob SHAs, on **Python 3.12.14**. The actual CLI and JSON report generation
@@ -116,53 +135,212 @@ Both reports identify these exact source SHA-256 hashes:
 | `scripts/validate_template.py` | `2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98` |
 | `tests/test_properties.py` | `7aec3fd8231eca047f14a99fde81e6d413bfcf51f7606b5b8ad989d9fd71381e` |
 
-The [verification comment][testing-evidence] records these results. They do not
-qualify hosted Python 3.15.1 or PDF compilation. Invoking the new
-`scripts/verify.py` failed closed with `Required executable not found: typst`
-(exit 1) in this environment.
+These cases exercise helper contracts and manifest parsing. The CSV domain
+accounts for outer-whitespace normalization and the related-term delimiter.
+The term-management CLI still uses sample data in its Typst-input path; these
+properties do not certify a general Typst data parser.
 
-For that tested head, [quality checks][quality-run] and
-[privacy checks][pr-privacy-run] were queued; no four-profile Typst or CodeQL
-run was found.
+The [verification comment][testing-evidence] records these results. That
+specific helper execution did not qualify hosted Python 3.15.1 or PDF
+compilation: the auditor's initial `scripts/verify.py` invocation failed closed
+with `Required executable not found: typst` (exit 1). This is an earlier
+environment limitation, not the result of the later complete build execution.
 
-The subsequent head `c60bebd294fe2991ae2d29f15f0a87ee80aad153` moves the preserved
+At that earlier inspection, [quality checks][quality-run] and
+[privacy checks][pr-privacy-run] were queued and no four-profile Typst or CodeQL
+run was found. Those observations are historical.
+
+The later head `c60bebd294fe2991ae2d29f15f0a87ee80aad153` moves the preserved
 four-profile matrix into `quality.yml`. All three tested Python blobs are
-unchanged, as verified from GitHub. The [new quality run][current-quality-run]
-now contains all four profile jobs alongside verification, lint and dependency
-review; these and the [new privacy run][current-privacy-run] remain queued.
-The extended corpus is intentionally skipped on ordinary PRs. The PR author
-also reports full local verification in the PR description; that report is
-separate from the independently executed helper evidence above. Hosted Python
-3.15.1, CodeQL, integration and final-main verification remain open. Missing and
-pending runs are not passing evidence.
+unchanged. Its [quality run][current-quality-run] completed successfully with
+all four profile jobs, verification, lint and dependency review; its
+[privacy run][current-privacy-run] also succeeded. The extended corpus is
+intentionally skipped on ordinary PRs.
 
-## Unmerged implementation: PR #12
+The PR author separately records complete local `make verify` passes on
+Python 3.15.1 and 3.12.14, both property corpus sizes, and real Typst 0.15.1/PDF
+checks. The four thesis profiles produced 55, 55, 54 and 63 pages respectively;
+the sample produced 7 pages. Local font fallback and unchanged-example parsing
+warnings are disclosed in the [candidate validation record][testing-record].
+These full-build results are distinct from the original helper-only audit.
 
-The security/maintainer lane has opened [PR #12][security-pr] at
-`33c9a4fb4c27a906d7e6fb8bd037feb8bef05724`, stacked on PR #10's
-`fix/issue-4-quality-gates` branch. It reuses that verification command and adds
+The final PR head `0f2f2ecc4b4a0ba3e99a1bb2f84bf5cec5ee5068` adds the dated
+validation record. Its [quality][latest-quality-run],
+[privacy][latest-privacy-run] and [CodeQL][latest-codeql-run] workflows passed
+before integration. The following distinct runs qualify the actual receiving
+main revision `b947d5ea0ad1a9c118a9c3670bcb82200052c9a2`; all had succeeded by
+14 November 2026, 15:33:46 UTC:
+
+| Receiving-main workflow | Run | Result |
+| --- | --- | --- |
+| Quality gates | [43609103472][receiving-quality-run] | Success, including all four profile builds and applicable source/workflow gates. |
+| Privacy and secrets | [43609103263][receiving-privacy-run] | Success. |
+| CodeQL default setup | [43609102803][receiving-codeql-run] | Success. |
+
+The identical source tree explains which implementation was integrated; the
+post-merge runs establish the separate receiving-revision execution evidence.
+
+## PR #12: candidate evidence, integration pending
+
+The security/maintainer lane's [PR #12][security-pr] is open for review at
+`7e2d09c934c3c9805a222f39c6fd073885196b48`, tree
+`dad36e87cc3971538228056a04c091e59023ab98`, and targets **main**. The preserved
+merge `04478c830d29c04081816deea7bbda47891871a6` incorporates #10's receiving
+revision `b947d5ea0ad1a9c118a9c3670bcb82200052c9a2`.
+It reuses the integrated verification command and adds
 issue forms, updated contributor/security context, desired-ruleset validation,
 a drift checker, maintenance tests, and a pinned Codecov OIDC upload job.
+Its final head and receiving-main acceptance remain open.
 
-The [child's receipt][security-receipt] records **54 passing local unit tests**
-on Python 3.12.14 and **97.59% combined line/branch coverage**, with an 80% floor.
-Those are the child implementer's recorded results, not a second execution by
-this audit. Coverage is explicitly limited to `scripts/preflight.py`,
-`scripts/validate_template.py` and `scripts/check_repository_policy.py`.
-It does not measure the whole repository or Typst rendering.
+### Historical PR #12 candidate
 
-The desired ruleset is **not activated**. The receipt reports no settings-write
-operation in the available connector and no authenticated GitHub browser
-session. The [maintenance run][maintenance-run] is queued; Codecov repository
-activation and commit status are still unverified. Neither a valid policy JSON
-nor a queued Codecov app suite proves those acceptance criteria.
+The [earlier receipt][security-prior-receipt] records **54 passing local unit
+tests** on Python 3.12.14 and **97.59% combined line/branch coverage**, with an
+80% floor. The later receipt also records the subsequent 54-test hosted run
+on Python 3.15.1 at `66beec5`. These are the implementer's recorded results,
+not a second execution by this audit. Coverage is explicitly limited to
+`scripts/preflight.py`, `scripts/validate_template.py` and
+`scripts/check_repository_policy.py`; it does not measure the whole repository
+or Typst rendering.
 
-Integration order: qualify and integrate #10, retarget #12 to main, then qualify
-its final head and the receiving revision. Apply and read back the ruleset only
-after the intended stable checks have demonstrated success, preserving zero
-mandatory approvals and owner recovery. Refresh #6's evidence after both child
-changes are integrated. Do not merge the stacked PR into the #10 feature branch
-as a substitute for integration into main.
+The [historical quality][security-quality-run], [maintenance][security-maintenance-run]
+and [privacy][security-privacy-run] workflows all succeeded on `66beec5`.
+The actual [Codecov check][codecov-checks] named `codecov/patch` completed with
+`success` under app ID 254 and reported **98.80% of the diff hit** against an
+80% target; [Codecov's PR view][codecov-pr] identifies the repository and PR.
+This verifies service activity and the check on that candidate. It does not
+turn 97.59% combined helper coverage into whole-repository coverage, and it
+does not qualify uncommitted changes or a future receiving revision.
+
+### Earlier policy-checker follow-up
+
+The policy-checker inventory fixes were published at `b1b465c`. Malformed secondary
+ruleset classification returns UNKNOWN (exit 2), and additional active push
+rulesets return DRIFT (exit 1); neither can silently pass as MATCH. Five
+regression test methods cover the follow-up.
+
+The [policy-fix receipt][security-receipt] records a local canonical `make verify`
+pass on Python 3.15.1: **59 unit tests**, 10 properties / 640 generated
+iterations, and actual thesis/sample PDF checks (55 and 7 pages).
+Coverage.py 7.17.3 measured **97.72329246935202% combined line/branch coverage**:
+372/381 lines, 186/190 branches and zero excluded lines, within the same
+three-file scope and above the 80% floor. The receipt records the exact source
+SHA-256 hashes, including the changed policy checker. These are local
+execution results for the published source, not a claim of hosted completion.
+
+### Current candidate: governance correction and local execution
+
+The current `7e2d09c` source preserves the two inventory fixes and also requires
+the pull-request rule and explicit conversation resolution. Two further
+regression methods bring the maintenance suite to **61 unit tests**. The
+[checked-in policy][current-desired-policy] retains zero mandatory human
+approvals and owner recovery.
+
+The integrator executed full `make verify` on this exact head with **Python
+3.15.1**: 61 unit tests, **10 properties / 640 generated iterations** with seed
+`20261115`, source/package/policy validation, and real thesis/sample PDF checks
+(55 and 7 pages). Typst was 0.15.1 and qpdf was 12.4.2; extracted text was
+nonempty. The current [PR description][security-pr] records this run. Local
+`build/verification/report.json` and `build/property-tests.json` retain the
+successful results; this document does not substitute them for hosted evidence.
+
+Coverage.py **7.17.3** passed the same three-file component's 80% floor with
+**97.73913043478261% combined line/branch coverage**: **374/383 statements**,
+**188/192 branches**, and **zero excluded lines**. The separate statement and
+branch percentages are approximately 97.65% and 97.92%; the combined number is
+not a line-only percentage. The retained native report is `build/coverage.json`.
+
+| Coverage source at `7e2d09c` | SHA-256 |
+| --- | --- |
+| `scripts/preflight.py` | `6c98b519178a46eacc99d6fc70d00fe8e2324631072cc40d1435875a7ce635b6` |
+| `scripts/validate_template.py` | `2cb7caa07e791feacc775d228ef7370ec860115fe9d1b9525e0f2498f5885a98` |
+| `scripts/check_repository_policy.py` | `36707d2ad9ca2a6ed0931549c878d04a960597018a1ed75a7e93b0f5781c7ad1` |
+
+At the 14 November 2026, **15:52:18 UTC** read, current-head
+[quality][security-current-quality-run], [privacy][security-current-privacy-run]
+and [CodeQL][security-current-codeql-run] workflows had succeeded. The
+[Python validation coverage job][current-coverage-job], ID `132491525752`,
+also succeeded. Its logs record Python 3.15.1, **61 tests**, coverage.py 7.17.3
+and **97.74%** scoped combined coverage. It retained maintenance-evidence
+artifact `14120206858`; the refreshed receipt records its digest.
+
+The [Maintenance workflow][security-current-maintenance-run] is still
+incomplete because its separate [coverage-upload job][current-upload-job],
+ID `132495689999`, remains queued. The [current-head check inventory][current-checks]
+contains no Codecov app **254** result. Current-head provider acceptance is
+therefore **pending**. Earlier 54-test, 97.59% coverage and Codecov successes
+remain scoped to `66beec5`; the 59-test/97.72% local result belongs to `b1b465c`.
+Neither supplies a provider pass for this head or a future receiving revision.
+
+The [current integration receipt][qualified-receipt] preserves the baseline
+empty-ruleset observation and the earlier 59-test source/coverage evidence with
+their original revision attribution. It separately records current local and
+hosted results, live MATCH, pending Codecov processing and the still-unknown
+PR #12 receiving SHA. The [historical maintenance receipt][historical-maintenance-receipt]
+remains unchanged; the separate integration receipt avoids replacing that
+earlier record before PR #12 is integrated.
+
+### Live policy: active and matched
+
+[Ruleset 27266891][live-ruleset] is active on the default branch. The qualified
+full inventory contains all **eight** required status contexts bound to GitHub
+Actions app ID **15368**, `required_review_thread_resolution: true`, zero
+required approvals, and owner User **15080672** as the only bypass actor with
+`always` recovery. It blocks branch deletion and non-fast-forward updates.
+
+The [qualified inventory][qualified-rulesets] was observed at
+**`2026-11-14T15:51:12Z`** and has SHA-256
+`e000963b1a67731ed577595d8891d1d14be1ad3e267ed251162a660e7357a4a1`.
+The current `7e2d09c` policy checker returns **MATCH / exit 0** for this complete
+inventory; an independent local replay confirmed that result. The preceding
+seven-check snapshot correctly returned DRIFT before conversation resolution
+and the coverage context were corrected. The earlier empty baseline is retained
+as a different observation. MATCH certifies the supplied inventory; its
+observation time and source remain part of the evidence.
+
+Other security settings retain the
+[existing authenticated inspection record][security-settings-record]: private vulnerability reporting, Dependabot
+alerts, secret push protection and Dependabot security updates were reported
+enabled. A later independent follow-up could not obtain a usable native browser
+window, repository metadata omitted `security_and_analysis`, and classic
+branch-protection detail access returned HTTP 403. These extra settings were
+not independently reverified in this refresh. The live-ruleset readback above
+is separate evidence.
+
+Remaining integration order: complete #12's provider acceptance, integrate it
+into main, then qualify its actual receiving revision and confirm live-policy
+freshness. **PR #12 receiving SHA and workflow/provider results remain pending.**
+Refresh #5's receipt and this parent record against those exact results.
+
+## Central classification and programme ownership
+
+Draft [central PR #142][central-classification-pr], owned by
+[central typesetting #5][central-typesetting], updates only this consumer's
+`registry/repositories.json` row and adds
+`docs/typesetting-unimelb-typst-assessment.md`. Its head is
+`ca8b9ecc50f9862502b17d035be951e807da7b1c`, tree
+`5ab3a216a9c8ad4424d2495d76890d0f12034f52`, based on
+`10e59936e132f28597cb7d2f10efa27629dc4837`. It retains the
+`typesetting-template` archetype and `typst` profile, marks executable-helper
+coverage warranted, and scopes existing Codecov activity to historical
+`66beec5cd7b78a9cdc1aad37dd288350184ef14d`. Its receiving-main qualification
+flag remains false. **Central integration remains pending** until current
+consumer Codecov and receiving-main qualification are available. The overlapping
+central registry changes in PR #119 (genomics) and PR #141 (LaTeX) retain their
+existing ownership and rows.
+
+The classification also makes published-artifact supply-chain applicability
+explicit: source releases exist and the [tag-only workflow][current-release]
+is configured to publish a compiled PDF. This does not establish executed
+artifact-bound attestations or new collector enforcement. The separate
+assessment records those limits and the existing release/evidence owners.
+The foundation requires truthful component applicability and evidence; later
+document-production outputs remain with their own implementation issues.
+
+[Programme #13][document-programme] and its #14–25 implementation issues are
+separate under GOV-04. The historical #6 child scope remains **#4 and #5**.
+The broader document programme does not add new children or completion
+requirements to this foundation record.
 
 ## Applicability decisions
 
@@ -171,7 +349,7 @@ when the implementation changes.
 
 | Technique | Decision | Evidence and boundary |
 | --- | --- | --- |
-| Property-based testing | Warranted; incomplete. | The [Python helpers][terms] validate structured data and transform CSV. Mixed-entry rejection, duplicate handling and normalized round trips have concrete, bounded invariants. Tests must state the supported input domain and normalization rules. |
+| Property-based testing | Warranted; implemented, executed and integrated through #10. | The [Python helpers][terms] validate structured data and transform CSV. Mixed-entry rejection, duplicate handling and normalized round trips have concrete, bounded invariants. Tests state the supported input domain and normalization rules. |
 | Mutation testing | Exclude a dedicated mutation lane for this increment. | The small helper surface has concrete input/output oracles covered by the regression/property increment. A separate mutation service, score gate and equivalent-mutant maintenance are not proportionate to this template's current scope. Reassess if validation logic grows or review finds that the ordinary suite misses meaningful faults. |
 | Deterministic simulation testing (DST) | Not applicable to the inspected application. | The repository builds documents and runs local helpers; it contains no distributed service, replicated state machine or simulated event scheduler requiring a separate fault-simulation harness. |
 | Metamorphic testing (MT) | No separate mandatory lane. | Normalized round trips and input permutations can be expressed within the property suite. This excludes a duplicate framework/job, not useful metamorphic assertions. |
@@ -183,23 +361,24 @@ would justify only the unsupported portion of a check, with evidence.
 
 ## Closure procedure
 
-1. Re-read #4 and #5 and the current main commit. For each acceptance item, link
-   the implementation and an executed result, or document its specific
-   applicability exclusion. An issue state or checked box alone is insufficient.
-2. Reconcile the child changes on main and run the canonical verification command
-   and applicable hosted checks. Record the PR head tested, integrated main SHA,
-   commands/tool versions, conclusions and workflow URLs. Distinguish PR checks
-   from checks on the integrated revision.
+1. Retain #4's completed implementation and receiving-main evidence. Re-read #5
+   and current main, and link each remaining acceptance item to an executed
+   result or specific applicability exclusion. Issue state alone is insufficient.
+2. Finish #12's qualification and integration. Record the PR head tested, actual
+   receiving-main SHA, canonical verification, applicable hosted checks,
+   commands/tool versions and workflow URLs. Distinguish candidate results from
+   receiving-revision results.
 3. Confirm the live ruleset, stable required checks, bot operation and owner
    recovery without mandatory human approvals. Verify Codecov activity and its
    actual coverage scope. Keep missing authorization or external activation
    explicitly open.
-4. Refresh this record or link the replacement receipt in #6, then complete both
-   child checkboxes and close the parent only when every requirement is satisfied
-   or has an evidence-backed exclusion.
+4. Qualify and integrate central PR #142 with the final consumer evidence,
+   refresh #5's receipt and this record, and link them from #6. Complete #5's
+   checkbox and close #6 only when its original child requirements are satisfied
+   or have evidence-backed exclusions. Keep #13–25 under their existing owners.
 
 [Offline security PR #9][offline-pr] is a separate conditional rollout. Its
-[offline run][offline-run] was queued at this snapshot; its body requires
+[earlier offline run][offline-run] was queued when inspected; its body requires
 isolated-runner/image/local-model provisioning and real integration validation.
 A passing privacy check does not qualify that integration. Preserve its gate;
 do not provision it here or add it as a third dependency of #6.
@@ -233,5 +412,34 @@ do not provision it here or add it as a third dependency of #6.
 [current-quality-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605767014
 [current-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605766686
 [security-pr]: https://github.com/edithatogo/unimelb-thesis-template-typst/pull/12
-[security-receipt]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/33c9a4fb4c27a906d7e6fb8bd037feb8bef05724/docs/maintenance/issue-5-receipt.json
-[maintenance-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43605934855
+[security-prior-receipt]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/66beec5cd7b78a9cdc1aad37dd288350184ef14d/docs/maintenance/issue-5-receipt.json
+[security-receipt]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/b1b465c74324f75c815cf199ef45d7ff631d20d5/docs/maintenance/issue-5-receipt.json
+[testing-record]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/0f2f2ecc4b4a0ba3e99a1bb2f84bf5cec5ee5068/docs/quality-gates.md
+[latest-quality-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43608082998
+[latest-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43608082658
+[latest-codeql-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43608078096
+[security-quality-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355918
+[security-maintenance-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355606
+[security-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43606355629
+[codecov-checks]: https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/66beec5cd7b78a9cdc1aad37dd288350184ef14d/check-runs?per_page=100
+[codecov-pr]: https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/12
+[security-current-quality-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602381
+[security-current-maintenance-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102
+[security-current-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602093
+[security-current-codeql-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609599167
+[receiving-quality-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609103472
+[receiving-privacy-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609103263
+[receiving-codeql-run]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609102803
+[live-ruleset]: https://github.com/edithatogo/unimelb-thesis-template-typst/rules/27266891
+[current-desired-policy]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/7e2d09c934c3c9805a222f39c6fd073885196b48/.github/rulesets/solo-maintainer.json
+[current-release]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/7e2d09c934c3c9805a222f39c6fd073885196b48/.github/workflows/release.yml
+[central-typesetting]: https://github.com/edithatogo/repository-standards/issues/5
+[document-programme]: https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13
+[current-coverage-job]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/job/132491525752
+[current-upload-job]: https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43609602102/job/132495689999
+[current-checks]: https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/commits/7e2d09c934c3c9805a222f39c6fd073885196b48/check-runs?per_page=100
+[qualified-rulesets]: maintenance/issue-5-qualified-rulesets.json
+[qualified-receipt]: maintenance/issue-5-integration-receipt.json
+[security-settings-record]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/7e2d09c934c3c9805a222f39c6fd073885196b48/docs/maintenance.md
+[central-classification-pr]: https://github.com/edithatogo/repository-standards/pull/142
+[historical-maintenance-receipt]: https://github.com/edithatogo/unimelb-thesis-template-typst/blob/7e2d09c934c3c9805a222f39c6fd073885196b48/docs/maintenance/issue-5-receipt.json
