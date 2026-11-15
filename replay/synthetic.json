@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "public-helper-resource-replay",
+  "entrypoint": "tests/replay/document.typ",
+  "creation_timestamp": 1794700800,
+  "cli_inputs": {"profile": "default"},
+  "required_native_inputs": [
+    "tests/replay/document.typ",
+    "tests/replay/configuration.json",
+    "tests/replay/icon.svg",
+    "tests/replay/references.bib",
+    "tests/replay/synthetic.csl"
+  ],
+  "fonts": [
+    "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-Regular.otf",
+    "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-Bold.otf",
+    "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-It.otf"
+  ],
+  "font_licenses": [
+    "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/LICENSE.md"
+  ],
+  "expected_pdf_fonts": [
+    "SourceSerifPro-Regular",
+    "SourceSerifPro-Bold",
+    "SourceSerifPro-It"
+  ],
+  "expected_text": [
+    "REPLAY BODY SENTINEL",
+    "REPLAY BOLD SENTINEL",
+    "REPLAY ITALIC SENTINEL",
+    "REPLAY IMAGE SENTINEL",
+    "REPLAY REFERENCE SENTINEL"
+  ],
+  "scope": "One synthetic public-helper/resource fixture; not all thesis profiles, all fonts or release packaging."
+}

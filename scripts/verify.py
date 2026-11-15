@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import argparse
+
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -1303,7 +1305,39 @@ def verify_submission_policy(report):
             corpus.update(report=str(receipt.relative_to(ROOT)), report_sha256=digest(receipt))
 
 
-def main() -> int:
+def verify_replay(report, package_cache):
+    """Opt in to the bounded replay sidecar without nesting command sessions."""
+    destination = OUTPUT / ("replay-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
+    entry = {"result": "fail", "scope": "One synthetic input closure in the observed Linux environment",
+             "sidecar": str(destination / "report.json"), "byte_replay_qualified": False}
+    report["replay_corpus"] = entry
+    write_report(report)
+    try:
+        gate = runpy.run_path(str(ROOT / "tests/replay/qualify.py"))
+        result = gate["qualify"](ROOT, package_cache, destination)
+        if (result.get("result") != "pass" or result.get("case_count") != 11
+                or len(result.get("cases", [])) != 11
+                or any(case.get("result") != "pass" for case in result["cases"])
+                or [result.get(key) for key in ("native_compiler_attempts", "successful_native_pdfs",
+                                                "expected_native_compiler_failures")] != [4, 3, 1]
+                or any(result.get(key) is not False for key in (
+                    "release_bundle_qualified", "complete_environment_image_locked",
+                    "cross_environment_semantic_repeatability_qualified"))):
+            raise VerificationError("Opt-in replay did not qualify")
+        entry.update({"result": "pass", "case_count": result["case_count"],
+                      "sidecar_sha256": digest(destination / "report.json"),
+                      "byte_replay_qualified": True, "release_bundle_qualified": False,
+                      "complete_environment_image_locked": False})
+    except Exception as exc:
+        entry["error"] = str(exc)
+        raise
+
+
+def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--replay-package-cache", type=Path,
+                        help="Opt in to network-disabled replay with this prepared package cache")
+    options = parser.parse_args(argv)
     OUTPUT.mkdir(parents=True, exist_ok=True)
     report = {
         "schema_version": 1,
@@ -1380,6 +1414,10 @@ def main() -> int:
         "requirements": ["POL-03", "POL-04", "POL-05", "POL-06", "POL-07"],
         "result": "unexecuted", "rendered_policy_qualified": False, "submission_approved": False,
     }
+    report["replay_corpus"] = {
+        "result": "unexecuted", "reason": "Opt in with --replay-package-cache",
+        "byte_replay_qualified": False,
+    }
     # An interrupted invocation must not leave a previous successful receipt.
     write_report(report)
     try:
@@ -1451,6 +1489,8 @@ def main() -> int:
         verify_contract_adapter(report)
         verify_packaging(report)
         verify_submission_policy(report)
+        if options.replay_package_cache is not None:
+            verify_replay(report, options.replay_package_cache)
         report["passed"] = True
     except Exception as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"

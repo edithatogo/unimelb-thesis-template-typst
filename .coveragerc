@@ -10,6 +10,7 @@ source_pkgs =
     scripts.native_evidence
     scripts.package_template
     scripts.submission_policy
+    scripts.replay_build
 
 [report]
 precision = 2

@@ -120,9 +120,18 @@ The scenarios do not render their supplied metadata or qualify a thesis for
 submission. The canonical gate requires the full corpus, unchanged source/PDF
 identities and explicit false rendered-policy and submission-approval flags.
 
-The eight-helper Python coverage scope includes the bounded adapter producer,
-native evidence validator, package helper and policy checker alongside the four
-earlier helpers. Corpus runners, native orchestration and fixture/PDF oracles are
+The [bounded replay corpus](reproducible-builds.md) adds 11 separately reported
+controls when `--replay-package-cache` is supplied to `scripts/verify.py`. CI opts
+in using an explicit cache prepared by its earlier online compilation. Actual
+network namespace changes, connection controls, two identical PDF byte streams,
+input tampering and an empty-cache download failure are required. Unsupported
+isolation fails the opted-in gate. Without that option, local verification
+explicitly records replay as unexecuted. The 209 earlier cases and 64 policy-data
+scenarios retain their separate counts and claims.
+
+The nine-helper Python coverage scope includes the bounded adapter producer,
+native evidence validator, package helper, policy checker and replay helper
+alongside the four earlier helpers. Corpus runners, native orchestration and fixture/PDF oracles are
 checked through their actual canonical execution, outside that line/branch denominator.
 The existing 80% floors are unchanged; see [maintenance](maintenance.md).
 The complete composed source still requires fresh canonical and hosted results;

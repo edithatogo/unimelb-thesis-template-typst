@@ -61,8 +61,17 @@
   41 maintenance methods and 64 scenarios, with actual PDF byte binding. Preserve
   explicit partial outcomes, the unsupported in-revision publication bridge and
   outstanding human authenticity decisions.
-- [ ] Qualify the policy foundation's integrated source and receiving revision;
+- [x] Qualify the policy foundation through PR #34, source
+  `02496f5fc7e7131657993a22958997a121b1ea99` and receiving
+  `6d2654d477232fa8ddc5cd398357411114039b5d`: all applicable hosted
+  checks, actual Codecov and 1,490 artifact references passed. Preserve the
+  separate 209 native/rendered cases and 64 supplied-data scenarios.
   POL-01/POL-02 rendered policy and complete #17 acceptance remain open.
+- [x] Prepare and independently review the bounded replay helper and 11 native
+  controls, including the reproduced lock/recipe read-binding correction.
+  Preserve complete-environment, cross-environment and release boundaries.
+- [ ] Qualify the composed replay source and receiving revision with fresh
+  native locks, nine-helper coverage and actual hosted results.
 - [ ] Qualify accessibility, locked replay, evidence and packaging (#19–#22).
 - [ ] Deliver full/public deposit and experimental web projections (#23–#24).
 - [ ] Complete comparative and genuine human evaluation (#25).
