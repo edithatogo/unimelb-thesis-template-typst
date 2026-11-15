@@ -3,7 +3,7 @@
   "contract_version": "1.0.0",
   "snapshots": {
     "umthesis-contract": "sources/umthesis-1.0.0.md",
-    "legacy-ears-requirements": "sources/legacy-ears-requirements.txt",
+    "legacy-ears-requirements": "sources/legacy-ears-requirements.md",
     "legacy-docs-tasks": "sources/legacy-docs-tasks.txt",
     "legacy-root-tasks": "sources/legacy-root-tasks.txt",
     "central-solo-maintainer": "sources/central-solo-maintainer.txt",

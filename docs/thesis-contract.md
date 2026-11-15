@@ -30,6 +30,25 @@ Missing, additional, altered or escaping files fail validation. Source snapshots
 must also match the independently recorded ledger hashes. No source or schema is
 downloaded during verification; external schema references are rejected.
 
+### Archived-source filename correction
+
+The historical EARS prose snapshot is `sources/legacy-ears-requirements.md`.
+Its former `*-requirements.txt` name caused GitHub's native pip dependency
+inventory to parse the prose as installable requirements and fail on receiving
+commit `60a95ba6863e602347ebf64ee16a689486473237`. The rename preserves the
+snapshot's exact bytes and SHA-256
+`af9c04793dfe2738bf77b658c3d60d8cd0531d0be6121531c6467c82c4753cbc`.
+The source identifier, origin, legacy crosswalk and requirement meanings are
+unchanged. Actual Python dependencies remain in the root requirements files.
+
+The corrected bundle manifest SHA-256 is
+`338f93c64ce84621670f267c0919555d77c592e92e75f04e12afd6cab57cea7c`.
+The earlier `19fc08a02c4851301718d3a7a06fa9366633c67590a8be9a7ba0dabb4087b4d4`
+pin remains the identity of the original bundle; its historical receipts are
+not rewritten. This packaging correction retains the 1.0.0 schema/API semantics.
+Consumers moving to the corrected bundle must select its revision and digest
+together and revalidate the complete inventory.
+
 The parent requirement outcomes are compared with the retained issue snapshot.
 Owners, acceptance cases, source/fixture mappings and legacy IDs cannot silently
 disappear. Planned catalogue cases remain planned until their specific
