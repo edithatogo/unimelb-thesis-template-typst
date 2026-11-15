@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "candidate_base": "b5dc1a30e5f192c5a6169ea566310090c9acb24c",
+  "candidate_tree": "2ad2a98565c788b67ad0029f8880ccd45a8d0990",
+  "source_kind": "staged-candidate",
+  "started_at_utc": "2026-11-15T03:16:43.498984+00:00",
+  "source_unchanged": true,
+  "finished_at_utc": "2026-11-15T03:18:10.897070+00:00",
+  "canonical_report_sha256": "8d6d43f14428654f1a15dd8e180f683889ff7927075348e864c09c0761e51b6d",
+  "policy_report_sha256": "0e19bd6687f58b7f14b4b3f466bb666dabbf0bd34044bfba7f78ff33b8436cf7",
+  "coverage_json_sha256": "ab6c8aeac86c57df9bdffa56242b6cfdfbd851e51c29a03fd8a0c1f9ea1a3ea6",
+  "commands": [
+    {
+      "name": "format",
+      "started_at_utc": "2026-11-15T03:16:43.597385+00:00",
+      "finished_at_utc": "2026-11-15T03:16:43.629380+00:00",
+      "seconds": 0.031991302996175364,
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "All 95 tracked Typst files"
+    },
+    {
+      "name": "canonical",
+      "started_at_utc": "2026-11-15T03:16:43.629791+00:00",
+      "finished_at_utc": "2026-11-15T03:17:47.285926+00:00",
+      "seconds": 63.65621091199864,
+      "exit_code": 0,
+      "log_sha256": "3e6f38321eae34c33624a1a2a416bce6055aacca8ef0d098b6619bb47d6dd219",
+      "command": [
+        "make",
+        "verify",
+        "PYTHON=/tmp/typst-validation315/bin/python"
+      ]
+    },
+    {
+      "name": "coverage",
+      "started_at_utc": "2026-11-15T03:17:47.287031+00:00",
+      "finished_at_utc": "2026-11-15T03:18:10.838781+00:00",
+      "seconds": 23.551763866998954,
+      "exit_code": 0,
+      "log_sha256": "0b5064c06fa70b500fc5a803e9b614ae85a66a10f8e74effcab54e8e6c1f1bf4",
+      "command": [
+        "make",
+        "coverage",
+        "PYTHON=/tmp/typst-validation315/bin/python"
+      ]
+    }
+  ],
+  "full_receipt_sha256": "98e8ca41c59a5026ac6b7aa3a6c98b5f5701cd7bc2c56c55bc275e2ed9656db5",
+  "source_files": 607,
+  "source_inventory_sha256": "2a789141229e11ecd0653f2bb35689ff69fee6cdda3a9592a2f4dedce6bbe7aa",
+  "coverage": {
+    "covered_lines": 1715,
+    "num_statements": 1793,
+    "percent_covered": 94.48940269749518,
+    "percent_covered_display": "94.49",
+    "missing_lines": 78,
+    "excluded_lines": 0,
+    "percent_statements_covered": 95.64974902398215,
+    "percent_statements_covered_display": "95.65",
+    "num_branches": 802,
+    "num_partial_branches": 61,
+    "covered_branches": 737,
+    "missing_branches": 65,
+    "percent_branches_covered": 91.89526184538653,
+    "percent_branches_covered_display": "91.90"
+  },
+  "contract_methods": 127,
+  "maintenance_methods": 165,
+  "property_iterations": 640,
+  "rendered_native_package_cases": 209,
+  "policy_cases": 64,
+  "policy_assertions": 632,
+  "policy_data_valid": 27,
+  "policy_expected_failures": 37,
+  "submission_approved": false,
+  "hosted_qualification": "unexecuted"
+}
