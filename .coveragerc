@@ -9,6 +9,7 @@ source_pkgs =
     scripts.typst_contract_adapter
     scripts.native_evidence
     scripts.package_template
+    scripts.submission_policy
 
 [report]
 precision = 2

@@ -107,10 +107,23 @@ empty values but rejects missing or malformed required evidence. Successful
 COR-04/COR-05 dependency captures now bind the actual compile, source, output and
 native report bytes before retaining a normalized inventory.
 
-The six-helper Python coverage scope adds the bounded adapter producer and
-native evidence validator to the four existing helpers. The adapter corpus
-runner, native orchestration and fixture/PDF oracles are measured through their
-actual canonical execution, not included in that line/branch denominator.
+The [local packaging corpus](packaging.md) adds ten cases for a deterministic
+50-file archive, isolated installation/initialization, caller-owned inputs,
+relocation, real watch/edit rebuilding, the README example and exact thumbnail
+reproduction. The resulting 209 rendered/native/package cases retain separate
+registry, offline-replay and approval boundaries.
+
+The [dated submission-policy corpus](submission-policy.md) adds 64 supplied-data
+scenarios in a separate report section: 27 data-valid cases and 37 intended data
+failures. It compiles one neutral page solely to bind records to actual PDF bytes.
+The scenarios do not render their supplied metadata or qualify a thesis for
+submission. The canonical gate requires the full corpus, unchanged source/PDF
+identities and explicit false rendered-policy and submission-approval flags.
+
+The eight-helper Python coverage scope includes the bounded adapter producer,
+native evidence validator, package helper and policy checker alongside the four
+earlier helpers. Corpus runners, native orchestration and fixture/PDF oracles are
+checked through their actual canonical execution, outside that line/branch denominator.
 The existing 80% floors are unchanged; see [maintenance](maintenance.md).
 The complete composed source still requires fresh canonical and hosted results;
 historical focused runs do not qualify reconstructed support files or later

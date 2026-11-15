@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "policy_id": "unimelb-gr-2026-11-15",
+  "observation_timezone": "Australia/Brisbane",
+  "sources": [
+    {
+      "id": "preparation",
+      "url": "https://gradresearch.unimelb.edu.au/processes/preparation-of-graduate-research-theses",
+      "final_url": "https://gradresearch.unimelb.edu.au/processes/preparation-of-graduate-research-theses",
+      "retrieved_at": "2026-11-15T02:39:19.983210+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 49642,
+      "sha256": "7ab2e886032110f23855802bf173b87597d8aec2e277a9c6cc45830c9fe95ab9",
+      "local_snapshot_committed": false
+    },
+    {
+      "id": "writing",
+      "url": "https://gradresearch.unimelb.edu.au/preparing-my-thesis/writing-and-preparing-your-thesis",
+      "final_url": "https://gradresearch.unimelb.edu.au/preparing-my-thesis/writing-and-preparing-your-thesis",
+      "retrieved_at": "2026-11-15T02:39:19.994252+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 53529,
+      "sha256": "cdd2f523cf50fe1a78ab4614b034b8b6a0b404a4fdc62231aceb874ebce9e11c",
+      "local_snapshot_committed": false
+    },
+    {
+      "id": "publications",
+      "url": "https://gradresearch.unimelb.edu.au/preparing-my-thesis/thesis-with-publication",
+      "final_url": "https://gradresearch.unimelb.edu.au/preparing-my-thesis/thesis-with-publication",
+      "retrieved_at": "2026-11-15T02:39:20.320129+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 70598,
+      "sha256": "fda2be0ba14f4349db67ca3946c4583d05ab04e19ab4158f9a1364471a7b80e9",
+      "local_snapshot_committed": false
+    },
+    {
+      "id": "submission",
+      "url": "https://gradresearch.unimelb.edu.au/examination/submitting-your-thesis",
+      "final_url": "https://gradresearch.unimelb.edu.au/examination/submitting-your-thesis",
+      "retrieved_at": "2026-11-15T02:39:19.733581+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 51374,
+      "sha256": "7b0c0804ab6485cac49faccbeaa3a872d0d87eea5d691ad06861e68624ee0efc",
+      "local_snapshot_committed": false
+    },
+    {
+      "id": "library",
+      "url": "https://gradresearch.unimelb.edu.au/examination/my-thesis-in-the-library",
+      "final_url": "https://gradresearch.unimelb.edu.au/examination/my-thesis-in-the-library",
+      "retrieved_at": "2026-11-15T02:39:19.896349+00:00",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 57595,
+      "sha256": "6f223f6cacf548af6ff9ecaf252b09f2464fc63761c1cfed72b52ff1494e32ac",
+      "local_snapshot_committed": false
+    }
+  ],
+  "preparation_version_observation": {
+    "displayed_version": "5",
+    "latest_history_version": "6",
+    "latest_history_date": "2026-06-17",
+    "authorization_date": "2026-06-17",
+    "resolved_effective_version": null,
+    "interpretation": "Retain the dated clauses and both labels; do not infer a single effective version."
+  },
+  "retention": "Exact retrieved HTML is retained outside the Git working tree; this ledger contains links and digests, not full webpage copies."
+}

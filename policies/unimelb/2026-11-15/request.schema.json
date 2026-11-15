@@ -1,0 +1,873 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "policy_id": {
+      "const": "unimelb-gr-2026-11-15"
+    },
+    "layers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "cli": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "explicit": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "metadata",
+        "cli",
+        "explicit"
+      ]
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "word_count": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "body": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "footnotes": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "other_included": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "tables": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maps": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "bibliographies": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "appendices": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "supplied-component-inventory"
+              ]
+            },
+            "scope_notes": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "adjustments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "delta": {
+                    "type": "integer"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "decision_ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  }
+                },
+                "required": [
+                  "id",
+                  "delta",
+                  "reason",
+                  "decision_ref"
+                ]
+              },
+              "minItems": 0
+            }
+          },
+          "required": [
+            "body",
+            "footnotes",
+            "other_included",
+            "tables",
+            "maps",
+            "bibliographies",
+            "appendices",
+            "method",
+            "scope_notes",
+            "adjustments"
+          ]
+        },
+        "course_rule": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "course": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "handbook_url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://handbook\\.unimelb\\.edu\\.au/"
+            },
+            "handbook_year": {
+              "type": "integer",
+              "minimum": 2000,
+              "maximum": 2100
+            },
+            "maximum_words": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "recommended_words": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "document_ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            }
+          },
+          "required": [
+            "course",
+            "handbook_url",
+            "handbook_year",
+            "maximum_words",
+            "document_ref"
+          ]
+        },
+        "creative": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dissertation_percent": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "agreement_ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "integration_statement": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "electronic_ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "durable_ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  }
+                },
+                "required": [
+                  "id",
+                  "electronic_ref"
+                ]
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "dissertation_percent",
+            "agreement_ref",
+            "integration_statement",
+            "components"
+          ]
+        },
+        "funding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "inventory_complete": {
+              "type": "boolean"
+            },
+            "grants": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "index": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "issued",
+                      "not-issued",
+                      "unknown"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "required": [
+                  "index",
+                  "status"
+                ]
+              },
+              "minItems": 0
+            },
+            "rtp_stipend": {
+              "type": "boolean"
+            },
+            "rtp_fee_offset": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "inventory_complete",
+            "grants",
+            "rtp_stipend",
+            "rtp_fee_offset"
+          ]
+        },
+        "prior_work": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "before_enrolment": {
+                "type": "boolean"
+              },
+              "other_qualification": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "index",
+              "before_enrolment",
+              "other_qualification"
+            ]
+          },
+          "minItems": 0
+        },
+        "assistance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "provider": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "extent": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "minItems": 1
+              },
+              "use_kind": {
+                "type": "string",
+                "enum": [
+                  "editorial",
+                  "research"
+                ]
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "supervisor",
+                  "other"
+                ]
+              },
+              "editing_standards": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "C",
+                    "D",
+                    "E"
+                  ]
+                },
+                "minItems": 0
+              },
+              "discipline_knowledge": {
+                "type": "boolean"
+              },
+              "private_log_ref": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "log_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "programs",
+                    "dates",
+                    "prompts"
+                  ]
+                },
+                "minItems": 0
+              },
+              "verification_ref": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "ai_authorship_claimed": {
+                "type": "boolean"
+              },
+              "full_private_log_embedded": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "index",
+              "provider",
+              "extent",
+              "locations",
+              "use_kind",
+              "role",
+              "editing_standards",
+              "full_private_log_embedded"
+            ]
+          },
+          "minItems": 0
+        },
+        "publications": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "records": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "citation": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "official_status": {
+                    "type": "string",
+                    "enum": [
+                      "unpublished",
+                      "submitted",
+                      "in-revision",
+                      "accepted",
+                      "published"
+                    ]
+                  },
+                  "venue": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "status_date": {
+                    "type": "string",
+                    "format": "date",
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                  },
+                  "version": {
+                    "type": "string",
+                    "enum": [
+                      "publisher",
+                      "author-accepted-manuscript",
+                      "submitted-manuscript",
+                      "preprint",
+                      "draft",
+                      "adapted-material"
+                    ]
+                  },
+                  "incorporation": {
+                    "type": "string",
+                    "enum": [
+                      "complete-publication",
+                      "included-material",
+                      "figure-only"
+                    ]
+                  },
+                  "locations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "minItems": 1
+                  },
+                  "candidate_contribution": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "coauthored": {
+                    "type": "boolean"
+                  },
+                  "undertaken_during_candidature": {
+                    "type": "boolean"
+                  },
+                  "rights_basis": {
+                    "type": "string",
+                    "enum": [
+                      "owned",
+                      "open-license",
+                      "permission",
+                      "pending"
+                    ]
+                  },
+                  "rights_ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "license_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "form_ref": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "signatures_declared": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "principal-supervisor",
+                        "coordinating-author"
+                      ]
+                    },
+                    "minItems": 0
+                  },
+                  "exclusive_partition": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "minLength": 1,
+                          "pattern": "\\S"
+                        },
+                        "percentage": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 100
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "percentage"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "literature_review": {
+                    "type": "boolean"
+                  },
+                  "updated_literature_note": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  }
+                },
+                "required": [
+                  "id",
+                  "citation",
+                  "official_status",
+                  "version",
+                  "incorporation",
+                  "locations",
+                  "candidate_contribution",
+                  "coauthored",
+                  "undertaken_during_candidature",
+                  "rights_basis",
+                  "literature_review"
+                ]
+              },
+              "minItems": 0
+            },
+            "integration_statement": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "planned_thesis_bibliography_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "minItems": 0
+            },
+            "planned_publication_bibliographies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "publication_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "reference_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                    },
+                    "minItems": 0
+                  }
+                },
+                "required": [
+                  "publication_id",
+                  "reference_ids"
+                ]
+              },
+              "minItems": 0
+            }
+          },
+          "required": [
+            "records",
+            "planned_thesis_bibliography_ids",
+            "planned_publication_bibliographies"
+          ]
+        },
+        "submission": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "written_component_count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "originality": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "document_ref": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                },
+                "for_pdf_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "tool": {
+                  "const": "iThenticate"
+                },
+                "scope": {
+                  "const": "full-thesis"
+                },
+                "excluded_publication_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "minItems": 0
+                },
+                "filters_explanation": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              },
+              "required": [
+                "document_ref",
+                "for_pdf_sha256",
+                "tool",
+                "scope",
+                "excluded_publication_ids"
+              ]
+            },
+            "supervisor_review_ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "signed_forms_bundle_ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "final_corrections_ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "chair_final_approval_ref": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            }
+          },
+          "required": [
+            "written_component_count"
+          ]
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "word-limit",
+                  "non-english",
+                  "creative-agreement",
+                  "count-adjustment",
+                  "supervisor-review",
+                  "originality-review",
+                  "publication-rights",
+                  "final-corrections",
+                  "chair-final-approval",
+                  "author-verification"
+                ]
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "approved",
+                  "denied",
+                  "pending"
+                ]
+              },
+              "authority": {
+                "type": "string",
+                "enum": [
+                  "pro-vice-chancellor",
+                  "advisory-committee",
+                  "principal-supervisor",
+                  "chair-of-examiners",
+                  "rights-holder",
+                  "author"
+                ]
+              },
+              "issued_on": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              "expires_on": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              "document_ref": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "scope": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "course": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "subject_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "enum": [
+                      "draft",
+                      "examination",
+                      "deposit-full",
+                      "deposit-public"
+                    ]
+                  },
+                  "max_words": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "dissertation_percent": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "creative_percent": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "publication_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "artifact_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "adjustment_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  }
+                },
+                "required": [
+                  "course",
+                  "subject_sha256",
+                  "purpose"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "state",
+              "authority",
+              "issued_on",
+              "document_ref",
+              "scope"
+            ]
+          },
+          "minItems": 0
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "approval",
+                  "human-review",
+                  "handbook",
+                  "assistance-log",
+                  "publication-form",
+                  "publication-forms-bundle",
+                  "rights-record",
+                  "originality-report",
+                  "creative-electronic",
+                  "durable-component"
+                ]
+              },
+              "classification": {
+                "type": "string",
+                "enum": [
+                  "private",
+                  "synthetic",
+                  "public"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "path",
+              "sha256",
+              "kind",
+              "classification"
+            ]
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "decisions",
+        "documents"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "layers",
+    "policy"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dated Melbourne policy sidecar; canonical metadata remains separately validated"
+}

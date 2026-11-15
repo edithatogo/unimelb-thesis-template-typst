@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "policy_id": "unimelb-gr-2026-11-15",
+  "files": {
+    "profile.json": "0e1b84630a8587411d30d4c71564074315844b966bdb092c5e224698f3ff8b9e",
+    "request.schema.json": "a3d6a15c5435a02633ecb2212bc0b69f560cdc11df32dd235c0f0f1589b9f1a0",
+    "result.schema.json": "5313255d29ac64dacd316920c3fc6a05d05de3385520830bf4009d5cec5c76c6",
+    "rules.json": "e199e02c8a7a47e32b23ea041c5704fd951845e86bcd81a3a69ea228cd6ec8fb",
+    "sources.json": "cd524d2174975b15b68c743e6530cc05c51bf819eee49c43e9c5eda01a05dbcb"
+  }
+}

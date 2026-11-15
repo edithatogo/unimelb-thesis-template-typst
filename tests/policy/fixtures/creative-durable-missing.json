@@ -1,0 +1,194 @@
+{
+  "id": "creative-durable-missing",
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "as_of": "2026-11-15",
+  "request": {
+    "schema_version": 1,
+    "policy_id": "unimelb-gr-2026-11-15",
+    "layers": {
+      "metadata": {
+        "purpose": "deposit-full",
+        "language": "en",
+        "metadata": {
+          "title": "Synthetic Policy Specimen",
+          "author": {
+            "student_record_name": "Synthetic Policy Candidate"
+          },
+          "degree": {
+            "kind": "doctoral",
+            "course": "SYNTHETIC-PHD"
+          },
+          "academic_units": [
+            "Synthetic School"
+          ],
+          "submission": {
+            "month": "2026-11"
+          },
+          "abstract": "Synthetic abstract for data validation only.",
+          "declarations": {
+            "original_work": true,
+            "word_count": 80000
+          },
+          "creative_outputs": [
+            {
+              "id": "creative-1",
+              "description": "Synthetic electronic creative output",
+              "proportion": 40
+            }
+          ]
+        }
+      },
+      "cli": [],
+      "explicit": {}
+    },
+    "policy": {
+      "word_count": {
+        "body": 79900,
+        "footnotes": 100,
+        "other_included": 0,
+        "tables": 200,
+        "maps": 10,
+        "bibliographies": 500,
+        "appendices": 20000,
+        "method": "supplied-component-inventory",
+        "scope_notes": "Body includes ordinary prose; other_included covers any remaining counted content. Counts are synthetic supplied data.",
+        "adjustments": []
+      },
+      "funding": {
+        "inventory_complete": true,
+        "grants": [],
+        "rtp_stipend": false,
+        "rtp_fee_offset": false
+      },
+      "decisions": [
+        {
+          "id": "creative-agreement",
+          "kind": "creative-agreement",
+          "state": "approved",
+          "authority": "advisory-committee",
+          "issued_on": "2026-11-01",
+          "expires_on": "2027-11-01",
+          "document_ref": "approval",
+          "scope": {
+            "course": "SYNTHETIC-PHD",
+            "subject_sha256": "23197c976363c5634eccd4cae18d8ad1840722a8447b27085be375087935c711",
+            "purpose": "deposit-full",
+            "dissertation_percent": 60,
+            "creative_percent": 40
+          }
+        },
+        {
+          "id": "supervisor-review",
+          "kind": "supervisor-review",
+          "state": "approved",
+          "authority": "principal-supervisor",
+          "issued_on": "2026-11-01",
+          "expires_on": "2027-11-01",
+          "document_ref": "approval",
+          "scope": {
+            "course": "SYNTHETIC-PHD",
+            "subject_sha256": "23197c976363c5634eccd4cae18d8ad1840722a8447b27085be375087935c711",
+            "purpose": "deposit-full",
+            "artifact_sha256": "${PDF_SHA256}"
+          }
+        },
+        {
+          "id": "final-corrections",
+          "kind": "final-corrections",
+          "state": "approved",
+          "authority": "chair-of-examiners",
+          "issued_on": "2026-11-01",
+          "expires_on": "2027-11-01",
+          "document_ref": "approval",
+          "scope": {
+            "course": "SYNTHETIC-PHD",
+            "subject_sha256": "23197c976363c5634eccd4cae18d8ad1840722a8447b27085be375087935c711",
+            "purpose": "deposit-full",
+            "artifact_sha256": "${PDF_SHA256}"
+          }
+        },
+        {
+          "id": "chair-final",
+          "kind": "chair-final-approval",
+          "state": "approved",
+          "authority": "chair-of-examiners",
+          "issued_on": "2026-11-01",
+          "expires_on": "2027-11-01",
+          "document_ref": "approval",
+          "scope": {
+            "course": "SYNTHETIC-PHD",
+            "subject_sha256": "23197c976363c5634eccd4cae18d8ad1840722a8447b27085be375087935c711",
+            "purpose": "deposit-full",
+            "artifact_sha256": "${PDF_SHA256}"
+          }
+        }
+      ],
+      "documents": [
+        {
+          "id": "approval",
+          "path": "documents/approval.md",
+          "sha256": "a8e8d866fecc2e6faeae52d5b8cb703e0c2c36d52d3ef4873b774c5c0262256b",
+          "kind": "approval",
+          "classification": "synthetic"
+        },
+        {
+          "id": "creative-electronic",
+          "path": "documents/creative-electronic.md",
+          "sha256": "81078c65dd59958e5ae0ce3db3360e0f71a409b75822912b0ad846c9718f159a",
+          "kind": "creative-electronic",
+          "classification": "synthetic"
+        },
+        {
+          "id": "originality-report",
+          "path": "documents/originality-report.md",
+          "sha256": "5f757fcda0d02ac07740c552d1550d9aa6229f4907568f9ff82f006804ea59ae",
+          "kind": "originality-report",
+          "classification": "synthetic"
+        },
+        {
+          "id": "durable-component",
+          "path": "documents/durable-component.md",
+          "sha256": "f3b277a687611dbdb63810cf8d02dfbd960a679c58eefc9c8efd0a9b3288b8b1",
+          "kind": "durable-component",
+          "classification": "synthetic"
+        }
+      ],
+      "creative": {
+        "dissertation_percent": 60,
+        "agreement_ref": "creative-agreement",
+        "integration_statement": "Synthetic dissertation and component are planned as an integrated argument.",
+        "components": [
+          {
+            "id": "creative-1",
+            "electronic_ref": "creative-electronic"
+          }
+        ]
+      },
+      "submission": {
+        "written_component_count": 1,
+        "originality": {
+          "document_ref": "originality-report",
+          "for_pdf_sha256": "${PDF_SHA256}",
+          "tool": "iThenticate",
+          "scope": "full-thesis",
+          "excluded_publication_ids": []
+        },
+        "supervisor_review_ref": "supervisor-review",
+        "final_corrections_ref": "final-corrections",
+        "chair_final_approval_ref": "chair-final"
+      }
+    }
+  },
+  "expected": {
+    "data_result": "fail",
+    "overall_result": "fail",
+    "checks": {
+      "POL04.DURABLE": "fail"
+    },
+    "failed_checks": [
+      "POL04.DURABLE"
+    ],
+    "submission_approved": false
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "id": "publication-venue-missing",
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "as_of": "2026-11-15",
+  "request": {
+    "schema_version": 1,
+    "policy_id": "unimelb-gr-2026-11-15",
+    "layers": {
+      "metadata": {
+        "purpose": "draft",
+        "language": "en",
+        "metadata": {
+          "title": "Synthetic Policy Specimen",
+          "author": {
+            "student_record_name": "Synthetic Policy Candidate"
+          },
+          "degree": {
+            "kind": "doctoral",
+            "course": "SYNTHETIC-PHD"
+          },
+          "academic_units": [
+            "Synthetic School"
+          ],
+          "submission": {
+            "month": "2026-11"
+          },
+          "abstract": "Synthetic abstract for data validation only.",
+          "declarations": {
+            "original_work": true,
+            "word_count": 80000
+          },
+          "publications": [
+            {
+              "id": "pub-1",
+              "title": "Synthetic Publication",
+              "status": "accepted",
+              "version": "author-accepted-manuscript",
+              "location": "Chapter 2",
+              "contributions": [
+                {
+                  "name": "Synthetic Policy Candidate",
+                  "role": "Conceptualization",
+                  "percentage": 70
+                },
+                {
+                  "name": "Synthetic Coauthor",
+                  "role": "Analysis",
+                  "percentage": 70
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "cli": [],
+      "explicit": {}
+    },
+    "policy": {
+      "word_count": {
+        "body": 79900,
+        "footnotes": 100,
+        "other_included": 0,
+        "tables": 200,
+        "maps": 10,
+        "bibliographies": 500,
+        "appendices": 20000,
+        "method": "supplied-component-inventory",
+        "scope_notes": "Body includes ordinary prose; other_included covers any remaining counted content. Counts are synthetic supplied data.",
+        "adjustments": []
+      },
+      "funding": {
+        "inventory_complete": true,
+        "grants": [],
+        "rtp_stipend": false,
+        "rtp_fee_offset": false
+      },
+      "decisions": [],
+      "documents": [
+        {
+          "id": "publication-form",
+          "path": "documents/publication-form.md",
+          "sha256": "6773ff6227173f62802c3f17caa066323f133b32996a4046c42f8237430b5e6f",
+          "kind": "publication-form",
+          "classification": "synthetic"
+        }
+      ],
+      "publications": {
+        "records": [
+          {
+            "id": "pub-1",
+            "citation": "Synthetic publication citation",
+            "official_status": "accepted",
+            "version": "author-accepted-manuscript",
+            "incorporation": "complete-publication",
+            "locations": [
+              "Chapter 2"
+            ],
+            "candidate_contribution": "Developed the principal method and interpretation.",
+            "coauthored": true,
+            "undertaken_during_candidature": true,
+            "rights_basis": "owned",
+            "literature_review": false,
+            "status_date": "2026-10-01",
+            "form_ref": "publication-form",
+            "signatures_declared": [
+              "principal-supervisor",
+              "coordinating-author"
+            ]
+          }
+        ],
+        "integration_statement": "The synthetic publication is integrated with the thesis argument.",
+        "planned_thesis_bibliography_ids": [
+          "background-1"
+        ],
+        "planned_publication_bibliographies": [
+          {
+            "publication_id": "pub-1",
+            "reference_ids": [
+              "pub-1",
+              "background-1"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "expected": {
+    "data_result": "fail",
+    "overall_result": "fail",
+    "checks": {
+      "POL06.REGISTRY": "fail"
+    },
+    "failed_checks": [
+      "POL06.REGISTRY"
+    ],
+    "submission_approved": false
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "id": "draft-baseline",
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "as_of": "2026-11-15",
+  "request": {
+    "schema_version": 1,
+    "policy_id": "unimelb-gr-2026-11-15",
+    "layers": {
+      "metadata": {
+        "purpose": "draft",
+        "language": "en",
+        "metadata": {
+          "title": "Synthetic Policy Specimen",
+          "author": {
+            "student_record_name": "Synthetic Policy Candidate"
+          },
+          "degree": {
+            "kind": "doctoral",
+            "course": "SYNTHETIC-PHD"
+          },
+          "academic_units": [
+            "Synthetic School"
+          ],
+          "submission": {
+            "month": "2026-11"
+          },
+          "abstract": "Synthetic abstract for data validation only.",
+          "declarations": {
+            "original_work": true,
+            "word_count": 80000
+          }
+        }
+      },
+      "cli": [],
+      "explicit": {}
+    },
+    "policy": {
+      "word_count": {
+        "body": 79900,
+        "footnotes": 100,
+        "other_included": 0,
+        "tables": 200,
+        "maps": 10,
+        "bibliographies": 500,
+        "appendices": 20000,
+        "method": "supplied-component-inventory",
+        "scope_notes": "Body includes ordinary prose; other_included covers any remaining counted content. Counts are synthetic supplied data.",
+        "adjustments": []
+      },
+      "funding": {
+        "inventory_complete": true,
+        "grants": [],
+        "rtp_stipend": false,
+        "rtp_fee_offset": false
+      },
+      "decisions": [],
+      "documents": []
+    }
+  },
+  "expected": {
+    "data_result": "pass",
+    "overall_result": "partial",
+    "checks": {
+      "POL03.LIMIT": "pass",
+      "POL03.COURSE": "not-applicable",
+      "POL03.EXCEPTION": "not-applicable",
+      "POL03.ADJUSTMENTS": "not-applicable",
+      "POL04.LANGUAGE": "not-applicable",
+      "POL04.SUMMARY": "not-applicable",
+      "POL04.CREATIVE": "not-applicable",
+      "POL04.DURABLE": "not-applicable",
+      "POL05.FUNDING": "not-applicable",
+      "POL05.RTP": "not-applicable",
+      "POL05.PRIOR": "not-applicable",
+      "POL05.ASSISTANCE": "not-applicable",
+      "POL05.AI": "not-applicable",
+      "POL06.REGISTRY": "not-applicable",
+      "POL06.RIGHTS": "not-applicable",
+      "POL06.BIBLIOGRAPHY": "not-applicable",
+      "POL06.INTEGRATION": "not-applicable",
+      "POL06.FORMS": "not-applicable",
+      "POL06.LITERATURE": "not-applicable",
+      "POL07.SINGLE-WRITTEN-FILE": "not-applicable",
+      "POL07.FORMS-BUNDLE": "not-applicable",
+      "POL07.FILTERS": "not-applicable",
+      "POL07.ORIGINALITY": "not-applicable",
+      "POL07.REVIEW": "not-applicable",
+      "POL07.FINAL-CORRECTIONS": "not-applicable",
+      "POL07.CHAIR-FINAL": "not-applicable",
+      "POL01.RENDERED": "unexecuted",
+      "POL02.RENDERED": "unexecuted"
+    },
+    "failed_checks": [],
+    "submission_approved": false
+  }
+}

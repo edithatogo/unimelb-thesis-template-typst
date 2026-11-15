@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "id": "POL03.COUNT",
+      "requirement": "POL-03",
+      "source": "writing",
+      "clause": "Thesis word limits",
+      "interpretation": "Count footnotes; exclude tables, maps, bibliographies and appendices. Other content and adjustments need an explicit method.",
+      "authority": "university"
+    },
+    {
+      "id": "POL03.LIMIT",
+      "requirement": "POL-03",
+      "source": "writing",
+      "clause": "Thesis word limits",
+      "interpretation": "Apply course limits when evidenced; otherwise doctoral 100000 and research masters 50000. Targets of 80000 and 40000 are recommendations.",
+      "authority": "university"
+    },
+    {
+      "id": "POL03.EXCEPTION",
+      "requirement": "POL-03",
+      "source": "preparation",
+      "clause": "3.10(c)",
+      "interpretation": "An excess needs a scoped recorded decision and approval evidence. Byte identity cannot establish authority.",
+      "authority": "university"
+    },
+    {
+      "id": "POL04.LANGUAGE",
+      "requirement": "POL-04",
+      "source": "preparation",
+      "clause": "3.8(b)",
+      "interpretation": "Thesis language governs approval and summary applicability; label locale does not.",
+      "authority": "university"
+    },
+    {
+      "id": "POL04.SUMMARY",
+      "requirement": "POL-04",
+      "source": "preparation",
+      "clause": "3.8(b)",
+      "interpretation": "English-summary range: doctoral 5000–10000; research masters 2500–5000.",
+      "authority": "university"
+    },
+    {
+      "id": "POL04.CREATIVE",
+      "requirement": "POL-04",
+      "source": "preparation",
+      "clause": "3.8(c,k), 3.10(d), 3.13",
+      "interpretation": "Creative components need descriptions, agreed dissertation/output percentages totaling 100 and electronic components.",
+      "authority": "university"
+    },
+    {
+      "id": "POL04.DURABLE",
+      "requirement": "POL-04",
+      "source": "library",
+      "clause": "Durable record of all components",
+      "interpretation": "Final deposit includes durable copies of integral components, including online content.",
+      "authority": "university"
+    },
+    {
+      "id": "POL05.FUNDING",
+      "requirement": "POL-05",
+      "source": "preparation",
+      "clause": "3.8(f)",
+      "interpretation": "Acknowledge all funding and applicable grant identifiers; RTP includes fee offsets.",
+      "authority": "university"
+    },
+    {
+      "id": "POL05.PRIOR",
+      "requirement": "POL-05",
+      "source": "preparation",
+      "clause": "3.11(c,d)",
+      "interpretation": "Disclose other-qualification work and work before enrolment separately.",
+      "authority": "university"
+    },
+    {
+      "id": "POL05.ASSISTANCE",
+      "requirement": "POL-05",
+      "source": "preparation",
+      "clause": "3.11(e,f), 3.21–3.24",
+      "interpretation": "Disclose human/digital assistance in detail; preserve private digital-use records. Supervisors: C/D/E; other editing: D/E.",
+      "authority": "university"
+    },
+    {
+      "id": "POL05.AI",
+      "requirement": "POL-05",
+      "source": "writing",
+      "clause": "GenAI use and academic integrity; Edit your thesis",
+      "interpretation": "AI is not an author. Authors remain responsible for verification and editorial integrity.",
+      "authority": "university"
+    },
+    {
+      "id": "POL05.ETHICS",
+      "requirement": "POL-05",
+      "source": "preparation",
+      "clause": "3.12",
+      "interpretation": "Ethics applications belong outside the thesis and appendices.",
+      "authority": "university"
+    },
+    {
+      "id": "POL06.REGISTRY",
+      "requirement": "POL-06",
+      "source": "publications",
+      "clause": "Accepted statuses; The preface",
+      "interpretation": "Record citation, venue/date where applicable, one of five official statuses, locations, contributions and publication versions.",
+      "authority": "university"
+    },
+    {
+      "id": "POL06.RIGHTS",
+      "requirement": "POL-06",
+      "source": "publications",
+      "clause": "Authorship; Format of the thesis",
+      "interpretation": "Assess substantial contribution and contractual rights; use an appropriate permitted version. No fixed universal authorship percentage is specified.",
+      "authority": "university"
+    },
+    {
+      "id": "POL06.FORMS",
+      "requirement": "POL-06",
+      "source": "publications",
+      "clause": "Declaration of incorporated publications; Completing the forms",
+      "interpretation": "Keep supervisor/coordinating-author declarations separate; combine forms for TES. A figure-only contribution has a stated form exception.",
+      "authority": "university"
+    },
+    {
+      "id": "POL06.BIBLIOGRAPHY",
+      "requirement": "POL-06",
+      "source": "publications",
+      "clause": "Format of the thesis: reference-list questions",
+      "interpretation": "Exclude incorporated works from the thesis-wide list; references inside a verbatim publication may include them. Internal reference lists need not be duplicated.",
+      "authority": "university"
+    },
+    {
+      "id": "POL06.INTEGRATION",
+      "requirement": "POL-06",
+      "source": "publications",
+      "clause": "Overview; Publication suitability",
+      "interpretation": "An integrated argument, suitable candidature work and updated literature remain scholarly review decisions.",
+      "authority": "university"
+    },
+    {
+      "id": "POL07.FILE",
+      "requirement": "POL-07",
+      "source": "submission",
+      "clause": "Submit your thesis",
+      "interpretation": "Upload one written-thesis file; TES filenames must omit commas and hashtags.",
+      "authority": "university"
+    },
+    {
+      "id": "POL07.ORIGINALITY",
+      "requirement": "POL-07",
+      "source": "submission",
+      "clause": "Generate an iThenticate report; Submit your thesis",
+      "interpretation": "Use a full-thesis report for supervisor/chair review. A supplied report does not establish originality.",
+      "authority": "university"
+    },
+    {
+      "id": "POL07.FILTERS",
+      "requirement": "POL-07",
+      "source": "publications",
+      "clause": "iThenticate report",
+      "interpretation": "Matching-source exclusions may cover complete incorporated publications, not merely included material; explain filters.",
+      "authority": "university"
+    },
+    {
+      "id": "POL07.REVIEW",
+      "requirement": "POL-07",
+      "source": "submission",
+      "clause": "Submit your thesis",
+      "interpretation": "The submission version must match the supervisor-reviewed version.",
+      "authority": "university"
+    },
+    {
+      "id": "POL07.FINAL",
+      "requirement": "POL-07",
+      "source": "library",
+      "clause": "Deposit requirements",
+      "interpretation": "Retain final corrections and chair approval decisions; masters amendment treatment differs by submission date and needs review.",
+      "authority": "university"
+    },
+    {
+      "id": "POL01.RENDERED",
+      "requirement": "POL-01",
+      "source": "preparation",
+      "clause": "3.4–3.9",
+      "interpretation": "Geometry, title order, logo/signature absence and pagination need actual output inspection.",
+      "authority": "university"
+    },
+    {
+      "id": "POL02.RENDERED",
+      "requirement": "POL-02",
+      "source": "preparation",
+      "clause": "3.8",
+      "interpretation": "Required section order and abstract range need actual rendered evidence.",
+      "authority": "university"
+    }
+  ]
+}

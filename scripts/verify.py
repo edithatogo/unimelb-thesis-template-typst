@@ -1275,6 +1275,34 @@ def verify_packaging(report):
     package_gate["verify"](report, globals())
 
 
+def verify_submission_policy(report):
+    """Keep supplied-data policy validation separate from institutional acceptance."""
+    corpus = report["submission_policy_corpus"]
+    corpus["result"] = "fail"
+    receipt = OUTPUT / "submission-policy/report.json"
+    receipt.unlink(missing_ok=True)
+    try:
+        gate = runpy.run_path(str(ROOT / "tests/policy/verify.py"))
+        status = gate["main"]([])
+        corpus["invocation"] = {"interface": "tests/policy/verify.py::main(argv)",
+                                "external_process": False, "return_code": status}
+        if type(status) is not int or status != 0:
+            raise VerificationError("The bounded policy fixture gate failed")
+        evidence = json.loads(receipt.read_text(encoding="utf-8"))
+        if (evidence.get("passed") is not True
+                or [evidence.get(key) for key in ("passed_count", "data_valid_cases", "intended_data_failures")] != [64, 27, 37]
+                or evidence.get("source_unchanged") is not True
+                or evidence.get("binding_pdf_unchanged") is not True
+                or evidence.get("rendered_policy_qualified") is not False
+                or evidence.get("submission_approved") is not False):
+            raise VerificationError("Incomplete or overstated policy fixture evidence")
+        corpus.update(result="pass", passed_count=64, data_valid_cases=27, intended_data_failures=37,
+                      rendered_policy_qualified=False, submission_approved=False)
+    finally:
+        if receipt.is_file():
+            corpus.update(report=str(receipt.relative_to(ROOT)), report_sha256=digest(receipt))
+
+
 def main() -> int:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     report = {
@@ -1348,6 +1376,10 @@ def main() -> int:
         "result": "unexecuted", "specimens": [],
         "registry_submission_qualified": False, "offline_replay_qualified": False,
     }
+    report["submission_policy_corpus"] = {
+        "requirements": ["POL-03", "POL-04", "POL-05", "POL-06", "POL-07"],
+        "result": "unexecuted", "rendered_policy_qualified": False, "submission_approved": False,
+    }
     # An interrupted invocation must not leave a previous successful receipt.
     write_report(report)
     try:
@@ -1418,6 +1450,7 @@ def main() -> int:
         verify_native_evidence(report)
         verify_contract_adapter(report)
         verify_packaging(report)
+        verify_submission_policy(report)
         report["passed"] = True
     except Exception as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
@@ -1426,7 +1459,7 @@ def main() -> int:
         report["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
         write_report(report)
     if report["passed"]:
-        print("Verified thesis/sample PDFs, 14 COR-01, 3 COR-02, 34 COR-03, 25 terms, 10 COR-04, 20 image, 9 layout/order, 47 COR-05, 16 native-evidence, 21 bounded contract-adapter and 10 local package cases (including explicit residual scans and native/semantic rejections; shared contract acceptance remains blocked); evidence: build/verification/report.json")
+        print("Verified thesis/sample PDFs, 14 COR-01, 3 COR-02, 34 COR-03, 25 terms, 10 COR-04, 20 image, 9 layout/order, 47 COR-05, 16 native-evidence, 21 bounded contract-adapter and 10 local package cases (including explicit residual scans and native/semantic rejections; shared contract acceptance remains blocked), plus 64 supplied-data policy fixtures (submission approval remains unqualified); evidence: build/verification/report.json")
         return 0
     return 1
 
