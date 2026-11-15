@@ -92,6 +92,24 @@ jobs:
         run: |
           mkdir -p build
           make verify VERIFY_ARGS="--replay-package-cache ${TYPST_PACKAGE_CACHE_PATH} --replay-isolation privileged-network" 2>&1 | tee build/verify.log
+      - name: Verify requirement receipt and tamper controls
+        run: |
+          python -m unittest discover -s tests/evidence -p test_qualify.py -v
+          python - <<'PY'
+          from datetime import datetime, timedelta
+          import importlib.util
+          import json
+          from pathlib import Path
+          native = json.loads(Path("build/verification/report.json").read_text())
+          spec = importlib.util.spec_from_file_location("evidence_qualify", "tests/evidence/qualify.py")
+          driver = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(driver)
+          finish = datetime.fromisoformat(native["finished_at_utc"].replace("Z", "+00:00"))
+          raise SystemExit(driver.main([
+              "--not-before", native["started_at_utc"],
+              "--review-by", (finish + timedelta(days=7)).isoformat(),
+          ]))
+          PY
       - name: Retain verification evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -103,6 +121,7 @@ jobs:
             build/contract/
             build/verification/
             build/verifier-watchdog/
+            build/requirement-evidence/
           if-no-files-found: error
           retention-days: 14
 

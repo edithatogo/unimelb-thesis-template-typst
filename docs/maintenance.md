@@ -28,11 +28,13 @@ Coverage is line and branch execution in `scripts/preflight.py`,
 `scripts/validate_template.py`, `scripts/check_repository_policy.py`,
 `scripts/thesis_contract.py`, `scripts/typst_contract_adapter.py`,
 `scripts/native_evidence.py`, `scripts/package_template.py`,
-`scripts/submission_policy.py` and `scripts/replay_build.py`. Both the local report and Codecov's validation-tools
-flag include these nine helpers, with the existing 80% floors. Tests use synthetic
+`scripts/submission_policy.py`, `scripts/replay_build.py` and
+`scripts/requirement_evidence.py`. Both the local report and Codecov's validation-tools
+flag include these ten helpers, with the existing 80% floors. Tests use synthetic
 repositories, configuration fixtures and mocked compiler failures; the separate
 build invokes real Typst. The report does not measure Typst/layout coverage, every Python helper,
-or shell-script coverage. The contract-adapter, native-evidence, package and policy orchestration
+or shell-script coverage. The contract-adapter, native-evidence, package, policy,
+replay and requirement-evidence orchestration
 and their fixture/PDF oracles are outside the coverage denominator; their actual
 execution is retained separately by canonical verification. The native validator
 covers strict JSON, local result schemas and source/output-bound dependency
@@ -42,6 +44,10 @@ helper covers audited archive/install behavior; real starter/watch/thumbnail
 execution is recorded by [the packaging corpus](packaging.md).
 The [dated policy helper](submission-policy.md) checks supplied records and actual
 file identities while keeping approval authenticity and rendered compliance unresolved.
+The requirement-evidence helper measures strict receipt consumption, source and
+artifact identity, and conservative status reporting. Its synthetic file and Git
+controls do not qualify native PDFs or programme acceptance; see
+[the receipt guide](requirement-evidence.md).
 Reports are written to `build/coverage.xml` and `build/coverage.json`.
 
 The Maintenance workflow runs on every PR, pushes to main, merge groups,

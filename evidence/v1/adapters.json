@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "requirement-evidence-adapter-registry",
+  "native_schema_version": 1,
+  "native_requirement_map": {
+    "rendered_corpus": [
+      "COR-01"
+    ],
+    "navigation_corpus": [
+      "COR-02"
+    ],
+    "configuration_corpus": [
+      "COR-03"
+    ],
+    "blind_corpus": [
+      "COR-04"
+    ],
+    "terms_corpus": [
+      "COR-02",
+      "COR-05"
+    ],
+    "optional_corpus": [
+      "COR-05"
+    ],
+    "image_corpus": [
+      "TYP-02"
+    ],
+    "layout_order_corpus": [
+      "POL-01",
+      "POL-02"
+    ],
+    "native_evidence_corpus": [
+      "TYP-04",
+      "TST-03"
+    ],
+    "contract_adapter_corpus": [
+      "CON-02",
+      "CON-03"
+    ],
+    "packaging_corpus": [
+      "PKG-01",
+      "PKG-02",
+      "PKG-03"
+    ]
+  },
+  "file_pairs": [
+    "pdf",
+    "text",
+    "log",
+    "dependencies",
+    "oracle_report",
+    "pdf_structure",
+    "review_diagnostics",
+    "xmp",
+    "report",
+    "native_json",
+    "bbox",
+    "native_result",
+    "native_failure_report",
+    "bounding_boxes"
+  ],
+  "source_pairs": [
+    "source",
+    "fixture"
+  ],
+  "source_maps": [
+    "source_sha256",
+    "resource_sha256",
+    "asset_sha256",
+    "sample_sha256",
+    "source_sha256_before",
+    "source_sha256_after",
+    "implementation_sha256"
+  ],
+  "limitations": [
+    "Programme acceptance remains incomplete; bounded regression observations do not qualify whole requirements.",
+    "The legacy property report binds tested source bytes and seed but has no intrinsic source revision or run timestamps.",
+    "The shipped legacy entry points do not expose one canonical normalized configuration; none is invented.",
+    "Tool versions and binary digests are recorded native observations, not a complete replay environment or font lock.",
+    "Referenced native JSON reports are preserved by hash; nested third-party or future sidecar schemas are not automatically interpreted.",
+    "Human decisions, scoped exceptions and their authenticity remain uncollected or unsupported.",
+    "The complete bundle is internal provenance, not a reviewer-safe or public-release archive.",
+    "This foundation does not complete EVD-03, scientific-result, deposit, accessibility, reproducibility or both-engine acceptance."
+  ]
+}

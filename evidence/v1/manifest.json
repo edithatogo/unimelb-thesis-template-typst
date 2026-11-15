@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "profile_version": "1.0.0",
+  "files": {
+    "adapters.json": "4dffcbf0f26a3deda185836f9278d25c7b51451b3d201f9c80551655751a84fe",
+    "request.schema.json": "ef6368561e9e64bdbd9528eb1181774519d6d91b6b2a6f7e84996cac5a3ecfaa",
+    "sidecar.schema.json": "2cea120daaae3b2c95b553cd71610a3a200356194b6cfa1229056d2ed41cc4ba",
+    "sources.json": "7477aafac106130e25a4ff4e0f740eb2ff682c72e35b6d32ab9d7ee7eaba1089"
+  }
+}

@@ -270,3 +270,18 @@ the issue's scope, acceptance commands and exclusions without creating a
 separate project-management system for that historical increment. The later
 [UMTHESIS track](../conductor/tracks/umthesis_v1_20261115/index.md) records the
 current document programme.
+
+## Requirement evidence foundation
+
+Maintenance-test discovery runs the requirement-evidence helper controls. After
+the canonical build completes, the existing `Verify template and properties` job
+runs the orchestration tests and ten native receipt consumer controls, retaining
+their internal evidence alongside the original verification report. This adds no
+stable check name and does not rewrite or expand the native corpus result.
+
+The producer reuses the exact central v1 wrapper and emits a versioned internal
+status sidecar for all 51 IDs; its overall result remains partial or fail. Trusted
+hashes, exact clean source identity and a declared freshness window are required.
+See [the receipt guide](requirement-evidence.md). These checks do not complete
+EVD-01/02, public or blind archive delivery, human decisions or institutional
+acceptance.
