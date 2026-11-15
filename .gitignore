@@ -53,3 +53,7 @@ drafts/
 .coverage.*
 htmlcov/
 .venv/
+
+# Licensed package starter resource and native initialized-template thumbnail.
+!template/assets/figures/example.svg
+!/thumbnail.png

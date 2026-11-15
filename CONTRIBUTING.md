@@ -43,9 +43,11 @@ boundaries remain in force.
 
 Coverage reports measure line and branch execution in `scripts/preflight.py`,
 `scripts/validate_template.py`, `scripts/check_repository_policy.py`,
-`scripts/thesis_contract.py`, `scripts/typst_contract_adapter.py` and
-`scripts/native_evidence.py`.
+`scripts/thesis_contract.py`, `scripts/typst_contract_adapter.py`,
+`scripts/native_evidence.py` and `scripts/package_template.py`.
 They do not measure Typst source, visual fidelity or the other helper scripts.
+The [local packaging corpus](docs/packaging.md) uses the same canonical watchdog;
+its native archive/init/watch/PDF evidence is separate from helper coverage.
 
 ## Pull requests
 

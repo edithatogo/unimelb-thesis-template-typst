@@ -4,15 +4,50 @@ version = "0.2.1"
 entrypoint = "lib.typ"
 authors = ["Dylan A Mordaunt"]
 license = "Apache-2.0"
-description = "A modern Typst template for University of Melbourne theses"
+description = "Graduate research theses at the University of Melbourne."
 keywords = ["thesis", "university", "melbourne", "academic", "template"]
-categories = ["thesis", "academic"]
-disciplines = ["computer-science", "engineering", "science"]
+categories = ["thesis"]
+compiler = "0.15.1"
+exclude = [
+  "/.git*",
+  "/.github/",
+  "/.coveragerc",
+  "/.pre-commit-config.yaml",
+  "/.markdownlint.json",
+  "/AGENTS.md",
+  "/CONTRIBUTING.md",
+  "/SECURITY.md",
+  "/Makefile",
+  "/automate.sh",
+  "/renovate.json",
+  "/codecov.yml",
+  "/scripts/",
+  "/tests/",
+  "/contracts/",
+  "/conductor/",
+  "/docs/",
+  "/build/",
+  "/dist/",
+  "/target/",
+  "/assets/fonts/",
+  "/assets/logos/",
+  "/assets/README.md",
+  "/examples/",
+  "/thesis.typ",
+  "/sample-*.typ",
+  "/example-*.typ",
+  "/thumbnail.typ",
+  "/references.bib",
+  "/requirements-*.txt",
+  "/tasks.md",
+  "/QUICKSTART.md",
+  "/SUBMITTING_TO_TYPST_PACKAGES.md",
+]
 repository = "https://github.com/edithatogo/unimelb-thesis-template-typst"
 
 [template]
-path = "."
-entrypoint = "thesis.typ"
+path = "template"
+entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
 
 [tool]

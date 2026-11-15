@@ -1,5 +1,10 @@
 # Is the Repository Aligned with Typst Template Standards?
 
+> Historical assessment: readiness/completeness statements below retain their
+> original context. Current packaging work and its unqualified reconstructed
+> candidate are recorded in [packaging.md](packaging.md); requirement acceptance
+> remains in [issue #21](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/21).
+
 **Short Answer: YES ✅**
 
 The `unimelb-thesis-template-typst` repository is fully aligned with Typst package template
