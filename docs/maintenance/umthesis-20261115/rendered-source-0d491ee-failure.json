@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "repository": "edithatogo/unimelb-thesis-template-typst",
+  "pr": 31,
+  "source_sha": "0d491ee0a73da30419b8058a4da46190d061685e",
+  "source_tree": "a2627aae91fde3ce405882ed2e7efcb75bb642f4",
+  "synthetic_checkout": "05df8ff2ee1ccf6db185dde99d81c95c90ac1cb6",
+  "qualified": false,
+  "canonical_gate": "failed",
+  "job_id": 132664289178,
+  "run_id": 43665645263,
+  "error": "Required COR04 resource tests/rendered/cor04/neutral.svg was absent from the committed tree",
+  "job_log_sha256": "aa53a6ea5a2a0edc2243d8b5f6867232796eee29dab107346f0e0d254c392f54",
+  "verification_artifact": {
+    "id": 14142214612,
+    "uploaded_sha256": "094de9a0ec023bc3b554c470a42fae7e5eb8175d840bb8af9b8a67d7e46d6d26",
+    "payload_independently_downloaded": false
+  },
+  "observed_component_results": {
+    "contract_tests_passed": 106,
+    "maintenance_tests_passed": 70,
+    "watchdog_methods_passed": 5,
+    "generated_iterations": 640,
+    "coverage_check": "success",
+    "coverage_display_percent": 92.85,
+    "measured_helpers": 4
+  },
+  "correction": {
+    "source_sha": "3086863a1ddc3a699d172a10132a183b22979192",
+    "tree": "e2e876d07ad2af2baa6da9fa34c78f0dab2d3b99",
+    "fixture_sha256": "991b84685632cd108880993daa8a8bd69af9efb7ee1936a8c0af83c09b9a4dd8",
+    "fixture_recovery": "Exact original 253-byte synthetic source; narrow ignore exceptions added",
+    "qualification": "Requires its own fresh checks"
+  },
+  "limitations": [
+    "Earlier local passes included this ignored source input and did not establish a self-contained staged checkout.",
+    "Component passes do not qualify the failed canonical source.",
+    "No local execution occurred after the workspace transport disconnected."
+  ]
+}

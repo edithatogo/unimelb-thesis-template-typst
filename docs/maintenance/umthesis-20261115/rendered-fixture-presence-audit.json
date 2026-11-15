@@ -1,0 +1,57 @@
+{
+  "base_tree": "a2627aae91fde3ce405882ed2e7efcb75bb642f4",
+  "source_paths": [
+    "assets/colors/unimelb-colors.typ",
+    "config/abbreviations.typ",
+    "config/appendix.typ",
+    "config/glossary.typ",
+    "config/index.typ",
+    "config/metadata.typ",
+    "config/optional.typ",
+    "config/options.typ",
+    "config/publications.typ",
+    "config/review.typ",
+    "endmatter/optional-glossary.typ",
+    "endmatter/optional-index.typ",
+    "frontmatter/preface.typ",
+    "layouts/document.typ",
+    "lib.typ",
+    "pages/acknowledgements.typ",
+    "pages/appendix.typ",
+    "pages/declaration.typ",
+    "pages/front-matter.typ",
+    "pages/funding.typ",
+    "pages/glossary.typ",
+    "pages/preface-helpers.typ",
+    "pages/preface.typ",
+    "pages/title.typ",
+    "utils/fonts.typ",
+    "utils/locales.typ",
+    "utils/locales/en.typ",
+    "utils/locales/zh.typ",
+    "utils/style.typ"
+  ],
+  "resource_paths": [
+    "tests/rendered/cor03/raw.bib",
+    "tests/rendered/cor03/resolved.bib",
+    "tests/rendered/cor03/second.bib",
+    "tests/rendered/cor04/identified.bib",
+    "tests/rendered/cor04/reviewed.bib",
+    "tests/rendered/cor04/neutral.svg",
+    "tests/rendered/images/assets/control.png",
+    "tests/rendered/images/assets/control.jpg",
+    "tests/rendered/images/assets/control.svg",
+    "tests/rendered/layout-order/references.bib"
+  ],
+  "missing_before": [
+    "tests/rendered/cor04/neutral.svg"
+  ],
+  "missing_after": [],
+  "scope": "Static declared-input presence audit only; actual canonical execution remains required",
+  "neutral_svg_sha256": "991b84685632cd108880993daa8a8bd69af9efb7ee1936a8c0af83c09b9a4dd8",
+  "cor01_declared_sources_verified": [
+    "pages/declaration.typ",
+    "pages/preface-helpers.typ",
+    "config/publications.typ"
+  ]
+}
