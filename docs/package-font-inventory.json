@@ -1,0 +1,1176 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "retained-source-font-git-inventory",
+  "source_revision": "3086863a1ddc3a699d172a10132a183b22979192",
+  "prior_revision": "0d491ee0a73da30419b8058a4da46190d061685e",
+  "revision_comparison": "Only .gitignore and tests/rendered/cor04/neutral.svg changed; font Git objects unchanged",
+  "identity_kind": "Git blob SHA-1 from the immutable source tree, not newly computed font-byte SHA-256",
+  "files": 222,
+  "bytes": 72805272,
+  "by_extension": {
+    ".zip": {
+      "files": 4,
+      "bytes": 26503066
+    },
+    ".md": {
+      "files": 3,
+      "bytes": 9713
+    },
+    ".otf": {
+      "files": 76,
+      "bytes": 19228672
+    },
+    ".ttf": {
+      "files": 76,
+      "bytes": 19502716
+    },
+    ".woff": {
+      "files": 32,
+      "bytes": 5074620
+    },
+    ".woff2": {
+      "files": 28,
+      "bytes": 2480072
+    },
+    ".json": {
+      "files": 1,
+      "bytes": 708
+    },
+    ".css": {
+      "files": 2,
+      "bytes": 5705
+    }
+  },
+  "source_assets_retained": true,
+  "fonts_in_local_package": 0,
+  "fonts_in_author_starter": 0,
+  "font_profile_or_script_coverage_qualified": false,
+  "entries": [
+    {
+      "path": "assets/fonts/fraunces.zip",
+      "bytes": 213936,
+      "git_blob_sha1": "09b22d90ac0bb89b72a1e9ed6722fecf9b614cd2"
+    },
+    {
+      "path": "assets/fonts/source-serif-4.005R.zip",
+      "bytes": 9,
+      "git_blob_sha1": "8537307691275bdf5dd2c646e3775649643ccecf"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R.zip",
+      "bytes": 8654426,
+      "git_blob_sha1": "b850216699f0da71f49478e58ce472df93b6b3c2"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/LICENSE.md",
+      "bytes": 4485,
+      "git_blob_sha1": "3c0752e13d50dd092be73346b169c916eebda2a0"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-Black.otf",
+      "bytes": 239188,
+      "git_blob_sha1": "4a7f4a325027675edf7961712c9a3d3aaac8cf13"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-BlackIt.otf",
+      "bytes": 165908,
+      "git_blob_sha1": "6a94b68566b7cfc7decb0e040e29d15cc21881f1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-Bold.otf",
+      "bytes": 241476,
+      "git_blob_sha1": "4ef589f350edd8bfd1468a30bf436ff62f3c32be"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-BoldIt.otf",
+      "bytes": 172096,
+      "git_blob_sha1": "a012465edbe3041fe3c588c8a97a0ffb3cc8b018"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-ExtraLight.otf",
+      "bytes": 228772,
+      "git_blob_sha1": "d215188ecdee30a57d8a850e9662128eecbbf100"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-ExtraLightIt.otf",
+      "bytes": 160992,
+      "git_blob_sha1": "8265ca19eefceb997addbf7add7ee65693d3490d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-It.otf",
+      "bytes": 165356,
+      "git_blob_sha1": "b4edafbbe2e1358714606e7d8868553b83d7fe91"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-Light.otf",
+      "bytes": 235500,
+      "git_blob_sha1": "9566353fb4fb8229f8388a6e179fc7f157d14d83"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-LightIt.otf",
+      "bytes": 167540,
+      "git_blob_sha1": "d8f84254efd7a3e4df6692ac46ee38657b4c5d23"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-Regular.otf",
+      "bytes": 236192,
+      "git_blob_sha1": "baf59f300afc62cd89017f2fbc3e555192b27fa6"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-Semibold.otf",
+      "bytes": 239464,
+      "git_blob_sha1": "6946a1ab5b21ff3e4d0334f28744419f83817ce9"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/OTF/SourceSerifPro-SemiboldIt.otf",
+      "bytes": 172504,
+      "git_blob_sha1": "3f3400057f7602200cd2c2ee5b5f795f9a0cf037"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/README.md",
+      "bytes": 736,
+      "git_blob_sha1": "a989efee26f5ef7bdabdb22b75ede73132079709"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-Black.ttf",
+      "bytes": 232892,
+      "git_blob_sha1": "06cada2c9d8b34cde19f6ec4780bd646560a6233"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-BlackIt.ttf",
+      "bytes": 173248,
+      "git_blob_sha1": "076fdadcfd86f2dfbf9d462ebd53c0cf7f077a29"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-Bold.ttf",
+      "bytes": 233952,
+      "git_blob_sha1": "5814a6a031a43b3aaf58d23a938481adc1376a69"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-BoldIt.ttf",
+      "bytes": 176332,
+      "git_blob_sha1": "8a23518cc057868b805f34b0ea5ecedcae7f107d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-ExtraLight.ttf",
+      "bytes": 227584,
+      "git_blob_sha1": "05c464ece21d94a88c26b4200829eecf6e44d192"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-ExtraLightIt.ttf",
+      "bytes": 171652,
+      "git_blob_sha1": "32439ab054511e56ab6ba5f14555a8f760707a0f"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-It.ttf",
+      "bytes": 173152,
+      "git_blob_sha1": "be263bee27345f378bf87331673f309002e69c6f"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-Light.ttf",
+      "bytes": 231604,
+      "git_blob_sha1": "236e0dfebb6c1f855d43297ecb992cafd2b00d22"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-LightIt.ttf",
+      "bytes": 175076,
+      "git_blob_sha1": "68f3b116bb7a1ed4d9052246ab63566f1de6db5c"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-Regular.ttf",
+      "bytes": 231036,
+      "git_blob_sha1": "0a05b4dcd349c3a27a4544401018ca0cb1676aae"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-Semibold.ttf",
+      "bytes": 233808,
+      "git_blob_sha1": "fa995650073a904810650b611384e8322d3d3a80"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/TTF/SourceSerifPro-SemiboldIt.ttf",
+      "bytes": 176412,
+      "git_blob_sha1": "031b17905328f2cb198a9dd42272e4c132f4e636"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/VAR/SourceSerifVariable-Italic.otf",
+      "bytes": 296396,
+      "git_blob_sha1": "721287c5524975f767a63f4a82b7c58302efc8bb"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/VAR/SourceSerifVariable-Italic.ttf",
+      "bytes": 375824,
+      "git_blob_sha1": "1477b2138afa23186b4c0e7688c6fb19bd55cdf6"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/VAR/SourceSerifVariable-Roman.otf",
+      "bytes": 458404,
+      "git_blob_sha1": "664f48896d05d861e502d60d8058cbf89f36d632"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/VAR/SourceSerifVariable-Roman.ttf",
+      "bytes": 558176,
+      "git_blob_sha1": "1514bd7e0e03fd352a26369fff9c20c2208b2c58"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-Black.otf.woff",
+      "bytes": 123108,
+      "git_blob_sha1": "fe7d00b3ce081ec8cee8641181d99191053b670e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-BlackIt.otf.woff",
+      "bytes": 89196,
+      "git_blob_sha1": "194956b612e6827beda54a9f7a0dc92c8f0a6901"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-Bold.otf.woff",
+      "bytes": 127500,
+      "git_blob_sha1": "1bb34383141d7922ba0a4c6f6dc94f986412446a"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-BoldIt.otf.woff",
+      "bytes": 94792,
+      "git_blob_sha1": "22d206c50b2cab973645109f9d99ca6c5bb5330f"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-ExtraLight.otf.woff",
+      "bytes": 116572,
+      "git_blob_sha1": "51398d6027b304309a792d61141cc125b6e98e69"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-ExtraLightIt.otf.woff",
+      "bytes": 85628,
+      "git_blob_sha1": "384a4dfa3c0791ed16b38963d119ed6080f24dec"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-It.otf.woff",
+      "bytes": 89804,
+      "git_blob_sha1": "1e2ede06fca817372b8e1899526989d6a681e9a6"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-Light.otf.woff",
+      "bytes": 122824,
+      "git_blob_sha1": "bf783aed7f7b8a276c7e887f6fe02c546b96e886"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-LightIt.otf.woff",
+      "bytes": 91408,
+      "git_blob_sha1": "d401e32f7dd306b9ed02fd88062a8d3b044df692"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-Regular.otf.woff",
+      "bytes": 123468,
+      "git_blob_sha1": "8d1082d1175ad436ab27b02f779f8bc92613a260"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-Semibold.otf.woff",
+      "bytes": 126964,
+      "git_blob_sha1": "2cce9761a215501543e9297898887c46c73e6133"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/OTF/SourceSerifPro-SemiboldIt.otf.woff",
+      "bytes": 94664,
+      "git_blob_sha1": "6ada8f8be060a35aef7fa9a95a383b1083054197"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-Black.ttf.woff",
+      "bytes": 95504,
+      "git_blob_sha1": "6b2a338f1084b2ef49d728a8f776d05f8380ffe8"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-BlackIt.ttf.woff",
+      "bytes": 74720,
+      "git_blob_sha1": "ed71b0d6bb36f5313bd9f1ba9099f49bc7151a95"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-Bold.ttf.woff",
+      "bytes": 99952,
+      "git_blob_sha1": "e347c83bb9fbc95d78ae7825e9ae29e81dd6b3bb"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-BoldIt.ttf.woff",
+      "bytes": 78516,
+      "git_blob_sha1": "b282c59fed0f0f1abe17140274282603da7ed79e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-ExtraLight.ttf.woff",
+      "bytes": 92888,
+      "git_blob_sha1": "679164aad966c201725f905d2a72938ec62cfe05"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-ExtraLightIt.ttf.woff",
+      "bytes": 73040,
+      "git_blob_sha1": "67e6d20eb02de25377bf97e2719a00f4731b73e6"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-It.ttf.woff",
+      "bytes": 75240,
+      "git_blob_sha1": "e0e02407643b4bab102a3def78667b9538161278"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-Light.ttf.woff",
+      "bytes": 97396,
+      "git_blob_sha1": "87f075f323504e3220b931abd03060f90a817160"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-LightIt.ttf.woff",
+      "bytes": 77436,
+      "git_blob_sha1": "41af2468dbd5e659c7121b409ad7b9c18ee33b88"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-Regular.ttf.woff",
+      "bytes": 96704,
+      "git_blob_sha1": "85f9b5ba15b6f8ca5929d9d19455af9b543157fc"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-Semibold.ttf.woff",
+      "bytes": 100144,
+      "git_blob_sha1": "063c41a3507bfc504110fcc92eab698406308b50"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/TTF/SourceSerifPro-SemiboldIt.ttf.woff",
+      "bytes": 78444,
+      "git_blob_sha1": "36d78b22194a07d0d5ff8db8f67dfe125b1e5a86"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/VAR/SourceSerifVariable-Italic.otf.woff",
+      "bytes": 129592,
+      "git_blob_sha1": "6f7fbd20279d431ca4e378c2d5ae0d5aa40106c1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/VAR/SourceSerifVariable-Italic.ttf.woff",
+      "bytes": 152404,
+      "git_blob_sha1": "6a6f1fee947bfcb100e6c1d7ffc83a5ccb72e820"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/VAR/SourceSerifVariable-Roman.otf.woff",
+      "bytes": 174464,
+      "git_blob_sha1": "f75d6c7166b8801677910c20282bbbd021812140"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF/VAR/SourceSerifVariable-Roman.ttf.woff",
+      "bytes": 194732,
+      "git_blob_sha1": "6a89167d4939948c5dc29ef1f5d0833e55d02885"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-Black.otf.woff2",
+      "bytes": 106024,
+      "git_blob_sha1": "84264e60078305fc0d16c9606b0e33123b13096c"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-BlackIt.otf.woff2",
+      "bytes": 77844,
+      "git_blob_sha1": "5ca4f386ea3f9e3a772f3ad201612a4046ce258d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-Bold.otf.woff2",
+      "bytes": 110452,
+      "git_blob_sha1": "5ef63fe4f00de453cafe971a427954913f42399c"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-BoldIt.otf.woff2",
+      "bytes": 82724,
+      "git_blob_sha1": "3c2605448c33f0e0afcabcf5a3615b66701eb941"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-ExtraLight.otf.woff2",
+      "bytes": 101084,
+      "git_blob_sha1": "7a9a031a94fd069d3ba5e946d8be5fb42fff3a27"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-ExtraLightIt.otf.woff2",
+      "bytes": 75552,
+      "git_blob_sha1": "b1cdd26872647591cc1db43af997a812ec271838"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-It.otf.woff2",
+      "bytes": 78964,
+      "git_blob_sha1": "111709b62f7e7bd6bd3c93b59004faed2d69eeaa"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-Light.otf.woff2",
+      "bytes": 107104,
+      "git_blob_sha1": "27289d597016137e4843505561d021b56e1cf4c1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-LightIt.otf.woff2",
+      "bytes": 80668,
+      "git_blob_sha1": "bb73ff0b381f7fe6367f05d2a1472097d663923e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-Regular.otf.woff2",
+      "bytes": 106396,
+      "git_blob_sha1": "65e565928fd7da58b78cc52aaaf1f2dd2b7fbddb"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-Semibold.otf.woff2",
+      "bytes": 109248,
+      "git_blob_sha1": "c31d951a3e3358e43f78d03291d23aa4e0eef6ac"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/OTF/SourceSerifPro-SemiboldIt.otf.woff2",
+      "bytes": 83204,
+      "git_blob_sha1": "23dacfbcfc4b2c5fca8428fce7f079e6ecd55cc5"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-Black.ttf.woff2",
+      "bytes": 73676,
+      "git_blob_sha1": "3e888bdb3e69e2b9316e71ef3d21e9c9bd0d20f9"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-BlackIt.ttf.woff2",
+      "bytes": 57856,
+      "git_blob_sha1": "04b0e69de97ee2a994b65ac4b32ab2a939c86107"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-Bold.ttf.woff2",
+      "bytes": 77096,
+      "git_blob_sha1": "34c9f8b38bf67a1eb588e78d9b071865590784b5"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-BoldIt.ttf.woff2",
+      "bytes": 61484,
+      "git_blob_sha1": "860a7d42f24b2a94995338835a92a91180bbd27e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-ExtraLight.ttf.woff2",
+      "bytes": 70812,
+      "git_blob_sha1": "fc7e6b9d0210d8c9b9c084fe0dbc4264e635f2c0"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-ExtraLightIt.ttf.woff2",
+      "bytes": 56784,
+      "git_blob_sha1": "64923e9da455480056a2ed417521f6c57486f730"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-It.ttf.woff2",
+      "bytes": 58424,
+      "git_blob_sha1": "4526a65f7d3126510be3068919379e196cb2ec47"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-Light.ttf.woff2",
+      "bytes": 75080,
+      "git_blob_sha1": "6249edcd300a925322b2d70dbc2776a6449e0a58"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-LightIt.ttf.woff2",
+      "bytes": 61028,
+      "git_blob_sha1": "edfe45b861c1696890edf01cb8acadc02ffb86ee"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-Regular.ttf.woff2",
+      "bytes": 74124,
+      "git_blob_sha1": "c40a3c1174f046e758bed82f2cb7b0941446973a"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-Semibold.ttf.woff2",
+      "bytes": 76988,
+      "git_blob_sha1": "d9ac6a064b8907cf5f2d5476f67e7d0de81dc844"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/TTF/SourceSerifPro-SemiboldIt.ttf.woff2",
+      "bytes": 61356,
+      "git_blob_sha1": "b377d76303710381be65edb4460bdc4a77687066"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/VAR/SourceSerifVariable-Italic.otf.woff2",
+      "bytes": 115452,
+      "git_blob_sha1": "c4cbb76e54e00c1bf5521668ac07b9ba420bf2df"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/VAR/SourceSerifVariable-Italic.ttf.woff2",
+      "bytes": 126500,
+      "git_blob_sha1": "8d7370c584724b0d35fb6fd330a8b40a7b9c0ade"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/VAR/SourceSerifVariable-Roman.otf.woff2",
+      "bytes": 152632,
+      "git_blob_sha1": "af290694abca78004bd52cb106162703066c9ea0"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/WOFF2/VAR/SourceSerifVariable-Roman.ttf.woff2",
+      "bytes": 161516,
+      "git_blob_sha1": "46b58c7ce6118e73c510edeca59dd23966a7bb3e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/package.json",
+      "bytes": 708,
+      "git_blob_sha1": "efe7330e5300a898947887bbcfa56f5f64b35c32"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/source-serif-pro.css",
+      "bytes": 4975,
+      "git_blob_sha1": "fd9e0d4e3b7b0d0202df8cc75d9f6a30001fab18"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro-3.001R/source-serif-pro-3.001R/source-serif-variable.css",
+      "bytes": 730,
+      "git_blob_sha1": "a29f92cb4a214bb009d343d38b405196add12c8e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro.zip",
+      "bytes": 17634695,
+      "git_blob_sha1": "cefb0e8c898423c2037be8559da5bf2a968325af"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/LICENSE.md",
+      "bytes": 4492,
+      "git_blob_sha1": "ebe298c6b488d68a43ec9b60155fb6b862a46bc1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-Black.otf",
+      "bytes": 247640,
+      "git_blob_sha1": "8298df2dc0fd147b4464094dcf97bc18bacc5d93"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-BlackIt.otf",
+      "bytes": 169532,
+      "git_blob_sha1": "a1d97700a46840704271ffd94af1a11f90ecf40d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-Bold.otf",
+      "bytes": 251844,
+      "git_blob_sha1": "35a3350e3fe5157876b1f26630f9d39a5ec26c28"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-BoldIt.otf",
+      "bytes": 175576,
+      "git_blob_sha1": "c18bc8e07eb7d7f1d5e29fb71120112796aae2e8"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-ExtraLight.otf",
+      "bytes": 237768,
+      "git_blob_sha1": "2d0d78bc77432ecfa900c696ff4a62c01c5272c1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-ExtraLightIt.otf",
+      "bytes": 162564,
+      "git_blob_sha1": "0684dcebcdd4834dbe0727838a77f4299d678db1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-It.otf",
+      "bytes": 169132,
+      "git_blob_sha1": "550c8547051aefd8a40632307e6e3433dbd103b3"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-Light.otf",
+      "bytes": 246032,
+      "git_blob_sha1": "49fe34cc85496776fac818f311d23922e5d266a3"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-LightIt.otf",
+      "bytes": 173476,
+      "git_blob_sha1": "d6f3fa110337034e40bb2c8383d913e5efbd5b18"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-Regular.otf",
+      "bytes": 241392,
+      "git_blob_sha1": "fc9f84e94b2537b3cc10aaebcab08a0bc2a0e16b"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-Semibold.otf",
+      "bytes": 252852,
+      "git_blob_sha1": "5732c382071691b21aa76a6e340a1944dea7a567"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4-SemiboldIt.otf",
+      "bytes": 174988,
+      "git_blob_sha1": "5a8f82c2ebfaa220b43b156bcf5a52f1b8aee5ff"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-Black.otf",
+      "bytes": 236952,
+      "git_blob_sha1": "b78701345405902a6b5481fe1b94beeb97d253f9"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-BlackIt.otf",
+      "bytes": 160764,
+      "git_blob_sha1": "cb16e82f6bbc4255fbbc41e2275c2aeb1f155a0f"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-Bold.otf",
+      "bytes": 243868,
+      "git_blob_sha1": "645a03a63f732d12204352d4df80757e56ea4035"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-BoldIt.otf",
+      "bytes": 172204,
+      "git_blob_sha1": "319b2348c3b410b7ee5495cb34803e7ab4357b47"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-ExtraLight.otf",
+      "bytes": 234244,
+      "git_blob_sha1": "a87771984083298a1f21356e41b6068d70e9d529"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-ExtraLightIt.otf",
+      "bytes": 158272,
+      "git_blob_sha1": "54b2c3f2c4d22417ae0311550f157e4abaa526bd"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-It.otf",
+      "bytes": 158864,
+      "git_blob_sha1": "052c5cb687828706b646fd39d3771b34b8399763"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-Light.otf",
+      "bytes": 240880,
+      "git_blob_sha1": "9c19d3e8079a36dafdddcd86c0f2816e00ca06f3"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-LightIt.otf",
+      "bytes": 167608,
+      "git_blob_sha1": "a8bf564240b6ff5742c2d5e9c48bd9e9951c73c9"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-Regular.otf",
+      "bytes": 226484,
+      "git_blob_sha1": "5613a88ee016c04d4f0713b02c60855ed1c2e905"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-Semibold.otf",
+      "bytes": 244224,
+      "git_blob_sha1": "fdecd878f074ec2c5a4d8640819c7bd6b6a518c0"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Caption-SemiboldIt.otf",
+      "bytes": 171272,
+      "git_blob_sha1": "1e20b4ffeb8e3d91ffa64ae9a449d2c7bffde22e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-Black.otf",
+      "bytes": 266984,
+      "git_blob_sha1": "a5bd285c9e3b8b876f4b7202ba31b1f1db31f0b8"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-BlackIt.otf",
+      "bytes": 178752,
+      "git_blob_sha1": "38b3c71557e9833505213e476638d23db3d61fdd"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-Bold.otf",
+      "bytes": 275896,
+      "git_blob_sha1": "d37c600c9f4ee8689ed589181c6e4c5b9e9a6ab4"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-BoldIt.otf",
+      "bytes": 183092,
+      "git_blob_sha1": "1719a6e1d29451f6e98deceb2643a42bfa6b0c39"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-ExtraLight.otf",
+      "bytes": 259356,
+      "git_blob_sha1": "05dc308f721a7bf7ee2eeaa2cbf07140ad73ec7b"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-ExtraLightIt.otf",
+      "bytes": 173540,
+      "git_blob_sha1": "8f02c3e3bd674bc690edb36a3c91439b1c9db245"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-It.otf",
+      "bytes": 175300,
+      "git_blob_sha1": "2a4bb0166f4a3aad63ad35baca79321efb235682"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-Light.otf",
+      "bytes": 266612,
+      "git_blob_sha1": "162d13adbcc6228913e447db7342bc2ada2b1fee"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-LightIt.otf",
+      "bytes": 177676,
+      "git_blob_sha1": "be09e9ff09debf713b0604919593f29cdf9f0160"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-Regular.otf",
+      "bytes": 262988,
+      "git_blob_sha1": "b327372f54e78e8f62c092f63fc5bca11414c3e6"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-Semibold.otf",
+      "bytes": 273232,
+      "git_blob_sha1": "4aa236322666ae2b00b380b06659360d113190ca"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Display-SemiboldIt.otf",
+      "bytes": 181464,
+      "git_blob_sha1": "44918fc6b135dbdbfdeb4ac34a36bc3af3b18d17"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-Black.otf",
+      "bytes": 253628,
+      "git_blob_sha1": "2d709688575eee53e5bd0f0d1f1da0508a483cfb"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-BlackIt.otf",
+      "bytes": 175452,
+      "git_blob_sha1": "d410113aaa89804425572996cc4bf0884f22a2c0"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-Bold.otf",
+      "bytes": 254540,
+      "git_blob_sha1": "6fc00ddb7c1e98b0003d40c5961ed51182f30e15"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-BoldIt.otf",
+      "bytes": 177564,
+      "git_blob_sha1": "8c587ef5c7f5b057b9f0bc0a772b281b8044e098"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-ExtraLight.otf",
+      "bytes": 241412,
+      "git_blob_sha1": "3c86077fd798f0d466ae6a5d2e322c502eba2e80"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-ExtraLightIt.otf",
+      "bytes": 170024,
+      "git_blob_sha1": "1fc5614c405a37224d65617dc9e7d0e53ad84fe4"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-It.otf",
+      "bytes": 172992,
+      "git_blob_sha1": "86379ca5a5f799ea1bc83670cb49421b3105c888"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-Light.otf",
+      "bytes": 246944,
+      "git_blob_sha1": "dd3bfb3b4357b076e662a92d1a3b1444ca5ce2c9"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-LightIt.otf",
+      "bytes": 173956,
+      "git_blob_sha1": "b1cbdba01406e9a7221af1b6440ea73ca06815f7"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-Regular.otf",
+      "bytes": 245204,
+      "git_blob_sha1": "3553cfae591dc7f4d28e1655ab35e1a79f2c282d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-Semibold.otf",
+      "bytes": 252660,
+      "git_blob_sha1": "e87cdfac922e2270b1a1ce405e6124e218376e70"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4SmText-SemiboldIt.otf",
+      "bytes": 177964,
+      "git_blob_sha1": "034b00bbb9be10941cb5c31c477c86e0dbbc6744"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-Black.otf",
+      "bytes": 278960,
+      "git_blob_sha1": "f919bcf9c80d2741bd97cc2741cbd2986d7fdef1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-BlackIt.otf",
+      "bytes": 179448,
+      "git_blob_sha1": "2ba1d5d0bd4ae4e9996b054904128bbb17a3c6fe"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-Bold.otf",
+      "bytes": 279084,
+      "git_blob_sha1": "be798d38be2b307a6eaea51fc4ddb120892289f5"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-BoldIt.otf",
+      "bytes": 182496,
+      "git_blob_sha1": "345db2af388a166d57f30a762f397a75e57c7d33"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-ExtraLight.otf",
+      "bytes": 267592,
+      "git_blob_sha1": "cd0c7be73a6aae8353be0108dd1953734bb90908"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-ExtraLightIt.otf",
+      "bytes": 176412,
+      "git_blob_sha1": "cd4c4d8180ba212dfcb4cc0f3d3b595e1c3dd6bf"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-It.otf",
+      "bytes": 179776,
+      "git_blob_sha1": "63d2a5d7c2116996e08a9f117bb74d8c631baa72"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-Light.otf",
+      "bytes": 270416,
+      "git_blob_sha1": "c198475d4dcfe8f08a661888df6afc925905305a"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-LightIt.otf",
+      "bytes": 180108,
+      "git_blob_sha1": "f002e4fc4d2154cf6ebcc595d6ad51c417e6c634"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-Regular.otf",
+      "bytes": 272540,
+      "git_blob_sha1": "d9b785702b9efc384c7805aea35cd7c4929ad410"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-Semibold.otf",
+      "bytes": 277164,
+      "git_blob_sha1": "ce47b5478eb82dedf68d20fd4e1ced2142e23250"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/OTF/SourceSerif4Subhead-SemiboldIt.otf",
+      "bytes": 181760,
+      "git_blob_sha1": "b975f46f227d1f4734baf119f8a94cb790f58bab"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-Black.ttf",
+      "bytes": 267008,
+      "git_blob_sha1": "3b70e38f3b24aa3d998b463ec1f9490843a161e4"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-BlackIt.ttf",
+      "bytes": 189860,
+      "git_blob_sha1": "d88b1e0c7589edfccc89e8b33cce10e2be824a23"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-Bold.ttf",
+      "bytes": 271568,
+      "git_blob_sha1": "c4159ff2a409d9224dfa97af4e5167817e91e833"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-BoldIt.ttf",
+      "bytes": 191832,
+      "git_blob_sha1": "40f3863f36edab3fa46a22e16a196f487b3df240"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-ExtraLight.ttf",
+      "bytes": 262552,
+      "git_blob_sha1": "3e37cc1094b6f073a9e859611e51ef0da35a33a8"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-ExtraLightIt.ttf",
+      "bytes": 186104,
+      "git_blob_sha1": "f53a0fd8128fe7ea9a6c721104531022291dbb1b"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-It.ttf",
+      "bytes": 187808,
+      "git_blob_sha1": "e818087d0c75997a38189f6cf578c468df175062"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-Light.ttf",
+      "bytes": 266492,
+      "git_blob_sha1": "066c857a2ba7b97cb1efa00e7e2097cf6740e5ad"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-LightIt.ttf",
+      "bytes": 190108,
+      "git_blob_sha1": "f632b0fc50ba7cb1d8ddb0147950c659dfef8bee"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-Regular.ttf",
+      "bytes": 261868,
+      "git_blob_sha1": "964a2bf8934182485cf4e2348c8443091739334f"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-Semibold.ttf",
+      "bytes": 272088,
+      "git_blob_sha1": "151e9a9d5c08dfd4751650ab4bff92771a132888"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4-SemiboldIt.ttf",
+      "bytes": 192392,
+      "git_blob_sha1": "7c54fcfee24328dd22e1998b8027c10b2967cf82"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-Black.ttf",
+      "bytes": 257420,
+      "git_blob_sha1": "49f4cd5cb5f600c374c30f16aa2a37b717f1dea7"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-BlackIt.ttf",
+      "bytes": 183816,
+      "git_blob_sha1": "b063fa91012914f6c9067efc8acf3694191feacc"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-Bold.ttf",
+      "bytes": 259788,
+      "git_blob_sha1": "690c9be853fed3a77ea655b847603b5c08e5bf6d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-BoldIt.ttf",
+      "bytes": 190028,
+      "git_blob_sha1": "3a2064c2044028752245cfca90ccc857c0685387"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-ExtraLight.ttf",
+      "bytes": 248132,
+      "git_blob_sha1": "80380534f52137add345b8fd2b3bbdd6c5d7ed1a"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-ExtraLightIt.ttf",
+      "bytes": 182376,
+      "git_blob_sha1": "87bd9637ba8cfe3ebc84713e252fceb6fcd387d7"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-It.ttf",
+      "bytes": 182224,
+      "git_blob_sha1": "95518be94f2691bb8c3bf661bb299cd91caec646"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-Light.ttf",
+      "bytes": 255736,
+      "git_blob_sha1": "dca58efc7cefb2946bfa8332e55950e6e879586b"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-LightIt.ttf",
+      "bytes": 188324,
+      "git_blob_sha1": "88f9455070eeebc52c845967a03582f629b591df"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-Regular.ttf",
+      "bytes": 248348,
+      "git_blob_sha1": "493de34544852c93da8a9e9c1bc2d3c7f7e96cde"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-Semibold.ttf",
+      "bytes": 259716,
+      "git_blob_sha1": "dfb14c8c9bc21c0e2608a537a89ad329a6b84202"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Caption-SemiboldIt.ttf",
+      "bytes": 190188,
+      "git_blob_sha1": "43f6a2655ed6eceeacb5ab61b1e2f16256e2f45c"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-Black.ttf",
+      "bytes": 297536,
+      "git_blob_sha1": "6241775d6dfb45e7f2d640196a13e7653d10c633"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-BlackIt.ttf",
+      "bytes": 200084,
+      "git_blob_sha1": "354bfdc00d92225b96f79cb2c0c8133ba71de75e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-Bold.ttf",
+      "bytes": 301680,
+      "git_blob_sha1": "6b14b94565a7759fb9bcf0ac4810c4e86649b31d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-BoldIt.ttf",
+      "bytes": 201236,
+      "git_blob_sha1": "04c32e950c751532638351192d59327ddba45d2b"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-ExtraLight.ttf",
+      "bytes": 294200,
+      "git_blob_sha1": "0cf4829d3c2ac4542cb2ec708efafe0c0c157223"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-ExtraLightIt.ttf",
+      "bytes": 198844,
+      "git_blob_sha1": "9ac2cb4477c1e93ff1be14bc1f26a119e6809b8f"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-It.ttf",
+      "bytes": 198712,
+      "git_blob_sha1": "9a1d6c2a142b5325d7272d97e794ef7ce7ca5010"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-Light.ttf",
+      "bytes": 297808,
+      "git_blob_sha1": "bda130bfadfb7f70276054971cccb736124c13f3"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-LightIt.ttf",
+      "bytes": 200416,
+      "git_blob_sha1": "1ee8d2014beb2d706214c9aed237a4e7c4036c20"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-Regular.ttf",
+      "bytes": 296680,
+      "git_blob_sha1": "b3d5ed0b619b1fe30820fa34c55a34586ac566f1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-Semibold.ttf",
+      "bytes": 302412,
+      "git_blob_sha1": "04be33685c0dd289b66fb30ff55336f2c4a01cc5"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Display-SemiboldIt.ttf",
+      "bytes": 201404,
+      "git_blob_sha1": "42967227d9f9e04f7c1514318423b3ce9c3973a1"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-Black.ttf",
+      "bytes": 269344,
+      "git_blob_sha1": "d3d86e5874eee08f2ae1f4101fea14d1feefc245"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-BlackIt.ttf",
+      "bytes": 191124,
+      "git_blob_sha1": "448bb5fecfe5b604b83114f8500f0a68f4b4c8e5"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-Bold.ttf",
+      "bytes": 270136,
+      "git_blob_sha1": "1ba9b4a440794a616a8325483d24b06558353898"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-BoldIt.ttf",
+      "bytes": 192844,
+      "git_blob_sha1": "04aa789d5e2274fb1da05f1d1692479afdd90fd7"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-ExtraLight.ttf",
+      "bytes": 263048,
+      "git_blob_sha1": "07b654fe689d878eb6982d713295236094cbe5d3"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-ExtraLightIt.ttf",
+      "bytes": 189044,
+      "git_blob_sha1": "74440ecc6fb5410f240532b92d6c44c388746e92"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-It.ttf",
+      "bytes": 188964,
+      "git_blob_sha1": "72008b1111b12bb25c54bbd95f3b90b0f285e595"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-Light.ttf",
+      "bytes": 264828,
+      "git_blob_sha1": "5f7c77b0590ffa9fb59376fc2484db2db0a43461"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-LightIt.ttf",
+      "bytes": 191200,
+      "git_blob_sha1": "ca2f1832b1123ad8b515d1609905901e61766c66"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-Regular.ttf",
+      "bytes": 262532,
+      "git_blob_sha1": "7614c0f526cded2eb2b841e42fcd6d3f582ef3dc"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-Semibold.ttf",
+      "bytes": 268804,
+      "git_blob_sha1": "66e0f59ff4e91534ef9a2c408600f4629ac76798"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4SmText-SemiboldIt.ttf",
+      "bytes": 192224,
+      "git_blob_sha1": "d8e756268558ed4c243931ecd43347dc394edfcb"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-Black.ttf",
+      "bytes": 296280,
+      "git_blob_sha1": "00fe7fa7569d1fcef0cdf47c08d8cb2e291c76ac"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-BlackIt.ttf",
+      "bytes": 198108,
+      "git_blob_sha1": "b0900cde74a92c045e704a179a2198ab8d408b98"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-Bold.ttf",
+      "bytes": 298224,
+      "git_blob_sha1": "fe9f0a191eb5f606f61418caade312b823af9ed3"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-BoldIt.ttf",
+      "bytes": 198540,
+      "git_blob_sha1": "355c7a1f00acc8c82f9b77a3ee859409c24dc8ee"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-ExtraLight.ttf",
+      "bytes": 292480,
+      "git_blob_sha1": "f4f9ff1238c07d9cf757d13ad763622256ccc93d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-ExtraLightIt.ttf",
+      "bytes": 197752,
+      "git_blob_sha1": "1fab4115bb0acdd9b63f4031d9aa47a5cea50d7a"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-It.ttf",
+      "bytes": 197296,
+      "git_blob_sha1": "fb888ea3efb34b2ac52a5a4c7e0d51339cb6fcda"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-Light.ttf",
+      "bytes": 291552,
+      "git_blob_sha1": "c3b9a1d7266b0658a71898377499a2648bbc694e"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-LightIt.ttf",
+      "bytes": 198580,
+      "git_blob_sha1": "56cd6594b95fe2e2126b1840ef1c14036f24e11a"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-Regular.ttf",
+      "bytes": 292560,
+      "git_blob_sha1": "6a0a82e89d3b5e004529e33fcb03f92bdd42109f"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-Semibold.ttf",
+      "bytes": 296984,
+      "git_blob_sha1": "c4ecb72c841bd848fd6090fb080ea9b870c79802"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/TTF/SourceSerif4Subhead-SemiboldIt.ttf",
+      "bytes": 198488,
+      "git_blob_sha1": "288f584c253e5ed28086ffd1e04786b2b7fd8348"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/VAR/SourceSerif4Variable-Italic.otf",
+      "bytes": 1303316,
+      "git_blob_sha1": "7f3fc506816bdb8f0cb447679c7badb3c98df695"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/VAR/SourceSerif4Variable-Italic.ttf",
+      "bytes": 850036,
+      "git_blob_sha1": "c27d20422faf6fa432396d4ae73af574914bf575"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/VAR/SourceSerif4Variable-Roman.otf",
+      "bytes": 1884148,
+      "git_blob_sha1": "dda52e9d2b13bc834d57a306b7ce7f6386a86f41"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/VAR/SourceSerif4Variable-Roman.ttf",
+      "bytes": 1204208,
+      "git_blob_sha1": "83a2dd1f5e2b0cca388ba1d840d8ddf49ef00f11"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/VAR/WOFF/OTF/SourceSerif4Variable-Italic.otf.woff",
+      "bytes": 487288,
+      "git_blob_sha1": "a33809fcf31f5fda1ecc433ac38b732d37d97971"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/VAR/WOFF/OTF/SourceSerif4Variable-Roman.otf.woff",
+      "bytes": 663668,
+      "git_blob_sha1": "48165765d8118dc5ae4626570adef3d2ba1a0b1d"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/VAR/WOFF/TTF/SourceSerif4Variable-Italic.ttf.woff",
+      "bytes": 422144,
+      "git_blob_sha1": "3e291df807e6226e8b0fd0fb8114483397d6df8a"
+    },
+    {
+      "path": "assets/fonts/source-serif-pro/source-serif-4.005_Desktop/VAR/WOFF/TTF/SourceSerif4Variable-Roman.ttf.woff",
+      "bytes": 524416,
+      "git_blob_sha1": "57c792e2647666ab3dd94e7b64f824a2bd2067a0"
+    }
+  ],
+  "historical_content_observations": [
+    {
+      "path": "assets/fonts/fraunces.zip",
+      "git_blob_sha1": "09b22d90ac0bb89b72a1e9ed6722fecf9b614cd2",
+      "observed_content": "HTML instead of a ZIP archive"
+    },
+    {
+      "path": "assets/fonts/source-serif-4.005R.zip",
+      "git_blob_sha1": "8537307691275bdf5dd2c646e3775649643ccecf",
+      "observed_content": "Not Found instead of a ZIP archive"
+    }
+  ],
+  "limitations": [
+    "Historical font-name/format audit is not a new native font inspection.",
+    "This inventory does not prove every requested family, weight, writing system or per-face binary is qualified."
+  ]
+}

@@ -154,6 +154,8 @@ def clear_previous_outputs():
         for path in directory.iterdir():
             if path.suffix in suffixes and (path.is_file() or path.is_symlink()):
                 path.unlink()
+    package_gate = runpy.run_path(str(ROOT / "scripts/verify_package.py"))
+    package_gate["clean_output"](ROOT, OUTPUT / "package")
 
 
 def verify_pdf(source: str, pdf: Path, log_prefix: str, commands, compile_options=()):
@@ -1267,6 +1269,12 @@ def verify_contract_adapter(report):
             corpus.update(report=str(receipt.relative_to(ROOT)), report_sha256=digest(receipt))
 
 
+def verify_packaging(report):
+    """Use the canonical watchdog for the isolated package consumer corpus."""
+    package_gate = runpy.run_path(str(ROOT / "scripts/verify_package.py"))
+    package_gate["verify"](report, globals())
+
+
 def main() -> int:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     report = {
@@ -1334,6 +1342,11 @@ def main() -> int:
     report["native_evidence_corpus"] = {
         "requirements": ["TYP-04", "TST-03"], "result": "unexecuted", "specimens": [],
         "replay_qualified": False,
+    }
+    report["packaging_corpus"] = {
+        "requirements": ["PKG-01", "PKG-02", "PKG-03"],
+        "result": "unexecuted", "specimens": [],
+        "registry_submission_qualified": False, "offline_replay_qualified": False,
     }
     # An interrupted invocation must not leave a previous successful receipt.
     write_report(report)
@@ -1404,6 +1417,7 @@ def main() -> int:
         verify_cor05(report, optional_oracle)
         verify_native_evidence(report)
         verify_contract_adapter(report)
+        verify_packaging(report)
         report["passed"] = True
     except Exception as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
@@ -1412,7 +1426,7 @@ def main() -> int:
         report["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
         write_report(report)
     if report["passed"]:
-        print("Verified thesis/sample PDFs, 14 COR-01, 3 COR-02, 34 COR-03, 25 terms, 10 COR-04, 20 image, 9 layout/order, 47 COR-05, 16 native-evidence and 21 bounded contract-adapter cases (including explicit residual scans and native/semantic rejections; shared contract acceptance remains blocked); evidence: build/verification/report.json")
+        print("Verified thesis/sample PDFs, 14 COR-01, 3 COR-02, 34 COR-03, 25 terms, 10 COR-04, 20 image, 9 layout/order, 47 COR-05, 16 native-evidence, 21 bounded contract-adapter and 10 local package cases (including explicit residual scans and native/semantic rejections; shared contract acceptance remains blocked); evidence: build/verification/report.json")
         return 0
     return 1
 

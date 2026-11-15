@@ -1,64 +1,21 @@
-# Quick Start Guide
+# Quick start
 
-## 1. Install Typst
-```bash
-# Using Homebrew (macOS)
-brew install typst
+Use the [maintained README workflow](README.md#start-an-independent-author-project)
+to build the audited local archive, verify/install it, initialize a six-file
+author project and compile that project with Typst 0.15.1.
 
-# Or download from https://typst.app/
-```
+The current package identity is `unimelb-thesis-template:0.2.1`. This is a local
+package workflow; it does not assume a published `@preview` package.
 
-## 2. Configure Your Thesis
-Edit `thesis.typ` and replace the placeholder values with your information:
+Edit the initialized `main.typ`, chapter and bibliography. Keep the installed
+package path when compiling or watching. Caller images and bibliography values
+use native `path(...)` values so moving the author project does not redirect
+resources into the package.
 
-```typst
-#show: thesis.with(
-  title: "Your Thesis Title",
-  author: "Your Full Name",
-  degree: "Doctor of Philosophy",
-  // ... other fields
-)
-```
+The larger repository `thesis.typ` is a synthetic demonstration. Do not replace
+it with private research when preparing a contribution to this public repository.
 
-## 3. Add Your Content
-Replace the placeholder text in `thesis.typ` with your actual thesis content.
-
-## 4. Compile
-```bash
-# Compile once
-typst compile thesis.typ
-
-# Watch for changes
-typst watch thesis.typ
-```
-
-## 5. Customize (Optional)
-- Modify fonts in `lib.typ`
-- Adjust page margins and layout
-- Add custom styling
-- Include additional packages
-- Choose bibliography style: Set `bibliography_style` in `thesis.typ`
-  (options: "apa", "ieee", "numeric", "author_year", "chicago", "mla")
-
-## File Structure
-```
-├── thesis.typ          # Main thesis file
-├── lib.typ            # Template library
-├── references.bib     # Bibliography
-├── README.md          # Documentation
-├── LICENSE            # License
-├── .gitignore         # Git ignore rules
-├── figures/           # Image directory
-├── sample-chapter.typ # Example chapter
-└── example-config.typ # Configuration example
-```
-
-## Key Features
-- ✅ Professional University of Melbourne formatting
-- ✅ Automatic table of contents and lists
-- ✅ Bibliography management
-- ✅ Theorem and algorithm environments
-- ✅ Code highlighting
-- ✅ Cross-referencing
-- ✅ Blind review mode
-- ✅ Modern Typst packages integration
+[Optional public records](docs/optional-sections.md),
+[fonts](docs/fonts-and-package-payload.md),
+[verification and current limitations](docs/packaging.md), and
+[contributor setup](CONTRIBUTING.md) provide the detailed boundaries.
