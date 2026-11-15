@@ -57,3 +57,6 @@ htmlcov/
 # Licensed package starter resource and native initialized-template thumbnail.
 !template/assets/figures/example.svg
 !/thumbnail.png
+
+# Keep the declared synthetic replay asset in clean checkouts.
+!tests/replay/icon.svg

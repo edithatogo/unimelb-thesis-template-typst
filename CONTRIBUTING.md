@@ -44,14 +44,24 @@ boundaries remain in force.
 Coverage reports measure line and branch execution in `scripts/preflight.py`,
 `scripts/validate_template.py`, `scripts/check_repository_policy.py`,
 `scripts/thesis_contract.py`, `scripts/typst_contract_adapter.py`,
-`scripts/native_evidence.py`, `scripts/package_template.py` and
-`scripts/submission_policy.py`.
+`scripts/native_evidence.py`, `scripts/package_template.py`,
+`scripts/submission_policy.py` and `scripts/replay_build.py`.
 They do not measure Typst source, visual fidelity or the other helper scripts.
 The [local packaging corpus](docs/packaging.md) uses the same canonical watchdog;
 its native archive/init/watch/PDF evidence is separate from helper coverage.
 The [dated submission-policy gate](docs/submission-policy.md) checks 64 supplied-data
 scenarios against a neutral PDF's actual bytes. These are data and artifact-binding
 checks; institutional approval and rendered policy qualification remain unresolved.
+
+The [bounded replay gate](docs/reproducible-builds.md) adds actual Linux network
+namespace controls when invoked with
+`make verify VERIFY_ARGS="--replay-package-cache /absolute/path/to/prepared-cache"`.
+CI opts in with its explicit package cache after the ordinary online preparation
+and document checks, selecting `--replay-isolation privileged-network`. Its
+namespace setup drops privileges before project code; local verification keeps
+the default unprivileged user/network backend. The isolated compiler never falls back to an online build.
+A missing namespace capability fails the opted-in gate; the normal local command
+records replay as unexecuted. Neither state supplies whole-thesis or release proof.
 
 ## Pull requests
 

@@ -289,6 +289,7 @@ profile-build: validate_profile
 # Required contribution gate. Install requirements-dev.txt for contract validation.
 # Override PROPERTY_SEED / PROPERTY_CASES to replay a recorded failure.
 PYTHON ?= python3
+VERIFY_ARGS ?=
 PROPERTY_SEED ?= 20261115
 PROPERTY_CASES ?= 64
 
@@ -298,7 +299,7 @@ verify-source:
 	$(MAKE) --no-print-directory test-properties
 
 verify: verify-source
-	$(PYTHON) scripts/verify.py
+	$(PYTHON) scripts/verify.py $(VERIFY_ARGS)
 
 test-properties:
 	$(PYTHON) tests/test_properties.py --seed $(PROPERTY_SEED) --cases $(PROPERTY_CASES) --report build/property-tests.json
@@ -316,7 +317,7 @@ verify-python: verify-contract
 	$(PYTHON) scripts/check_repository_policy.py --desired .github/rulesets/solo-maintainer.json
 
 verify-typst:
-	$(PYTHON) scripts/verify.py
+	$(PYTHON) scripts/verify.py $(VERIFY_ARGS)
 
 coverage:
 	@mkdir -p build

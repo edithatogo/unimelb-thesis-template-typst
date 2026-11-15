@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text">
+  <info>
+    <title>Synthetic replay control</title>
+    <id>https://example.invalid/synthetic-replay-control</id>
+    <updated>2026-11-15T00:00:00Z</updated>
+  </info>
+  <citation>
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography>
+    <layout><text variable="title"/></layout>
+  </bibliography>
+</style>
