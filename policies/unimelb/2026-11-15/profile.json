@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "policy_id": "unimelb-gr-2026-11-15",
+  "observed_on": "2026-11-15",
+  "canonical_bundle_sha256": "338f93c64ce84621670f267c0919555d77c592e92e75f04e12afd6cab57cea7c",
+  "limits": {
+    "doctoral": {
+      "maximum": 100000,
+      "recommended": 80000,
+      "english_summary": [
+        5000,
+        10000
+      ]
+    },
+    "research-masters": {
+      "maximum": 50000,
+      "recommended": 40000,
+      "english_summary": [
+        2500,
+        5000
+      ]
+    }
+  },
+  "rtp_acknowledgement": "This research was supported by the Commonwealth through an Australian Government Research Training Program Scholarship [DOI: doi.org/10.82133/C42F-K220].",
+  "rtp_doi": "10.82133/C42F-K220",
+  "official_publication_statuses": [
+    "unpublished",
+    "submitted",
+    "in-revision",
+    "accepted",
+    "published"
+  ],
+  "canonical_status_map": {
+    "draft": "unpublished",
+    "submitted": "submitted",
+    "accepted": "accepted",
+    "published": "published"
+  },
+  "word_count_excluded": [
+    "tables",
+    "maps",
+    "bibliographies",
+    "appendices"
+  ],
+  "scope": "Typed supplied policy data and byte identities; not rendered conformance, approval authenticity or submission authorisation."
+}

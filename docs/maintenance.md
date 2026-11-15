@@ -27,11 +27,12 @@ gate. Renovate, rather than the legacy package inventory script, checks updates.
 Coverage is line and branch execution in `scripts/preflight.py`,
 `scripts/validate_template.py`, `scripts/check_repository_policy.py`,
 `scripts/thesis_contract.py`, `scripts/typst_contract_adapter.py`,
-`scripts/native_evidence.py` and `scripts/package_template.py`. Both the local report and Codecov's validation-tools
-flag include these seven helpers, with the existing 80% floors. Tests use synthetic
+`scripts/native_evidence.py`, `scripts/package_template.py` and
+`scripts/submission_policy.py`. Both the local report and Codecov's validation-tools
+flag include these eight helpers, with the existing 80% floors. Tests use synthetic
 repositories, configuration fixtures and mocked compiler failures; the separate
 build invokes real Typst. The report does not measure Typst/layout coverage, every Python helper,
-or shell-script coverage. The contract-adapter, native-evidence and package orchestration
+or shell-script coverage. The contract-adapter, native-evidence, package and policy orchestration
 and their fixture/PDF oracles are outside the coverage denominator; their actual
 execution is retained separately by canonical verification. The native validator
 covers strict JSON, local result schemas and source/output-bound dependency
@@ -39,6 +40,8 @@ inventories. Scoped helper coverage does not certify native documents, fonts or
 complete replay; see [the native evidence guide](native-evidence.md). The package
 helper covers audited archive/install behavior; real starter/watch/thumbnail
 execution is recorded by [the packaging corpus](packaging.md).
+The [dated policy helper](submission-policy.md) checks supplied records and actual
+file identities while keeping approval authenticity and rendered compliance unresolved.
 Reports are written to `build/coverage.xml` and `build/coverage.json`.
 
 The Maintenance workflow runs on every PR, pushes to main, merge groups,
@@ -173,7 +176,7 @@ service activation and commit-status evidence are recorded.
 
 The historical issue #5 implementation-head job log records **61 passing tests**.
 Its three-tool coverage scope predates the shared contract validator; use the
-current revision's seven-tool report for new qualification. Its coverage
+current revision's eight-tool report for new qualification. Its coverage
 artifact reports **97.74% combined line/branch coverage** (374/383 lines and 188/192 branches,
 zero exclusions) under coverage.py 7.17.3 and Python 3.15.1. The artifact's
 archive digest and exact source hashes are recorded in the receipt.

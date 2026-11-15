@@ -1,0 +1,60 @@
+{
+  "id": "count-missing",
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "as_of": "2026-11-15",
+  "request": {
+    "schema_version": 1,
+    "policy_id": "unimelb-gr-2026-11-15",
+    "layers": {
+      "metadata": {
+        "purpose": "draft",
+        "language": "en",
+        "metadata": {
+          "title": "Synthetic Policy Specimen",
+          "author": {
+            "student_record_name": "Synthetic Policy Candidate"
+          },
+          "degree": {
+            "kind": "doctoral",
+            "course": "SYNTHETIC-PHD"
+          },
+          "academic_units": [
+            "Synthetic School"
+          ],
+          "submission": {
+            "month": "2026-11"
+          },
+          "abstract": "Synthetic abstract for data validation only.",
+          "declarations": {
+            "original_work": true,
+            "word_count": 80000
+          }
+        }
+      },
+      "cli": [],
+      "explicit": {}
+    },
+    "policy": {
+      "funding": {
+        "inventory_complete": true,
+        "grants": [],
+        "rtp_stipend": false,
+        "rtp_fee_offset": false
+      },
+      "decisions": [],
+      "documents": []
+    }
+  },
+  "expected": {
+    "data_result": "fail",
+    "overall_result": "fail",
+    "checks": {
+      "POL03.COUNT": "fail"
+    },
+    "failed_checks": [
+      "POL03.COUNT"
+    ],
+    "submission_approved": false
+  }
+}

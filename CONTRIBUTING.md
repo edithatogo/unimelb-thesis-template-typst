@@ -44,10 +44,14 @@ boundaries remain in force.
 Coverage reports measure line and branch execution in `scripts/preflight.py`,
 `scripts/validate_template.py`, `scripts/check_repository_policy.py`,
 `scripts/thesis_contract.py`, `scripts/typst_contract_adapter.py`,
-`scripts/native_evidence.py` and `scripts/package_template.py`.
+`scripts/native_evidence.py`, `scripts/package_template.py` and
+`scripts/submission_policy.py`.
 They do not measure Typst source, visual fidelity or the other helper scripts.
 The [local packaging corpus](docs/packaging.md) uses the same canonical watchdog;
 its native archive/init/watch/PDF evidence is separate from helper coverage.
+The [dated submission-policy gate](docs/submission-policy.md) checks 64 supplied-data
+scenarios against a neutral PDF's actual bytes. These are data and artifact-binding
+checks; institutional approval and rendered policy qualification remain unresolved.
 
 ## Pull requests
 

@@ -1,0 +1,191 @@
+{
+  "id": "publication-submission-records",
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "as_of": "2026-11-15",
+  "request": {
+    "schema_version": 1,
+    "policy_id": "unimelb-gr-2026-11-15",
+    "layers": {
+      "metadata": {
+        "purpose": "examination",
+        "language": "en",
+        "metadata": {
+          "title": "Synthetic Policy Specimen",
+          "author": {
+            "student_record_name": "Synthetic Policy Candidate"
+          },
+          "degree": {
+            "kind": "doctoral",
+            "course": "SYNTHETIC-PHD"
+          },
+          "academic_units": [
+            "Synthetic School"
+          ],
+          "submission": {
+            "month": "2026-11"
+          },
+          "abstract": "Synthetic abstract for data validation only.",
+          "declarations": {
+            "original_work": true,
+            "word_count": 80000
+          },
+          "publications": [
+            {
+              "id": "pub-1",
+              "title": "Synthetic Publication",
+              "status": "accepted",
+              "version": "author-accepted-manuscript",
+              "location": "Chapter 2",
+              "contributions": [
+                {
+                  "name": "Synthetic Policy Candidate",
+                  "role": "Conceptualization",
+                  "percentage": 70
+                },
+                {
+                  "name": "Synthetic Coauthor",
+                  "role": "Analysis",
+                  "percentage": 70
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "cli": [],
+      "explicit": {}
+    },
+    "policy": {
+      "word_count": {
+        "body": 79900,
+        "footnotes": 100,
+        "other_included": 0,
+        "tables": 200,
+        "maps": 10,
+        "bibliographies": 500,
+        "appendices": 20000,
+        "method": "supplied-component-inventory",
+        "scope_notes": "Body includes ordinary prose; other_included covers any remaining counted content. Counts are synthetic supplied data.",
+        "adjustments": []
+      },
+      "funding": {
+        "inventory_complete": true,
+        "grants": [],
+        "rtp_stipend": false,
+        "rtp_fee_offset": false
+      },
+      "decisions": [
+        {
+          "id": "supervisor-review",
+          "kind": "supervisor-review",
+          "state": "approved",
+          "authority": "principal-supervisor",
+          "issued_on": "2026-11-01",
+          "expires_on": "2027-11-01",
+          "document_ref": "approval",
+          "scope": {
+            "course": "SYNTHETIC-PHD",
+            "subject_sha256": "23197c976363c5634eccd4cae18d8ad1840722a8447b27085be375087935c711",
+            "purpose": "examination",
+            "artifact_sha256": "${PDF_SHA256}"
+          }
+        }
+      ],
+      "documents": [
+        {
+          "id": "publication-form",
+          "path": "documents/publication-form.md",
+          "sha256": "6773ff6227173f62802c3f17caa066323f133b32996a4046c42f8237430b5e6f",
+          "kind": "publication-form",
+          "classification": "synthetic"
+        },
+        {
+          "id": "originality-report",
+          "path": "documents/originality-report.md",
+          "sha256": "5f757fcda0d02ac07740c552d1550d9aa6229f4907568f9ff82f006804ea59ae",
+          "kind": "originality-report",
+          "classification": "synthetic"
+        },
+        {
+          "id": "approval",
+          "path": "documents/approval.md",
+          "sha256": "a8e8d866fecc2e6faeae52d5b8cb703e0c2c36d52d3ef4873b774c5c0262256b",
+          "kind": "approval",
+          "classification": "synthetic"
+        },
+        {
+          "id": "publication-forms-bundle",
+          "path": "documents/publication-forms-bundle.md",
+          "sha256": "6a512bdf0e2775550ea974b6b7c783eb828d5445efd51688f5d6708ca61ee24a",
+          "kind": "publication-forms-bundle",
+          "classification": "synthetic"
+        }
+      ],
+      "publications": {
+        "records": [
+          {
+            "id": "pub-1",
+            "citation": "Synthetic publication citation",
+            "official_status": "accepted",
+            "version": "author-accepted-manuscript",
+            "incorporation": "complete-publication",
+            "locations": [
+              "Chapter 2"
+            ],
+            "candidate_contribution": "Developed the principal method and interpretation.",
+            "coauthored": true,
+            "undertaken_during_candidature": true,
+            "rights_basis": "owned",
+            "literature_review": false,
+            "venue": "Synthetic Journal",
+            "status_date": "2026-10-01",
+            "form_ref": "publication-form",
+            "signatures_declared": [
+              "principal-supervisor",
+              "coordinating-author"
+            ]
+          }
+        ],
+        "integration_statement": "The synthetic publication is integrated with the thesis argument.",
+        "planned_thesis_bibliography_ids": [
+          "background-1"
+        ],
+        "planned_publication_bibliographies": [
+          {
+            "publication_id": "pub-1",
+            "reference_ids": [
+              "pub-1",
+              "background-1"
+            ]
+          }
+        ]
+      },
+      "submission": {
+        "written_component_count": 1,
+        "originality": {
+          "document_ref": "originality-report",
+          "for_pdf_sha256": "${PDF_SHA256}",
+          "tool": "iThenticate",
+          "scope": "full-thesis",
+          "excluded_publication_ids": [
+            "pub-1"
+          ],
+          "filters_explanation": "Exclude only the exact complete incorporated source."
+        },
+        "supervisor_review_ref": "supervisor-review",
+        "signed_forms_bundle_ref": "publication-forms-bundle"
+      }
+    }
+  },
+  "expected": {
+    "data_result": "pass",
+    "overall_result": "partial",
+    "checks": {
+      "POL07.FORMS-BUNDLE": "pass",
+      "POL07.FILTERS": "pass"
+    },
+    "failed_checks": [],
+    "submission_approved": false
+  }
+}

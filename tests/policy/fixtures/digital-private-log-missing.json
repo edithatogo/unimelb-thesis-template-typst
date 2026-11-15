@@ -1,0 +1,134 @@
+{
+  "id": "digital-private-log-missing",
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "as_of": "2026-11-15",
+  "request": {
+    "schema_version": 1,
+    "policy_id": "unimelb-gr-2026-11-15",
+    "layers": {
+      "metadata": {
+        "purpose": "draft",
+        "language": "en",
+        "metadata": {
+          "title": "Synthetic Policy Specimen",
+          "author": {
+            "student_record_name": "Synthetic Policy Candidate"
+          },
+          "degree": {
+            "kind": "doctoral",
+            "course": "SYNTHETIC-PHD"
+          },
+          "academic_units": [
+            "Synthetic School"
+          ],
+          "submission": {
+            "month": "2026-11"
+          },
+          "abstract": "Synthetic abstract for data validation only.",
+          "declarations": {
+            "original_work": true,
+            "word_count": 80000
+          },
+          "assistance": [
+            {
+              "kind": "ai",
+              "description": "Synthetic detailed disclosure of assistance"
+            }
+          ]
+        }
+      },
+      "cli": [],
+      "explicit": {}
+    },
+    "policy": {
+      "word_count": {
+        "body": 79900,
+        "footnotes": 100,
+        "other_included": 0,
+        "tables": 200,
+        "maps": 10,
+        "bibliographies": 500,
+        "appendices": 20000,
+        "method": "supplied-component-inventory",
+        "scope_notes": "Body includes ordinary prose; other_included covers any remaining counted content. Counts are synthetic supplied data.",
+        "adjustments": []
+      },
+      "funding": {
+        "inventory_complete": true,
+        "grants": [],
+        "rtp_stipend": false,
+        "rtp_fee_offset": false
+      },
+      "decisions": [
+        {
+          "id": "author-verification",
+          "kind": "author-verification",
+          "state": "approved",
+          "authority": "author",
+          "issued_on": "2026-11-01",
+          "expires_on": "2027-11-01",
+          "document_ref": "approval",
+          "scope": {
+            "course": "SYNTHETIC-PHD",
+            "subject_sha256": "23197c976363c5634eccd4cae18d8ad1840722a8447b27085be375087935c711",
+            "purpose": "draft",
+            "artifact_sha256": "${PDF_SHA256}"
+          }
+        }
+      ],
+      "documents": [
+        {
+          "id": "assistance-log",
+          "path": "documents/assistance-log.md",
+          "sha256": "40c0333b240858fdb1c3007bbb7b3dff5ab8b059263123f3d106153a9fbd74f6",
+          "kind": "assistance-log",
+          "classification": "synthetic"
+        },
+        {
+          "id": "approval",
+          "path": "documents/approval.md",
+          "sha256": "a8e8d866fecc2e6faeae52d5b8cb703e0c2c36d52d3ef4873b774c5c0262256b",
+          "kind": "approval",
+          "classification": "synthetic"
+        }
+      ],
+      "assistance": [
+        {
+          "index": 0,
+          "provider": "Synthetic provider",
+          "extent": "Copyediting only; no substantive argument changes.",
+          "locations": [
+            "Preface and chapter one"
+          ],
+          "use_kind": "editorial",
+          "role": "other",
+          "editing_standards": [
+            "D",
+            "E"
+          ],
+          "full_private_log_embedded": false,
+          "private_log_ref": "missing",
+          "log_fields": [
+            "programs",
+            "dates",
+            "prompts"
+          ],
+          "verification_ref": "author-verification",
+          "ai_authorship_claimed": false
+        }
+      ]
+    }
+  },
+  "expected": {
+    "data_result": "fail",
+    "overall_result": "fail",
+    "checks": {
+      "POL05.ASSISTANCE": "fail"
+    },
+    "failed_checks": [
+      "POL05.ASSISTANCE"
+    ],
+    "submission_approved": false
+  }
+}

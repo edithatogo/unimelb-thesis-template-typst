@@ -1,0 +1,82 @@
+{
+  "id": "funding-grant",
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "as_of": "2026-11-15",
+  "request": {
+    "schema_version": 1,
+    "policy_id": "unimelb-gr-2026-11-15",
+    "layers": {
+      "metadata": {
+        "purpose": "draft",
+        "language": "en",
+        "metadata": {
+          "title": "Synthetic Policy Specimen",
+          "author": {
+            "student_record_name": "Synthetic Policy Candidate"
+          },
+          "degree": {
+            "kind": "doctoral",
+            "course": "SYNTHETIC-PHD"
+          },
+          "academic_units": [
+            "Synthetic School"
+          ],
+          "submission": {
+            "month": "2026-11"
+          },
+          "abstract": "Synthetic abstract for data validation only.",
+          "declarations": {
+            "original_work": true,
+            "word_count": 80000
+          },
+          "funding": [
+            {
+              "funder": "Synthetic Funder",
+              "grant": "SYN-001"
+            }
+          ]
+        }
+      },
+      "cli": [],
+      "explicit": {}
+    },
+    "policy": {
+      "word_count": {
+        "body": 79900,
+        "footnotes": 100,
+        "other_included": 0,
+        "tables": 200,
+        "maps": 10,
+        "bibliographies": 500,
+        "appendices": 20000,
+        "method": "supplied-component-inventory",
+        "scope_notes": "Body includes ordinary prose; other_included covers any remaining counted content. Counts are synthetic supplied data.",
+        "adjustments": []
+      },
+      "funding": {
+        "inventory_complete": true,
+        "grants": [
+          {
+            "index": 0,
+            "status": "issued"
+          }
+        ],
+        "rtp_stipend": false,
+        "rtp_fee_offset": false
+      },
+      "decisions": [],
+      "documents": []
+    }
+  },
+  "expected": {
+    "data_result": "pass",
+    "overall_result": "partial",
+    "checks": {
+      "POL05.FUNDING": "pass",
+      "POL05.RTP": "not-applicable"
+    },
+    "failed_checks": [],
+    "submission_approved": false
+  }
+}

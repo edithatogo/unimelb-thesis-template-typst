@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "scope": "Conditional supplied-data checks only. A satisfying case does not authenticate a decision or qualify rendered output.",
+  "conditional_checks": [
+    {
+      "check": "POL03.COURSE",
+      "satisfying": "course-override",
+      "missing_or_invalid": "course-source-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL03.EXCEPTION",
+      "satisfying": "approved-word-exception",
+      "missing_or_invalid": "word-exception-ref-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL03.ADJUSTMENTS",
+      "satisfying": "count-adjustment",
+      "missing_or_invalid": "unapproved-count-adjustment",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL04.LANGUAGE",
+      "satisfying": "nonenglish-doctoral",
+      "missing_or_invalid": "language-approval-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL04.SUMMARY",
+      "satisfying": "nonenglish-doctoral",
+      "missing_or_invalid": "english-summary-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL04.CREATIVE",
+      "satisfying": "creative-agreed",
+      "missing_or_invalid": "creative-component-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL04.DURABLE",
+      "satisfying": "creative-durable-deposit",
+      "missing_or_invalid": "creative-durable-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL05.FUNDING",
+      "satisfying": "funding-grant",
+      "missing_or_invalid": "funding-grant-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL05.RTP",
+      "satisfying": "rtp-fee-offset",
+      "missing_or_invalid": "rtp-acknowledgement-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL05.PRIOR",
+      "satisfying": "prior-enrolment-work",
+      "missing_or_invalid": "prior-work-classification-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL05.ASSISTANCE",
+      "satisfying": "human-assistance",
+      "missing_or_invalid": "human-assistance-detail-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL05.AI",
+      "satisfying": "ai-assistance",
+      "missing_or_invalid": "ai-authorship-declaration-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL06.REGISTRY",
+      "satisfying": "publication-coauthored",
+      "missing_or_invalid": "publication-venue-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL06.RIGHTS",
+      "satisfying": "publication-rights-scoped",
+      "missing_or_invalid": "publication-rights-ref-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL06.FORMS",
+      "satisfying": "publication-coauthored",
+      "missing_or_invalid": "publication-form-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL06.BIBLIOGRAPHY",
+      "satisfying": "publication-coauthored",
+      "missing_or_invalid": "incorporated-global-bibliography",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL06.INTEGRATION",
+      "satisfying": "publication-coauthored",
+      "missing_or_invalid": "literature-update-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL06.LITERATURE",
+      "satisfying": "literature-update",
+      "missing_or_invalid": "literature-update-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL07.SINGLE-WRITTEN-FILE",
+      "satisfying": "examination-records",
+      "missing_or_invalid": "written-component-inventory-multiple",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL07.ORIGINALITY",
+      "satisfying": "examination-records",
+      "missing_or_invalid": "originality-record-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL07.FILTERS",
+      "satisfying": "publication-submission-records",
+      "missing_or_invalid": "originality-filter-explanation-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL07.REVIEW",
+      "satisfying": "examination-records",
+      "missing_or_invalid": "supervisor-record-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL07.FORMS-BUNDLE",
+      "satisfying": "publication-submission-records",
+      "missing_or_invalid": "combined-forms-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL07.FINAL-CORRECTIONS",
+      "satisfying": "final-deposit-records",
+      "missing_or_invalid": "final-corrections-missing",
+      "not_applicable": "draft-baseline"
+    },
+    {
+      "check": "POL07.CHAIR-FINAL",
+      "satisfying": "final-deposit-records",
+      "missing_or_invalid": "chair-final-record-missing",
+      "not_applicable": "draft-baseline"
+    }
+  ],
+  "unconditional": {
+    "CONFIGURATION.REQUIRED": "Every assessment needs canonical required metadata.",
+    "EVIDENCE.IDENTITIES": "Every declared separate file must match its bytes; an empty inventory is valid.",
+    "POL03.COUNT": "Every assessment needs a supplied count inventory.",
+    "POL05.FUNDING-INVENTORY": "Every assessment needs an explicit funding-completeness statement.",
+    "POL07.FILE": "Every actual PDF filename is checked for the two TES-prohibited characters."
+  },
+  "unexecuted": [
+    "POL01.RENDERED",
+    "POL02.RENDERED",
+    "POL05.ETHICS"
+  ],
+  "unsupported_fixture": "publication-in-revision",
+  "unknown_applicability_fixture": "funding-applicability-unknown"
+}

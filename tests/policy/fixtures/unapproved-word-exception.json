@@ -1,0 +1,100 @@
+{
+  "id": "unapproved-word-exception",
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "as_of": "2026-11-15",
+  "request": {
+    "schema_version": 1,
+    "policy_id": "unimelb-gr-2026-11-15",
+    "layers": {
+      "metadata": {
+        "purpose": "draft",
+        "language": "en",
+        "metadata": {
+          "title": "Synthetic Policy Specimen",
+          "author": {
+            "student_record_name": "Synthetic Policy Candidate"
+          },
+          "degree": {
+            "kind": "doctoral",
+            "course": "SYNTHETIC-PHD"
+          },
+          "academic_units": [
+            "Synthetic School"
+          ],
+          "submission": {
+            "month": "2026-11"
+          },
+          "abstract": "Synthetic abstract for data validation only.",
+          "declarations": {
+            "original_work": true,
+            "word_count": 110000
+          }
+        },
+        "approval_refs": {
+          "word_limit": "word-exception"
+        }
+      },
+      "cli": [],
+      "explicit": {}
+    },
+    "policy": {
+      "word_count": {
+        "body": 109900,
+        "footnotes": 100,
+        "other_included": 0,
+        "tables": 200,
+        "maps": 10,
+        "bibliographies": 500,
+        "appendices": 20000,
+        "method": "supplied-component-inventory",
+        "scope_notes": "Body includes ordinary prose; other_included covers any remaining counted content. Counts are synthetic supplied data.",
+        "adjustments": []
+      },
+      "funding": {
+        "inventory_complete": true,
+        "grants": [],
+        "rtp_stipend": false,
+        "rtp_fee_offset": false
+      },
+      "decisions": [
+        {
+          "id": "word-exception",
+          "kind": "word-limit",
+          "state": "pending",
+          "authority": "pro-vice-chancellor",
+          "issued_on": "2026-11-01",
+          "expires_on": "2027-11-01",
+          "document_ref": "approval",
+          "scope": {
+            "course": "SYNTHETIC-PHD",
+            "subject_sha256": "23197c976363c5634eccd4cae18d8ad1840722a8447b27085be375087935c711",
+            "purpose": "draft",
+            "max_words": 115000
+          }
+        }
+      ],
+      "documents": [
+        {
+          "id": "approval",
+          "path": "documents/approval.md",
+          "sha256": "a8e8d866fecc2e6faeae52d5b8cb703e0c2c36d52d3ef4873b774c5c0262256b",
+          "kind": "approval",
+          "classification": "synthetic"
+        }
+      ]
+    }
+  },
+  "expected": {
+    "data_result": "fail",
+    "overall_result": "fail",
+    "checks": {
+      "POL03.EXCEPTION": "fail"
+    },
+    "failed_checks": [
+      "POL03.EXCEPTION",
+      "POL03.LIMIT"
+    ],
+    "submission_approved": false
+  }
+}

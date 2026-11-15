@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "licence": "CC0-1.0",
+  "classification": "synthetic",
+  "binding_parameters": {
+    "PDF_SHA256": "Hash the actual generated PDF; do not accept a caller-declared substitute.",
+    "RTP_ACKNOWLEDGEMENT": "Use the single dated profile literal; it remains supplied-data validation."
+  },
+  "cases": [
+    {
+      "id": "draft-baseline",
+      "path": "fixtures/draft-baseline.json",
+      "sha256": "7d90d08a1f41570fa48531062d81bbfebd2c63ebae38abfd0e624cbc7c942cd2"
+    },
+    {
+      "id": "above-advisory-target",
+      "path": "fixtures/above-advisory-target.json",
+      "sha256": "ac3cd878950d18fdcef9b2f00460d54815d232e05619f2157629e6c2746ce51d"
+    },
+    {
+      "id": "count-missing",
+      "path": "fixtures/count-missing.json",
+      "sha256": "2cd22b20bed6480c1732d86648f088120a4927a3b1d7f95bf912fc0104e886bf"
+    },
+    {
+      "id": "course-override",
+      "path": "fixtures/course-override.json",
+      "sha256": "72bc2d03095936e2f9bae5d860310303257b5182075526e7a9f03d0cdd345981"
+    },
+    {
+      "id": "course-scope-mismatch",
+      "path": "fixtures/course-scope-mismatch.json",
+      "sha256": "eb0c78679835fc4c9b8de19e9a6e1cb1e50576f0ea894a627f05b936096c94a6"
+    },
+    {
+      "id": "approved-word-exception",
+      "path": "fixtures/approved-word-exception.json",
+      "sha256": "4c648a595ed2421c627683a2ecd926cca217729cf1d6eb2f5d79cb38f34273ab"
+    },
+    {
+      "id": "unapproved-word-exception",
+      "path": "fixtures/unapproved-word-exception.json",
+      "sha256": "d2c47c9983d5ada02417ed6e66f5a201f5f197d52fbf83779458ea42a570348f"
+    },
+    {
+      "id": "count-adjustment",
+      "path": "fixtures/count-adjustment.json",
+      "sha256": "6e9d2caaaa65d71d877087a93293628bd6c1c745753b3f674b4cd19d23f7368b"
+    },
+    {
+      "id": "unapproved-count-adjustment",
+      "path": "fixtures/unapproved-count-adjustment.json",
+      "sha256": "dba0fc7ec0464081cde7c1ae7fb9fdfa87ed01a104b7143453e461851604b9df"
+    },
+    {
+      "id": "nonenglish-doctoral",
+      "path": "fixtures/nonenglish-doctoral.json",
+      "sha256": "c54d7935c3d8da2a48a0c68591b1498e620619d99f511437c4cdb4b4fd41f0b2"
+    },
+    {
+      "id": "language-approval-missing",
+      "path": "fixtures/language-approval-missing.json",
+      "sha256": "40fde8712cf01afc8e297aadd6b057484a7eeca09c41174bb006e08aabbe399c"
+    },
+    {
+      "id": "summary-too-short",
+      "path": "fixtures/summary-too-short.json",
+      "sha256": "88e339e824f67b1df40e354a6d7ee7844c9e6f0684d564be049cf91f7ef60860"
+    },
+    {
+      "id": "nonenglish-masters",
+      "path": "fixtures/nonenglish-masters.json",
+      "sha256": "8120a21eeeceb161fc96bb61b7689346a5fff96b07606a8f3b67c7a3df028fcb"
+    },
+    {
+      "id": "english-thesis-chinese-labels",
+      "path": "fixtures/english-thesis-chinese-labels.json",
+      "sha256": "0b9b9b93ff9b92651c3364d15710ad840f7a9965eee8334f479bb04a50dcd039"
+    },
+    {
+      "id": "creative-agreed",
+      "path": "fixtures/creative-agreed.json",
+      "sha256": "20e1b37e145244c0eb6b95ebb2729f1860d73d8bfa694e1932f237323d267c86"
+    },
+    {
+      "id": "creative-component-missing",
+      "path": "fixtures/creative-component-missing.json",
+      "sha256": "5058a6b92ba17d89123801b4b5d4ca0229db062e0b6bfcd4bdee46291ee82f5d"
+    },
+    {
+      "id": "creative-percentages-invalid",
+      "path": "fixtures/creative-percentages-invalid.json",
+      "sha256": "6f1f9feda312d2f6a545df3c97edea7e713f3b72aea936dcc1c9b7a1a9cc3421"
+    },
+    {
+      "id": "creative-durable-deposit",
+      "path": "fixtures/creative-durable-deposit.json",
+      "sha256": "85e5693fad30b4b4d098fc467b20cc75b4636bc62cf5332ff03e02c85c4ed58b"
+    },
+    {
+      "id": "creative-durable-missing",
+      "path": "fixtures/creative-durable-missing.json",
+      "sha256": "e5a169977d5df91faf0b8d86efe28126a6e660e31dc186058d3e5220e1c89618"
+    },
+    {
+      "id": "funding-grant",
+      "path": "fixtures/funding-grant.json",
+      "sha256": "987e96af7f4a04fd1d10d90f995d4e139ae3198bb900a9ded930e254b76d9c67"
+    },
+    {
+      "id": "funding-grant-missing",
+      "path": "fixtures/funding-grant-missing.json",
+      "sha256": "29d070eba71c3ac33166ac060de97d55436b34bd96809b0770ae769a9f7ebdab"
+    },
+    {
+      "id": "rtp-fee-offset",
+      "path": "fixtures/rtp-fee-offset.json",
+      "sha256": "62d75ed791b9c82ea9445e3a74bdcfee684114294b5d906496edcf6f628003ac"
+    },
+    {
+      "id": "rtp-acknowledgement-missing",
+      "path": "fixtures/rtp-acknowledgement-missing.json",
+      "sha256": "f2cac46356aba676f55db7736c47d67aa600424e938f33db060402a2d550b207"
+    },
+    {
+      "id": "funding-applicability-unknown",
+      "path": "fixtures/funding-applicability-unknown.json",
+      "sha256": "1655cebc49f1199047c4a6a463bbf993a59fef003ba2d2c70688c0b3d6302f8b"
+    },
+    {
+      "id": "prior-enrolment-work",
+      "path": "fixtures/prior-enrolment-work.json",
+      "sha256": "e533c506a563bcf4dbee84154cd8df768a28a60ec22c73f9addfe42a72459750"
+    },
+    {
+      "id": "other-qualification-work",
+      "path": "fixtures/other-qualification-work.json",
+      "sha256": "82bb170933a1779a2511eb8ee2fcb53200fc0a978dfdf405e125ada2405fd8d8"
+    },
+    {
+      "id": "prior-work-classification-missing",
+      "path": "fixtures/prior-work-classification-missing.json",
+      "sha256": "e3d820c5c26be0ad5c858c7058bfc0ea3fb619c30e38a0d8cf902800bbcbe748"
+    },
+    {
+      "id": "human-assistance",
+      "path": "fixtures/human-assistance.json",
+      "sha256": "8b66953ca74dc845cb947721b193acd03abc5926731188189f1c74f29a21ac34"
+    },
+    {
+      "id": "human-assistance-detail-missing",
+      "path": "fixtures/human-assistance-detail-missing.json",
+      "sha256": "22bb3780eab7a214cd98d9e0d5828e57d07177a98d4a9f0c77047f7676fb9461"
+    },
+    {
+      "id": "supervisor-editing-boundary",
+      "path": "fixtures/supervisor-editing-boundary.json",
+      "sha256": "264be6411b6eb4899c2744e51b955370a7c893423f56a8a47552046595cc3b76"
+    },
+    {
+      "id": "other-editor-substance-change",
+      "path": "fixtures/other-editor-substance-change.json",
+      "sha256": "2c455ddca476fdb89cb46bae474ff6595e3e3439dc61b4752baf88c7cc960a59"
+    },
+    {
+      "id": "digital-assistance",
+      "path": "fixtures/digital-assistance.json",
+      "sha256": "763d0c8e7ee237f1393011c65195e0eb5327226bb5b1e1e894321b88fbc2821b"
+    },
+    {
+      "id": "ai-assistance",
+      "path": "fixtures/ai-assistance.json",
+      "sha256": "f6155cb99a44564ff07564f235fc12d19428f3520e4f864de735df5d3e3c6ef6"
+    },
+    {
+      "id": "digital-private-log-missing",
+      "path": "fixtures/digital-private-log-missing.json",
+      "sha256": "8eec4a9de0e95c92ee06c8822e4fee11e4b9ca321234e30d6c9f6bdf22ce357a"
+    },
+    {
+      "id": "ai-authorship-claim",
+      "path": "fixtures/ai-authorship-claim.json",
+      "sha256": "3475b6bd7a3bfa1b637b929a871e72d2b0f65cc3b858e67d0846c3de55d5b41e"
+    },
+    {
+      "id": "publication-coauthored",
+      "path": "fixtures/publication-coauthored.json",
+      "sha256": "0666e34b342850d29f3a0877aaadd9a590cfacda33794d3e42e85be5fa23bf34"
+    },
+    {
+      "id": "publication-venue-missing",
+      "path": "fixtures/publication-venue-missing.json",
+      "sha256": "7d7d2e23852ff5ab5a4714bd09f7909f09a7f4a66aaf688e592c71ff0003e1c3"
+    },
+    {
+      "id": "publication-in-revision",
+      "path": "fixtures/publication-in-revision.json",
+      "sha256": "be9c46c0e6be8d7db66fffa43e695489121a8a215202bc2f2f35711f76d14080"
+    },
+    {
+      "id": "figure-only-form-exception",
+      "path": "fixtures/figure-only-form-exception.json",
+      "sha256": "e61ff36d1b7db03c8700082b33b8ed55564ee06703e5eba4c5e3bd3312a2ad01"
+    },
+    {
+      "id": "publication-form-missing",
+      "path": "fixtures/publication-form-missing.json",
+      "sha256": "bc0bf63a0407cd28e8c632774f1c55e5a30c02c6a847a8b7a96dbd5521336c55"
+    },
+    {
+      "id": "publication-rights-scoped",
+      "path": "fixtures/publication-rights-scoped.json",
+      "sha256": "f610dbcc9a7c6319332ef0a6268e11f5f40240f8b3f5146051bb652c00b8d9d4"
+    },
+    {
+      "id": "publication-rights-wrong-scope",
+      "path": "fixtures/publication-rights-wrong-scope.json",
+      "sha256": "9b08a0d4a5d3b55950679a04cd1214b04566cc1e1cbd28d70cc710d293c1535b"
+    },
+    {
+      "id": "exclusive-partition",
+      "path": "fixtures/exclusive-partition.json",
+      "sha256": "4c43a7cf4d2696d3da2f31af54b71dd571dbea63182100b9cfd76a7807fc0707"
+    },
+    {
+      "id": "exclusive-partition-invalid",
+      "path": "fixtures/exclusive-partition-invalid.json",
+      "sha256": "f03e9226fd6a74cb202fa8acf8863b09648639af0cd52e10b6c0b7d7842d452f"
+    },
+    {
+      "id": "incorporated-global-bibliography",
+      "path": "fixtures/incorporated-global-bibliography.json",
+      "sha256": "49dd1610f07863d8e8fa6fe63655862d8bbd8f89538330b1eaf685f52ee883c2"
+    },
+    {
+      "id": "literature-update",
+      "path": "fixtures/literature-update.json",
+      "sha256": "6791616c91971a7b9c7fef1f85a69c17f6e1b333facf1482e5805518b13f2828"
+    },
+    {
+      "id": "literature-update-missing",
+      "path": "fixtures/literature-update-missing.json",
+      "sha256": "a1d30d3a230fec5d75d7ec33a87b7fa701ac1419d9b9a3900f6479a2e3089dab"
+    },
+    {
+      "id": "examination-records",
+      "path": "fixtures/examination-records.json",
+      "sha256": "e9df9acb84320928d7c36da3959a5c241c26c3787d90a711f958acf96f7aedef"
+    },
+    {
+      "id": "originality-record-missing",
+      "path": "fixtures/originality-record-missing.json",
+      "sha256": "be0c8d2b2e7ad722d23b18ea22b0e55ee4acb09481d3b73be2b09afec56b07de"
+    },
+    {
+      "id": "supervisor-stale-pdf",
+      "path": "fixtures/supervisor-stale-pdf.json",
+      "sha256": "6b49e9b24ca09c0e0575df61690c203f80202c12053f408fbf604f873b1ef39a"
+    },
+    {
+      "id": "publication-submission-records",
+      "path": "fixtures/publication-submission-records.json",
+      "sha256": "bd55f3664796d8f659a058e7fa7d005ee46c670ec6f54e41f0aaf3ce2315d421"
+    },
+    {
+      "id": "combined-forms-missing",
+      "path": "fixtures/combined-forms-missing.json",
+      "sha256": "4fddf533015bf7433ec3eb2432f010b5ef4842b2a2b5624c9e9559b28428a840"
+    },
+    {
+      "id": "included-material-filter-invalid",
+      "path": "fixtures/included-material-filter-invalid.json",
+      "sha256": "4ff2b18c48e83cf3ddb6dc51877ffddb9d2cea1274564da303f18ab5fe446adf"
+    },
+    {
+      "id": "final-deposit-records",
+      "path": "fixtures/final-deposit-records.json",
+      "sha256": "72e96dc56a532dfb621d7a88e97cc3b46d6cd4c055087d88dc5aa67833809d87"
+    },
+    {
+      "id": "final-corrections-missing",
+      "path": "fixtures/final-corrections-missing.json",
+      "sha256": "433016c931352a38cc7aa366688917a86f74ce05a4e9ce64d0a32df2708d7782"
+    },
+    {
+      "id": "course-source-missing",
+      "path": "fixtures/course-source-missing.json",
+      "sha256": "5fd15921864272932dff6c374ea88ac51d437005976f6b83d7d865e2aef4e6bb"
+    },
+    {
+      "id": "word-exception-ref-missing",
+      "path": "fixtures/word-exception-ref-missing.json",
+      "sha256": "7ca85a25990a5ccd534cfe35381e31d15039e1fdef13c7c4cce992371a1eddaf"
+    },
+    {
+      "id": "english-summary-missing",
+      "path": "fixtures/english-summary-missing.json",
+      "sha256": "c9df30b1ef15c36146dcb415f8432425671bffb5a14d423eaed165bcdfa47ac6"
+    },
+    {
+      "id": "ai-authorship-declaration-missing",
+      "path": "fixtures/ai-authorship-declaration-missing.json",
+      "sha256": "bf28604ba2c1be234e96d4181389c02b74ab9fa119d941a3b5ceb426ddf7b2f9"
+    },
+    {
+      "id": "publication-rights-ref-missing",
+      "path": "fixtures/publication-rights-ref-missing.json",
+      "sha256": "d2de8a74f0ac6f2ee06130c9dc8fc011a18feab0685f7a094393ee6d3f458771"
+    },
+    {
+      "id": "chair-final-record-missing",
+      "path": "fixtures/chair-final-record-missing.json",
+      "sha256": "6f9ce00907e919698ed91700144d42b18c5a74732ea363f9155474d37cbdb1ce"
+    },
+    {
+      "id": "supervisor-record-missing",
+      "path": "fixtures/supervisor-record-missing.json",
+      "sha256": "cd3c23992b6c3e4fc2bd47e5f10965828d53db67b92fdf5e51d3f87bef13109d"
+    },
+    {
+      "id": "originality-filter-explanation-missing",
+      "path": "fixtures/originality-filter-explanation-missing.json",
+      "sha256": "36e2ce20a804da5cbb3de9950c61a8490330318161c90ae4cee9aa4033a919d5"
+    },
+    {
+      "id": "written-component-inventory-multiple",
+      "path": "fixtures/written-component-inventory-multiple.json",
+      "sha256": "c41e330ac2bfe2af8d2c75f65034d88f78b8334f59f39d43d0f4771c7c9d6f7c"
+    }
+  ]
+}
