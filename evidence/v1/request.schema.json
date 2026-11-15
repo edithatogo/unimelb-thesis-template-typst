@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/edithatogo/unimelb-thesis-template-typst/evidence/v1/request.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "edithatogo/unimelb-thesis-template-typst"
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "tree": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "not_before": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "review_by": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "not_before",
+        "review_by"
+      ]
+    },
+    "native": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._/-]+$",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "schema_version": {
+          "const": 1
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "schema_version"
+      ]
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9._/-]+$",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "schema_version": {
+          "const": 1
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "schema_version"
+      ]
+    },
+    "sidecars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "role": {
+            "enum": [
+              "coverage",
+              "accessibility",
+              "policy",
+              "reproducibility",
+              "normalized-configuration"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9._/-]+$",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "schema_version": {
+            "type": "string",
+            "pattern": "^[0-9]+(?:\\.[0-9]+){0,2}$"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "role",
+          "path",
+          "sha256",
+          "schema_version",
+          "required"
+        ]
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "repository",
+    "revision",
+    "tree",
+    "run",
+    "native",
+    "properties",
+    "sidecars"
+  ]
+}

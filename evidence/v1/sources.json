@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "owner_issue": "https://github.com/edithatogo/unimelb-thesis-template-typst/issues/22",
+  "central_owner_issue": "https://github.com/edithatogo/repository-standards/issues/19",
+  "central_schema": {
+    "schema_version": 1,
+    "repository": "edithatogo/repository-standards",
+    "planning_revision": "10e59936e132f28597cb7d2f10efa27629dc4837",
+    "contract_revision": "e195af3b0f46db74e797c5bf2e177b7882085186",
+    "current_root_tree_observed": "bef6721531ae014e583ca420b2e27e66475fe5d5",
+    "observed_at": "2026-11-15T03:23:42Z",
+    "git_blob": "730561b4ffd2ab8790905f76b648eefcfc8c328f",
+    "sha256": "ec2b6902a68328527b1d65e008a98874ca4103015a7535fda989a173b60d6c2e",
+    "path": "schemas/verification-receipt.schema.json",
+    "local_source": "contracts/thesis/v1/sources/central-receipt-schema-current.txt",
+    "qualification": "The current central schema blob is identical to both existing contract pins. Read this exact retained source; do not define a parallel central wrapper schema."
+  },
+  "canonical_contract_manifest_sha256": "338f93c64ce84621670f267c0919555d77c592e92e75f04e12afd6cab57cea7c",
+  "scope": "Independently versioned thesis status sidecar; the existing central v1 wrapper is reused unchanged."
+}
