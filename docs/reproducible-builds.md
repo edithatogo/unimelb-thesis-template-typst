@@ -16,8 +16,8 @@ provisioning conditions in [PR #9](https://github.com/edithatogo/unimelb-thesis-
 
 Use the repository's supported Python and installed development dependencies,
 the exact Typst version in `typst.toml`, qpdf, Poppler's `pdftotext` and `pdffonts`,
-and util-linux `unshare`. The host must allow an unprivileged user/network
-namespace. Put these executables on `PATH`; `--compiler /absolute/path/to/typst`
+and util-linux `unshare`. The default `user-network` backend requires an
+unprivileged user/network namespace. Put these executables on `PATH`; `--compiler /absolute/path/to/typst`
 can select the compiler explicitly. Its binary must retain the name `typst` for
 the shared native dependency validator.
 
@@ -40,6 +40,24 @@ python scripts/replay_build.py replay \
   --output build/replay-check
 ```
 
+The optional `privileged-network` backend is for hosts that authorize namespace
+creation through noninteractive sudo but reject unprivileged user mappings.
+Select it explicitly with `--isolation privileged-network` on **both** commands.
+The lock records the backend and exact sudo/setpriv identities; a different
+selection fails before compilation. It is never an automatic fallback.
+
+Only the root-owned, non-writable `/usr/bin/sudo`, `/usr/bin/unshare` and
+`/usr/bin/setpriv` setup tools may be used by that backend. `unshare` creates the
+network namespace and restores the caller's nonzero UID/GID, dropping
+supplementary groups, before the Python worker runs. `setpriv --no-new-privs`
+prevents privilege gains on later execution. The worker and receiving parent
+require all real/effective/saved/filesystem IDs to match that caller, no
+supplementary groups, zero effective/permitted/ambient capabilities and the
+kernel's no-new-privileges flag. No project Python or compiler code runs as root.
+These controls do not change a host security policy or authorize sudo on a host
+where it is unavailable. See the [util-linux unshare manual](https://man7.org/linux/man-pages/man1/unshare.1.html)
+and [setpriv manual](https://man7.org/linux/man-pages/man1/setpriv.1.html).
+
 Both output directories must be new. Existing paths, symlink components and
 previous outputs are rejected; use a new directory for another attempt so that
 earlier failures remain available. Preserve the lock digest through a trusted
@@ -58,7 +76,11 @@ namespace backend returns two with `result: "unsupported"`; there is no online
 fallback and an unsupported run is not a pass. Compiler and PDF commands retain
 the canonical 60-second budget and bounded five-second process-group cleanup.
 The worker probes the new namespace and then uses `execve` for the compiler, so
-it remains in the command runner's process group.
+it remains in the command runner's process group. A native ancestor/session/group
+check must prove that the worker belongs to the direct launcher child's group;
+a sudo configuration that creates a different group fails before compilation.
+The existing watchdog can therefore signal the compiler directly, without
+relying on a privileged monitor to forward a signal.
 
 ## What the lock binds
 
@@ -75,8 +97,8 @@ support private namespaces or local package overrides.
 | Project source and resources | SHA-256 and byte length for every copied runtime, fixture, configuration, image, bibliography and CSL input; the native dependency report must include the declared required inputs. |
 | Preview packages | Native observed file hashes plus a separate inventory of **all files** in each observed package/version directory, including its matching manifest and retained licence files. The complete inventory has its own digest. |
 | Fonts | Exact bytes for regular, bold and italic Source Serif Pro files, their original source paths and retained licence. The actual PDF must contain the three expected embedded faces. |
-| Compiler and validators | Exact executable SHA-256s and observed version strings for Typst, qpdf, pdftotext, pdffonts and unshare. Typst must match the repository version before capture. |
-| Python and host observations | Python executable hash/version, jsonschema version, platform, architecture, kernel and libc version. These observations must match on replay; they are not an operating-system or shared-library lock. |
+| Compiler and validators | Exact executable SHA-256s and observed version strings for Typst, qpdf, pdftotext, pdffonts and unshare; the explicitly selected privileged backend also locks sudo and setpriv. Typst must match the repository version before capture. |
+| Python and host observations | Python executable hash/version, jsonschema version, platform, architecture, kernel, libc version and the selected namespace backend. These observations must match on replay; they are not an operating-system or shared-library lock. |
 | Producer and source observations | Hashes of the four Python producer/validation files, plus observed Git revision, tree and dirty state when a checkout is available. A dirty source observation is retained as dirty. |
 | Deterministic settings | Fixed creation timestamp, explicit document date, synthetic seed, CLI inputs, one compiler job, UTC and C.UTF-8, explicit font directory, and disabled system/embedded font discovery. |
 | Output | Actual successful compiler command/log, native input/output report, PDF hash and size, qpdf check, extracted text hash and PDF font observations. |
@@ -148,7 +170,10 @@ make verify VERIFY_ARGS="--replay-package-cache /absolute/path/to/prepared-packa
 ```
 
 The existing `Verify template and properties` CI job opts in with an explicit
-cache prepared during the earlier online document checks. Local `make verify`
+cache prepared during the earlier online document checks and explicitly selects
+`--replay-isolation privileged-network`. Its Ubuntu runner rejected the default
+user mapping in the initial source run; that failed result remains recorded.
+The replacement backend must pass its own hosted native controls. Local `make verify`
 without this option records the replay section as unexecuted. An opted-in run
 fails when namespace isolation is unsupported; it never substitutes an online
 compile. Each run captures a fresh lock from the actual producer source and

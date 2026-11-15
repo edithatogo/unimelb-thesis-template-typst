@@ -1305,17 +1305,18 @@ def verify_submission_policy(report):
             corpus.update(report=str(receipt.relative_to(ROOT)), report_sha256=digest(receipt))
 
 
-def verify_replay(report, package_cache):
+def verify_replay(report, package_cache, isolation):
     """Opt in to the bounded replay sidecar without nesting command sessions."""
     destination = OUTPUT / ("replay-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
     entry = {"result": "fail", "scope": "One synthetic input closure in the observed Linux environment",
+             "isolation_backend": isolation,
              "sidecar": str(destination / "report.json"), "byte_replay_qualified": False}
     report["replay_corpus"] = entry
     write_report(report)
     try:
         gate = runpy.run_path(str(ROOT / "tests/replay/qualify.py"))
-        result = gate["qualify"](ROOT, package_cache, destination)
-        if (result.get("result") != "pass" or result.get("case_count") != 11
+        result = gate["qualify"](ROOT, package_cache, destination, isolation=isolation)
+        if (result.get("result") != "pass" or result.get("isolation_backend") != isolation or result.get("case_count") != 11
                 or len(result.get("cases", [])) != 11
                 or any(case.get("result") != "pass" for case in result["cases"])
                 or [result.get(key) for key in ("native_compiler_attempts", "successful_native_pdfs",
@@ -1337,6 +1338,8 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--replay-package-cache", type=Path,
                         help="Opt in to network-disabled replay with this prepared package cache")
+    parser.add_argument("--replay-isolation", choices=("user-network", "privileged-network"), default="user-network",
+                        help="Explicit namespace setup backend; privileged-network drops privileges before project code")
     options = parser.parse_args(argv)
     OUTPUT.mkdir(parents=True, exist_ok=True)
     report = {
@@ -1490,7 +1493,7 @@ def main(argv=None) -> int:
         verify_packaging(report)
         verify_submission_policy(report)
         if options.replay_package_cache is not None:
-            verify_replay(report, options.replay_package_cache)
+            verify_replay(report, options.replay_package_cache, options.replay_isolation)
         report["passed"] = True
     except Exception as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"

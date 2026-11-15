@@ -40,6 +40,8 @@ TOOL_ARGUMENTS = {
     "typst": ["--version"], "qpdf": ["--version"],
     "pdftotext": ["-v"], "pdffonts": ["-v"], "unshare": ["--version"],
 }
+ISOLATION_BACKENDS = ("user-network", "privileged-network")
+PRIVILEGED_ARGUMENTS = {"sudo": ["--version"], "setpriv": ["--version"]}
 RECIPE_KEYS = {
     "schema_version", "id", "entrypoint", "creation_timestamp", "cli_inputs",
     "required_native_inputs", "fonts", "font_licenses", "expected_pdf_fonts",
@@ -187,8 +189,9 @@ def validate_recipe(value):
     return value
 
 
-def environment():
+def environment(isolation="user-network"):
     return {
+        "network_isolation_backend": isolation,
         "platform": sys.platform, "machine": platform.machine(), "kernel": platform.release(),
         "libc": list(platform.libc_ver()), "python": sys.version.split()[0],
         "python_executable_sha256": digest(Path(sys.executable).resolve()),
@@ -203,16 +206,25 @@ def producer_identity():
     return {name: digest(ROOT / name) for name in PRODUCER_PATHS}
 
 
-def resolve_tools(compiler=None, expected=None):
+def resolve_tools(compiler=None, expected=None, *, isolation="user-network"):
+    if isolation not in ISOLATION_BACKENDS:
+        raise ReplayError("unsupported-isolation", "Select an explicit supported namespace backend")
     paths = {}
-    for name in TOOL_ARGUMENTS:
-        found = str(compiler) if name == "typst" and compiler else shutil.which(name)
+    names = (*TOOL_ARGUMENTS, *PRIVILEGED_ARGUMENTS) if isolation == "privileged-network" else TOOL_ARGUMENTS
+    for name in names:
+        system_setup = isolation == "privileged-network" and name in ("unshare", "sudo", "setpriv")
+        found = ("/usr/bin/" + name if system_setup else
+                 str(compiler) if name == "typst" and compiler else shutil.which(name))
         if not found:
             code = "network-isolation-unavailable" if name == "unshare" else "missing-tool"
             raise ReplayError(code, "Required executable is unavailable: " + name)
         path = Path(found).resolve()
         if not path.is_file():
-            raise ReplayError("missing-tool", "Required executable is absent: " + name)
+            code = "network-isolation-unavailable" if system_setup else "missing-tool"
+            raise ReplayError(code, "Required executable is absent: " + name)
+        if system_setup and (path.parent != Path("/usr/bin") or path.stat().st_uid != 0
+                             or path.stat().st_mode & 0o022):
+            raise ReplayError("unsafe-namespace-tool", "Privileged setup requires root-owned, non-writable system tools")
         if expected is not None and digest(path) != expected[name]["sha256"]:
             raise ReplayError("tool-mismatch", "Executable bytes differ from the lock: " + name)
         paths[name] = path
@@ -238,7 +250,8 @@ def tool_inventory(paths, runner, records):
     result = {}
     for name, path in paths.items():
         before = digest(path)
-        output = runner.run([path, *TOOL_ARGUMENTS[name]], name + "-version.log", records, combined=True).strip()
+        arguments = TOOL_ARGUMENTS[name] if name in TOOL_ARGUMENTS else PRIVILEGED_ARGUMENTS[name]
+        output = runner.run([path, *arguments], name + "-version.log", records, combined=True).strip()
         if not output:
             raise ReplayError("missing-tool-version", "Executable reported no version: " + name)
         if digest(path) != before:
@@ -262,9 +275,81 @@ def network_control():
                "loopback_port": server.getsockname()[1], "parent_connection_succeeded": True}
 
 
+def check_privilege_drop(isolation, observed):
+    """Require the host user, no retained groups/capabilities and no privilege gains."""
+    if (type(isolation.get("uid")) is not int or isolation["uid"] <= 0
+            or type(isolation.get("gid")) is not int or isolation["gid"] <= 0
+            or observed.get("uid") != [isolation["uid"]] * 4
+            or observed.get("gid") != [isolation["gid"]] * 4
+            or observed.get("groups") != []
+            or observed.get("capabilities") != {"CapEff": 0, "CapPrm": 0, "CapAmb": 0}
+            or observed.get("no_new_privs") != 1):
+        raise ReplayError("privileges-not-dropped", "Project code must run as the original non-root user without privileges")
+
+
+def privilege_observation():
+    rows = dict(line.split(":", 1) for line in Path("/proc/self/status").read_text().splitlines() if ":" in line)
+    return {"uid": [int(v) for v in rows["Uid"].split()],
+            "gid": [int(v) for v in rows["Gid"].split()],
+            "groups": [int(v) for v in rows["Groups"].split()],
+            "capabilities": {key: int(rows[key], 16) for key in ("CapEff", "CapPrm", "CapAmb")},
+            "no_new_privs": int(rows["NoNewPrivs"])}
+
+
+def namespace_command(tools, spec_path):
+    """Elevated setup, when explicitly selected, ends before the Python worker starts."""
+    worker_command = [sys.executable, "-I", Path(__file__).resolve(), "_worker", str(spec_path)]
+    if "sudo" not in tools:
+        return [tools["unshare"], "--user", "--map-root-user", "--net", *worker_command], {"backend": "user-network"}
+    uid, gid = os.getuid(), os.getgid()
+    if uid <= 0 or gid <= 0 or os.geteuid() != uid or os.getegid() != gid:
+        raise ReplayError("privileges-not-dropped", "Privileged namespace setup requires an ordinary non-root caller")
+    command = [tools["sudo"], "--non-interactive", "--", tools["unshare"], "--net",
+               "--setgid", str(gid), "--setuid", str(uid), "--", tools["setpriv"],
+               "--no-new-privs", "--", *worker_command]
+    return command, {"backend": "privileged-network", "uid": uid, "gid": gid}
+
+
+def check_process_control(observed, supervisor):
+    if (type(observed) is not dict or observed.get("supervisor_pid") != supervisor
+            or any(type(observed.get(key)) is not int or observed[key] <= 0
+                   for key in ("supervisor_pid", "launcher_pid", "process_group", "session"))
+            or observed["launcher_pid"] != observed["process_group"]
+            or observed["launcher_pid"] != observed["session"]):
+        raise ReplayError("process-control-unproven", "The compiler must remain in the canonical watchdog's process group")
+
+
+def process_control(supervisor):
+    """Find the actual launcher ancestor and bind the worker to its session/group."""
+    current = os.getpid()
+    for _ in range(32):
+        fields = Path(f"/proc/{current}/stat").read_text().rpartition(") ")[2].split()
+        parent = int(fields[1])
+        if parent == supervisor:
+            observed = {"supervisor_pid": supervisor, "launcher_pid": current,
+                        "process_group": os.getpgrp(), "session": os.getsid(0)}
+            check_process_control(observed, supervisor)
+            return observed
+        if parent <= 1:
+            break
+        current = parent
+    raise ReplayError("process-control-unproven", "The worker cannot identify its canonical launcher ancestor")
+
+
 def worker(spec_path):
     """Probe the new namespace, then replace this process with the exact compiler."""
     spec = strict_json(Path(spec_path).read_text(encoding="utf-8"))
+    isolation = spec.get("isolation", {"backend": "user-network"})
+    if isolation.get("backend") not in ISOLATION_BACKENDS:
+        raise ReplayError("unsupported-isolation", "Unknown namespace worker backend")
+    privileges = None
+    if isolation["backend"] == "privileged-network":
+        privileges = privilege_observation()
+        check_privilege_drop(isolation, privileges)
+    supervisor = spec.get("supervisor_pid")
+    process = process_control(supervisor) if supervisor is not None else None
+    if isolation["backend"] == "privileged-network":
+        check_process_control(process, supervisor)
     if spec["network"].get("parent_connection_succeeded") is not True:
         raise ReplayError("network-not-isolated", "The parent must establish a working network control before isolation")
     observed = os.readlink("/proc/self/ns/net")
@@ -278,6 +363,8 @@ def worker(spec_path):
     except OSError as exc:
         failure = {"type": type(exc).__name__, "errno": exc.errno}
     proof = {**spec["network"], "child_namespace": observed, "interfaces": interfaces,
+             "isolation": isolation, "privilege_observation": privileges,
+             "process_control": process,
              "interface_inventory_source": "/proc/net/dev",
              "interface_inventory_sha256": hashlib.sha256(interface_text.encode()).hexdigest(),
              "child_connection_failed": True, "connection_error": failure,
@@ -328,25 +415,28 @@ def _compile_fresh(project, cache, fonts, recipe, tools, records):
     compiler_env = {"TZ": "UTC", "LANG": "C.UTF-8", "LC_ALL": "C.UTF-8",
                     "SOURCE_DATE_EPOCH": str(recipe["creation_timestamp"])}
     with network_control() as control:
-        spec = {"network": control, "compiler_argv": argv, "compiler_environment": compiler_env,
-                "network_report": str(output / "network.json")}
         spec_path = output / "invocation.json"
+        launcher, isolation = namespace_command(tools, spec_path)
+        spec = {"network": control, "compiler_argv": argv, "compiler_environment": compiler_env,
+                "network_report": str(output / "network.json"), "isolation": isolation,
+                "supervisor_pid": os.getpid()}
         spec_path.write_text(json.dumps(spec, indent=2) + "\n")
         try:
-            runner.run([tools["unshare"], "--user", "--map-root-user", "--net",
-                        sys.executable, "-I", Path(__file__).resolve(), "_worker", str(spec_path)],
-                       "compile.log", records, combined=True)
+            runner.run(launcher, "compile.log", records, combined=True)
         except Exception as exc:
             log = (output / "compile.log").read_text(errors="replace")
-            if not (output / "network.json").exists() and re.search(r"(?m)^unshare: unshare failed:", log):
+            if not (output / "network.json").exists() and re.search(r"(?m)^(?:unshare|sudo|setpriv):", log):
                 raise ReplayError("network-isolation-unavailable", "The host rejected the required namespace backend") from exc
             raise
     proof = strict_json((output / "network.json").read_text())
     if (proof["compiler_argv"] != argv or proof["compiler_environment"] != compiler_env
             or proof["parent_namespace"] == proof["child_namespace"]
             or proof["parent_connection_succeeded"] is not True or proof["child_connection_failed"] is not True
-            or proof["interfaces"] != ["lo"]):
+            or proof["interfaces"] != ["lo"] or proof.get("isolation") != isolation):
         raise ReplayError("network-not-isolated", "The executed compiler lacks a valid isolation receipt")
+    if isolation["backend"] == "privileged-network":
+        check_privilege_drop(isolation, proof.get("privilege_observation", {}))
+    check_process_control(proof.get("process_control"), os.getpid())
     # The trusted worker probes the namespace and uses execve, keeping the same
     # PID/process group; its final status/log is the compiler's status/log.
     inner = {**records[0], "command": argv, "outer_invocation": records[0]["command"],
@@ -433,7 +523,11 @@ def validate_lock(value):
         validate_inventory(value[key], allow_empty=key == "package_files")
     if any(name.split("/")[0] == "_replay" for name in value["project_files"]):
         raise ReplayError("invalid-lock", "Fresh output paths cannot be locked source inputs")
-    if (type(value["tools"]) is not dict or set(value["tools"]) != set(TOOL_ARGUMENTS)
+    isolation = value.get("environment", {}).get("network_isolation_backend") if type(value.get("environment")) is dict else None
+    if isolation not in ISOLATION_BACKENDS:
+        raise ReplayError("invalid-lock", "The lock must declare its exact namespace backend")
+    expected_tools = set(TOOL_ARGUMENTS) | (set(PRIVILEGED_ARGUMENTS) if isolation == "privileged-network" else set())
+    if (type(value["tools"]) is not dict or set(value["tools"]) != expected_tools
             or any(type(v) is not dict or set(v) != {"sha256", "version"}
                    or type(v["sha256"]) is not str or not HEX.fullmatch(v["sha256"])
                    or type(v["version"]) is not str or not v["version"] for v in value["tools"].values())):
@@ -522,7 +616,7 @@ def source_identity(root):
     return observed
 
 
-def make_lock(root, recipe_path, cache, output, compiler=None):
+def make_lock(root, recipe_path, cache, output, compiler=None, *, isolation="user-network"):
     root, cache = Path(root).resolve(), Path(cache).resolve()
     output = new_output(output)
     report = {"schema_version": 1, "result": "fail", "artifact_kind": "replay-lock-capture",
@@ -553,7 +647,7 @@ def make_lock(root, recipe_path, cache, output, compiler=None):
         cache_before = inventory(cache)
         discovery = output / "discovery" / "project"
         copy_inputs(root, discovery, project_files)
-        tools = resolve_tools(compiler)
+        tools = resolve_tools(compiler, isolation=isolation)
         tool_runner, tool_commands = Runner(discovery), report["tool_commands"]
         locked_tools = tool_inventory(tools, tool_runner, tool_commands)
         manifest = tomllib.loads(source_path(root, "typst.toml").read_text())
@@ -565,7 +659,7 @@ def make_lock(root, recipe_path, cache, output, compiler=None):
         check_inventory(discovery, project_files, ignore=("_replay",))
         check_inventory(cache, cache_before)
         check_inventory(fonts, font_files)
-        resolve_tools(compiler, locked_tools)
+        resolve_tools(compiler, locked_tools, isolation=isolation)
         if producer_identity() != producer_before:
             raise ReplayError("producer-mismatch", "Producer source changed during lock capture")
         for name, expected in project_files.items():
@@ -580,7 +674,7 @@ def make_lock(root, recipe_path, cache, output, compiler=None):
         copy_inputs(discovery, output / "project", project_files)
         copy_inputs(cache, output / "packages", package_files)
         lock = {"schema_version": 1, "artifact_kind": "bounded-typst-replay-lock", "recipe": recipe,
-                "source": source_identity(root), "tools": locked_tools, "environment": environment(),
+                "source": source_identity(root), "tools": locked_tools, "environment": environment(isolation),
                 "producer_sha256": producer_before, "project_files": project_files,
                 "package_files": package_files, "font_files": font_files, "packages": packages,
                 "font_sources": font_sources, "observed_inputs": observed,
@@ -615,7 +709,7 @@ def compare_pdfs(first, second, expected):
     return result
 
 
-def replay(bundle, expected_digest, output, compiler=None):
+def replay(bundle, expected_digest, output, compiler=None, *, isolation="user-network"):
     output = new_output(output)
     report = {"schema_version": 1, "result": "fail", "artifact_kind": "bounded-two-build-replay", "builds": [],
               "started_at_utc": datetime.now(timezone.utc).isoformat(), "byte_replay_qualified": False}
@@ -632,9 +726,11 @@ def replay(bundle, expected_digest, output, compiler=None):
                        "producer_sha256": lock["producer_sha256"], "environment": lock["environment"]})
         if lock["producer_sha256"] != producer_identity():
             raise ReplayError("producer-mismatch", "Replay validation/runner source differs from the locked producer")
-        if lock["environment"] != environment():
+        if lock["environment"].get("network_isolation_backend") != isolation:
+            raise ReplayError("isolation-mismatch", "Explicitly select the same namespace backend as the trusted lock")
+        if lock["environment"] != environment(isolation):
             raise ReplayError("environment-mismatch", "Observed OS/runtime differs from the locked replay scope")
-        tools = resolve_tools(compiler, lock["tools"])
+        tools = resolve_tools(compiler, lock["tools"], isolation=isolation)
         for folder, key in (("project", "project_files"), ("packages", "package_files"), ("fonts", "font_files")):
             check_inventory(bundle / folder, lock[key])
         actual_package_files, actual_packages = package_records(bundle / "packages", lock["observed_inputs"], lock["package_files"])
@@ -650,7 +746,7 @@ def replay(bundle, expected_digest, output, compiler=None):
             check_inventory(area / "project", lock["project_files"], ignore=("_replay",))
             check_inventory(area / "packages", lock["package_files"])
             check_inventory(area / "fonts", lock["font_files"])
-            resolve_tools(compiler, lock["tools"])
+            resolve_tools(compiler, lock["tools"], isolation=isolation)
             if producer_identity() != lock["producer_sha256"]:
                 raise ReplayError("producer-mismatch", "Producer source changed during replay")
             observed = observed_identities(result)
@@ -687,11 +783,13 @@ def main(argv=None):
     capture.add_argument("--package-cache", type=Path, required=True)
     capture.add_argument("--output", type=Path, required=True)
     capture.add_argument("--compiler", type=Path)
+    capture.add_argument("--isolation", choices=ISOLATION_BACKENDS, default="user-network")
     check = sub.add_parser("replay")
     check.add_argument("--bundle", type=Path, required=True)
     check.add_argument("--lock-sha256", required=True)
     check.add_argument("--output", type=Path, required=True)
     check.add_argument("--compiler", type=Path)
+    check.add_argument("--isolation", choices=ISOLATION_BACKENDS, default="user-network")
     child = sub.add_parser("_worker", help=argparse.SUPPRESS)
     child.add_argument("spec", type=Path)
     args = parser.parse_args(argv)
@@ -699,10 +797,10 @@ def main(argv=None):
         if args.action == "_worker":
             worker(args.spec)
         elif args.action == "lock":
-            result = make_lock(args.root, args.recipe, args.package_cache, args.output, args.compiler)
+            result = make_lock(args.root, args.recipe, args.package_cache, args.output, args.compiler, isolation=args.isolation)
             print(json.dumps({"result": result["result"], "lock_sha256": result["lock_sha256"]}))
         else:
-            result = replay(args.bundle, args.lock_sha256, args.output, args.compiler)
+            result = replay(args.bundle, args.lock_sha256, args.output, args.compiler, isolation=args.isolation)
             print(json.dumps({"result": result["result"], "pdf_sha256": result["comparison"]["first_sha256"]}))
         return 0
     except Exception as exc:

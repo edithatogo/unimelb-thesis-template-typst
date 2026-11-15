@@ -22,7 +22,7 @@ def require(condition, message):
         raise AssertionError(message)
 
 
-def qualify(root, cache, output, compiler=None):
+def qualify(root, cache, output, compiler=None, *, isolation="user-network"):
     root, cache = Path(root).resolve(), Path(cache).resolve()
     output = replay.new_output(output)
     report = {
@@ -34,6 +34,7 @@ def qualify(root, cache, output, compiler=None):
         "fixture_sha256": {p.relative_to(root).as_posix(): replay.digest(p)
                            for p in sorted((root / "tests/replay").iterdir()) if p.is_file()},
         "recipe_sha256": replay.digest(root / "replay/synthetic.json"),
+        "isolation_backend": isolation,
     }
     replay.write_report(output, report)
 
@@ -49,7 +50,7 @@ def qualify(root, cache, output, compiler=None):
     try:
         bundle = output / "lock"
         capture = case("isolated-lock-capture", "successful native capture", lambda: replay.make_lock(
-            root, "replay/synthetic.json", cache, bundle, compiler))
+            root, "replay/synthetic.json", cache, bundle, compiler, isolation=isolation))
         lock = replay.validate_lock(json.loads((bundle / "lock.json").read_text()))
         lock_sha = replay.digest(bundle / "lock.json")
         require(capture["network_disabled_discovery"] is True, "Discovery must execute inside isolation")
@@ -62,7 +63,7 @@ def qualify(root, cache, output, compiler=None):
             previous = {key: os.environ.get(key) for key in overrides}
             os.environ.update(overrides)
             try:
-                result = replay.replay(bundle, lock_sha, output / "pair", compiler)
+                result = replay.replay(bundle, lock_sha, output / "pair", compiler, isolation=isolation)
             finally:
                 for key, value in previous.items():
                     if value is None:
@@ -81,6 +82,9 @@ def qualify(root, cache, output, compiler=None):
                 require(network["child_connection_failed"] is True, "Isolated connection unexpectedly succeeded")
                 require(network["parent_namespace"] != network["child_namespace"], "No actual network namespace change")
                 require(network["interfaces"] == ["lo"], "An external interface was visible")
+                require(network["isolation"]["backend"] == isolation, "A different namespace backend ran")
+                if isolation == "privileged-network":
+                    replay.check_privilege_drop(network["isolation"], network["privilege_observation"])
                 require(set(network["compiler_environment"]) == {"TZ", "LANG", "LC_ALL", "SOURCE_DATE_EPOCH"},
                         "Ambient compiler environment leaked into replay")
                 require(network["compiler_environment"]["TZ"] == "UTC", "Compiler timezone changed")
@@ -107,7 +111,7 @@ def qualify(root, cache, output, compiler=None):
             mutate(target)
             destination = output / (name + "-result")
             try:
-                replay.replay(target, lock_sha, destination, alternate_compiler or compiler)
+                replay.replay(target, lock_sha, destination, alternate_compiler or compiler, isolation=isolation)
             except replay.ReplayError as exc:
                 require(exc.code == expected_code, "Wrong rejection for " + name + ": " + exc.code)
             else:
@@ -153,7 +157,7 @@ def qualify(root, cache, output, compiler=None):
             (area / "packages").mkdir()
             try:
                 replay.compile_isolated(area / "project", area / "packages", area / "fonts",
-                                        lock["recipe"], replay.resolve_tools(compiler, lock["tools"]))
+                                        lock["recipe"], replay.resolve_tools(compiler, lock["tools"], isolation=isolation))
             except Exception:
                 pass
             else:
@@ -170,6 +174,9 @@ def qualify(root, cache, output, compiler=None):
                     and proof["parent_connection_succeeded"] is True
                     and proof["child_connection_failed"] is True and proof["interfaces"] == ["lo"],
                     "The negative package test lacks actual network isolation")
+            require(proof["isolation"]["backend"] == isolation, "The empty-cache control changed backends")
+            if isolation == "privileged-network":
+                replay.check_privilege_drop(proof["isolation"], proof["privilege_observation"])
             require(not (area / "project/_replay/document.pdf").exists(), "A failed compile retained an output PDF")
             require(not replay.inventory(area / "packages"), "The isolated compiler populated a missing dependency")
             log = area / "project" / command["log"]
@@ -189,7 +196,7 @@ def qualify(root, cache, output, compiler=None):
             changed.write_bytes(first.read_bytes() + b"\n% Bounded replay byte control\n")
             runner = replay.Runner(area)
             commands = []
-            tools = replay.resolve_tools(compiler, lock["tools"])
+            tools = replay.resolve_tools(compiler, lock["tools"], isolation=isolation)
             original_text = runner.run([tools["pdftotext"], first, "-"], "original-text.log", commands)
             changed_text = runner.run([tools["pdftotext"], changed, "-"], "changed-text.log", commands)
             require(original_text == changed_text, "The byte comparison control changed extracted text")
@@ -228,9 +235,10 @@ def main(argv=None):
     parser.add_argument("--package-cache", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--compiler", type=Path)
+    parser.add_argument("--isolation", choices=replay.ISOLATION_BACKENDS, default="user-network")
     args = parser.parse_args(argv)
     try:
-        result = qualify(args.root, args.package_cache, args.output, args.compiler)
+        result = qualify(args.root, args.package_cache, args.output, args.compiler, isolation=args.isolation)
         print(json.dumps({key: result[key] for key in ("result", "case_count", "lock_sha256", "pdf_sha256")}))
         return 0
     except Exception as exc:

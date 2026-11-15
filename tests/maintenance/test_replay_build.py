@@ -11,7 +11,7 @@ import shutil
 import subprocess
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, call, patch
 
 from scripts import replay_build as replay
 
@@ -243,6 +243,129 @@ class ReplayBuildTests(unittest.TestCase):
         (self.cache / "preview/synthetic/1.0.0/LICENSE").unlink()
         self.reject("missing-package-identity", lambda: replay.package_records(self.cache, observed, replay.inventory(self.cache)))
         self.reject("unsupported-package", lambda: replay.package_records(self.cache, {"package-cache:local/a/1.0.0/a.typ": "0" * 64}, {}))
+
+    def test_tool_inventory_binds_each_executable_and_first_version_line(self):
+        """Runner replies are mocked; this checks version/byte binding only."""
+        runner, records = Mock(), []
+        versions = {name: name + " synthetic version 1" for name in self.tools}
+        names = {path: name for name, path in self.tools.items()}
+        runner.run.side_effect = lambda argv, *args, **kwargs: "  " + versions[names[argv[0]]] + "\nExtra diagnostic\n"
+        result = replay.tool_inventory(self.tools, runner, records)
+        self.assertEqual(result, {
+            name: {"sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "version": versions[name]}
+            for name, path in self.tools.items()
+        })
+        self.assertEqual(runner.run.call_args_list, [
+            call([path, *replay.TOOL_ARGUMENTS[name]], name + "-version.log", records, combined=True)
+            for name, path in self.tools.items()
+        ])
+
+    def test_tool_inventory_rejects_empty_or_whitespace_version_output(self):
+        for output in ("", " \t\n "):
+            with self.subTest(output=output):
+                runner, records = Mock(), []
+                runner.run.return_value = output
+                self.reject("missing-tool-version", lambda: replay.tool_inventory(
+                    {"typst": self.tools["typst"]}, runner, records))
+                runner.run.assert_called_once_with(
+                    [self.tools["typst"], *replay.TOOL_ARGUMENTS["typst"]],
+                    "typst-version.log", records, combined=True)
+
+    def test_tool_inventory_rejects_executable_mutation_during_version_capture(self):
+        runner, records = Mock(), []
+        executable = self.tools["typst"]
+        original = executable.read_bytes()
+
+        def mutate_during_version(*args, **kwargs):
+            executable.write_bytes(b"Different executable after version capture")
+            return "typst synthetic version 1"
+
+        runner.run.side_effect = mutate_during_version
+        self.reject("tool-mismatch", lambda: replay.tool_inventory({"typst": executable}, runner, records))
+        self.assertNotEqual(executable.read_bytes(), original)
+        runner.run.assert_called_once()
+
+    def test_pdf_inspection_binds_bytes_text_and_observed_embedded_fonts(self):
+        """Synthetic PDF bytes and mocked tool output are not native PDF proof."""
+        pdf = self.area / "synthetic.pdf"
+        pdf.write_bytes(self.pdf)
+        text = "  SYNTHETIC\nfixture text\n"
+        fonts = ("name type encoding emb sub uni object ID\n---\n"
+                 "ABCDEF+SyntheticFace-Identity-H CID TrueType Identity-H yes yes yes 8 0\n")
+        runner, records = Mock(), []
+        runner.run.side_effect = ["", text, fonts]
+        result = replay.inspect_pdf(pdf, self.recipe, self.tools, runner, records)
+        self.assertEqual(result, {
+            "pdf": {"sha256": hashlib.sha256(self.pdf).hexdigest(), "bytes": len(self.pdf)},
+            "text_sha256": hashlib.sha256(text.encode()).hexdigest(),
+            "fonts": [{"name": "SyntheticFace", "embedded": "yes", "subset": "yes", "unicode_map": "yes"}],
+        })
+        self.assertEqual(runner.run.call_args_list, [
+            call([self.tools["qpdf"], "--check", pdf], "qpdf.log", records),
+            call([self.tools["pdftotext"], "-layout", pdf, "-"], "text.log", records),
+            call([self.tools["pdffonts"], pdf], "fonts.log", records),
+        ])
+        self.assertEqual(pdf.read_bytes(), self.pdf)
+
+    def test_pdf_inspection_rejects_missing_and_empty_output_before_tool_calls(self):
+        pdf = self.area / "missing-or-empty.pdf"
+        for state in ("missing", "empty"):
+            with self.subTest(state=state):
+                if state == "empty":
+                    pdf.write_bytes(b"")
+                runner = Mock()
+                self.reject("missing-output", lambda: replay.inspect_pdf(
+                    pdf, self.recipe, self.tools, runner, []))
+                runner.run.assert_not_called()
+
+    def test_pdf_inspection_requires_every_text_sentinel(self):
+        pdf = self.area / "synthetic.pdf"
+        pdf.write_bytes(self.pdf)
+        recipe = deepcopy(self.recipe)
+        recipe["expected_text"] = ["SYNTHETIC", "SECOND SENTINEL"]
+        for text in ("", "SYNTHETIC without the other required marker"):
+            with self.subTest(text=text):
+                runner = Mock()
+                runner.run.side_effect = ["", text]
+                self.reject("unexpected-text", lambda: replay.inspect_pdf(pdf, recipe, self.tools, runner, []))
+                self.assertEqual(runner.run.call_count, 2)
+
+    def test_pdf_inspection_rejects_malformed_font_rows(self):
+        pdf = self.area / "synthetic.pdf"
+        pdf.write_bytes(self.pdf)
+        runner = Mock()
+        runner.run.side_effect = ["", "SYNTHETIC", "header\n---\nmalformed short font row\n"]
+        self.reject("invalid-font-observation", lambda: replay.inspect_pdf(
+            pdf, self.recipe, self.tools, runner, []))
+        self.assertEqual(runner.run.call_count, 3)
+
+    def test_pdf_inspection_rejects_missing_extra_wrong_and_unembedded_fonts(self):
+        pdf = self.area / "synthetic.pdf"
+        pdf.write_bytes(self.pdf)
+        expected = "ABCDEF+SyntheticFace CID TrueType Identity-H yes yes yes 8 0\n"
+        other = "ABCDEF+OtherFace CID TrueType Identity-H yes yes yes 9 0\n"
+        cases = {
+            "no fonts": "",
+            "extra font": expected + other,
+            "wrong font": other,
+            "unembedded font": expected.replace("yes yes yes", "no yes yes"),
+        }
+        for name, rows in cases.items():
+            with self.subTest(case=name):
+                runner = Mock()
+                runner.run.side_effect = ["", "SYNTHETIC", "header\n---\n" + rows]
+                self.reject("unexpected-font", lambda: replay.inspect_pdf(
+                    pdf, self.recipe, self.tools, runner, []))
+                self.assertEqual(runner.run.call_count, 3)
+
+    def test_pdf_inspection_stops_on_validator_failure(self):
+        pdf = self.area / "synthetic.pdf"
+        pdf.write_bytes(self.pdf)
+        runner, records = Mock(), []
+        runner.run.side_effect = RuntimeError("synthetic qpdf rejection")
+        with self.assertRaisesRegex(RuntimeError, "synthetic qpdf rejection"):
+            replay.inspect_pdf(pdf, self.recipe, self.tools, runner, records)
+        runner.run.assert_called_once_with([self.tools["qpdf"], "--check", pdf], "qpdf.log", records)
 
     def test_replay_rejects_changed_lock_bytes_before_compilation(self):
         (self.bundle / "lock.json").write_bytes((self.bundle / "lock.json").read_bytes() + b" ")

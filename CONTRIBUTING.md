@@ -57,7 +57,9 @@ The [bounded replay gate](docs/reproducible-builds.md) adds actual Linux network
 namespace controls when invoked with
 `make verify VERIFY_ARGS="--replay-package-cache /absolute/path/to/prepared-cache"`.
 CI opts in with its explicit package cache after the ordinary online preparation
-and document checks. The isolated compiler never falls back to an online build.
+and document checks, selecting `--replay-isolation privileged-network`. Its
+namespace setup drops privileges before project code; local verification keeps
+the default unprivileged user/network backend. The isolated compiler never falls back to an online build.
 A missing namespace capability fails the opted-in gate; the normal local command
 records replay as unexecuted. Neither state supplies whole-thesis or release proof.
 

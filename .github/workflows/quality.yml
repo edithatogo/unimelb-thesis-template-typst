@@ -91,7 +91,7 @@ jobs:
           TYPST_PACKAGE_CACHE_PATH: ${{ runner.temp }}/typst-package-cache
         run: |
           mkdir -p build
-          make verify VERIFY_ARGS="--replay-package-cache ${TYPST_PACKAGE_CACHE_PATH}" 2>&1 | tee build/verify.log
+          make verify VERIFY_ARGS="--replay-package-cache ${TYPST_PACKAGE_CACHE_PATH} --replay-isolation privileged-network" 2>&1 | tee build/verify.log
       - name: Retain verification evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

@@ -27,7 +27,7 @@ gate. Renovate, rather than the legacy package inventory script, checks updates.
 Coverage is line and branch execution in `scripts/preflight.py`,
 `scripts/validate_template.py`, `scripts/check_repository_policy.py`,
 `scripts/thesis_contract.py`, `scripts/typst_contract_adapter.py`,
-`scripts/native_evidence.py`, `scripts/package_template.py` and
+`scripts/native_evidence.py`, `scripts/package_template.py`,
 `scripts/submission_policy.py` and `scripts/replay_build.py`. Both the local report and Codecov's validation-tools
 flag include these nine helpers, with the existing 80% floors. Tests use synthetic
 repositories, configuration fixtures and mocked compiler failures; the separate

@@ -122,7 +122,8 @@ identities and explicit false rendered-policy and submission-approval flags.
 
 The [bounded replay corpus](reproducible-builds.md) adds 11 separately reported
 controls when `--replay-package-cache` is supplied to `scripts/verify.py`. CI opts
-in using an explicit cache prepared by its earlier online compilation. Actual
+in using an explicit cache prepared by its earlier online compilation and an
+explicit privilege-dropping network namespace backend. Actual
 network namespace changes, connection controls, two identical PDF byte streams,
 input tampering and an empty-cache download failure are required. Unsupported
 isolation fails the opted-in gate. Without that option, local verification
