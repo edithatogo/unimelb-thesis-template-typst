@@ -8,50 +8,26 @@
   appendix-counter.update(0)
 }
 
+// Shared native heading numbers: Appendix A: at level one, A.1 below it.
+#let appendix-numbering(..numbers) = {
+  let values = numbers.pos()
+  let formatted = numbering("A.1.1", ..values)
+  if values.len() == 1 { "Appendix " + formatted + ":" } else { formatted }
+}
+
 // Appendix macro that enforces ordering
 // Usage: appendix("Title of Appendix")[content]
 #let appendix(title, content) = {
-  locate(loc => {
-    let count = appendix-counter.at(loc)
-    appendix-counter.update(count + 1)
-    let letter = (
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-    ).at(count)
-
-    heading(
-      "Appendix " + letter + ": " + title,
-      level: 1,
-      numbering: none,
-      outlined: true,
-    )
+  appendix-counter.update(count => count + 1)
+  context {
+    // Keep the public appendix sequence independent of preceding chapters,
+    // while letting the native heading counter number appendix subsections.
+    counter(heading).update(appendix-counter.get() - 1)
+    set heading(numbering: appendix-numbering)
+    heading(title, level: 1, outlined: true)
     v(1em)
     content
-  })
+  }
 }
 
 // Creative output descriptor for theses with creative works
@@ -74,8 +50,8 @@
     table(
       columns: 2,
       column-gutter: 1em,
-      [*Attribute*, *Details*],
-      ..fields.map(f => [f.at(0), f.at(1)]),
+      [*Attribute*], [*Details*],
+      ..fields.flatten(),
     )
     v(1em)
   }

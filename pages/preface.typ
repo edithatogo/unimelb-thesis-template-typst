@@ -1,9 +1,7 @@
 #import "../utils/style.typ": *
 #import "../pages/preface-helpers.typ": (
-  ai-usage-note, contribution-table, preface-publications_section,
-)
-#import "../config/publications.typ": (
-  publication-chapter-footnote, publication-status-table,
+  ai-usage-note, assistance-section, contribution-table,
+  creative-output-section, preface-publications_section, prior-work-section,
 )
 
 #let preface-page(ctx, metadata) = {
@@ -12,7 +10,7 @@
   let contributions = metadata.at("preface_contributions", default: ())
   let sections = metadata.at("preface_sections", default: ())
   let publications = metadata.at("publications", default: ())
-  let content = metadata.preface
+  let content = metadata.at("preface", default: none)
 
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
@@ -49,25 +47,16 @@
     v(1em)
   }
 
-  // Demo usage: show a tiny publications demo for quick visual/manual checks
-  if publications.len() > 0 {
-    heading(level: 2, "Publications (demo)")
-    v(0.5em)
-    // Add a chapter-level footnote referring to the first publication (if any)
-    set text(size: 12pt)
-    text("This chapter refers to an associated publication.")
-    publication-chapter-footnote(publications, 0)
-    v(0.5em)
-    // Show the status table including appendix links where available
-    publication-status-table(publications, show_links: true)
-    v(1em)
-  }
-
   preface-publications_section(publications)
 
-  // AI / assistance disclosures (optional)
-  let ai_entries = metadata.at("ai_assistance", default: ())
-  ai-usage-note(ai_entries)
+  assistance-section(metadata.at("assistance", default: ()))
+  prior-work-section(metadata.at("prior_work", default: ()))
+  creative-output-section(metadata.at("creative_outputs", default: ()))
+
+  // Catch direct legacy callers too; never render private prompt logs.
+  if "ai_assistance" in metadata {
+    ai-usage-note(metadata.ai_assistance)
+  }
 
   pagebreak()
 }

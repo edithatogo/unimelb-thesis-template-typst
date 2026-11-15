@@ -1,4 +1,5 @@
 #import "../utils/style.typ": format-date, thesis-style, unimelb-logo
+#import "../config/options.typ": validate-thesis-logo
 
 #let title-page(
   ctx,
@@ -16,7 +17,7 @@
 ) = {
   let style = ctx.style
   let labels = ctx.labels
-  let show-logo = ctx.at("show_logo", default: true)
+  let show-logo = validate-thesis-logo(ctx.at("show_logo", default: false))
   align(center)[
     #text(size: 24pt, weight: "bold", fill: style.colors.primary)[
       #labels.university_name
@@ -74,6 +75,12 @@
       size: 12pt,
     )[#labels.submission_date_label: #format-date(submission_date)]
   ]
+
+  let review-notice = ctx.at("review_notice", default: none)
+  if review-notice != none {
+    v(1em)
+    align(center, text(size: 10pt, review-notice))
+  }
 
   pagebreak()
 }

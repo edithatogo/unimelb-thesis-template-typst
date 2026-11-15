@@ -100,6 +100,7 @@ jobs:
             build/property-tests.json
             build/contract/
             build/verification/
+            build/verifier-watchdog/
           if-no-files-found: error
           retention-days: 14
 

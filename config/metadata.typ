@@ -1,3 +1,5 @@
+#import "optional.typ": validate-creative, validate-layer
+
 #let required-fields = (
   "title",
   "author",
@@ -9,6 +11,12 @@
 )
 
 #let resolve(base, overrides: (:)) = {
+  if type(base) != dictionary or type(overrides) != dictionary {
+    panic("Metadata and metadata_overrides must be dictionaries.")
+  }
+  // Validate every supplied public-record layer before applying overrides.
+  validate-layer(base)
+  validate-layer(overrides)
   let pick = (key, fallback) => {
     let override = overrides.at(key, default: none)
     if override != none { override } else { fallback }
@@ -37,6 +45,7 @@
       "acknowledgements",
       default: none,
     )),
+    declaration: pick("declaration", base.at("declaration", default: none)),
     preface: pick("preface", base.at("preface", default: none)),
     bibliography_style: pick("bibliography_style", base.at(
       "bibliography_style",
@@ -73,6 +82,13 @@
       default: (),
     )),
     publications: pick("publications", base.at("publications", default: ())),
+    assistance: pick("assistance", base.at("assistance", default: ())),
+    prior_work: pick("prior_work", base.at("prior_work", default: ())),
+    funding: pick("funding", base.at("funding", default: ())),
+    creative_outputs: pick("creative_outputs", base.at(
+      "creative_outputs",
+      default: (),
+    )),
     appendices: pick("appendices", base.at("appendices", default: ())),
     include_bibliography: pick("include_bibliography", base.at(
       "include_bibliography",
@@ -98,6 +114,38 @@
       "index_entries",
       default: (:),
     )),
+  )
+
+  for key in overrides.keys() {
+    if key not in meta {
+      panic("Unknown metadata_overrides field '" + key + "'.")
+    }
+  }
+  // Validate supplied boolean layers before resolving them. The legacy
+  // override precedence and none-as-absent behavior are retained.
+  for layer in (base, overrides) {
+    for field in (
+      "include_bibliography",
+      "include_glossary",
+      "include_abbreviations",
+      "include_index",
+      "includes_publications",
+    ) {
+      let value = layer.at(field, default: none)
+      if value != none and type(value) != bool {
+        panic("Invalid metadata field '" + field + "': expected a boolean.")
+      }
+    }
+    let custom = layer.at("declaration", default: none)
+    if custom != none and type(custom) != content and type(custom) != str {
+      panic("Invalid declaration: expected content, a string or none.")
+    }
+  }
+
+  validate-creative(
+    meta.creative_outputs,
+    meta.percentage_dissertation,
+    meta.percentage_creative,
   )
 
   for field in required-fields {

@@ -6,11 +6,17 @@
 #import "utils/style.typ": *
 #import "utils/locales.typ": locale-labels
 #import "config/index.typ": config
+#import "config/optional.typ": reject-private-log
+#import "config/options.typ": parse-cli, resolve as resolve-options
+#import "config/review.typ": (
+  diagnostic-marker, project as project-review, validate-blind,
+)
 
-#let default-profile = sys.inputs.at("profile", default: "default")
-#let default-font-theme = sys.inputs.at("font_theme", default: "unimelb")
-#let default-locale = sys.inputs.at("locale", default: "en")
-#let default-show-logo = sys.inputs.at("show_logo", default: true)
+#let cli-options = parse-cli(sys.inputs)
+#let default-profile = cli-options.at("profile", default: "default")
+#let default-font-theme = cli-options.at("font_theme", default: "unimelb")
+#let default-locale = cli-options.at("locale", default: "en")
+#let default-show-logo = cli-options.at("show_logo", default: false)
 
 // Import page components
 #import "pages/title.typ": title-page
@@ -18,6 +24,7 @@
 #import "pages/declaration.typ": declaration-page
 #import "pages/acknowledgements.typ": acknowledgements-page
 #import "pages/preface.typ": preface-page
+#import "pages/funding.typ": funding-page
 #import "pages/front-matter.typ": (
   loa-page, lof-page, lot-page, third-party-page, toc-page,
 )
@@ -63,8 +70,9 @@
 #let bibliography-styles = (
   apa: "apa",
   ieee: "ieee",
-  numeric: "numeric",
-  author_year: "author-year",
+  numeric: "ieee",
+  author_year: "harvard-cite-them-right",
+  "author-year": "harvard-cite-them-right",
   chicago: "chicago-author-date",
   mla: "mla",
 )
@@ -77,14 +85,13 @@
 ) = {
   // Get style from metadata and validate/resolve it
   let style-key = metadata.bibliography_style
-  let resolved-style = if type(style-key) == "string" {
+  let resolved-style = if type(style-key) == str {
     bibliography-styles.at(style-key, default: style-key)
   } else {
     style-key
   }
 
-  heading(title, numbering: none)
-  bibliography(path, style: resolved-style)
+  bibliography(path, title: title, style: resolved-style)
 }
 
 // =================================
@@ -108,7 +115,7 @@
   declaration: none,
   preface: none,
   blind: false,
-  double_sided: false,
+  double_sided: auto,
   font_theme: default-font-theme,
   locale: default-locale,
   profile: default-profile,
@@ -125,6 +132,12 @@
   preface_contributions: (),
   preface_sections: (),
   publications: (),
+  assistance: (),
+  prior_work: (),
+  funding: (),
+  creative_outputs: (),
+  // Rejected compatibility name: private prompts/logs are never public records.
+  ai_assistance: none,
   appendices: (),
   include_bibliography: true,
   bibliography_path: "references.bib",
@@ -134,8 +147,20 @@
   index_entries: (:),
   body,
 ) = {
-  let style = make-thesis-style(font_theme: font_theme)
-  let labels = locale-labels(locale: locale)
+  reject-private-log(ai_assistance)
+  let blind-mode = validate-blind(blind)
+  let options = resolve-options(
+    profile: profile,
+    font_theme: font_theme,
+    locale: locale,
+    show_logo: show_logo,
+    double_sided: double_sided,
+  )
+  let style = make-thesis-style(
+    font_theme: options.font_theme,
+    profile: options.profile,
+  )
+  let labels = locale-labels(locale: options.locale)
   let base-metadata = (
     title: title,
     subtitle: subtitle,
@@ -150,6 +175,7 @@
     abstract: abstract,
     keywords: keywords,
     acknowledgements: acknowledgements,
+    declaration: declaration,
     preface: preface,
     bibliography_style: bibliography_style,
     word_count: word_count,
@@ -162,6 +188,10 @@
     preface_contributions: preface_contributions,
     preface_sections: preface_sections,
     publications: publications,
+    assistance: assistance,
+    prior_work: prior_work,
+    funding: funding,
+    creative_outputs: creative_outputs,
     appendices: appendices,
     include_bibliography: include_bibliography,
     bibliography_path: bibliography_path,
@@ -171,31 +201,43 @@
     index_entries: index_entries,
   )
 
-  let metadata = (config.metadata.resolve)(
+  let resolved-metadata = (config.metadata.resolve)(
     base-metadata,
     overrides: metadata_overrides,
   )
+  let review = project-review(
+    resolved-metadata,
+    labels: labels,
+    show_logo: options.show_logo,
+    blind: blind-mode,
+  )
+  let metadata = review.metadata
+  let labels = review.labels
 
   let ctx = (
     style: style,
     labels: labels,
     locale: labels.locale,
-    profile: profile,
-    font_theme: font_theme,
-    show_logo: show_logo,
+    profile: options.profile,
+    font_theme: options.font_theme,
+    show_logo: review.show_logo,
+    review_notice: review.notice,
     metadata: metadata,
   )
 
   let effective-university = if metadata.university != none {
     metadata.university
   } else { labels.university_name }
-  let resolved-double = double_sided or profile == "print"
+  let resolved-double = options.double_sided
 
   set document(
     title: metadata.title,
     author: metadata.author,
     keywords: metadata.keywords,
   )
+  if blind-mode {
+    diagnostic-marker(review.diagnostics)
+  }
 
   // =================================
   // Front Matter
@@ -215,7 +257,7 @@
       supervisor: metadata.supervisor,
       co_supervisor: metadata.co_supervisor,
       submission_date: metadata.submission_date,
-      blind: blind,
+      blind: blind-mode,
     )
 
     // Abstract
@@ -223,32 +265,49 @@
       abstract-page(ctx, metadata.abstract, keywords: metadata.keywords)
     }
 
-    // Declaration
-    #declaration-page(
-      ctx,
-      candidate_name: metadata.author,
-      thesis_title: metadata.title,
-      degree: metadata.degree,
-      word_count: metadata.word_count,
-      includes_publications: metadata.includes_publications,
-      percentage_dissertation: metadata.percentage_dissertation,
-      percentage_creative: metadata.percentage_creative,
-      ai_usage: metadata.ai_usage,
-      third_party_assistance: metadata.third_party_assistance,
-    )
-
-    // Acknowledgements
-    #if metadata.acknowledgements != none and not blind {
-      acknowledgements-page(ctx, metadata.acknowledgements)
+    // A supplied declaration is the page body; omitted content retains the
+    // generated declaration. This does not certify the supplied wording.
+    #if metadata.declaration != none {
+      heading(labels.declaration, numbering: none, outlined: true)
+      v(2em)
+      metadata.declaration
+      pagebreak()
+    } else {
+      declaration-page(
+        ctx,
+        candidate_name: metadata.author,
+        thesis_title: metadata.title,
+        degree: metadata.degree,
+        word_count: metadata.word_count,
+        includes_publications: metadata.includes_publications,
+        creative_outputs: metadata.creative_outputs,
+        percentage_dissertation: metadata.percentage_dissertation,
+        percentage_creative: metadata.percentage_creative,
+        ai_usage: metadata.ai_usage,
+        third_party_assistance: metadata.third_party_assistance,
+      )
     }
 
+    // Public optional sections: Preface, separate funding, then acknowledgements.
     // Preface
     #if (
       metadata.preface != none
         or metadata.preface_contributions.len() > 0
         or metadata.preface_sections.len() > 0
+        or metadata.publications.len() > 0
+        or metadata.assistance.len() > 0
+        or metadata.prior_work.len() > 0
+        or metadata.creative_outputs.len() > 0
     ) {
       preface-page(ctx, metadata)
+    }
+
+    #if metadata.funding.len() > 0 {
+      funding-page(ctx, metadata.funding)
+    }
+
+    #if metadata.acknowledgements != none and not blind-mode {
+      acknowledgements-page(ctx, metadata.acknowledgements)
     }
 
     // Tables of contents and listings
@@ -257,6 +316,8 @@
     #lot-page(ctx)
     #loa-page(ctx)
     #third-party-page(ctx, metadata.third_party_items)
+    // Keep a duplex alignment page in front-matter numbering.
+    #if resolved-double { pagebreak(weak: true, to: "odd") }
   ]
 
   // =================================
@@ -265,6 +326,11 @@
 
   main-matter-layout(ctx, title: metadata.title, double-sided: resolved-double)[
     #body
+
+    // The bibliography shares Arabic pagination and precedes appendices.
+    #if metadata.include_bibliography {
+      thesis-bibliography(metadata, metadata.bibliography_path)
+    }
   ]
 
   // =================================
@@ -273,16 +339,8 @@
 
   if metadata.appendices.len() > 0 {
     appendix-layout(ctx)[
-      appendix-page(ctx, metadata)
+      #appendix-page(ctx, metadata)
     ]
-  }
-
-  // =================================
-  // Bibliography
-  // =================================
-
-  if include_bibliography {
-    thesis-bibliography(metadata, bibliography_path)
   }
 
   // =================================
@@ -306,7 +364,7 @@
   // =================================
 
   if metadata.include_index {
-    generate-index-page()
+    optional-index-page(custom-entries: metadata.index_entries)
   }
 }
 

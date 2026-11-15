@@ -3,6 +3,10 @@
 *.png
 *.svg
 
+# Synthetic rendered-test images are versioned source inputs.
+!tests/rendered/**/*.png
+!tests/rendered/**/*.svg
+
 # Temporary files
 *.tmp
 *.log

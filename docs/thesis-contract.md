@@ -1,6 +1,6 @@
 # Shared thesis contract
 
-The candidate UMTHESIS 1.0.0 schema/API milestone lives in
+The qualified UMTHESIS 1.0.0 schema/API milestone lives in
 [contracts/thesis/v1](../contracts/thesis/v1/manifest.json). It materialises
 [issue #13](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13)
 through [issue #14](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/14).
@@ -10,6 +10,18 @@ rendering remains on its existing interface until the correctness/native-feature
 work integrates the normalized values. Both document adapters are explicitly
 planned in compatibility.json. Neither schema validity nor a passing negative
 fixture certifies a thesis, institutional approval, accessibility or public release.
+
+## Qualified schema/API revision
+
+The reviewed repository revision is
+[`402dec742a80278cd239554b929092e75724c1e6`](https://github.com/edithatogo/unimelb-thesis-template-typst/commit/402dec742a80278cd239554b929092e75724c1e6),
+with contract manifest SHA-256
+`338f93c64ce84621670f267c0919555d77c592e92e75f04e12afd6cab57cea7c`.
+[PR #30](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/30)
+records the successful source and receiving Actions, actual Codecov result and
+archive-filename correction. This establishes the schema/API milestone and its
+18 configuration fixtures. Both canonical document adapters remain planned;
+rendered agreement between Typst and LaTeX is still separate acceptance.
 
 ## Contents and provenance
 
@@ -194,8 +206,9 @@ not close it or create a second LaTeX policy.
 
 ## Versioning and rollout
 
-The manifest is a candidate schema/API version, not a published thesis-template
-release. Reviewed repository files define this executable candidate; the retained
+The manifest identifies the qualified schema/API version; it is not a published
+thesis-template release. The reviewed repository revision above defines this
+executable milestone; the retained
 parent contract continues to govern delivery obligations beyond it.
 
 Breaking field, default or meaning changes require a major contract version or an

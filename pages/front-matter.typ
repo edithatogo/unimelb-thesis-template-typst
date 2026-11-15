@@ -9,12 +9,17 @@
     numbering: "i",
   )
 
-  heading(labels.table_of_contents, numbering: none, outlined: true)
+  heading(
+    labels.table_of_contents,
+    numbering: none,
+    outlined: false,
+    bookmarked: true,
+  )
 
   v(2em)
 
   set text(size: 11pt, font: style.fonts.sans, lang: locale)
-  outline(depth: 3, indent: 1em, target: heading.where(numbering: auto))
+  outline(title: none, depth: 3, indent: 1em, target: heading)
 
   pagebreak()
 }
