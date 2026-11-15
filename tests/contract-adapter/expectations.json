@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "classification": "public-synthetic",
+  "licence": "CC0-1.0",
+  "scope": "Independent expectations for a bounded Typst adapter; order expectations are local and are not present in the canonical configuration-only fixtures",
+  "contract_sha256": "338f93c64ce84621670f267c0919555d77c592e92e75f04e12afd6cab57cea7c",
+  "fixture_manifest_sha256": "af82359a786b2be565e49de594e32a5d2edb3354221dfd5371d5d954b33c5757",
+  "cases": [
+    {
+      "id": "bad-month",
+      "fixture_sha256": "743e8612ca3a0f9c26ab837d74c873a2abdd164fbfa93d57bd4551d665f59ba6",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "invalid-date"
+    },
+    {
+      "id": "bad-orcid",
+      "fixture_sha256": "767ce58bb5cc8f7dd9b942e687d457fb89c9280775ae17a30dbb0b6c2364615f",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "invalid-orcid"
+    },
+    {
+      "id": "blind-draft",
+      "fixture_sha256": "b766757d828c1330dd83dcc8de2aea14d6f3d439d75e10ba33cad3661ec945b2",
+      "origin": "canonical-fixture",
+      "outcome": "unsupported",
+      "unsupported_paths": [
+        "identity"
+      ]
+    },
+    {
+      "id": "blind-examination",
+      "fixture_sha256": "92577f4a54b04bddeff5c850bfd810b770948f1b0b1ad4c2587432a28a78fa0a",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "invalid-combination"
+    },
+    {
+      "id": "cli-false",
+      "fixture_sha256": "30b8c434765a4c8e7a49b63522948493ebcf7174531dfe6275a9b5ded765a4ff",
+      "origin": "canonical-fixture",
+      "outcome": "rendered",
+      "render": {
+        "title": "[Draft title not supplied]",
+        "author": "[Draft author not supplied]",
+        "orcid": null,
+        "course": "[Draft course not supplied]",
+        "academic_units": [
+          "[Draft academic unit not supplied]"
+        ],
+        "month": "[Draft submission month not supplied]",
+        "abstract": null,
+        "word_count": null,
+        "profile": "default",
+        "double_sided": false
+      }
+    },
+    {
+      "id": "doctoral-monograph",
+      "fixture_sha256": "9f5fede93ab19d258364671aa4533b87a47849ee651edbe0265ab0b90615d3ba",
+      "origin": "canonical-fixture",
+      "outcome": "rendered",
+      "render": {
+        "title": "Illustrative synthetic research",
+        "author": "Synthetic Student",
+        "orcid": "0000-0000-0000-0001",
+        "course": "Doctor of Philosophy",
+        "academic_units": [
+          "Synthetic School"
+        ],
+        "month": "2026-11",
+        "abstract": "Synthetic abstract for configuration validation only.",
+        "word_count": 1200,
+        "profile": "default",
+        "double_sided": false
+      }
+    },
+    {
+      "id": "draft-minimal",
+      "fixture_sha256": "bf137034ce9e70fc7033f87ff821a08358ee00d4a671eb984cec8efc5ee1fa05",
+      "origin": "canonical-fixture",
+      "outcome": "rendered",
+      "render": {
+        "title": "[Draft title not supplied]",
+        "author": "[Draft author not supplied]",
+        "orcid": null,
+        "course": "[Draft course not supplied]",
+        "academic_units": [
+          "[Draft academic unit not supplied]"
+        ],
+        "month": "[Draft submission month not supplied]",
+        "abstract": null,
+        "word_count": null,
+        "profile": "default",
+        "double_sided": false
+      }
+    },
+    {
+      "id": "incompatible-pdf",
+      "fixture_sha256": "0833d2691238dc5179d1a26a828c0a494dcdfec4a29252c0d30caf3f96eaea2f",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "invalid-combination"
+    },
+    {
+      "id": "joint-resubmission",
+      "fixture_sha256": "f75466fa1d333cc692e264a227d1ebb086dfdf81f5a56929a859048498fcfa56",
+      "origin": "canonical-fixture",
+      "outcome": "unsupported",
+      "unsupported_paths": [
+        "approval_refs",
+        "metadata.joint_award",
+        "metadata.submission.resubmission_month"
+      ]
+    },
+    {
+      "id": "masters-publication",
+      "fixture_sha256": "3563d0507545ef9c18f44e40f90a2ebf6554d1a6c7d9ebf05c0b4a62cda52ace",
+      "origin": "canonical-fixture",
+      "outcome": "unsupported",
+      "unsupported_paths": [
+        "metadata.assistance",
+        "metadata.funding",
+        "metadata.publications"
+      ]
+    },
+    {
+      "id": "missing-final-title",
+      "fixture_sha256": "b48abeda08fead9edd818e90ea4975792d80ab19c0e0009dda5954d9cbcd5874",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "missing-metadata"
+    },
+    {
+      "id": "missing-language-approval",
+      "fixture_sha256": "cbc44e28146ce31b39c2bedb4151b91c2f10fbf68678a476f1596eb146407012",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "missing-approval"
+    },
+    {
+      "id": "non-english-creative",
+      "fixture_sha256": "cc78efdc8375184ebcd61928b1f1ae905aff32e991e1731a8d33af9458185c7b",
+      "origin": "canonical-fixture",
+      "outcome": "unsupported",
+      "unsupported_paths": [
+        "approval_refs",
+        "language",
+        "metadata.creative_outputs",
+        "metadata.english_summary"
+      ]
+    },
+    {
+      "id": "placeholder-final-title",
+      "fixture_sha256": "0d814357a114e225f0a6dce29c3a83d1e74ff5a59538bb8d7303d675f3c9658a",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "placeholder-metadata"
+    },
+    {
+      "id": "print-explicit-false",
+      "fixture_sha256": "36102dea34475dab8d8df72c5375216cbb7f7b40ab769e9461342eea725550a4",
+      "origin": "canonical-fixture",
+      "outcome": "rendered",
+      "render": {
+        "title": "[Draft title not supplied]",
+        "author": "[Draft author not supplied]",
+        "orcid": null,
+        "course": "[Draft course not supplied]",
+        "academic_units": [
+          "[Draft academic unit not supplied]"
+        ],
+        "month": "[Draft submission month not supplied]",
+        "abstract": null,
+        "word_count": null,
+        "profile": "print",
+        "double_sided": false
+      }
+    },
+    {
+      "id": "public-deposit-input",
+      "fixture_sha256": "b9038aaf7844662a94ff2d2435f1d09406a52855f8236f428b0f7516f445e982",
+      "origin": "canonical-fixture",
+      "outcome": "unsupported",
+      "unsupported_paths": [
+        "purpose"
+      ]
+    },
+    {
+      "id": "string-boolean",
+      "fixture_sha256": "ec48db2b4b59a74edc0d22a7b40dc1956fdfa01489bbda958603598e4e333bf2",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "invalid-type"
+    },
+    {
+      "id": "unknown-field",
+      "fixture_sha256": "3dd332ac8fc5559da072a45567cc8911c1a8a97ebf358248376e6bf136b2a333",
+      "origin": "canonical-fixture",
+      "outcome": "invalid",
+      "error_code": "unknown-key"
+    },
+    {
+      "id": "precedence-layers",
+      "origin": "adapter-local-control",
+      "outcome": "rendered",
+      "inputs": {
+        "metadata": {
+          "path": "tests/contract-adapter/inputs/precedence-layers-metadata.json",
+          "sha256": "b9839305a6cfbbec7e4928585330d3f9d50a4c863743bb45ccaa6e623cc8ea3f"
+        },
+        "explicit": {
+          "path": "tests/contract-adapter/inputs/precedence-layers-explicit.json",
+          "sha256": "6930299f999377718129a4ac86b01f267812310b6a5d8b41080d4b1e664793d2"
+        }
+      },
+      "cli": [
+        "layout=screen",
+        "double_sided=false",
+        "metadata.title=CLI LAYER TITLE",
+        "metadata.author.student_record_name=CLI LAYER AUTHOR"
+      ],
+      "render": {
+        "title": "EXPLICIT LAYER TITLE",
+        "author": "CLI LAYER AUTHOR",
+        "orcid": "0000-0000-0000-0001",
+        "course": "Doctor of Philosophy",
+        "academic_units": [
+          "Synthetic School"
+        ],
+        "month": "2026-11",
+        "abstract": "Synthetic abstract for configuration validation only.",
+        "word_count": 1200,
+        "profile": "default",
+        "double_sided": false
+      }
+    },
+    {
+      "id": "print-profile-default",
+      "origin": "adapter-local-control",
+      "outcome": "rendered",
+      "inputs": {
+        "metadata": {
+          "path": "tests/contract-adapter/inputs/print-profile-default-metadata.json",
+          "sha256": "2e1a548b04e9e1e26ec848e6ec518589592f07eb979a164bda8a2a041e562e3d"
+        },
+        "explicit": {
+          "path": "tests/contract-adapter/inputs/print-profile-default-explicit.json",
+          "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+        }
+      },
+      "cli": [],
+      "render": {
+        "title": "[Draft title not supplied]",
+        "author": "[Draft author not supplied]",
+        "orcid": null,
+        "course": "[Draft course not supplied]",
+        "academic_units": [
+          "[Draft academic unit not supplied]"
+        ],
+        "month": "[Draft submission month not supplied]",
+        "abstract": null,
+        "word_count": null,
+        "profile": "print",
+        "double_sided": true
+      }
+    },
+    {
+      "id": "literal-markup",
+      "origin": "adapter-local-control",
+      "outcome": "rendered",
+      "inputs": {
+        "metadata": {
+          "path": "tests/contract-adapter/inputs/literal-markup-metadata.json",
+          "sha256": "681a2a2f17dd73034d084292d63fb13d5ad911b75a9d37b7591e64d10b369e4b"
+        },
+        "explicit": {
+          "path": "tests/contract-adapter/inputs/literal-markup-explicit.json",
+          "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+        }
+      },
+      "cli": [],
+      "render": {
+        "title": "#panic(123)",
+        "author": "Synthetic Student",
+        "orcid": "0000-0000-0000-0001",
+        "course": "Doctor of Philosophy",
+        "academic_units": [
+          "Synthetic School"
+        ],
+        "month": "2026-11",
+        "abstract": "Synthetic abstract for configuration validation only.",
+        "word_count": 1200,
+        "profile": "default",
+        "double_sided": false
+      }
+    }
+  ]
+}

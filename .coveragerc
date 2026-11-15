@@ -6,6 +6,8 @@ source_pkgs =
     scripts.validate_template
     scripts.check_repository_policy
     scripts.thesis_contract
+    scripts.typst_contract_adapter
+    scripts.native_evidence
 
 [report]
 precision = 2

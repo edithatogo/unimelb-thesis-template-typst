@@ -5,11 +5,13 @@ The qualified UMTHESIS 1.0.0 schema/API milestone lives in
 [issue #13](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/13)
 through [issue #14](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/14).
 
-This increment validates configuration and evidence interfaces. Existing thesis
-rendering remains on its existing interface until the correctness/native-feature
-work integrates the normalized values. Both document adapters are explicitly
-planned in compatibility.json. Neither schema validity nor a passing negative
-fixture certifies a thesis, institutional approval, accessibility or public release.
+This increment validates configuration and evidence interfaces. The default
+thesis entry point retains its existing interface. A separate
+[bounded Typst adapter](typst-contract-adapter.md) consumes normalized values for
+the supported metadata/order slice. Both canonical document adapters remain
+explicitly planned in compatibility.json. Neither schema validity nor a passing
+negative fixture certifies a thesis, institutional approval, accessibility or
+public release.
 
 ## Qualified schema/API revision
 
@@ -86,10 +88,13 @@ source revision, dirty state, contract digest and expected/observed fixture
 outcomes. Its scope is explicitly contract-schema-api, with both document
 adapters unexecuted. It is a native report, not the central verification receipt.
 
-Coverage now measures four executable helpers: preflight, template validation,
-repository policy and thesis_contract. The actual run reports the percentage;
-the earlier 97.74% three-tool receipts remain historical. Coverage is not a
-measurement of Typst layout, policy correctness or human usability.
+Coverage measures six Python validation helpers: preflight, template validation,
+repository policy, thesis_contract, typst_contract_adapter and native_evidence.
+The actual current run supplies the percentage; the earlier three-tool receipts
+and focused helper measurements remain historical. Command orchestration and
+fixture/PDF oracles are outside this denominator and have separate native
+execution evidence. Coverage does not measure Typst layout, policy correctness
+or human usability; the existing 80% floors remain unchanged.
 
 ## Input and precedence
 
@@ -178,9 +183,12 @@ python scripts/thesis_contract.py \
 
 The result schema separates source/fixture/configuration identities, engine and
 adapter versions, requirement applicability, implementation state, executed
-outcomes, human decisions and artifact hashes. Both current adapters are planned,
-so they cannot claim executed results. A retained native report may accompany an
-unexecuted record without changing its state.
+outcomes, human decisions and artifact hashes. Both adapters registered in the
+canonical compatibility file remain planned, so those registrations cannot claim
+executed canonical results. A retained native report may accompany an unexecuted
+record without changing its state. The bounded Typst producer below does not
+change that registration or silently promote its native report to contract
+acceptance.
 
 Validate a produced result against its expected source and artifact directory:
 
@@ -197,6 +205,38 @@ execution claims require an implemented adapter, clean declared source, command,
 exit status and bound evidence. Result validation checks those bindings; the
 producer still needs independent semantic/output tests. No institutional,
 scientific or human decision is inferred from an automated pass.
+
+### Bounded Typst producer
+
+The separate entry point in `adapters/typst/v1/` and
+`scripts/typst_contract_adapter.py` reuse the pinned bundle and reference
+normalizer. Every supplied layer is validated before applying the established
+five-layer precedence. The producer checks the manifest-derived compiler version
+and reports supported rendered output, invalid configuration and valid but
+unsupported requests separately.
+
+The canonical verifier invokes 21 declared adapter cases: seven PDF outputs,
+nine intended validation rejections and five unsupported controls. Independent
+native PDF/text oracles check the supported metadata, month precision, order,
+pagination, literal input handling and precedence behavior. This is a bounded
+engine slice: unsupported metadata fields, output modes and projections remain
+explicit, and the default renderer is not silently switched to a new API.
+
+Its report is `build/verification/contract-adapter/report.json`, under the
+ordinary `build/verification/report.json` result. It retains
+`contract_acceptance: blocked` and leaves source revision collection to the
+outer canonical gate. It does not modify the contract manifest, fixture
+registration or either adapter's planned compatibility state. No LaTeX execution,
+university approval, full CON-02/CON-03 acceptance or human evaluation is supplied
+by this increment. The [adapter guide](typst-contract-adapter.md) states the exact
+capability and evidence boundaries.
+
+The same gate adds 16 [native evidence cases](native-evidence.md) for fixed
+semantic extraction and source/output-bound inventories. These results are
+separate from canonical adapter acceptance and do not establish complete replay,
+per-face font source identity, PDF/UA or PDF/A conformance. The composed source,
+including reconstructed support files and the parser review correction, requires
+fresh execution; historical focused receipts remain bound to their own bytes.
 
 The LaTeX consumer is
 [companion issue #18](https://github.com/edithatogo/unimelb-thesis-template-latex/issues/18).
