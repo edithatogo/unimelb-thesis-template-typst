@@ -414,11 +414,10 @@ Our proposed methods were compared against state-of-the-art baselines:
 
 = Appendix B: Additional Experimental Results
 
-// Ensure appendix B starts on a fresh page and its content is breakable to avoid
-// any overlapping with header/footers or previous floats.
-pagebreak()
-block(breakable: true)[
-#lorem(200)
+// The heading opens a new page through the chapter layout. Evaluate the body
+// block as Typst content rather than printing its source expression.
+#block(breakable: true)[
+  #lorem(200)
 ]
 
 == Supplementary Performance Metrics

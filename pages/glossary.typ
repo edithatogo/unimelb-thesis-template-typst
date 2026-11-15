@@ -93,12 +93,10 @@
     table(
       columns: (auto, auto, 1fr),
       column-gutter: 1em,
-      [*Abbreviation*, *Term*, *Definition*],
-      ..sorted-abbrevs.map(entry => [
-        entry.short,
-        entry.key,
-        entry.long
-      ]),
+      table.header([*Abbreviation*], [*Term*], [*Definition*]),
+      ..sorted-abbrevs
+        .map(entry => (entry.short, entry.key, entry.long))
+        .flatten(),
     )
 
     // Show statistics

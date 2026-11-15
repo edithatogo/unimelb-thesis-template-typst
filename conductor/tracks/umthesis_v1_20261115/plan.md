@@ -16,6 +16,17 @@
 - [ ] Qualify the COR-01 candidate and receiving revision through the existing
   gates; record the bounded #15/#18 checkpoint. Creative applicability,
   navigation, configuration and blind-output requirements remain open.
+- [x] Reproduce the contents/appendix navigation defects and prepare the COR-02
+  repair with three native-PDF specimens, 198 focused assertions and retained
+  failing-source/destination controls. Preserve the COR-01 corpus.
+- [ ] Qualify the COR-02 source and receiving revision through the existing
+  gates; glossary/index behavior and the remaining COR-02/05 acceptance stay open.
+- [x] Prepare and independently review bounded configuration, terms, structured
+  blind projection, native-image and layout/order repairs, retaining actual
+  failing-source controls and authored-residual privacy failures.
+- [ ] Qualify the combined 115-case rendered candidate on its final source and
+  receiving revision. Keep optional-section, shared-adapter and full policy
+  acceptance distinct from these bounded renderer checks.
 - [ ] Integrate normalized configuration and repaired rendered semantics (#15),
   native capabilities (#16) and document regression oracles (#18).
 - [ ] Implement source-dated Melbourne requirements (#17).

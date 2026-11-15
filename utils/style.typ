@@ -245,34 +245,11 @@
 // Utility Functions
 // =================================
 
-// Profile-aware image function with compression for draft/screen profiles
+// Forward native image inputs and options without changing their decoder.
+// The format option describes the input; it is not a conversion or compression
+// request. Draft, screen, print and default preserve the supplied image here.
 #let thesis-image(path, ..args) = {
-  let profile = sys.inputs.at("profile", default: "default")
-
-  // Apply compression optimizations based on profile
-  if profile == "draft" {
-    // Maximum compression for draft - convert to low-quality PNG
-    if path.ends-with(".svg") {
-      image(path, ..args)
-    } else {
-      // Force PNG conversion with potential quality loss for faster compilation
-      image(path, format: "png", ..args)
-    }
-  } else if profile == "screen" {
-    // Balanced compression for screen viewing
-    if path.ends-with(".svg") {
-      image(path, ..args)
-    } else {
-      // Convert to PNG for web-optimized compression
-      image(path, format: "png", ..args)
-    }
-  } else if profile == "print" {
-    // High quality for print - preserve original format and quality
-    image(path, ..args)
-  } else {
-    // Default profile - standard handling
-    image(path, ..args)
-  }
+  image(path, ..args)
 }
 
 // Format dates

@@ -13,7 +13,7 @@
 
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    numbering: "A",
+    numbering: "1",
   )
 
   // Render each appendix

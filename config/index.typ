@@ -8,6 +8,7 @@
 #import "abbreviations.typ": *
 #import "appendix.typ": *
 #import "contributions.typ": *
+#import "../utils/style.typ": colors
 
 // =================================
 // Automated Index System
@@ -19,49 +20,56 @@
 
 // Mark a term for inclusion in the index
 // Usage: #index-term("machine learning") or #index-term("machine learning", category: "AI")
-#let index-term(term, category: none, subterm: none) = {
-  locate(loc => {
-    let page-num = loc.page()
-
-    // Update index terms state
-    _index-terms.update(terms => {
-      if term in terms in terms {
-        terms.insert(term, (category: category, subterm: subterm, pages: ()))
-      }
-
-      // Add page reference if not already present
-      let current-term = terms.at(term)
-      if page-num not in current-term.pages {
-        current-term.pages.push(page-num)
-        terms.insert(term, current-term)
-      }
-
-      terms
-    })
-
-    // Update page references state for reverse lookup
-    _index-page-references.update(refs => {
-      if page-num not in refs {
-        refs.insert(page-num, ())
-      }
-      if term not in refs.at(page-num) {
-        refs.at(page-num).push(term)
-      }
-      refs
-    })
+// Registration retains supplied page values; it never invents their location.
+#let register-index-term(term, pages, category: none, subterm: none) = {
+  assert(
+    type(term) == str and term.trim() != "",
+    message: "Index term must be a nonempty string.",
+  )
+  assert(
+    subterm == none or (type(subterm) == str and subterm.trim() != ""),
+    message: "Index subterm must be a nonempty string.",
+  )
+  assert(
+    category == none or (type(category) == str and category.trim() != ""),
+    message: "Index category must be a nonempty string.",
+  )
+  _index-terms.update(terms => {
+    let current = terms.at(term, default: (
+      category: category,
+      subterm: none,
+      pages: (),
+      subentries: (:),
+    ))
+    if subterm == none {
+      current.pages = (current.pages + pages).dedup()
+    } else {
+      let existing = current.subentries.at(subterm, default: ())
+      current.subentries.insert(subterm, (existing + pages).dedup())
+    }
+    if category != none { current.category = category }
+    terms.insert(term, current)
+    terms
   })
+}
 
-  // Return invisible content to mark the location
+// Invisible marker at the actual document location, with a logical page label.
+#let index-term(term, category: none, subterm: none) = context {
+  let loc = here()
+  let pattern = loc.page-numbering()
+  let value = counter(page).get().first()
+  let page-label = if pattern == none or pattern == "1" { value } else {
+    numbering(pattern, value)
+  }
+  register-index-term(term, (page-label,), category: category, subterm: subterm)
   metadata((
     type: "index-term",
     term: term,
     category: category,
     subterm: subterm,
   ))
-  []
 }
 
-// Extract potential index terms from content using pattern matching
 #let extract-index-terms(content) = {
   let terms = ()
 
@@ -125,72 +133,43 @@
 
 // Auto-extract index terms from document content
 #let auto-extract-index(content, min-length: 3, exclude-words: ()) = {
-  let extracted = extract-index-terms(content)
-
-  // Filter by minimum length and exclude common words
-  let filtered = extracted.filter(term => (
-    term.len() >= min-length and lower(term) not in exclude-words
-  ))
-
-  // Add extracted terms to index
-  for term in filtered {
-    index-term(term, category: "auto-extracted")
-  }
-
-  filtered
+  panic(
+    "Automatic index extraction is unsupported. Mark actual locations with index-term(term), or supply explicit page references to optional-index-page(). extract-index-terms(string) provides suggestions only.",
+  )
 }
 
-// Get all index terms with their page references
-#let get-index-terms() = {
-  _index-terms.get()
-}
+// Data helpers require a context, supplied by the index-page renderer.
+#let get-index-terms() = { _index-terms.final() }
 
-// Get page references for a specific term
 #let get-term-references(term) = {
-  let terms = _index-terms.get()
-  if term in terms {
-    terms.at(term).pages.sorted()
-  } else {
-    ()
-  }
+  let data = get-index-terms().at(term, default: none)
+  if data == none { () } else { data.pages }
 }
 
-// Generate formatted page references (e.g., "15, 23-25, 30")
 #let format-page-references(pages) = {
-  if pages.len() == 0 {
-    return ""
+  if pages.len() == 0 { return "" }
+  if not pages.all(p => type(p) == int) {
+    return pages.dedup().map(str).join(", ")
   }
-
-  let sorted-pages = pages.sorted()
+  let sorted-pages = pages.sorted().dedup()
   let ranges = ()
-  let start = sorted-pages.at(0)
-  let prev = start
-
+  let start = sorted-pages.first()
+  let previous = start
   for page in sorted-pages.slice(1) {
-    if page == prev + 1 {
-      prev = page
-    } else {
-      if start == prev {
-        ranges.push(str(start))
-      } else {
-        ranges.push(str(start) + "-" + str(prev))
-      }
+    if page == previous + 1 { previous = page } else {
+      ranges.push(if start == previous { str(start) } else {
+        str(start) + "-" + str(previous)
+      })
       start = page
-      prev = page
+      previous = page
     }
   }
-
-  // Handle the last range
-  if start == prev {
-    ranges.push(str(start))
-  } else {
-    ranges.push(str(start) + "-" + str(prev))
-  }
-
+  ranges.push(if start == previous { str(start) } else {
+    str(start) + "-" + str(previous)
+  })
   ranges.join(", ")
 }
 
-// Generate index entry with formatted references
 #let generate-index-entry(term, pages, subterm: none, category: none) = {
   let formatted-pages = format-page-references(pages)
 
@@ -205,168 +184,116 @@
 #let generate-index(
   include-categories: true,
   include-subentries: true,
-  sort-by: "term", // "term" or "category"
+  sort-by: "term",
 ) = {
-  let terms = _index-terms.get()
-  let sorted-terms = ()
-
-  if sort-by == "category" {
-    // Group by category first
-    let by-category = (:)
-    for (term, data) in terms.pairs() {
-      let cat = data.category
-      if cat == none {
-        cat = "General"
-      }
-      if cat not in by-category {
-        by-category.insert(cat, ())
-      }
-      by-category.at(cat).push((term, data))
-    }
-
-    // Sort categories and terms within each category
-    for cat in by-category.keys().sorted() {
-      let cat-terms = by-category.at(cat).map(item => item.at(0)).sorted()
-      sorted-terms += cat-terms
-    }
-  } else {
-    // Sort alphabetically by term
-    sorted-terms = terms.keys().sorted()
-  }
-
-  // Generate the index structure
-  let index-data = (:)
-  for term in sorted-terms {
+  assert(
+    sort-by in ("term", "category"),
+    message: "Index sort-by must be term or category.",
+  )
+  let terms = get-index-terms()
+  let names = if sort-by == "category" {
+    terms
+      .keys()
+      .sorted(key: term => (
+        if terms.at(term).category == none { "General" } else {
+          terms.at(term).category
+        },
+        term,
+      ))
+  } else { terms.keys().sorted() }
+  let result = (:)
+  for term in names {
     let data = terms.at(term)
-    index-data.insert(term, data)
+    if not include-categories { data.category = none }
+    if not include-subentries { data.subentries = (:) }
+    result.insert(term, data)
   }
-
-  index-data
+  result
 }
 
-// Generate index page with automatic formatting
 #let generate-index-page(
   title: "Index",
   include-categories: true,
   include-statistics: true,
   columns: 2,
-) = {
-  set page(
-    margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
+  show-page-numbers: true,
+) = context {
+  assert(
+    type(columns) == int and columns >= 1 and columns <= 4,
+    message: "Index columns must be an integer from 1 to 4.",
   )
-
-  align(center)[
-    #text(size: 18pt, weight: "bold", fill: colors.primary)[
-      #title
-    ]
-  ]
-
+  set page(margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm))
+  heading(title, numbering: none)
   v(1cm)
-
-  let index-data = generate-index(include-categories: include-categories)
-
-  if index-data.len() == 0 {
-    text(fill: gray)[
-      *No Index Terms Found*
-
-      To populate the index automatically:
-
-      1. *Mark Terms*: Use `#index-term("term name")` throughout your document
-      2. *Auto-extraction*: Call `auto-extract-index(content)` on your content
-      3. *Categories*: Use `#index-term("term", category: "Category Name")` for organization
-
-      *Example:*
-      ```typst
-      The #index-term("machine learning") algorithm uses #index-term("neural networks", category: "AI").
-      ```
-    ]
+  let entries = generate-index(include-categories: include-categories)
+  if entries.len() == 0 {
+    [No index terms defined. Mark actual locations with index-term(term), or supply explicit manual page references.]
   } else {
-    // Group terms by first letter for better organization
-    let grouped-terms = (:)
-    for term in index-data.keys().sorted() {
-      let first-letter = upper(term.at(0))
-      if first-letter not in grouped-terms {
-        grouped-terms.insert(first-letter, ())
-      }
-      grouped-terms.at(first-letter).push(term)
-    }
-
-    // Display index in columns
-    if columns == 1 {
-      // Single column layout
-      for letter in grouped-terms.keys().sorted() {
-        heading(letter, level: 3, numbering: none)
-        for term in grouped-terms.at(letter) {
-          let data = index-data.at(term)
-          let formatted-refs = format-page-references(data.pages)
-          block[*#term*#if data.subterm != none [, #data.subterm] — #formatted-refs]
-          v(0.3em)
+    let body = {
+      let previous-letter = none
+      for (term, data) in entries.pairs() {
+        let letter = upper(term.first())
+        if letter != previous-letter {
+          heading(letter, level: 2, numbering: none)
+          previous-letter = letter
         }
-        v(0.5em)
-      }
-    } else {
-      // Multi-column layout
-      columns(columns, gutter: 1em)[
-        for letter in grouped-terms.keys().sorted() {
-        heading(letter, level: 3, numbering: none)
-        for term in grouped-terms.at(letter) {
-        let data = index-data.at(term)
-        let formatted-refs = format-page-references(data.pages)
-        block[*#term*#if data.subterm != none [, #data.subterm] — #formatted-refs]
+        block({
+          text(weight: "bold", term)
+          if show-page-numbers and data.pages.len() > 0 {
+            [ — #format-page-references(data.pages)]
+          }
+          for subterm in data.subentries.keys().sorted() {
+            linebreak()
+            h(1em)
+            subterm
+            if show-page-numbers {
+              [ — #format-page-references(data.subentries.at(subterm))]
+            }
+          }
+        })
         v(0.3em)
-        }
-        v(0.5em)
-        }
-      ]
+      }
     }
-
-    // Statistics
+    if columns == 1 { body } else { std.columns(columns, gutter: 1em, body) }
     if include-statistics {
       v(1cm)
-      let total-terms = index-data.len()
-      let total-references = index-data
+      let count = entries
         .values()
-        .map(data => data.pages.len())
-        .sum()
-      let categories = index-data
-        .values()
-        .map(data => data.category)
-        .filter(cat => cat != none)
-        .dedup()
-        .len()
-
-      text(size: 10pt, fill: gray)[
-        *Index Statistics:* #total-terms unique terms, #total-references total references, #categories categories
-      ]
+        .map(data => (
+          data.pages.len()
+            + data.subentries.values().map(p => p.len()).sum(default: 0)
+        ))
+        .sum(default: 0)
+      text(
+        size: 10pt,
+        fill: gray,
+      )[Index Statistics: #entries.len() unique terms, #count page references.]
     }
   }
 }
 
-// Validate index terms and references
 #let validate-index() = {
-  let terms = _index-terms.get()
-  let errors = ()
+  let terms = get-index-terms()
   let warnings = ()
-
-  // Check for empty terms
   for (term, data) in terms.pairs() {
-    if term.trim() == "" {
-      errors.push("Empty index term found")
-    }
-    if data.pages.len() == 0 {
-      warnings.push("Index term '" + term + "' has no page references")
+    if data.pages.len() == 0 and data.subentries.len() == 0 {
+      warnings.push("Index term has no page references: " + term)
     }
   }
-
   (
-    errors: errors,
+    errors: (),
     warnings: warnings,
     total-terms: terms.len(),
-    total-references: terms.values().map(data => data.pages.len()).sum(),
+    total-references: terms
+      .values()
+      .map(data => (
+        data.pages.len()
+          + data.subentries.values().map(p => p.len()).sum(default: 0)
+      ))
+      .sum(default: 0),
   )
 }
 
-// Get index statistics
 #let get-index-stats() = {
   let validation = validate-index()
   (

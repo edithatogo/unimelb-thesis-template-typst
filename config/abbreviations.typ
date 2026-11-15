@@ -70,18 +70,14 @@
 }
 
 #let abbreviation-table() = {
-  if abbreviations.len() == 0 {
-    none
-  } else {
+  if abbreviations.len() > 0 {
     table(
       columns: 3,
       column-gutter: 1em,
-      [*Term*, *Abbreviation*, *Definition*],
-      ..abbreviations.map(entry => [
-        entry.key,
-        entry.short,
-        entry.long
-      ]),
+      table.header([*Term*], [*Abbreviation*], [*Definition*]),
+      ..abbreviations
+        .map(entry => (entry.key, entry.short, entry.long))
+        .flatten(),
     )
   }
 }
@@ -116,31 +112,25 @@
 #let _abbrev-used = state("abbrev-used", (:))
 
 // Auto-expand abbreviation on first use (citation style)
-#let abbrev(short, expand: true) = {
+#let abbrev(short, expand: true) = context {
   if expand {
-    locate(loc => {
-      let used = _abbrev-used.at(loc)
-      if short not in used {
-        // First use - expand full form
+    let used = _abbrev-used.get()
+    if short not in used {
+      let entry = abbreviations.find(e => e.short == short)
+      if entry != none {
         _abbrev-used.update(used => used + ((short): true))
-        let entry = abbreviations.find(e => e.short == short)
-        if entry != none {
-          [#entry.key (#entry.short)]
-        } else {
-          // Unknown abbreviation - show as-is with warning
-          text(fill: red, weight: "bold")[#short (?) ]
-        }
+        [#entry.key (#entry.short)]
       } else {
-        // Subsequent use - show only abbreviation
-        [#short]
+        text(fill: red, weight: "bold")[#short (?) ]
       }
-    })
+    } else {
+      short
+    }
   } else {
-    [#short]
+    short
   }
 }
 
-// Get abbreviation with fallback
 #let get-abbrev(short, fallback: none) = {
   let entry = abbreviations.find(e => e.short == short)
   if entry != none {

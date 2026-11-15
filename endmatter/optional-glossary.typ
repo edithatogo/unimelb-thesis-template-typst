@@ -190,10 +190,12 @@
         column-gutter: 1em,
         align: (left, left),
         table.header([*Abbreviation*], [*Full Term and Definition*]),
-        ..sorted-by-short.map(entry => (
-          text(weight: "bold")[#entry.short],
-          [#entry.key: #entry.long],
-        )),
+        ..sorted-by-short
+          .map(entry => (
+            text(weight: "bold")[#entry.short],
+            [#entry.key: #entry.long],
+          ))
+          .flatten(),
       )
 
       // Statistics

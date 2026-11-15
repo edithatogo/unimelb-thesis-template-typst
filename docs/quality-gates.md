@@ -54,6 +54,39 @@ tool identities, source/fixture/output hashes and failure diagnostics. These
 checks establish the declared rendered-text behavior, not complete navigation,
 accessibility, identity projection or institutional policy conformance.
 
+The [COR-02 navigation corpus](../tests/rendered/cor02/README.md) then checks
+three synthetic PDFs with independent heading, page-label and link expectations.
+It parses native qpdf JSON and Poppler bounding boxes to match contents rows and
+bookmarks to their visible destinations, including headings on the same page.
+Direct appendix specimens exercise compatibility and continuous Arabic page
+labels. These cases retain native sidecars, scoped oracle reports and the same
+60-second command budget. See the [repair boundary](cor02-navigation.md) for
+the reproduced defects and the remaining glossary, index and policy acceptance.
+
+The same runner now includes the following bounded rendered checks. Every case
+retains the input, fixture, tool and output digests; expected rejections and
+failed privacy scans remain distinguishable from clean PDF results.
+
+| Corpus | Cases | Checked behavior |
+| --- | ---: | --- |
+| [Configuration](cor03-configuration.md) | 34 | Resolved legacy options, typed reserved CLI values, bibliography sources/styles, declaration content and logo rejection |
+| [Terms](../tests/rendered/terms/README.md) | 25 | Abbreviation/glossary first use, repeated terms, native page references, supplied index entries and explicit unsupported-extraction diagnostics |
+| [Blind review](../tests/rendered/cor04/README.md) | 10 | Structured identity projection, identified controls and visible/native residual-identity failures |
+| [Native image inputs](native-images.md) | 20 | PNG pixels, original JPEG encoding/bytes, SVG vectors, native paths, byte inputs and alternative text under four profiles |
+| [Layout and order](layout-order.md) | 9 | Bibliography order/title, Roman/Arabic pagination, duplex behavior, native destinations and controlled A4/30 mm geometry |
+
+These corpora supplement the 14 COR-01 and three COR-02 cases for 115 regression
+cases. The terms corpus contains 17 validated PDFs and eight required diagnostic
+rejections. The configuration corpus contains 23 validated PDFs and eleven
+required diagnostic rejections. Blind-review assertions deliberately retain
+three authored-residual PDFs whose identity scans **fail**; they are evidence
+that residual identifiers are detected, not reviewer-ready output.
+
+These checks do not complete the shared five-layer adapter contract, all
+conditional submission policy, arbitrary-content anonymity, PDF/UA or PDF/A,
+or genuine human accessibility evaluation. Their source and receiving revision
+still need the applicable hosted results before a release claim.
+
 The shared Typst workflow additionally checks formatting and compiles
 the thesis under all four profiles: default, draft, screen and print. Its pinned
 matrix now runs from `quality.yml`. The former `ci-cd.yml` controller was

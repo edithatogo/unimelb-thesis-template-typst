@@ -9,6 +9,9 @@
 )
 
 #let resolve(base, overrides: (:)) = {
+  if type(base) != dictionary or type(overrides) != dictionary {
+    panic("Metadata and metadata_overrides must be dictionaries.")
+  }
   let pick = (key, fallback) => {
     let override = overrides.at(key, default: none)
     if override != none { override } else { fallback }
@@ -37,6 +40,7 @@
       "acknowledgements",
       default: none,
     )),
+    declaration: pick("declaration", base.at("declaration", default: none)),
     preface: pick("preface", base.at("preface", default: none)),
     bibliography_style: pick("bibliography_style", base.at(
       "bibliography_style",
@@ -99,6 +103,32 @@
       default: (:),
     )),
   )
+
+  for key in overrides.keys() {
+    if key not in meta {
+      panic("Unknown metadata_overrides field '" + key + "'.")
+    }
+  }
+  // Validate supplied boolean layers before resolving them. The legacy
+  // override precedence and none-as-absent behavior are retained.
+  for layer in (base, overrides) {
+    for field in (
+      "include_bibliography",
+      "include_glossary",
+      "include_abbreviations",
+      "include_index",
+      "includes_publications",
+    ) {
+      let value = layer.at(field, default: none)
+      if value != none and type(value) != bool {
+        panic("Invalid metadata field '" + field + "': expected a boolean.")
+      }
+    }
+    let custom = layer.at("declaration", default: none)
+    if custom != none and type(custom) != content and type(custom) != str {
+      panic("Invalid declaration: expected content, a string or none.")
+    }
+  }
 
   for field in required-fields {
     if meta.at(field, default: none) == none {

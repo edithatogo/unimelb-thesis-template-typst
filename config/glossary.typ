@@ -70,43 +70,63 @@
 // State for tracking extracted terms and their page references
 #let _extracted-terms = state("extracted-terms", (:))
 #let _term-page-references = state("term-page-references", (:))
+#let _glossary-used = state("glossary-used", (:))
+#let native-glossary-link = std.link
 
-// Mark a term for automatic glossary inclusion
-// Usage: #glossary-term("Machine Learning", "A method of data analysis...")
-#let glossary-term(term, definition, category: "General", related: ()) = {
-  locate(loc => {
-    // Add to extracted terms if not already present
-    let current-extracted = _extracted-terms.at(loc)
-    if term not in current-extracted {
-      let entry = (
-        term: term,
-        definition: definition,
-        category: category,
-        related: related,
-        auto-extracted: true,
-      )
-      _extracted-terms.update(current-extracted + ((term): entry))
-
-      // Track page reference
-      let current-pages = _term-page-references.at(loc)
-      let page-num = loc.page()
-      if term not in current-pages {
-        _term-page-references.update(current-pages + ((term): (page-num,)))
-      } else if page-num not in current-pages.at(term) {
-        let existing-pages = current-pages.at(term)
-        _term-page-references.update(
-          current-pages + ((term): existing-pages + (page-num,)),
-        )
-      }
-    }
-
-    // Return the term with glossary link
-    link(label("glossary-" + term))[#term]
+// Call from a contextual renderer; page counters are logical, not physical.
+#let record-glossary-page(term) = {
+  let loc = here()
+  let pattern = loc.page-numbering()
+  let page-number = counter(page).get().first()
+  let page-label = if pattern == none or pattern == "1" { page-number } else {
+    numbering(pattern, page-number)
+  }
+  _term-page-references.update(references => {
+    let pages = references.at(term, default: ())
+    if page-label not in pages { pages.push(page-label) }
+    references.insert(term, pages)
+    references
   })
 }
 
-// Extract technical terms from text content (basic implementation)
-// This function can be enhanced with more sophisticated NLP-like processing
+// Mark a term for automatic glossary inclusion
+// Usage: #glossary-term("Machine Learning", "A method of data analysis...")
+#let glossary-term(
+  term,
+  definition,
+  category: "General",
+  related: (),
+) = context {
+  assert(
+    type(term) == str and term.trim() != "",
+    message: "Glossary term must be a nonempty string.",
+  )
+  assert(
+    type(definition) == str and definition.trim() != "",
+    message: "Glossary definition must be a nonempty string.",
+  )
+  let current = _extracted-terms.get()
+  if term in current {
+    assert(
+      current.at(term).definition == definition,
+      message: "Conflicting definitions for glossary term: " + term,
+    )
+  }
+  _extracted-terms.update(terms => {
+    let entry = (
+      term: term,
+      definition: definition,
+      category: category,
+      related: related,
+      auto-extracted: true,
+    )
+    if term not in terms { terms.insert(term, entry) }
+    terms
+  })
+  record-glossary-page(term)
+  native-glossary-link(label("glossary-" + term))[#term]
+}
+
 #let extract-technical-terms(text, min-length: 3, max-length: 50) = {
   // Simple pattern-based extraction (can be enhanced)
   // Look for capitalized words, technical patterns, etc.
@@ -136,68 +156,43 @@
 
 // Auto-extract terms from a block of content
 #let auto-extract-glossary(content, category: "Auto-extracted") = {
-  locate(loc => {
-    // Convert content to string for analysis (limited capability in Typst)
-    // This is a simplified approach - in practice, users would need to manually
-    // identify terms they want in the glossary
-
-    // For now, we'll provide a framework that users can extend
-    // In a more advanced implementation, this could analyze the content string
-
-    [#content] // Return content unchanged, but could trigger extraction
-  })
+  panic(
+    "Automatic glossary extraction is unsupported. Mark terms with glossary-term(term, definition), then call generate-glossary-page().",
+  )
 }
 
-// Get all extracted terms with their page references
+// Data helpers require context supplied by their caller.
 #let get-extracted-glossary() = {
-  locate(loc => {
-    let extracted = _extracted-terms.at(loc)
-    let pages = _term-page-references.at(loc)
-
-    // Merge page references into extracted terms
-    for term in extracted.keys() {
-      if term in pages {
-        let entry = extracted.at(term)
-        entry.insert("page-references", pages.at(term).sorted())
-        extracted.insert(term, entry)
-      }
-    }
-
-    extracted
-  })
+  let extracted = _extracted-terms.final()
+  let pages = _term-page-references.final()
+  for term in extracted.keys() {
+    let entry = extracted.at(term)
+    entry.insert("page-references", pages.at(term, default: ()))
+    extracted.insert(term, entry)
+  }
+  extracted
 }
 
-// Generate comprehensive glossary including both manual and auto-extracted terms
 #let generate-full-glossary(
   include-auto-extracted: true,
   include-page-refs: true,
 ) = {
-  locate(loc => {
-    let manual-terms = glossary-entries
-    let auto-terms = if include-auto-extracted {
-      get-extracted-glossary()
-    } else { (:) }
-
-    // Combine and deduplicate (manual takes precedence)
-    let all-terms = (:)
-    for entry in manual-terms {
-      all-terms.insert(entry.term, entry)
+  let all-terms = (:)
+  let pages = _term-page-references.final()
+  for entry in glossary-entries {
+    if include-page-refs {
+      entry.insert("page-references", pages.at(entry.term, default: ()))
     }
-
-    for (term, entry) in auto-terms {
-      if term not in all-terms {
-        all-terms.insert(term, entry)
-      }
+    all-terms.insert(entry.term, entry)
+  }
+  if include-auto-extracted {
+    for (term, entry) in get-extracted-glossary().pairs() {
+      if term not in all-terms { all-terms.insert(term, entry) }
     }
-
-    // Convert to sorted array
-    let sorted-terms = all-terms.values().sorted(key: e => e.term)
-
-    sorted-terms
-  })
+  }
+  all-terms.values().sorted(key: e => e.term)
 }
 
-// Validate glossary structure
 #let validate-glossary() = {
   let errors = ()
   let warnings = ()
@@ -239,53 +234,24 @@
 }
 
 // Get glossary term with auto-expansion on first use
-#let glossary(term, link: true, expand: true, track-pages: true) = {
+#let glossary(term, link: true, expand: true, track-pages: true) = context {
   let entry = glossary-entries.find(e => e.term == term)
   if entry == none {
-    // Unknown term - show with warning
     text(fill: red, weight: "bold")[#term (?) ]
   } else {
-    if expand {
-      locate(loc => {
-        let used = _glossary-used.at(loc)
-        if term not in used {
-          // First use - expand with definition
-          _glossary-used.update(used => used + ((term): true))
-
-          // Track page reference if enabled
-          if track-pages {
-            let current-pages = _term-page-references.at(loc)
-            let page-num = loc.page()
-            if term not in current-pages {
-              _term-page-references.update(
-                current-pages + ((term): (page-num,)),
-              )
-            } else if page-num not in current-pages.at(term) {
-              let existing-pages = current-pages.at(term)
-              _term-page-references.update(
-                current-pages + ((term): existing-pages + (page-num,)),
-              )
-            }
-          }
-        }
-
-        if link {
-          link(label("glossary-" + term))[#entry.term]
-        } else {
-          [#entry.term]
-        }
-      })
-    } else {
-      if link {
-        link(label("glossary-" + term))[#entry.term]
-      } else {
-        [#entry.term]
-      }
+    let used = _glossary-used.get()
+    let first-use = expand and term not in used
+    if first-use { _glossary-used.update(used => used + ((term): true)) }
+    if track-pages { record-glossary-page(term) }
+    let displayed = if first-use { [#entry.term (#entry.definition)] } else {
+      [#entry.term]
     }
+    if link {
+      native-glossary-link(label("glossary-" + term), displayed)
+    } else { displayed }
   }
 }
 
-// Get glossary entry by term
 #let get-glossary-term(term) = {
   glossary-entries.find(e => e.term == term)
 }
@@ -592,155 +558,105 @@
 }
 
 // Generate automated glossary page with page references
+#let generate-glossary-entry(entry, include-page-refs: true) = {
+  [#block({
+      text(weight: "bold", size: 11pt, entry.term)
+      [: #entry.definition]
+      let pages = entry.at("page-references", default: ())
+      if include-page-refs and pages.len() > 0 {
+        text(style: "italic", size: 9pt)[ (pp. #pages.map(str).join(", "))]
+      }
+      let related = entry.at("related", default: ())
+      if related.len() > 0 {
+        linebreak()
+        text(fill: colors.secondary, size: 9pt)[See also: #related.join(", ")]
+      }
+    })#label("glossary-" + entry.term)]
+}
+
 #let generate-glossary-page(
   title: "Glossary",
   include-auto-extracted: true,
   include-page-refs: true,
   include-categories: true,
   sort-by: "term",
-  // Backwards-compatible optional flags used by higher-level pages
   include-abbreviations: true,
   include-manual-glossary: true,
   include-extracted-terms: true,
   show-statistics: false,
   show-validation: false,
-) = {
-  locate(loc => {
-    // Get all glossary terms
-    let all-terms = generate-full-glossary(
-      include-auto-extracted: include-auto-extracted,
-      include-page-refs: include-page-refs,
-    )
-
-    // Sort terms
-    let sorted-terms = all-terms.sorted(key: e => {
-      if sort-by == "term" { e.term } else if sort-by == "category" {
-        e.at("category", default: "ZZZ")
-      } else { e.term }
-    })
-
-    // Create page
-    set page(
-      margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-    )
-
-    // Title
-    align(center)[
-      #text(size: 18pt, weight: "bold", fill: colors.primary)[#title]
-    ]
-
-    v(1cm)
-
-    // Optional validation display
-    if show-validation {
-      let vres = validate-glossary()
-      if vres.errors.len() > 0 {
-        text(
-          fill: red,
-          weight: "bold",
-        )["Glossary validation failed. Please fix the following errors:\n"]
-        for e in vres.errors {
-          [- #e "\n"]
-        }
-        return
-      }
+) = context {
+  let terms = (:)
+  let pages = _term-page-references.final()
+  if include-extracted-terms and include-auto-extracted {
+    terms = get-extracted-glossary()
+  }
+  if include-manual-glossary {
+    for entry in glossary-entries {
+      entry.insert("page-references", pages.at(entry.term, default: ()))
+      terms.insert(entry.term, entry)
     }
-
-    // Optional statistics display
-    if show-statistics {
-      let stats = get-combined-stats()
-      text(size: 10pt, fill: gray)[
-        *Statistics:* #stats.total-terms total terms; abbreviations: #stats.abbreviations.total; glossary terms: #stats.glossary.total
-      ]
-      v(0.5cm)
-    }
-
-    // Group by category if requested
-    if include-categories {
-      let categories = sorted-terms
-        .map(e => e.at("category", default: "General"))
-        .dedup()
-        .sorted()
-
-      for category in categories {
-        let category-terms = sorted-terms.filter(e => (
-          e.at("category", default: "General") == category
+  }
+  if include-abbreviations {
+    import "abbreviations.typ": abbreviations
+    for entry in abbreviations {
+      if entry.key not in terms {
+        terms.insert(entry.key, (
+          term: entry.key,
+          definition: entry.long,
+          category: "Abbreviations",
+          related: (),
         ))
-
-        if category-terms.len() > 0 {
-          heading(category, level: 2, numbering: none)
-          v(0.5cm)
-
-          for entry in category-terms {
-            generate-glossary-entry(entry, include-page-refs: include-page-refs)
-            v(0.3em)
-          }
-
-          v(0.5cm)
-        }
       }
-    } else {
-      // Single alphabetical list
-      for entry in sorted-terms {
+    }
+  }
+  assert(
+    sort-by in ("term", "category"),
+    message: "Glossary sort-by must be term or category.",
+  )
+  let entries = terms.values().sorted(key: e => e.term)
+  set page(margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm))
+  heading(title, numbering: none)
+  v(1cm)
+  if show-validation {
+    let validation = validate-glossary()
+    assert(
+      validation.errors.len() == 0,
+      message: "Glossary validation failed: " + validation.errors.join("; "),
+    )
+  }
+  if entries.len() == 0 { [No glossary terms defined.] }
+  if include-categories or sort-by == "category" {
+    let categories = entries
+      .map(e => e.at("category", default: "General"))
+      .dedup()
+      .sorted()
+    for category in categories {
+      if include-categories { heading(category, level: 2, numbering: none) }
+      for entry in entries.filter(e => (
+        e.at("category", default: "General") == category
+      )) {
         generate-glossary-entry(entry, include-page-refs: include-page-refs)
         v(0.3em)
       }
     }
-  })
-}
-
-// Generate individual glossary entry with formatting
-#let generate-glossary-entry(entry, include-page-refs: true) = {
-  // Create label for cross-referencing
-  label("glossary-" + entry.term)
-
-  block[
-    // Term in bold
-    text(weight: "bold", size: 11pt)[#entry.term]
-
-    // Definition
-    [: #entry.definition]
-
-    // Page references
-    if include-page-refs and "page-references" in entry {
-    let pages = entry.page-references
-    if pages.len() > 0 {
-    text(style: "italic", size: 9pt)[ (pp. #pages.map(str).join(", ")) ]
+  } else {
+    for entry in entries {
+      generate-glossary-entry(entry, include-page-refs: include-page-refs)
+      v(0.3em)
     }
-    }
-
-    // Related terms
-    if "related" in entry and entry.related.len() > 0 {
-    text(fill: colors.secondary, size: 9pt)[
-    \ *See also:* #entry.related.join(", ")
-    ]
-    }
-  ]
-}
-
-// Enhanced term extraction with context awareness
-#let extract-terms-from-content(content, context-patterns: ()) = {
-  // This is a framework for term extraction
-  // In practice, users would call this on specific content blocks
-
-  // Default patterns for technical terms
-  let default-patterns = (
-    regex("\\b[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)+\\b"), // Multi-word capitalized terms
-    regex("\\b[A-Z]{2,}\\b"), // Acronyms
-    regex("\\b[a-z]+(?:-[a-z]+)+\\b"), // Hyphenated technical terms
-  )
-
-  let patterns = if context-patterns.len() > 0 { context-patterns } else {
-    default-patterns
   }
-
-  // Note: Actual extraction would require content to be processed
-  // This provides the framework for users to implement custom extraction
-
-  (:) // Return empty dict as placeholder
+  if show-statistics {
+    text(size: 10pt)[Glossary Statistics: #entries.len() terms.]
+  }
 }
 
-// Batch add terms to glossary from a dictionary
+#let extract-terms-from-content(content, context-patterns: ()) = {
+  panic(
+    "Automatic glossary extraction is unsupported. Use explicit glossary-term(term, definition) markers; extract-technical-terms(string) provides suggestions only.",
+  )
+}
+
 #let add-glossary-terms(new-terms) = {
   for (term, data) in new-terms {
     if type(data) == dictionary and "definition" in data {
@@ -757,7 +673,7 @@
 }
 
 // Create glossary index page
-#let generate-glossary-index() = {
+#let generate-glossary-index() = context {
   set page(
     margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
   )
@@ -782,13 +698,13 @@
     // Column 1
     ..for i in range(0, calc.min(terms-per-column, all-terms.len())) {
       let entry = all-terms.at(i)
-      ([#link(label("glossary-" + entry.term))[#entry.term]],)
+      ([#native-glossary-link(label("glossary-" + entry.term))[#entry.term]],)
     },
 
     // Column 2
     ..for i in range(terms-per-column, all-terms.len()) {
       let entry = all-terms.at(i)
-      ([#link(label("glossary-" + entry.term))[#entry.term]],)
+      ([#native-glossary-link(label("glossary-" + entry.term))[#entry.term]],)
     }
   )
 }

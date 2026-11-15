@@ -2,7 +2,9 @@
 // Document Layout Configuration
 // =================================
 
-#import "../utils/style.typ": thesis-style
+#import "../utils/style.typ": make-thesis-style, thesis-style
+#import "../config/options.typ": resolve-double-sided
+#import "../config/appendix.typ": appendix-numbering
 
 #let resolve-style(ctx) = {
   if ctx != none {
@@ -151,20 +153,20 @@
 // Main Matter Layout
 // =================================
 
-#let main-matter-layout(ctx, title: none, double-sided: false, body) = {
+#let main-matter-layout(ctx, title: none, double-sided: auto, body) = {
   let style = resolve-style(ctx)
   let locale = resolve-locale(ctx)
   let profile = resolve-profile(ctx)
 
   // Profile-specific page settings
-  let is-double-sided = if profile == "print" { true } else { false }
+  let is-double-sided = resolve-double-sided(double-sided, profile: profile)
   let page-margins = if profile == "screen" {
     // Optimized margins for screen reading
     (
       top: 2cm,
       bottom: 2cm,
-      left: 2.5cm,
-      right: 2.5cm,
+      left: 3cm,
+      right: 3cm,
     )
   } else if is-double-sided {
     (
@@ -241,7 +243,7 @@
     set text(weight: "bold", fill: style.colors.primary)
     if it.level == 1 {
       if is-double-sided {
-        pagebreak(to: "odd")
+        pagebreak(weak: true, to: "odd")
       } else {
         pagebreak(weak: true)
       }
@@ -304,6 +306,7 @@
     },
   )
 
+  pagebreak(weak: true, to: if is-double-sided { "odd" } else { none })
   counter(page).update(1)
 
   body
@@ -319,7 +322,7 @@
   let profile = resolve-profile(ctx)
 
   counter(heading).update(0)
-  set heading(numbering: "A.1.1")
+  set heading(numbering: appendix-numbering)
 
   // Profile-specific page settings for appendix
   let page-margins = if profile == "screen" {
@@ -327,8 +330,8 @@
     (
       top: 2cm,
       bottom: 2cm,
-      left: 2.5cm,
-      right: 2.5cm,
+      left: 3cm,
+      right: 3cm,
     )
   } else {
     (
@@ -342,6 +345,7 @@
   set page(
     paper: "a4",
     margin: page-margins,
+    numbering: "1",
     background: if profile == "draft" {
       // Enhanced draft watermark
       {
@@ -376,31 +380,22 @@
     } else { none },
   )
 
+  // Retain the native heading, its counter and its navigation destination.
   show heading: it => {
-    let bookmarked = heading(it.body, level: it.level, bookmark: true)
     set text(weight: "bold", fill: style.colors.primary)
     if it.level == 1 {
       pagebreak(weak: true)
-      v(style.spacing.heading-above.at(1, default: 2em))
-      // Build a safe plain string for the appendix heading to avoid
-      // passing complex nodes/arrays into `text()` which can sometimes
-      // serialize into the PDF text layer in edge cases.
-      let appendix_label = "Appendix " + counter(heading).display()
-      let appendix_title = if it.body != none { str(it.body) } else { "" }
-      let heading_text = if appendix_title != "" {
-        appendix_label + ": " + appendix_title
-      } else { appendix_label }
-      // The bookmarked heading is created above, so the bookmark will be generated
-      text(size: 16pt, heading_text)
-      v(style.spacing.heading-below.at(1, default: 1em))
+      v(style.spacing.heading-above.at("1", default: 2em))
+      text(size: 16pt, it)
+      v(style.spacing.heading-below.at("1", default: 1em))
     } else if it.level == 2 {
-      v(style.spacing.heading-above.at(2, default: 1.5em))
-      text(size: 14pt, bookmarked)
-      v(style.spacing.heading-below.at(2, default: 0.8em))
+      v(style.spacing.heading-above.at("2", default: 1.5em))
+      text(size: 14pt, it)
+      v(style.spacing.heading-below.at("2", default: 0.8em))
     } else {
-      v(style.spacing.heading-above.at(3, default: 1em))
-      text(size: 12pt, bookmarked)
-      v(style.spacing.heading-below.at(3, default: 0.5em))
+      v(style.spacing.heading-above.at("3", default: 1em))
+      text(size: 12pt, it)
+      v(style.spacing.heading-below.at("3", default: 0.5em))
     }
   }
 
