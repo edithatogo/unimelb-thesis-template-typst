@@ -1,3 +1,5 @@
+#import "optional.typ": validate-creative, validate-layer
+
 #let required-fields = (
   "title",
   "author",
@@ -12,6 +14,9 @@
   if type(base) != dictionary or type(overrides) != dictionary {
     panic("Metadata and metadata_overrides must be dictionaries.")
   }
+  // Validate every supplied public-record layer before applying overrides.
+  validate-layer(base)
+  validate-layer(overrides)
   let pick = (key, fallback) => {
     let override = overrides.at(key, default: none)
     if override != none { override } else { fallback }
@@ -77,6 +82,13 @@
       default: (),
     )),
     publications: pick("publications", base.at("publications", default: ())),
+    assistance: pick("assistance", base.at("assistance", default: ())),
+    prior_work: pick("prior_work", base.at("prior_work", default: ())),
+    funding: pick("funding", base.at("funding", default: ())),
+    creative_outputs: pick("creative_outputs", base.at(
+      "creative_outputs",
+      default: (),
+    )),
     appendices: pick("appendices", base.at("appendices", default: ())),
     include_bibliography: pick("include_bibliography", base.at(
       "include_bibliography",
@@ -129,6 +141,12 @@
       panic("Invalid declaration: expected content, a string or none.")
     }
   }
+
+  validate-creative(
+    meta.creative_outputs,
+    meta.percentage_dissertation,
+    meta.percentage_creative,
+  )
 
   for field in required-fields {
     if meta.at(field, default: none) == none {

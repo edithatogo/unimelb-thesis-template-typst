@@ -119,7 +119,7 @@
   if entries.len() == 0 {
     none
   } else {
-    let columns = if show_links { (3fr, auto, auto, auto) } else {
+    let columns = if show_links { (3fr, auto, auto, 3fr) } else {
       (3fr, auto, auto)
     }
     let header = if show_links {
@@ -162,7 +162,11 @@
             let appendix-cell = table.cell(
               align: top + left,
               breakable: true,
-            )[#publication-appendix-link(v)]
+            )[
+              #set text(size: 9pt, hyphenate: true)
+              #set par(justify: false, leading: 1.2em, spacing: 0.3em)
+              #publication-appendix-link(v)
+            ]
             (
               citation-cell,
               status-cell,

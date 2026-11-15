@@ -31,51 +31,58 @@
   }
 }
 
-#let ai-usage-note(ai_entries) = {
-  if ai_entries == none or ai_entries.len() == 0 {
-    none
-  } else {
-    heading(level: 3, "AI / Assistance Log")
-    v(0.5em)
-    // Confidentiality warning
-    block(fill: rgb("#fff3cd"), stroke: rgb("#ffeeba"), inset: 1em)[
-      *Confidentiality Notice:* AI-generated content and prompts may contain sensitive information. Ensure compliance with institutional policies on data privacy and intellectual property before sharing this log.
-    ]
-    v(0.5em)
-    // Each entry expected to be a dictionary with keys: tool, date, purpose, prompt, output
-    for e in ai_entries {
-      let tool = if type(e) == dictionary { e.at("tool", default: "") } else {
-        e.at(0, default: "")
-      }
-      let date = if type(e) == dictionary { e.at("date", default: "") } else {
-        e.at(1, default: "")
-      }
-      let purpose = if type(e) == dictionary {
-        e.at("purpose", default: "")
-      } else { e.at(2, default: "") }
-      let prompt = if type(e) == dictionary {
-        e.at("prompt", default: "")
-      } else { e.at(3, default: "") }
-      let output_ref = if type(e) == dictionary {
-        e.at("output_ref", default: "")
-      } else { e.at(4, default: "") }
+// The legacy helper accepted private prompts and output logs. Empty calls stay
+// harmless; nonempty data must be migrated explicitly to public descriptions.
+#import "../config/optional.typ": private-log-migration, validate-records
 
-      paragraph[bold(tool + " — " + date)]
-      v(0.25em)
-      paragraph[purpose]
-      v(0.25em)
-      paragraph["Prompt: " + prompt]
-      if output_ref != "" {
-        v(0.25em)
-        paragraph["Output reference: " + output_ref]
+#let ai-usage-note(ai_entries) = {
+  if ai_entries != none and ai_entries != () {
+    panic(private-log-migration)
+  }
+}
+
+#let assistance-section(entries) = {
+  validate-records("assistance", entries)
+  if entries.len() > 0 {
+    heading(level: 2, "Assistance")
+    let labels = (
+      human: "Human assistance",
+      digital: "Digital assistance",
+      ai: "AI assistance",
+    )
+    for entry in entries {
+      par[#strong(labels.at(entry.kind)): #entry.description]
+    }
+    v(1em)
+  }
+}
+
+#let prior-work-section(entries) = {
+  validate-records("prior_work", entries)
+  if entries.len() > 0 {
+    heading(level: 2, "Prior Work")
+    for entry in entries {
+      par(entry.description)
+      if "degree" in entry { par[Degree: #entry.degree] }
+      if "institution" in entry { par[Institution: #entry.institution] }
+      v(0.5em)
+    }
+    v(1em)
+  }
+}
+
+#let creative-output-section(entries) = {
+  validate-records("creative_outputs", entries)
+  if entries.len() > 0 {
+    heading(level: 2, "Creative Outputs")
+    for entry in entries {
+      par(entry.description)
+      if "proportion" in entry {
+        par[Declared record proportion: #entry.proportion%.]
       }
       v(0.5em)
     }
-    // Citation example
-    v(0.5em)
-    block(fill: rgb("#d1ecf1"), stroke: rgb("#bee5eb"), inset: 1em)[
-      *Citation Example:* When referencing AI assistance in your thesis, use: "AI assistance provided by [Tool Name] on [Date] for [Purpose]."
-    ]
+    v(1em)
   }
 }
 
@@ -85,6 +92,10 @@
   } else {
     heading(level: 2, "Publication Register")
     v(0.5em)
-    publication-status-table(entries)
+    // Preserve supplied appendix references in the single real register.
+    publication-status-table(
+      entries,
+      show_links: publication-appendix-entries(entries).len() > 0,
+    )
   }
 }

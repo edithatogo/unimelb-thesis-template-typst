@@ -39,7 +39,11 @@ the shared contract checks and the normal property corpus, then compiles both
 `thesis.typ` and `sample-chapter.typ`. Each resulting PDF must exist, be nonempty, pass qpdf,
 contain at least one page and contain extractable text. Missing executables,
 compiler-version mismatches, nonzero exits and command timeouts fail the gate.
-Each compile/PDF command has a 60-second timeout. Output is written under
+Each compile/PDF command has a 60-second timeout and a separate, bounded
+five-second cleanup budget. POSIX commands run in their own session; a timeout
+terminates the command group even if its leader has already exited. Five
+maintenance tests exercise actual commands, diagnostics and descendant cleanup;
+see [process timeouts](process-timeouts.md). Output is written under
 `build/verification/`, with a JSON result and command logs.
 The integrated maintenance increment adds unit tests, package checks and
 desired-policy validation to the same command; see [maintenance](maintenance.md).
@@ -74,13 +78,18 @@ failed privacy scans remain distinguishable from clean PDF results.
 | [Blind review](../tests/rendered/cor04/README.md) | 10 | Structured identity projection, identified controls and visible/native residual-identity failures |
 | [Native image inputs](native-images.md) | 20 | PNG pixels, original JPEG encoding/bytes, SVG vectors, native paths, byte inputs and alternative text under four profiles |
 | [Layout and order](layout-order.md) | 9 | Bibliography order/title, Roman/Arabic pagination, duplex behavior, native destinations and controlled A4/30 mm geometry |
+| [Optional sections](optional-sections.md) | 47 | Typed funding, prior work, assistance and creative records; publication cardinality; independent front-matter order; private AI-note rejection |
 
-These corpora supplement the 14 COR-01 and three COR-02 cases for 115 regression
+These corpora supplement the 14 COR-01 and three COR-02 cases for 162 regression
 cases. The terms corpus contains 17 validated PDFs and eight required diagnostic
 rejections. The configuration corpus contains 23 validated PDFs and eleven
 required diagnostic rejections. Blind-review assertions deliberately retain
 three authored-residual PDFs whose identity scans **fail**; they are evidence
-that residual identifiers are detected, not reviewer-ready output.
+that residual identifiers are detected, not reviewer-ready output. The optional
+section corpus adds 21 validated PDFs and 26 required diagnostic rejections,
+including one deliberately failed authored-identity scan and one clean blind
+control. An expected privacy failure is retained as a failure in its native
+report even when the surrounding regression assertion passes.
 
 These checks do not complete the shared five-layer adapter contract, all
 conditional submission policy, arbitrary-content anonymity, PDF/UA or PDF/A,

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify shipped PDFs and bounded content, navigation, configuration and privacy corpora."""
+"""Verify shipped PDFs and bounded content, navigation, configuration and privacy and optional-section corpora."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ from pathlib import Path
 import re
 import runpy
 import shutil
+import signal
 import subprocess
 import sys
 import time
@@ -19,6 +20,7 @@ import tomllib
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / "build" / "verification"
 TIMEOUT_SECONDS = 60
+CLEANUP_TIMEOUT_SECONDS = 5
 DOCUMENTS = ("thesis.typ", "sample-chapter.typ")
 ORACLES = "tests/rendered/cor01/oracles.py"
 NAVIGATION_ORACLES = "tests/rendered/cor02/oracles.py"
@@ -27,6 +29,7 @@ BLIND_ORACLES = "tests/rendered/cor04/oracles.py"
 TERMS_ORACLES = "tests/rendered/terms/oracles.py"
 IMAGE_ORACLES = "tests/rendered/images/oracles.py"
 LAYOUT_ORDER_ORACLES = "tests/rendered/layout-order/oracles.py"
+OPTIONAL_ORACLES = "tests/rendered/cor05/oracles.py"
 
 
 class VerificationError(Exception):
@@ -41,6 +44,17 @@ def _text(value) -> str:
     return value.decode("utf-8", errors="replace") if isinstance(value, bytes) else value or ""
 
 
+def _stop_command(process):
+    """Terminate the command's own POSIX group, even after its leader exits."""
+    try:
+        if os.name == "posix":
+            os.killpg(process.pid, signal.SIGKILL)
+        else:
+            process.kill()
+    except ProcessLookupError:
+        pass
+
+
 def run(command: list[str], log_name: str, commands=None, *, combined=False, expected_exit=0) -> str:
     """Retain each command, exit, diagnostic and timeout before reporting failure."""
     log_path = OUTPUT / log_name
@@ -50,6 +64,8 @@ def run(command: list[str], log_name: str, commands=None, *, combined=False, exp
         "cwd": str(ROOT),
         "environment_overrides": {"SOURCE_DATE_EPOCH": "0"},
         "timeout_seconds": TIMEOUT_SECONDS,
+        "cleanup_timeout_seconds": CLEANUP_TIMEOUT_SECONDS,
+        "process_isolation": "posix-session" if os.name == "posix" else "direct-process",
         "log": str(log_path.relative_to(ROOT)),
         "exit_code": None,
         "expected_exit_code": expected_exit,
@@ -58,25 +74,50 @@ def run(command: list[str], log_name: str, commands=None, *, combined=False, exp
     started = time.monotonic()
     stdout = stderr = ""
     failure = None
+    process = None
+    cleanup_deadline = None
     try:
-        result = subprocess.run(
+        process = subprocess.Popen(
             command,
             cwd=ROOT,
             env={**os.environ, "SOURCE_DATE_EPOCH": "0"},
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
-            timeout=TIMEOUT_SECONDS,
-            check=False,
+            start_new_session=os.name == "posix",
         )
-        stdout, stderr = result.stdout, result.stderr
-        record["exit_code"] = result.returncode
-    except subprocess.TimeoutExpired as exc:
-        stdout, stderr = _text(exc.stdout), _text(exc.stderr)
-        record["timed_out"] = True
-        failure = f"command exceeded its {TIMEOUT_SECONDS}s time budget"
+        try:
+            stdout, stderr = process.communicate(timeout=TIMEOUT_SECONDS)
+        except subprocess.TimeoutExpired as exc:
+            stdout, stderr = _text(exc.stdout), _text(exc.stderr)
+            record["timed_out"] = True
+            failure = f"command exceeded its {TIMEOUT_SECONDS}s time budget"
+            cleanup_deadline = time.monotonic() + CLEANUP_TIMEOUT_SECONDS
+            _stop_command(process)
+            try:
+                stdout, stderr = process.communicate(
+                    timeout=max(0, cleanup_deadline - time.monotonic()),
+                )
+            except subprocess.TimeoutExpired as cleanup:
+                stdout, stderr = _text(cleanup.stdout), _text(cleanup.stderr)
+                record["cleanup_error"] = "Output pipes did not close within the cleanup budget"
+                failure += "; " + record["cleanup_error"]
     except OSError as exc:
-        failure = f"command could not start: {exc}"
+        failure = f"command could not start or be controlled: {exc}"
+    finally:
+        if process is not None:
+            if process.poll() is None:
+                cleanup_deadline = cleanup_deadline or time.monotonic() + CLEANUP_TIMEOUT_SECONDS
+                try:
+                    _stop_command(process)
+                    process.wait(timeout=max(0, cleanup_deadline - time.monotonic()))
+                except (OSError, subprocess.TimeoutExpired) as exc:
+                    record["cleanup_error"] = f"Command could not be reaped: {exc}"
+                    failure = (failure + "; " if failure else "") + record["cleanup_error"]
+            record["exit_code"] = process.returncode
+            for pipe in (process.stdout, process.stderr):
+                if pipe is not None:
+                    pipe.close()
     record["duration_seconds"] = time.monotonic() - started
     record["stdout_sha256"] = hashlib.sha256(stdout.encode("utf-8")).hexdigest()
     record["stderr_sha256"] = hashlib.sha256(stderr.encode("utf-8")).hexdigest()
@@ -103,10 +144,10 @@ def run(command: list[str], log_name: str, commands=None, *, combined=False, exp
 
 def clear_previous_outputs():
     """Delete generated verifier outputs without touching retained baselines."""
-    for directory in (OUTPUT, OUTPUT / "cor01", OUTPUT / "cor02", OUTPUT / "cor03", OUTPUT / "cor04", OUTPUT / "terms", OUTPUT / "images", OUTPUT / "layout-order"):
+    for directory in (OUTPUT, OUTPUT / "cor01", OUTPUT / "cor02", OUTPUT / "cor03", OUTPUT / "cor04", OUTPUT / "terms", OUTPUT / "images", OUTPUT / "layout-order", OUTPUT / "cor05"):
         directory.mkdir(parents=True, exist_ok=True)
         suffixes = {".pdf", ".txt", ".log"}
-        if directory in (OUTPUT / "cor02", OUTPUT / "cor03", OUTPUT / "cor04", OUTPUT / "terms", OUTPUT / "images", OUTPUT / "layout-order"):
+        if directory in (OUTPUT / "cor02", OUTPUT / "cor03", OUTPUT / "cor04", OUTPUT / "terms", OUTPUT / "images", OUTPUT / "layout-order", OUTPUT / "cor05"):
             suffixes.update({".json", ".html", ".xml"})
         for path in directory.iterdir():
             if path.suffix in suffixes and (path.is_file() or path.is_symlink()):
@@ -670,6 +711,134 @@ def verify_terms(report, oracle, pdf_helpers):
     corpus["result"] = "pass"
 
 
+def verify_cor05(report, oracle):
+    """Verify public optional sections, typed rejections and authored residuals."""
+    specimens = oracle["specimens"]()
+    identifiers = [case["id"] for case in specimens]
+    if oracle["EXPECTED_SPECIMEN_COUNT"] != 47 or len(specimens) != 47:
+        raise VerificationError("The bounded COR-05 corpus must contain all 47 specimens")
+    if len(set(identifiers)) != 47 or any(not re.fullmatch(r"[a-z0-9-]+", name) for name in identifiers):
+        raise VerificationError("COR-05 specimen identities are invalid or duplicated")
+    if sum(case["expected_error"] is not None for case in specimens) != 26:
+        raise VerificationError("COR-05 requires 26 typed or private-log rejections")
+    corpus = report["optional_corpus"]
+    corpus.update({
+        "expected_specimen_count": 47, "creation_timestamp": oracle["CREATION_TIMESTAMP"],
+        "source_sha256": {source: digest(ROOT / source) for source in oracle["SOURCE_FILES"]},
+        "sample_sha256": {source: digest(ROOT / source) for source in oracle["SAMPLE_FILES"]},
+        "oracle_sha256": digest(ROOT / OPTIONAL_ORACLES), "result": "fail",
+        "policy_or_approval_certified": False, "reviewer_ready_certified": False,
+    })
+    directory = OUTPUT / "cor05"
+    directory.mkdir(parents=True, exist_ok=True)
+    samples = {ROOT / name for name in oracle["SAMPLE_FILES"]}
+    for case in specimens:
+        identifier = case["id"]
+        pdf = directory / (identifier + ".pdf")
+        structure = pdf.with_suffix(".qpdf.json")
+        xmp = pdf.with_suffix(".xmp.xml")
+        diagnostics_path = pdf.with_suffix(".diagnostics.json")
+        dependencies = pdf.with_suffix(".dependencies.json")
+        assertions_path = pdf.with_suffix(".oracle.json")
+        artifacts = (
+            (pdf, "pdf"), (pdf.with_suffix(".txt"), "text"), (structure, "pdf_structure"),
+            (xmp, "xmp"), (diagnostics_path, "review_diagnostics"),
+            (dependencies, "dependencies"), (assertions_path, "oracle_report"),
+        )
+        entry = {
+            "id": identifier, "fixture": case["fixture"], "inputs": case["inputs"],
+            "expected_error": case["expected_error"], "result": "fail", "commands": [], "errors": [],
+            "expected_outcome": "rejection" if case["expected_error"] is not None else "rendered_output",
+        }
+        corpus["specimens"].append(entry)
+        try:
+            fixture = ROOT / case["fixture"]
+            if fixture.is_symlink() or not (
+                fixture.resolve().is_relative_to(ROOT / "tests/rendered/cor05")
+                or fixture in samples and fixture.resolve() == fixture
+            ):
+                raise VerificationError("COR-05 fixture is outside the controlled corpus or explicit sample allowlist")
+            entry["fixture_sha256"] = digest(fixture)
+            entry["inputs_sha256"] = hashlib.sha256(
+                json.dumps(case["inputs"], sort_keys=True, separators=(",", ":")).encode("utf-8")
+            ).hexdigest()
+            for artifact, _key in artifacts:
+                artifact.unlink(missing_ok=True)
+            inputs = []
+            for key, value in sorted(case["inputs"].items()):
+                inputs.extend(["--input", f"{key}={value}"])
+            options = ["--ignore-system-fonts", "--creation-timestamp", oracle["CREATION_TIMESTAMP"], *inputs]
+            if case["expected_error"] is not None:
+                diagnostics = run(
+                    ["typst", "compile", "--root", ".", *options, case["fixture"], str(pdf)],
+                    f"cor05/{identifier}-compile.log", entry["commands"], combined=True, expected_exit=1,
+                )
+                command = entry["commands"][-1]
+                assertions = oracle["check_rejection"](
+                    case, diagnostics, exit_code=command["exit_code"], timed_out=command["timed_out"],
+                    pdf_exists=pdf.exists(),
+                )
+            else:
+                details, extracted = verify_pdf(
+                    case["fixture"], pdf, "cor05/" + identifier, entry["commands"],
+                    [*options, "--deps", str(dependencies)],
+                )
+                entry.update(details)
+                native = run(
+                    ["qpdf", "--json", str(pdf)], f"cor05/{identifier}-qpdf-json.log", entry["commands"],
+                )
+                structure.write_text(native, encoding="utf-8")
+                metadata = run(
+                    ["pdfinfo", "-meta", str(pdf)], f"cor05/{identifier}-xmp.log", entry["commands"],
+                )
+                xmp.write_text(metadata, encoding="utf-8")
+                query = run(
+                    ["typst", "query", "--root", ".", "--ignore-system-fonts", *inputs,
+                     case["fixture"], "<blind-review-diagnostics>", "--field", "value"],
+                    f"cor05/{identifier}-review-diagnostics.log", entry["commands"],
+                )
+                diagnostics_path.write_text(query, encoding="utf-8")
+                if not dependencies.is_file() or not json.loads(dependencies.read_text(encoding="utf-8")):
+                    raise VerificationError("COR-05 compile produced no dependency inventory")
+                assertions = oracle["analyze"](
+                    case, json.loads(native), extracted, metadata, json.loads(query), details["pages"],
+                )
+                entry["public_surface_scan"] = assertions["public_surface_scan"]
+            assertions_path.write_text(json.dumps(assertions, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+            entry["assertions"] = assertions
+            entry["errors"].extend(assertions["errors"])
+            checks = assertions.get("checks", [])
+            if not checks or not all(check.get("passed") is True for check in checks):
+                if not entry["errors"]:
+                    entry["errors"].append("COR-05 oracle has missing or failed assertions")
+            if assertions.get("passed") is not True and not entry["errors"]:
+                entry["errors"].append("COR-05 oracle did not explicitly pass")
+            entry["result"] = "fail" if entry["errors"] else "pass"
+        except Exception as exc:
+            entry["errors"].append(f"{type(exc).__name__}: {exc}")
+        for artifact, key in artifacts:
+            if artifact.is_file():
+                entry[key] = str(artifact.relative_to(ROOT))
+                entry[key + "_sha256"] = digest(artifact)
+        write_report(report)
+    corpus["passed_count"] = sum(case["result"] == "pass" for case in corpus["specimens"])
+    corpus["rendered_pdf_count"] = sum("pdf_sha256" in case for case in corpus["specimens"])
+    corpus["clean_blind_pdf_count"] = sum(
+        case["id"].startswith("blind-") and (case.get("public_surface_scan") or {}).get("passed") is True
+        for case in corpus["specimens"]
+    )
+    corpus["residual_blind_pdf_count"] = sum(
+        case["id"].startswith("blind-") and (case.get("public_surface_scan") or {}).get("passed") is False
+        for case in corpus["specimens"]
+    )
+    if corpus["passed_count"] != 47:
+        failures = [case["id"] for case in corpus["specimens"] if case["result"] != "pass"]
+        raise VerificationError("COR-05 optional-section checks failed: " + ", ".join(failures))
+    if (corpus["rendered_pdf_count"], corpus["clean_blind_pdf_count"], corpus["residual_blind_pdf_count"]) != (21, 1, 1):
+        raise VerificationError("COR-05 did not retain the rendered corpus and real authored residual failure")
+    corpus["result"] = "pass"
+
+
 def write_report(report):
     (OUTPUT / "report.json").write_text(
         json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8",
@@ -864,6 +1033,14 @@ def main() -> int:
             "result": "unexecuted",
             "specimens": [],
         },
+        "optional_corpus": {
+            "requirement": "COR-05",
+            "scope": "Bounded public optional sections, typed/private-log rejections and authored residual controls",
+            "result": "unexecuted",
+            "specimens": [],
+            "reviewer_ready_certified": False,
+            "policy_or_approval_certified": False,
+        },
         "blind_corpus": {
             "requirement": "COR-04",
             "scope": "Bounded managed-identity projection and explicit authored residual failures",
@@ -891,6 +1068,7 @@ def main() -> int:
         terms_oracle = runpy.run_path(str(ROOT / TERMS_ORACLES))
         image_oracle = runpy.run_path(str(ROOT / IMAGE_ORACLES))
         layout_order_oracle = runpy.run_path(str(ROOT / LAYOUT_ORDER_ORACLES))
+        optional_oracle = runpy.run_path(str(ROOT / OPTIONAL_ORACLES))
         report["executables"] = {}
         for executable in ("typst", "qpdf", "pdfinfo", "pdftotext"):
             resolved = shutil.which(executable)
@@ -945,6 +1123,7 @@ def main() -> int:
         verify_cor04(report, blind_oracle)
         verify_images(report, image_oracle)
         verify_layout_order(report, layout_order_oracle, navigation_oracle)
+        verify_cor05(report, optional_oracle)
         report["passed"] = True
     except Exception as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
@@ -953,7 +1132,7 @@ def main() -> int:
         report["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
         write_report(report)
     if report["passed"]:
-        print("Verified thesis/sample PDFs, 14 COR-01, 3 COR-02, 34 COR-03, 25 terms, 10 COR-04, 20 image and 9 layout/order cases (including three failed residual-identity scans); evidence: build/verification/report.json")
+        print("Verified thesis/sample PDFs, 14 COR-01, 3 COR-02, 34 COR-03, 25 terms, 10 COR-04, 20 image, 9 layout/order and 47 COR-05 cases (including explicitly failed residual-identity scans); evidence: build/verification/report.json")
         return 0
     return 1
 

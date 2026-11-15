@@ -284,8 +284,8 @@ def analyze(case, native, extracted, xmp, diagnostics, pdf_pages):
         if blind:
             count("Contributor 1")
             count("Contributor 2")
-            count("Publication 1 (details withheld for review)", 3)
-            count("Publication 2 (details withheld for review)", 2)
+            count("Publication 1 (details withheld for review)")
+            count("Publication 2 (details withheld for review)")
         else:
             contains("visible", {
                 "resolved-author", "department", "school", "university", "supervisor", "co-supervisor",
@@ -296,8 +296,8 @@ def analyze(case, native, extracted, xmp, diagnostics, pdf_pages):
                 contains(surface, {"resolved-author", "keyword-name", "keyword-email", "orcid"})
             count("COR04CONTRIBUTORALPHA")
             count("COR04CONTRIBUTORBETA")
-            count("COR04PUBLICATIONALPHA", 3)
-            count("COR04PUBLICATIONBETA", 2)
+            count("COR04PUBLICATIONALPHA")
+            count("COR04PUBLICATIONBETA")
     elif case["family"] == "index":
         count("COR04 SAFE INDEX BODY.")
         count(TOKENS["index-term"])

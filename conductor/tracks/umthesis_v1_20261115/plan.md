@@ -5,9 +5,11 @@
   source and receiving gates passed. Remaining TST-03 requirements stay open.
 - [x] Prepare the #14 schema/API candidate, provenance snapshots, full legacy
   crosswalk, synthetic configuration fixtures and independent negative tests.
-- [ ] Qualify the final candidate source and receiving revision through the
-  existing Actions, provider and independent review gates; retain exact IDs in
-  the PR and #14 checkpoint.
+- [x] Qualify the #14 schema/API milestone through source PR #30 and receiving
+  `402dec742a80278cd239554b929092e75724c1e6`; all applicable Actions and the
+  actual Codecov producer result passed. Preserve the earlier failed `60a95ba`
+  dependency-graph observation and the corrected contract pin. Both document
+  adapters retain their separate execution acceptance.
 - [ ] Execute minimal shared metadata/order/invalid-input cases in both document
   adapters; preserve the LaTeX issue #18 ownership boundary.
 - [x] Reproduce the nine COR-01 rendered failures and prepare the focused
@@ -24,9 +26,14 @@
 - [x] Prepare and independently review bounded configuration, terms, structured
   blind projection, native-image and layout/order repairs, retaining actual
   failing-source controls and authored-residual privacy failures.
-- [ ] Qualify the combined 115-case rendered candidate on its final source and
-  receiving revision. Keep optional-section, shared-adapter and full policy
-  acceptance distinct from these bounded renderer checks.
+- [x] Prepare the bounded COR-05 optional-section repairs and 47 cases, including
+  21 PDF results, 26 required rejections and retained authored-identity failures.
+- [x] Repair the verifier's POSIX descendant timeout handling and retain actual
+  command/diagnostic probes. The reconstructed five-method test source requires
+  a fresh hosted result after source reconstruction.
+- [ ] Qualify the combined 162-case rendered candidate on its final source and
+  receiving revision. Keep shared-adapter and full policy acceptance distinct
+  from these bounded renderer checks.
 - [ ] Integrate normalized configuration and repaired rendered semantics (#15),
   native capabilities (#16) and document regression oracles (#18).
 - [ ] Implement source-dated Melbourne requirements (#17).

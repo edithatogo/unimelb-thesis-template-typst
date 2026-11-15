@@ -6,6 +6,7 @@
 #import "utils/style.typ": *
 #import "utils/locales.typ": locale-labels
 #import "config/index.typ": config
+#import "config/optional.typ": reject-private-log
 #import "config/options.typ": parse-cli, resolve as resolve-options
 #import "config/review.typ": (
   diagnostic-marker, project as project-review, validate-blind,
@@ -23,6 +24,7 @@
 #import "pages/declaration.typ": declaration-page
 #import "pages/acknowledgements.typ": acknowledgements-page
 #import "pages/preface.typ": preface-page
+#import "pages/funding.typ": funding-page
 #import "pages/front-matter.typ": (
   loa-page, lof-page, lot-page, third-party-page, toc-page,
 )
@@ -130,6 +132,12 @@
   preface_contributions: (),
   preface_sections: (),
   publications: (),
+  assistance: (),
+  prior_work: (),
+  funding: (),
+  creative_outputs: (),
+  // Rejected compatibility name: private prompts/logs are never public records.
+  ai_assistance: none,
   appendices: (),
   include_bibliography: true,
   bibliography_path: "references.bib",
@@ -139,6 +147,7 @@
   index_entries: (:),
   body,
 ) = {
+  reject-private-log(ai_assistance)
   let blind-mode = validate-blind(blind)
   let options = resolve-options(
     profile: profile,
@@ -179,6 +188,10 @@
     preface_contributions: preface_contributions,
     preface_sections: preface_sections,
     publications: publications,
+    assistance: assistance,
+    prior_work: prior_work,
+    funding: funding,
+    creative_outputs: creative_outputs,
     appendices: appendices,
     include_bibliography: include_bibliography,
     bibliography_path: bibliography_path,
@@ -267,6 +280,7 @@
         degree: metadata.degree,
         word_count: metadata.word_count,
         includes_publications: metadata.includes_publications,
+        creative_outputs: metadata.creative_outputs,
         percentage_dissertation: metadata.percentage_dissertation,
         percentage_creative: metadata.percentage_creative,
         ai_usage: metadata.ai_usage,
@@ -274,18 +288,26 @@
       )
     }
 
-    // Acknowledgements
-    #if metadata.acknowledgements != none and not blind-mode {
-      acknowledgements-page(ctx, metadata.acknowledgements)
-    }
-
+    // Public optional sections: Preface, separate funding, then acknowledgements.
     // Preface
     #if (
       metadata.preface != none
         or metadata.preface_contributions.len() > 0
         or metadata.preface_sections.len() > 0
+        or metadata.publications.len() > 0
+        or metadata.assistance.len() > 0
+        or metadata.prior_work.len() > 0
+        or metadata.creative_outputs.len() > 0
     ) {
       preface-page(ctx, metadata)
+    }
+
+    #if metadata.funding.len() > 0 {
+      funding-page(ctx, metadata.funding)
+    }
+
+    #if metadata.acknowledgements != none and not blind-mode {
+      acknowledgements-page(ctx, metadata.acknowledgements)
     }
 
     // Tables of contents and listings
