@@ -235,6 +235,27 @@ class Inputs:
                 "artifact-changed-during-read", "An evidence input changed during verification.")
 
 
+def native_records(value, pointer=""):
+    """Visit native records, separating author data and observed tool identities."""
+    if isinstance(value, list):
+        for index, child in enumerate(value):
+            yield from native_records(child, pointer + "/" + str(index))
+    elif isinstance(value, dict):
+        yield pointer, value
+        for key, child in value.items():
+            if key in ("inputs", "metadata", "normalized_configuration") or (not pointer and key == "executables"):
+                continue
+            yield from native_records(child, pointer + "/" + key.replace("~", "~0").replace("/", "~1"))
+
+
+def native_input_paths(native, source_root):
+    """Protect all declared native paths before any output or probe is written."""
+    names = {"path", "pdf", "text", "log", "dependencies", "oracle_report", "pdf_structure", "review_diagnostics",
+             "xmp", "report", "native_json", "bbox", "native_result", "native_failure_report", "bounding_boxes", "sidecar"}
+    return [Path(source_root) / child for _pointer, item in native_records(native)
+            for key, child in item.items() if isinstance(child, str) and (key in names or key.endswith("_path"))]
+
+
 def native_report(request, source, inputs, profile, now):
     descriptor = request["native"]
     relative, path = inputs.artifact(descriptor["path"], descriptor["sha256"], "native-report")
@@ -283,45 +304,50 @@ def native_report(request, source, inputs, profile, now):
     commands = []
     adapter = profile["adapters"]
 
-    def walk(item, pointer):
-        if isinstance(item, list):
-            for i, child in enumerate(item):
-                walk(child, pointer + "/" + str(i))
-        elif isinstance(item, dict):
-            if "command" in item:
-                require(isinstance(item["command"], list) and item["command"] and all(isinstance(x, str) for x in item["command"])
-                        and type(item.get("exit_code")) is int and type(item.get("expected_exit_code")) is int
-                        and type(item.get("timed_out")) is bool and type(item.get("duration_seconds")) in (int, float)
-                        and item["duration_seconds"] >= 0 and item.get("timeout_seconds") == 60,
-                        "command-interface", "A native command record is malformed.")
-                if value["passed"]:
-                    require(not item["timed_out"] and item["exit_code"] == item["expected_exit_code"],
-                            "false-native-pass", "A passing native report contains a failed or timed-out command.")
-                log, _ = inputs.artifact(item.get("log"), item.get("log_sha256"))
-                environment = item.get("environment_overrides", {})
-                require(isinstance(environment, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in environment.items()),
-                        "command-interface", "Native environment observations must be typed strings.")
-                commands.append({"pointer": pointer, "command": item["command"], "exit_code": item["exit_code"],
-                    "expected_exit_code": item["expected_exit_code"], "timed_out": item["timed_out"],
-                    "duration_seconds": item["duration_seconds"], "log": log, "log_sha256": item["log_sha256"],
-                    "environment_overrides": environment})
-            for name in adapter["file_pairs"]:
-                if name + "_sha256" in item:
-                    require(isinstance(item.get(name), str), "missing-artifact-path", "A declared artifact digest has no path.")
-                    inputs.artifact(item[name], item[name + "_sha256"])
-                elif isinstance(item.get(name), str) and item[name].startswith("build/"):
-                    raise ReceiptError("missing-artifact-digest", "A native artifact path has no declared digest.")
-            for name in adapter["source_pairs"]:
-                if name + "_sha256" in item and isinstance(item.get(name), str):
-                    inputs.source_file(item[name], item[name + "_sha256"])
-            for name in adapter["source_maps"]:
-                if isinstance(item.get(name), dict):
-                    for filename, expected in item[name].items():
-                        inputs.source_file(filename, expected)
-            for key, child in item.items():
-                if key not in ("inputs", "metadata", "normalized_configuration"):
-                    walk(child, pointer + "/" + key.replace("~", "~0").replace("/", "~1"))
-    walk(value, "")
+    for pointer, item in native_records(value):
+        # Current native v1 uses both named pairs and {path, sha256}
+        # descriptors. Tool observations and author data are excluded by the
+        # shared traversal; scan-hit path arrays are not file descriptors.
+        if "sha256" in item or isinstance(item.get("path"), str):
+            require(isinstance(item.get("path"), str), "missing-artifact-path", "A native descriptor has no string path.")
+            require("sha256" in item, "missing-artifact-digest", "A native descriptor has no digest.")
+            require(isinstance(item["sha256"], str) and SHA.fullmatch(item["sha256"]),
+                    "invalid-digest", "A native descriptor digest is malformed.")
+            name = safe_relative(item["path"])
+            if name.startswith("build/"):
+                inputs.artifact(name, item["sha256"])
+            else:
+                inputs.source_file(name, item["sha256"])
+        if "command" in item:
+            require(isinstance(item["command"], list) and item["command"] and all(isinstance(x, str) for x in item["command"])
+                    and type(item.get("exit_code")) is int and type(item.get("expected_exit_code")) is int
+                    and type(item.get("timed_out")) is bool and type(item.get("duration_seconds")) in (int, float)
+                    and item["duration_seconds"] >= 0 and item.get("timeout_seconds") == 60,
+                    "command-interface", "A native command record is malformed.")
+            if value["passed"]:
+                require(not item["timed_out"] and item["exit_code"] == item["expected_exit_code"],
+                        "false-native-pass", "A passing native report contains a failed or timed-out command.")
+            log, _ = inputs.artifact(item.get("log"), item.get("log_sha256"))
+            environment = item.get("environment_overrides", {})
+            require(isinstance(environment, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in environment.items()),
+                    "command-interface", "Native environment observations must be typed strings.")
+            commands.append({"pointer": pointer, "command": item["command"], "exit_code": item["exit_code"],
+                "expected_exit_code": item["expected_exit_code"], "timed_out": item["timed_out"],
+                "duration_seconds": item["duration_seconds"], "log": log, "log_sha256": item["log_sha256"],
+                "environment_overrides": environment})
+        for name in adapter["file_pairs"]:
+            if name + "_sha256" in item:
+                require(isinstance(item.get(name), str), "missing-artifact-path", "A declared artifact digest has no path.")
+                inputs.artifact(item[name], item[name + "_sha256"])
+            elif isinstance(item.get(name), str) and item[name].startswith("build/"):
+                raise ReceiptError("missing-artifact-digest", "A native artifact path has no declared digest.")
+        for name in adapter["source_pairs"]:
+            if name + "_sha256" in item and isinstance(item.get(name), str):
+                inputs.source_file(item[name], item[name + "_sha256"])
+        for name in adapter["source_maps"]:
+            if isinstance(item.get(name), dict):
+                for filename, expected in item[name].items():
+                    inputs.source_file(filename, expected)
     require(commands, "missing-commands", "The native report contains no executed command records.")
     for name, identifiers in adapter["native_requirement_map"].items():
         corpus = value.get(name)
@@ -515,19 +541,7 @@ def protected_inputs(request, source_root, additional=()):
         except ReceiptError:
             return protected  # Normal validation rejects this input after invalidation.
 
-        def walk(item):
-            if isinstance(item, list):
-                for child in item:
-                    walk(child)
-            elif isinstance(item, dict):
-                for key, child in item.items():
-                    if isinstance(child, str) and (key.endswith("_path") or key in
-                        ("pdf", "text", "log", "dependencies", "oracle_report", "pdf_structure", "review_diagnostics",
-                         "xmp", "report", "native_json", "bbox", "native_result", "native_failure_report", "bounding_boxes")):
-                        protected.append(Path(source_root) / child)
-                    if key not in ("inputs", "metadata", "normalized_configuration"):
-                        walk(child)
-        walk(document)
+        protected.extend(native_input_paths(document, source_root))
     return protected
 
 

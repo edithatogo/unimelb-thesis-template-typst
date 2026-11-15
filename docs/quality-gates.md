@@ -275,7 +275,7 @@ current document programme.
 
 Maintenance-test discovery runs the requirement-evidence helper controls. After
 the canonical build completes, the existing `Verify template and properties` job
-runs the orchestration tests and eight native receipt consumer controls, retaining
+runs the orchestration tests and ten native receipt consumer controls, retaining
 their internal evidence alongside the original verification report. This adds no
 stable check name and does not rewrite or expand the native corpus result.
 

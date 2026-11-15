@@ -54,6 +54,16 @@ requested window, and it must use the manifest's compiler pin and the existing
 60-second command budget. Required documents, corpora, tool identity fields,
 command records and supported declared files must be present and consistent.
 
+Native v1 artifacts can use named pairs such as `pdf`/`pdf_sha256` or a
+`{path, sha256}` descriptor. The latter includes dependency inventories, the
+tool/font supplement, color streams and package outputs. Every declared
+`build/` descriptor is checked and copied; a descriptor naming a tracked source
+file must agree with that file's committed identity. Missing fields, unsafe
+paths, absent files and changed bytes are rejected. Author input/metadata maps,
+non-file scan-path arrays and the separately validated executable observations
+are not interpreted as build-artifact declarations. Both producer and driver
+use the same traversal to protect declared inputs before writing outputs or probes.
+
 The consumer hashes and parses the same captured wrapper and JSON buffers. The
 producer copies the same artifact bytes it checked. The wrapper, status sidecar,
 readable report and copied artifact inventory are reconstructed independently
@@ -169,10 +179,11 @@ evidence.
 The existing `Verify template and properties` job invokes
 `tests/evidence/qualify.py` after `make verify` has finished. This preserves the
 completed native report and avoids a self-referential receipt. The driver records
-the exact checkout, native and property digests, and eight consumer controls:
+the exact checkout, native and property digests, and ten consumer controls:
 an intact partial receipt, an unrelated revision, an expired window, an untrusted
-wrapper digest, changed PDF bytes, a missing PDF, a rehashed false requirement
-pass, and a missing required sidecar. Its own orchestration tests run separately.
+wrapper digest, changed PDF bytes, a missing PDF, an altered path-descriptor
+artifact, a missing path-descriptor artifact, a rehashed false requirement pass,
+and a missing required sidecar. Its own orchestration tests run separately.
 
 The automation window begins at the native report's start and ends seven days
 after its finish. This is a freshness limit for the automated observation, not a

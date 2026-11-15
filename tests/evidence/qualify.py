@@ -71,20 +71,7 @@ def optional_sidecars(native, source_root):
 def declared_inputs(native, source_root):
     """Protect declared paths from the same native buffer that we will bind."""
     result = [source_root / NATIVE, source_root / PROPERTIES]
-    names = {"pdf", "text", "log", "dependencies", "oracle_report", "pdf_structure", "review_diagnostics",
-             "xmp", "report", "native_json", "bbox", "native_result", "native_failure_report", "bounding_boxes", "sidecar"}
-
-    def walk(value):
-        if isinstance(value, list):
-            for child in value:
-                walk(child)
-        elif isinstance(value, dict):
-            for key, child in value.items():
-                if isinstance(child, str) and (key in names or key.endswith("_path")):
-                    result.append(source_root / child)
-                if key not in ("inputs", "metadata", "normalized_configuration"):
-                    walk(child)
-    walk(native)
+    result.extend(api.native_input_paths(native, source_root))
     return result
 
 
@@ -170,6 +157,14 @@ def qualify(source_root, output, not_before, review_by):
         pdf.unlink()
         record("missing-actual-pdf", lambda: consume(path=copied_receipt), "missing-artifact")
         api.atomic_bytes(pdf, original)
+        descriptor = native["native_evidence_corpus"]["supplement"]
+        supplement = api.confined_file(negative, "artifacts/" + api.safe_relative(descriptor["path"]))
+        original_supplement = supplement.read_bytes()
+        api.atomic_bytes(supplement, original_supplement + b"\nIntentional descriptor tamper control\n")
+        record("changed-path-descriptor-artifact", lambda: consume(path=copied_receipt), "artifact-tampered")
+        supplement.unlink()
+        record("missing-path-descriptor-artifact", lambda: consume(path=copied_receipt), "missing-artifact")
+        api.atomic_bytes(supplement, original_supplement)
         status = negative / "requirement-status.json"
         forged = api.read_json(status)
         forged["requirements"][0]["result"] = "executed-pass"
@@ -188,7 +183,7 @@ def qualify(source_root, output, not_before, review_by):
         report["positive_bundle_still_valid"] = final["integrity_verified"] and final["result"] == "partial"
         report["native_bytes_unchanged"] = api.digest(source_root / NATIVE) == native_hash
         report["property_bytes_unchanged"] = api.digest(properties) == property_hash
-        report["passed"] = len(report["cases"]) == 8 and all(case["passed"] for case in report["cases"]) \
+        report["passed"] = len(report["cases"]) == 10 and all(case["passed"] for case in report["cases"]) \
             and report["positive_bundle_still_valid"] and report["native_bytes_unchanged"] and report["property_bytes_unchanged"]
     except (api.ReceiptError, api.runner.VerificationError, OSError, KeyError, StopIteration, ValueError) as error:
         report["error_code"] = getattr(error, "code", "orchestration-failed")
@@ -212,7 +207,7 @@ def main(argv=None):
         print("Post-build evidence controls rejected: " + getattr(error, "code", "io-or-value-error"), file=sys.stderr)
         return 1
     print("Post-build evidence controls: " + ("passed" if result["passed"] else "failed")
-          + "; eight consumer cases; whole-programme result remains partial or fail.")
+          + "; ten consumer cases; whole-programme result remains partial or fail.")
     return 0 if result["passed"] else 1
 
 
