@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "bounded-requirement-evidence-source-inventory",
+  "base_revision": "b5dc1a30e5f192c5a6169ea566310090c9acb24c",
+  "base_tree": "1f405eab1ade3d2d4501baf2cc8d59a37ecdf88d",
+  "frozen_candidate_tree": "1f00ef3425ad454f7cf1b8beb31e2597fcc2cc39",
+  "candidate_with_separate_driver_tree": "5ffe63fd171ffe4da1557eb5e499a530907c6bfc",
+  "files": [
+    {
+      "path": "docs/requirement-evidence.md",
+      "bytes": 9628,
+      "sha256": "c2bbc5852bd9ebd4e51d671c335f34b972ba014b72f01600a11d1ee0ce356836",
+      "git_blob": "e758c9c07b5e8d86f1d2f5d419d7d469a2aa631b"
+    },
+    {
+      "path": "evidence/v1/README.md",
+      "bytes": 715,
+      "sha256": "b75af9b223c34420a594fb208ba70ce96bc3a26d9c379fb45106e34916730378",
+      "git_blob": "24119ffe1d1ca814370097200a50471232a873d2"
+    },
+    {
+      "path": "evidence/v1/adapters.json",
+      "bytes": 2268,
+      "sha256": "4dffcbf0f26a3deda185836f9278d25c7b51451b3d201f9c80551655751a84fe",
+      "git_blob": "efda33ec5bfc9ce9885a050aa8a3de3e1a423dd9"
+    },
+    {
+      "path": "evidence/v1/manifest.json",
+      "bytes": 440,
+      "sha256": "379626f774c9bbbcecc4804b8aa2950f7afb1578b474da181d27af6448e7182c",
+      "git_blob": "b8fe590afb07554df5cd2ef9bb4f7b1053f02289"
+    },
+    {
+      "path": "evidence/v1/request.schema.json",
+      "bytes": 3131,
+      "sha256": "ef6368561e9e64bdbd9528eb1181774519d6d91b6b2a6f7e84996cac5a3ecfaa",
+      "git_blob": "942d8f71ba1ea4ec6f96f65daf8f5f41ade1369d"
+    },
+    {
+      "path": "evidence/v1/sidecar.schema.json",
+      "bytes": 20469,
+      "sha256": "2cea120daaae3b2c95b553cd71610a3a200356194b6cfa1229056d2ed41cc4ba",
+      "git_blob": "8695c5a1262c7e5cb6de0f64a8fc6995ac57bc44"
+    },
+    {
+      "path": "evidence/v1/sources.json",
+      "bytes": 1257,
+      "sha256": "7477aafac106130e25a4ff4e0f740eb2ff682c72e35b6d32ab9d7ee7eaba1089",
+      "git_blob": "5243bed63beb80354032635f853bc63d7b9ae859"
+    },
+    {
+      "path": "scripts/requirement_evidence.py",
+      "bytes": 42709,
+      "sha256": "7e6a3b28908542be133370e524ec2ddf9fbbc102b3aa088aa4de53cdd1a3d889",
+      "git_blob": "e94581350da2ea7ed944aa2684c76c8ff669ef53"
+    },
+    {
+      "path": "tests/evidence/README.md",
+      "bytes": 1205,
+      "sha256": "ce2e48445d7d05f9f0bde5ebc06c66af59286cd2ff6ea513bdba90372bde715a",
+      "git_blob": "6ac65dabe2a0bb15b338bd72b7a7619e078c03f3"
+    },
+    {
+      "path": "tests/evidence/fixture_support.py",
+      "bytes": 5640,
+      "sha256": "38687090f2a105882b5856c78cba350259c8386bbba5caf1ffb91cdbd14f654a",
+      "git_blob": "8448fb87489b0383b0cf619f334a31d2ca44235c"
+    },
+    {
+      "path": "tests/maintenance/test_requirement_evidence.py",
+      "bytes": 32191,
+      "sha256": "fc305dd5826e8a7de7568760aad6e3b1ff412c39832eb52e230fb7572f756733",
+      "git_blob": "30f443072ec20fb5130c6e5c54cc0fe4af5ebb9d"
+    }
+  ],
+  "post_ci_driver_files": [
+    {
+      "path": "tests/evidence/qualify.py",
+      "bytes": 12674,
+      "sha256": "4985752b207bce9347f490a28d2952f8b5edfbd69906429976016d545206c46e",
+      "git_blob": "90f0f151950192913a060c36ea6701773ba1581e"
+    },
+    {
+      "path": "tests/evidence/test_qualify.py",
+      "bytes": 5685,
+      "sha256": "c5cf80eb7f60873a98ab96c5bf5d95193929c0c6a1201a596620d864132db364",
+      "git_blob": "095611fc1c84bac0ca95e09fcbcf43e006c111ae"
+    }
+  ],
+  "remote_verification": {
+    "sha": "5ffe63fd171ffe4da1557eb5e499a530907c6bfc",
+    "base": "1f405eab1ade3d2d4501baf2cc8d59a37ecdf88d",
+    "added": [
+      "docs/requirement-evidence.md",
+      "evidence/v1/README.md",
+      "evidence/v1/adapters.json",
+      "evidence/v1/manifest.json",
+      "evidence/v1/request.schema.json",
+      "evidence/v1/sidecar.schema.json",
+      "evidence/v1/sources.json",
+      "scripts/requirement_evidence.py",
+      "tests/evidence/README.md",
+      "tests/evidence/fixture_support.py",
+      "tests/evidence/qualify.py",
+      "tests/evidence/test_qualify.py",
+      "tests/maintenance/test_requirement_evidence.py"
+    ],
+    "all_prior_blobs_preserved": true,
+    "truncated": false
+  },
+  "refs_changed": false
+}

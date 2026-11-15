@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "scope": "Locally committed exact-source integration; separate hosted source and receiving results required",
+  "started_at_aest": "2026-11-15T14:14:00.817419+10:00",
+  "source_revision": "5df42180e853cdf427c39f9275165911baec8e0b",
+  "source_tree": "5ea8d96720e8d6b49699e302b916502a5eb028c0",
+  "parent": "dfef2d303dc6dabee690539ecbe7bdd9738b7903",
+  "commands": [
+    {
+      "name": "format",
+      "command": [
+        "/workspace/scratch/9c5315d95216/tools/typstyle",
+        "--check",
+        "README.typ",
+        "adapters/typst/v1/document.typ",
+        "adapters/typst/v1/entry.typ",
+        "assets/colors/unimelb-colors.typ",
+        "config/abbreviations.typ",
+        "config/appendix.typ",
+        "config/contributions.typ",
+        "config/glossary.typ",
+        "config/index.typ",
+        "config/metadata.typ",
+        "config/optional.typ",
+        "config/options.typ",
+        "config/publications.typ",
+        "config/review.typ",
+        "docs/source-material/modern-uit-thesis-template.typ",
+        "endmatter/appendix-a.typ",
+        "endmatter/appendix-b.typ",
+        "endmatter/bibliography.typ",
+        "endmatter/glossary.typ",
+        "endmatter/index.typ",
+        "endmatter/optional-glossary.typ",
+        "endmatter/optional-index.typ",
+        "example-config.typ",
+        "example-run.typ",
+        "examples/basic.typ",
+        "examples/chapters/chapter1-introduction.typ",
+        "examples/chapters/chapter2-literature.typ",
+        "examples/chapters/chapter3-methods.typ",
+        "examples/run-basic.typ",
+        "examples/samples/sample-ai-disclosure.typ",
+        "examples/samples/sample-creative-outputs.typ",
+        "examples/samples/sample-publications.typ",
+        "examples/samples/sample-qa-checklist.typ",
+        "frontmatter/authorship.typ",
+        "frontmatter/dedication.typ",
+        "frontmatter/preface.typ",
+        "layouts/document.typ",
+        "lib.typ",
+        "pages/abstract.typ",
+        "pages/acknowledgements.typ",
+        "pages/appendix.typ",
+        "pages/declaration.typ",
+        "pages/front-matter.typ",
+        "pages/funding.typ",
+        "pages/glossary.typ",
+        "pages/landscape-sample.typ",
+        "pages/preface-helpers.typ",
+        "pages/preface.typ",
+        "pages/title.typ",
+        "sample-chapter.typ",
+        "sample-config-with-features.typ",
+        "template/chapters/introduction.typ",
+        "template/main.typ",
+        "tests/contract-adapter/body.typ",
+        "tests/policy/specimen.typ",
+        "tests/rendered/cor01/appendix-links.typ",
+        "tests/rendered/cor01/contributions.typ",
+        "tests/rendered/cor01/declaration.typ",
+        "tests/rendered/cor01/footnotes.typ",
+        "tests/rendered/cor01/publications.typ",
+        "tests/rendered/cor02/appendix-layout.typ",
+        "tests/rendered/cor02/appendix-pages.typ",
+        "tests/rendered/cor02/navigation.typ",
+        "tests/rendered/cor03/bibliography-style.typ",
+        "tests/rendered/cor03/direct-layout.typ",
+        "tests/rendered/cor03/native-paths.typ",
+        "tests/rendered/cor03/style-control.typ",
+        "tests/rendered/cor03/thesis-config.typ",
+        "tests/rendered/cor03/thesis-logo.typ",
+        "tests/rendered/cor03/title-config.typ",
+        "tests/rendered/cor04/authored-surfaces.typ",
+        "tests/rendered/cor04/index-surfaces.typ",
+        "tests/rendered/cor04/structured-fields.typ",
+        "tests/rendered/cor05/compat-preface.typ",
+        "tests/rendered/cor05/optional-sections.typ",
+        "tests/rendered/images/image.typ",
+        "tests/rendered/layout-order/custom-bibliography.typ",
+        "tests/rendered/layout-order/direct-appendix.typ",
+        "tests/rendered/layout-order/thesis.typ",
+        "tests/rendered/native/bad.typ",
+        "tests/rendered/native/document.typ",
+        "tests/rendered/native/part.typ",
+        "tests/rendered/terms/abbreviations.typ",
+        "tests/rendered/terms/edge-cases.typ",
+        "tests/rendered/terms/glossary.typ",
+        "tests/rendered/terms/index.typ",
+        "tests/rendered/terms/pages.typ",
+        "tests/rendered/terms/thesis-index.typ",
+        "tests/replay/document.typ",
+        "thesis.typ",
+        "thumbnail.typ",
+        "utils/fonts.typ",
+        "utils/locales.typ",
+        "utils/locales/en.typ",
+        "utils/locales/zh.typ",
+        "utils/style.typ"
+      ],
+      "returncode": 0,
+      "seconds": 0.031744646999868564,
+      "log": "/tmp/typst-evidence-integrated-proof/format.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "actionlint",
+      "command": [
+        "/workspace/scratch/9c5315d95216/tools/actionlint",
+        "-no-color"
+      ],
+      "returncode": 0,
+      "seconds": 0.01597655400109943,
+      "log": "/tmp/typst-evidence-integrated-proof/actionlint.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "verify",
+      "command": [
+        "make",
+        "verify",
+        "PYTHON=/tmp/typst-validation315/bin/python",
+        "VERIFY_ARGS=--replay-package-cache /tmp/typst-validation-package-cache"
+      ],
+      "returncode": 0,
+      "seconds": 88.01053882398992,
+      "log": "/tmp/typst-evidence-integrated-proof/verify.log",
+      "log_sha256": "b3c5d7f85bd7d775b6536f9e3b8609169dc5a4e79bbd63d4a8866032d70db4c1"
+    },
+    {
+      "name": "driver-tests",
+      "command": [
+        "/tmp/typst-validation315/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/evidence",
+        "-p",
+        "test_qualify.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "seconds": 0.11428459799208213,
+      "log": "/tmp/typst-evidence-integrated-proof/driver-tests.log",
+      "log_sha256": "2cda9d2c73735ade5b353e000f6f3617d5bcbe4adfc272abfc38b916aae96970"
+    },
+    {
+      "name": "post-build",
+      "command": [
+        "/tmp/typst-validation315/bin/python",
+        "tests/evidence/qualify.py",
+        "--not-before",
+        "2026-11-15T04:14:34.913998+00:00",
+        "--review-by",
+        "2026-11-22T04:15:28.827146+00:00"
+      ],
+      "returncode": 0,
+      "seconds": 5.630310722001013,
+      "log": "/tmp/typst-evidence-integrated-proof/post-build.log",
+      "log_sha256": "b3d1b5cbd7ef85c07818484e3d1717be314dffeb2640d09bb001b168b5e98e65"
+    },
+    {
+      "name": "coverage",
+      "command": [
+        "make",
+        "coverage",
+        "PYTHON=/tmp/typst-validation315/bin/python"
+      ],
+      "returncode": 0,
+      "seconds": 36.29598834099306,
+      "log": "/tmp/typst-evidence-integrated-proof/coverage.log",
+      "log_sha256": "226d3866b9248e750d47020c0ad8dac8e66c806ff5c47f17df304982a99b457f"
+    }
+  ],
+  "passed": true,
+  "source_hashes_unchanged": true,
+  "source_file_count": 631,
+  "clean_source_after": true,
+  "finished_at_aest": "2026-11-15T14:16:11.015000+10:00",
+  "native_report": {
+    "path": "/tmp/typst-evidence-integrated/build/verification/report.json",
+    "sha256": "599db10b6f77c478f165152c0c923e0294ecc8a1a87a49407c424515b8beabdc"
+  },
+  "policy_report": {
+    "path": "/tmp/typst-evidence-integrated/build/verification/submission-policy/report.json",
+    "sha256": "5e0acdbb416087ebd3024b27fc87e752a965a855cc461a395a9e8eb4ab7ae185"
+  },
+  "coverage_report": {
+    "path": "/tmp/typst-evidence-integrated/build/coverage.json",
+    "sha256": "2feed9a948ff7e37a758bb2b4f071cc0d589a615e9b322f3fdb26f75abbf1155"
+  },
+  "evidence_qualification": {
+    "path": "/tmp/typst-evidence-integrated/build/requirement-evidence/qualification/qualification.json",
+    "sha256": "35225de5fe78e7dba9ef18e0025611f82a1ac1585c545cabc5a9eb11b4e4945e"
+  },
+  "coverage": {
+    "covered_lines": 2715,
+    "num_statements": 2849,
+    "percent_covered": 94.02947789158131,
+    "percent_covered_display": "94.03",
+    "missing_lines": 134,
+    "excluded_lines": 0,
+    "percent_statements_covered": 95.2965952965953,
+    "percent_statements_covered_display": "95.30",
+    "num_branches": 1154,
+    "num_partial_branches": 93,
+    "covered_branches": 1049,
+    "missing_branches": 105,
+    "percent_branches_covered": 90.90121317157713,
+    "percent_branches_covered_display": "90.90"
+  },
+  "documents": [
+    {
+      "bytes": 456203,
+      "commands": [
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "typst",
+            "compile",
+            "--root",
+            ".",
+            "thesis.typ",
+            "/tmp/typst-evidence-integrated/build/verification/thesis.pdf"
+          ],
+          "cwd": "/tmp/typst-evidence-integrated",
+          "duration_seconds": 0.7176121529919328,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/thesis-compile.log",
+          "log_sha256": "2db1b3b4943e57d650a4b6a6fb3e73fb6c3d6c627dec0cd7ee54796d0f2912e7",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "2ed94f1f607272161dc06222374ee06ef27fd927dc295ea3aa396ebfdf74ba79",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "qpdf",
+            "--check",
+            "/tmp/typst-evidence-integrated/build/verification/thesis.pdf"
+          ],
+          "cwd": "/tmp/typst-evidence-integrated",
+          "duration_seconds": 0.043940189003478736,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/thesis-qpdf.log",
+          "log_sha256": "2e94941233a6b67220f8dee64a0b858c42925e84f964ea7e6ecfaec17492bddb",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "b6bac12a81edb6d5419609758cceccc742b777a639f946885aa86324da5ff080",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "pdfinfo",
+            "/tmp/typst-evidence-integrated/build/verification/thesis.pdf"
+          ],
+          "cwd": "/tmp/typst-evidence-integrated",
+          "duration_seconds": 0.011994822998531163,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/thesis-pdfinfo.log",
+          "log_sha256": "6f8c0f7627bb362a97925371f232f9bc587201ae3d66f3401a9125632b33cfe7",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "797f2f59be75de6071d15f1f852c26a3734504df7b832fba5bfb62fc221761ef",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "pdftotext",
+            "-layout",
+            "/tmp/typst-evidence-integrated/build/verification/thesis.pdf",
+            "-"
+          ],
+          "cwd": "/tmp/typst-evidence-integrated",
+          "duration_seconds": 0.06612429600500036,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/thesis-pdftotext.log",
+          "log_sha256": "b2a412f3617a43d136ace386c136501c7020ca4d42b7deec46697b0ee99f772e",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "41d15c3ca2f541f7d6bad22bea8daa197c1b83ea0f307a4cd49d7ef719b4ac4e",
+          "timed_out": false,
+          "timeout_seconds": 60
+        }
+      ],
+      "pages": 58,
+      "pdf": "build/verification/thesis.pdf",
+      "pdf_sha256": "d52c32c94d3f2cf23bf454333af2fcde3267d407b56f5e885b2b537ba76bbd86",
+      "result": "pass",
+      "source": "thesis.typ",
+      "source_sha256": "487733b80612fafeecabc4681fb8d6b9e5baee588c5a15dbccd1d695bfeb31fa",
+      "text": "build/verification/thesis.txt",
+      "text_sha256": "41d15c3ca2f541f7d6bad22bea8daa197c1b83ea0f307a4cd49d7ef719b4ac4e"
+    },
+    {
+      "bytes": 158208,
+      "commands": [
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "typst",
+            "compile",
+            "--root",
+            ".",
+            "sample-chapter.typ",
+            "/tmp/typst-evidence-integrated/build/verification/sample-chapter.pdf"
+          ],
+          "cwd": "/tmp/typst-evidence-integrated",
+          "duration_seconds": 0.38057479399139993,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/sample-chapter-compile.log",
+          "log_sha256": "3102da308de83b1584088ab9c3c9dee01b3f812507b3bfedfa0974b87862e92e",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "3e256f47dec046d918f17ca6c18180c3ccd00269cccf3655c456910eec4b7d1e",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "qpdf",
+            "--check",
+            "/tmp/typst-evidence-integrated/build/verification/sample-chapter.pdf"
+          ],
+          "cwd": "/tmp/typst-evidence-integrated",
+          "duration_seconds": 0.012460006997571327,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/sample-chapter-qpdf.log",
+          "log_sha256": "1d161ee8e3fe3f79a466161116fb81dac4e57f2090b1acd4e5e1a6476a7e163f",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "b53d9a8a289a1b546c9f2ff3a6f25302688fb884b87d75670d599d61e810015a",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "pdfinfo",
+            "/tmp/typst-evidence-integrated/build/verification/sample-chapter.pdf"
+          ],
+          "cwd": "/tmp/typst-evidence-integrated",
+          "duration_seconds": 0.011711208993801847,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/sample-chapter-pdfinfo.log",
+          "log_sha256": "c680e5af1544a0ef210643d7bbb87831ceb1fb747b97b814d680292c56c3f7b1",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "9ec0d76bbbba2d5668409f03c11b319260820288d68b1301cb58d7784925ecb5",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "pdftotext",
+            "-layout",
+            "/tmp/typst-evidence-integrated/build/verification/sample-chapter.pdf",
+            "-"
+          ],
+          "cwd": "/tmp/typst-evidence-integrated",
+          "duration_seconds": 0.02071909699589014,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/sample-chapter-pdftotext.log",
+          "log_sha256": "4dc713bdcd42fb26cccacf926da2c6cf0a1c83108f0b0a80a8812d388851c1db",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "71447e15681e84996e21e2464b92bacd7d2e7a80438ea6a2ec38fcebca9b5059",
+          "timed_out": false,
+          "timeout_seconds": 60
+        }
+      ],
+      "pages": 7,
+      "pdf": "build/verification/sample-chapter.pdf",
+      "pdf_sha256": "a9c0dee4b74e79505cff81bcf0b9d71d6fffdbdb8eb5296c5a97c5080e5fe789",
+      "result": "pass",
+      "source": "sample-chapter.typ",
+      "source_sha256": "0c3ea5aaa67f2c62f15b197b8df4929f978be6ff00c20fe02b0ce887faa58893",
+      "text": "build/verification/sample-chapter.txt",
+      "text_sha256": "71447e15681e84996e21e2464b92bacd7d2e7a80438ea6a2ec38fcebca9b5059"
+    }
+  ],
+  "policy_corpus": {
+    "data_valid_cases": 27,
+    "intended_data_failures": 37,
+    "invocation": {
+      "external_process": false,
+      "interface": "tests/policy/verify.py::main(argv)",
+      "return_code": 0
+    },
+    "passed_count": 64,
+    "rendered_policy_qualified": false,
+    "report": "build/verification/submission-policy/report.json",
+    "report_sha256": "5e0acdbb416087ebd3024b27fc87e752a965a855cc461a395a9e8eb4ab7ae185",
+    "requirements": [
+      "POL-03",
+      "POL-04",
+      "POL-05",
+      "POL-06",
+      "POL-07"
+    ],
+    "result": "pass",
+    "submission_approved": false
+  },
+  "replay_corpus": {
+    "byte_replay_qualified": true,
+    "case_count": 11,
+    "complete_environment_image_locked": false,
+    "isolation_backend": "user-network",
+    "release_bundle_qualified": false,
+    "result": "pass",
+    "scope": "One synthetic input closure in the observed Linux environment",
+    "sidecar": "/tmp/typst-evidence-integrated/build/verification/replay-20261115T041515.899546Z/report.json",
+    "sidecar_sha256": "2792cc7c80ef00bfde685bb5e0e7d715023f0741874e0ad12bc86c1a4437c580"
+  },
+  "requirement_evidence": {
+    "schema_version": 1,
+    "artifact_kind": "requirement-evidence-consumer-qualification",
+    "started_at": "2026-11-15T04:15:29.057465+00:00",
+    "passed": true,
+    "cases": [
+      {
+        "id": "actual-clean-native-and-property-files",
+        "expected": "consistent-partial",
+        "observed": "consistent-partial",
+        "passed": true
+      },
+      {
+        "id": "unrelated-commit-is-not-this-execution",
+        "expected": "wrong-revision",
+        "observed": "wrong-revision",
+        "passed": true
+      },
+      {
+        "id": "expired-review-window",
+        "expected": "review-expired",
+        "observed": "review-expired",
+        "passed": true
+      },
+      {
+        "id": "untrusted-wrapper-digest",
+        "expected": "wrapper-tampered",
+        "observed": "wrapper-tampered",
+        "passed": true
+      },
+      {
+        "id": "changed-actual-pdf-bytes",
+        "expected": "artifact-tampered",
+        "observed": "artifact-tampered",
+        "passed": true
+      },
+      {
+        "id": "missing-actual-pdf",
+        "expected": "missing-artifact",
+        "observed": "missing-artifact",
+        "passed": true
+      },
+      {
+        "id": "rehashed-whole-requirement-pass-forgery",
+        "expected": "sidecar-semantic-drift",
+        "observed": "sidecar-semantic-drift",
+        "passed": true
+      },
+      {
+        "id": "missing-required-versioned-sidecar",
+        "expected": "missing-artifact",
+        "observed": "missing-artifact",
+        "passed": true
+      }
+    ],
+    "driver_sha256": "30ba10e45baf96e09d8138b8b8eb6d7c1b52d760acd143d30082ee119b70de19",
+    "helper_sha256": "7e6a3b28908542be133370e524ec2ddf9fbbc102b3aa088aa4de53cdd1a3d889",
+    "renderer_reexecuted": false,
+    "full_issue_qualified": false,
+    "institutional_approval": false,
+    "blind_safe": false,
+    "review_window_kind": "automation-freshness-window-not-human-approval",
+    "source_revision": "5df42180e853cdf427c39f9275165911baec8e0b",
+    "source_tree": "5ea8d96720e8d6b49699e302b916502a5eb028c0",
+    "request": {
+      "schema_version": 1,
+      "repository": "edithatogo/unimelb-thesis-template-typst",
+      "revision": "5df42180e853cdf427c39f9275165911baec8e0b",
+      "tree": "5ea8d96720e8d6b49699e302b916502a5eb028c0",
+      "run": {
+        "not_before": "2026-11-15T04:14:34.913998+00:00",
+        "review_by": "2026-11-22T04:15:28.827146+00:00"
+      },
+      "native": {
+        "path": "build/verification/report.json",
+        "sha256": "599db10b6f77c478f165152c0c923e0294ecc8a1a87a49407c424515b8beabdc",
+        "schema_version": 1
+      },
+      "properties": {
+        "path": "build/property-tests.json",
+        "sha256": "2222843328e9872a17cb45dd7c9a5370f8c0315678c4db3bae7fe680aa634f21",
+        "schema_version": 1
+      },
+      "sidecars": [
+        {
+          "id": "policy",
+          "role": "policy",
+          "path": "build/verification/submission-policy/report.json",
+          "sha256": "5e0acdbb416087ebd3024b27fc87e752a965a855cc461a395a9e8eb4ab7ae185",
+          "schema_version": "1",
+          "required": false
+        },
+        {
+          "id": "replay",
+          "role": "reproducibility",
+          "path": "build/verification/replay-20261115T041515.899546Z/report.json",
+          "sha256": "2792cc7c80ef00bfde685bb5e0e7d715023f0741874e0ad12bc86c1a4437c580",
+          "schema_version": "1",
+          "required": false
+        }
+      ]
+    },
+    "native_report_sha256": "599db10b6f77c478f165152c0c923e0294ecc8a1a87a49407c424515b8beabdc",
+    "property_report_sha256": "2222843328e9872a17cb45dd7c9a5370f8c0315678c4db3bae7fe680aa634f21",
+    "wrapper_sha256": "e712860aa4d38444e6d34a9d879a7f00d9dbddfc7253ad5c9c3536cb181f2e9c",
+    "sidecar_sha256": "59915ac7216c4746806992a36b428a69d60c921ac6949047230209d3661adb2d",
+    "readable_sha256": "bd1bacc35d8cf9ebaa476a09da829c28444abaabf7bd25e5fad7f717cc268f63",
+    "identity_probes": [
+      {
+        "command": [
+          "git",
+          "--no-optional-locks",
+          "-C",
+          "/tmp/typst-evidence-integrated",
+          "rev-parse",
+          "HEAD"
+        ],
+        "cwd": "/tmp/typst-evidence-integrated",
+        "environment_overrides": {
+          "SOURCE_DATE_EPOCH": "0"
+        },
+        "timeout_seconds": 60,
+        "cleanup_timeout_seconds": 5,
+        "process_isolation": "posix-session",
+        "log": "build/requirement-evidence/qualification/identity-probes/revision.log",
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0024838789977366105,
+        "stdout_sha256": "764ea858083b47d55c6e0e691cf1572465fcda80e39188af528320d5b56d6a12",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "log_sha256": "4f59d2bdb6e1959077f4150e505bb8d1652da51cee77e5df85761c1f29434fae"
+      },
+      {
+        "command": [
+          "git",
+          "--no-optional-locks",
+          "-C",
+          "/tmp/typst-evidence-integrated",
+          "rev-parse",
+          "HEAD^{tree}"
+        ],
+        "cwd": "/tmp/typst-evidence-integrated",
+        "environment_overrides": {
+          "SOURCE_DATE_EPOCH": "0"
+        },
+        "timeout_seconds": 60,
+        "cleanup_timeout_seconds": 5,
+        "process_isolation": "posix-session",
+        "log": "build/requirement-evidence/qualification/identity-probes/tree.log",
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "timed_out": false,
+        "duration_seconds": 0.0025975780008593574,
+        "stdout_sha256": "e8c75c3f9f2dc0593e5773b0e9c8eb359075305a1731667c0396a847d97a03ec",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "log_sha256": "4c9801f7511e3f7f4bd1ed9bb278ce21f562ad0518ea96e6a52806f0fa7cb753"
+      }
+    ],
+    "source_inventory_sha256": "c649adff42805dbc649c8c2e8f23026d4e4dc7c7aa59d043155cea41e767af7a",
+    "requirements": 51,
+    "artifacts": 1352,
+    "optional_sidecars": [
+      {
+        "id": "policy",
+        "role": "policy",
+        "schema_version": "1",
+        "required": false,
+        "artifact": "artifacts/build/verification/submission-policy/report.json",
+        "status": "unsupported",
+        "reason": "Only file identity is validated; the supplied version has no registered semantic adapter."
+      },
+      {
+        "id": "replay",
+        "role": "reproducibility",
+        "schema_version": "1",
+        "required": false,
+        "artifact": "artifacts/build/verification/replay-20261115T041515.899546Z/report.json",
+        "status": "unsupported",
+        "reason": "Only file identity is validated; the supplied version has no registered semantic adapter."
+      }
+    ],
+    "result": "partial",
+    "whole_requirement_results": {
+      "blocked": 15,
+      "unexecuted": 36,
+      "executed-fail": 0
+    },
+    "applicability": {
+      "applicable": 38,
+      "unassessed": 13
+    },
+    "positive_bundle_still_valid": true,
+    "native_bytes_unchanged": true,
+    "property_bytes_unchanged": true,
+    "finished_at": "2026-11-15T04:15:34.512879+00:00"
+  }
+}

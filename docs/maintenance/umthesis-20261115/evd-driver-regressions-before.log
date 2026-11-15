@@ -1,0 +1,43 @@
+test_absolute_outside_traversal_and_symlink_sidecars_are_rejected (test_qualify.PostBuildEvidenceTests.test_absolute_outside_traversal_and_symlink_sidecars_are_rejected) ... ok
+test_existing_negative_output_is_preserved_before_probe_or_copy (test_qualify.PostBuildEvidenceTests.test_existing_negative_output_is_preserved_before_probe_or_copy) ... FAIL
+test_explicit_unexecuted_optional_corpus_is_not_an_artifact_declaration (test_qualify.PostBuildEvidenceTests.test_explicit_unexecuted_optional_corpus_is_not_an_artifact_declaration) ... ERROR
+test_failure_stub_cannot_overwrite_a_declared_optional_input (test_qualify.PostBuildEvidenceTests.test_failure_stub_cannot_overwrite_a_declared_optional_input) ... ok
+test_missing_native_or_invalid_declared_sidecar_replaces_stale_success (test_qualify.PostBuildEvidenceTests.test_missing_native_or_invalid_declared_sidecar_replaces_stale_success) ... ok
+test_missing_or_changed_declared_sidecars_cannot_be_skipped (test_qualify.PostBuildEvidenceTests.test_missing_or_changed_declared_sidecars_cannot_be_skipped) ... ok
+test_policy_and_absolute_replay_paths_attach_only_identity (test_qualify.PostBuildEvidenceTests.test_policy_and_absolute_replay_paths_attach_only_identity) ... ok
+test_unknown_version_or_replay_kind_is_not_silently_accepted (test_qualify.PostBuildEvidenceTests.test_unknown_version_or_replay_kind_is_not_silently_accepted) ... ok
+
+======================================================================
+ERROR: test_explicit_unexecuted_optional_corpus_is_not_an_artifact_declaration (test_qualify.PostBuildEvidenceTests.test_explicit_unexecuted_optional_corpus_is_not_an_artifact_declaration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/typst-evidence-integrated/tests/evidence/test_qualify.py", line 56, in test_explicit_unexecuted_optional_corpus_is_not_an_artifact_declaration
+    self.assertEqual(DRIVER.optional_sidecars({"replay_corpus": corpus}, self.root), [])
+                     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/typst-evidence-integrated/tests/evidence/qualify.py", line 42, in optional_sidecars
+    api.require(isinstance(corpus, dict) and isinstance(corpus.get(path_key), str)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                and isinstance(corpus.get(digest_key), str) and api.SHA.fullmatch(corpus[digest_key]),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                "sidecar-declaration", "A declared optional corpus must identify its report and digest.")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/typst-evidence-integrated/scripts/requirement_evidence.py", line 48, in require
+    raise ReceiptError(code, message)
+scripts.requirement_evidence.ReceiptError: A declared optional corpus must identify its report and digest.
+
+======================================================================
+FAIL: test_existing_negative_output_is_preserved_before_probe_or_copy (test_qualify.PostBuildEvidenceTests.test_existing_negative_output_is_preserved_before_probe_or_copy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/typst-evidence-integrated/tests/evidence/test_qualify.py", line 68, in test_existing_negative_output_is_preserved_before_probe_or_copy
+    self.assertEqual(result["error_code"], "unsafe-output")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'missing-artifact' != 'unsafe-output'
+- missing-artifact
++ unsafe-output
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.006s
+
+FAILED (failures=1, errors=1)

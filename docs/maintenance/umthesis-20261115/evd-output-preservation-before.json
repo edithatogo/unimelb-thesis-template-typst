@@ -1,0 +1,19 @@
+{
+  "kind": "real-consumer-output-ownership-regression",
+  "command": [
+    "/tmp/typst-validation315/bin/python",
+    "/tmp/typst-evidence-work/driver/tests/evidence/qualify.py",
+    "--source-root",
+    "/tmp/typst-pr33-clean",
+    "--output",
+    "/tmp/typst-evidence-draft/build/requirement-evidence/driver-negative-ownership-before",
+    "--not-before",
+    "2026-11-15T02:57:00Z",
+    "--review-by",
+    "2026-11-16T03:00:00Z"
+  ],
+  "exit_code": 0,
+  "old_driver_sha256": "4985752b207bce9347f490a28d2952f8b5edfbd69906429976016d545206c46e",
+  "preexisting_marker_preserved": false,
+  "qualification_sha256": "1fd697e08a714c7814195c33aa6d6d957f66e388694a386c6e4956a99b8a3144"
+}

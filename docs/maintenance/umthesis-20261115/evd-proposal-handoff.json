@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "bounded-evidence-foundation-handoff",
+  "base_revision": "b5dc1a30e5f192c5a6169ea566310090c9acb24c",
+  "frozen_source_tree": "1f00ef3425ad454f7cf1b8beb31e2597fcc2cc39",
+  "with_separate_driver_tree": "5ffe63fd171ffe4da1557eb5e499a530907c6bfc",
+  "published_commit": null,
+  "full_issue_qualified": false,
+  "institutional_approval": false,
+  "blind_safe": false,
+  "canonical": {
+    "command": [
+      "make",
+      "verify",
+      "PYTHON=/tmp/typst-validation315/bin/python"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 61.312913,
+    "source_unchanged": true,
+    "contract_tests": 127,
+    "maintenance_tests": 175,
+    "new_evidence_methods": 51,
+    "generated_properties": 640,
+    "thesis_pages": 58,
+    "sample_pages": 7,
+    "prior_native_cases": 209,
+    "source_dirty": true,
+    "scope": "The frozen11-file uncommitted candidate on b5; the separate later CI driver is not included in this full-gate source."
+  },
+  "coverage": {
+    "command": [
+      "/tmp/typst-validation315/bin/python",
+      "-m",
+      "coverage",
+      "run",
+      "--rcfile=/tmp/typst-evidence-work/coverage.ini",
+      "--data-file=/tmp/typst-evidence-work/.coverage-final",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/maintenance",
+      "-p",
+      "test_requirement_evidence.py",
+      "-v"
+    ],
+    "helper": "scripts/requirement_evidence.py",
+    "sha256": "7e6a3b28908542be133370e524ec2ddf9fbbc102b3aa088aa4de53cdd1a3d889",
+    "covered_statements": 456,
+    "statements": 462,
+    "covered_branches": 93,
+    "branches": 104,
+    "excluded_lines": 0,
+    "combined_percent": 96.99646643109541
+  },
+  "actual_consumer": {
+    "source_revision": "e4b84dde79ecadc4fc5a3024f8da19ecbe0d3e18",
+    "source_tree": "1f405eab1ade3d2d4501baf2cc8d59a37ecdf88d",
+    "native_sha256": "715862d51a63a39ff73659d6097ea724d1e43343ec56c6a86a0d3b83ac6d6e7d",
+    "property_sha256": "c6335310aee4cf762d3a3199a519813efd343409121f6b56dffbe1e4cc9e9303",
+    "cases": 8,
+    "whole_result": "partial",
+    "blocked": 15,
+    "unexecuted": 36,
+    "conditional_applicability_unassessed": 13,
+    "copied_artifacts": 1350,
+    "rerendered": false
+  },
+  "separate_post_ci_driver": {
+    "path": "tests/evidence/qualify.py",
+    "sha256": "4985752b207bce9347f490a28d2952f8b5edfbd69906429976016d545206c46e",
+    "unit_methods": 6,
+    "actual_consumer_cases": 8,
+    "actual_source_revision": "e4b84dde79ecadc4fc5a3024f8da19ecbe0d3e18",
+    "optional_policy_replay_attachments": "Synthetic typed attachment controls passed; no actual policy/replay receipt was attached to the historical e4 source. Final integrated CI must exercise its own present sidecars.",
+    "command": [
+      "/tmp/typst-validation315/bin/python",
+      "/tmp/typst-evidence-work/driver/tests/evidence/qualify.py",
+      "--source-root",
+      "/tmp/typst-pr33-clean",
+      "--output",
+      "/tmp/typst-evidence-draft/build/requirement-evidence/post-ci-driver-qualified",
+      "--not-before",
+      "2026-11-15T02:57:00Z",
+      "--review-by",
+      "2026-11-16T03:00:00Z"
+    ],
+    "environment_override": {
+      "PYTHONPATH": "/tmp/typst-evidence-draft"
+    },
+    "peer_review": "Root review pending for the later driver; helper/schema peer review completed."
+  },
+  "workflow_proposal": {
+    "command": [
+      "/workspace/scratch/9c5315d95216/tools/actionlint",
+      "-no-color",
+      "/tmp/typst-evidence-work/quality-proposed.yml"
+    ],
+    "exit_code": 0,
+    "applied": false
+  },
+  "artifacts": {
+    "canonical_qualification": {
+      "path": "/tmp/typst-evidence-work/canonical-qualification.json",
+      "sha256": "8831fbbfa3e01ff3cad7bd616de44f26a67acbb9dda9f65408cb71816f5697a8",
+      "bytes": 146267
+    },
+    "canonical_log": {
+      "path": "/tmp/typst-evidence-work/canonical.log",
+      "sha256": "0ea9708ccf4c52c63a1ddc303256e75d1296fba5de27681dcbd9f6f6e5a9e53b",
+      "bytes": 55780
+    },
+    "coverage_json": {
+      "path": "/tmp/typst-evidence-work/coverage.json",
+      "sha256": "5006c499a300ebf18424aa36ecc1e57741c64c491e59b413c1d6fb2be7391d6c",
+      "bytes": 33233
+    },
+    "coverage_text": {
+      "path": "/tmp/typst-evidence-work/coverage.txt",
+      "sha256": "9ff1d785691555b7d27c1b277d98e2f8a33a1c58615199cec436a0aa2bf40785",
+      "bytes": 454
+    },
+    "unit_log": {
+      "path": "/tmp/typst-evidence-work/unit-final.log",
+      "sha256": "b56fd6b0d5a1cda6df26c5748adb75211bd4bab479d79a7a6af45555ceba35c5",
+      "bytes": 9462
+    },
+    "historical_real_consumer": {
+      "path": "/tmp/typst-evidence-work/consumer-qualification.json",
+      "sha256": "68146d0967d9ce8f61654500fbc5515e42de980dcfc590d772acbe574062af43",
+      "bytes": 2985
+    },
+    "driver_unit_log": {
+      "path": "/tmp/typst-evidence-work/driver-unit-final.log",
+      "sha256": "de7caf06923948dea6046f07070c8e177cdaa395c7f260e01d6db153f9a9e6dc",
+      "bytes": 1124
+    },
+    "driver_real_consumer": {
+      "path": "/tmp/typst-evidence-draft/build/requirement-evidence/post-ci-driver-qualified/qualification.json",
+      "sha256": "0c19827253da1e4e94ab6695b571510f73f2e7f94f3df6d11e34e4e06546fc2a",
+      "bytes": 5426
+    },
+    "driver_real_consumer_log": {
+      "path": "/tmp/typst-evidence-work/driver-qualified.log",
+      "sha256": "b3d1b5cbd7ef85c07818484e3d1717be314dffeb2640d09bb001b168b5e98e65",
+      "bytes": 108
+    },
+    "peer_review": {
+      "path": "/tmp/typst-evidence-work/peer-review.json",
+      "sha256": "30c246a82695ed90d58cf0b46ab2b0eb2f9b7e66b0049ac574596c6b084c5459",
+      "bytes": 3488
+    },
+    "source_inventory": {
+      "path": "/tmp/typst-evidence-work/candidate-files.json",
+      "sha256": "aebc470f324229ba0e811482d331712b8fe4325189da648486fdab8015969afd",
+      "bytes": 4113
+    },
+    "coverage_docs_patch": {
+      "path": "/tmp/typst-evidence-work/integration-proposal.patch",
+      "sha256": "9a7547d8038a9b38e9011b5b822e742aacda900471548466e9ca60f2c8e34154",
+      "bytes": 3321
+    },
+    "workflow_patch": {
+      "path": "/tmp/typst-evidence-work/post-ci-workflow.patch",
+      "sha256": "e4d96ec724154ccca68adb73d1b9870a2eb44c4d8de970d3bdfea22a141759b7",
+      "bytes": 1479
+    },
+    "integration_instructions": {
+      "path": "/tmp/typst-evidence-work/integration-proposal.json",
+      "sha256": "49dcb96aea5cc6cf80e72a8c373211727b504801ad5f2865c2582ff259eb16f5",
+      "bytes": 2717
+    },
+    "canonical_native_report": {
+      "path": "/tmp/typst-evidence-draft/build/verification/report.json",
+      "sha256": "b466240876add0f22c42be341d19e41df56927350e3e1b905ac163144f12f503",
+      "bytes": 1593786
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/tmp/typst-validation315/bin/python",
+    "tests/evidence/qualify.py",
+    "--source-root",
+    "/tmp/typst-pr33-clean",
+    "--output",
+    "/tmp/typst-evidence-integrated/build/requirement-evidence/driver-negative-ownership-after",
+    "--not-before",
+    "2026-11-15T02:57:00Z",
+    "--review-by",
+    "2026-11-16T03:00:00Z"
+  ],
+  "exit_code": 1,
+  "error_code": "unsafe-output",
+  "marker_preserved": true,
+  "probes_absent": true,
+  "driver_sha256": "30ba10e45baf96e09d8138b8b8eb6d7c1b52d760acd143d30082ee119b70de19",
+  "qualification_sha256": "600c5be1448e1fbb8c7e98093c02644fea3cb38f5a36e0fe056f7f21efde20f6",
+  "log_sha256": "db88f17c224035aae23d36a9b83cbff08f63c4014a3c235c2a8e55ebd59e99c6"
+}

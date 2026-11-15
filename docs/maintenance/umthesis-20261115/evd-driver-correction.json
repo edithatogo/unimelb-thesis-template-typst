@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/tmp/typst-validation315/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/evidence",
+    "-p",
+    "test_qualify.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "driver_sha256": "30ba10e45baf96e09d8138b8b8eb6d7c1b52d760acd143d30082ee119b70de19",
+  "test_sha256": "042e5046251ec539fd31f9bf493f9dad42109365559f52a31ecefd992b944e2c",
+  "before_log_sha256": "7551af0e20b3a1a86801d78cc6c8d311e432fe7eb8d2621633b94976a7a4b725",
+  "after_log_sha256": "2cda9d2c73735ade5b353e000f6f3617d5bcbe4adfc272abfc38b916aae96970"
+}

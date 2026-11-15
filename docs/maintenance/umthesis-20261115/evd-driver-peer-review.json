@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "reviewer": "ci_controls",
+  "observed_at_utc": "2026-11-15T04:13:32.376953+00:00",
+  "observed_at_aest": "2026-11-15T14:13:32.376953+10:00",
+  "review_kind": "bounded-independent-read-only-source-and-existing-evidence-review",
+  "new_tests_executed_by_reviewer": false,
+  "source_edits_by_reviewer": false,
+  "remote_mutations_by_reviewer": false,
+  "scope": "Corrected post-build EVD driver and its two root review repairs",
+  "result": "no-remaining-concrete-blocker-in-reviewed-scope",
+  "source": [
+    {
+      "path": "/tmp/typst-evidence-integrated/tests/evidence/qualify.py",
+      "sha256": "30ba10e45baf96e09d8138b8b8eb6d7c1b52d760acd143d30082ee119b70de19",
+      "bytes": 13081
+    },
+    {
+      "path": "/tmp/typst-evidence-integrated/tests/evidence/test_qualify.py",
+      "sha256": "042e5046251ec539fd31f9bf493f9dad42109365559f52a31ecefd992b944e2c",
+      "bytes": 6932
+    },
+    {
+      "path": "/tmp/typst-evidence-integrated/scripts/requirement_evidence.py",
+      "sha256": "7e6a3b28908542be133370e524ec2ddf9fbbc102b3aa088aa4de53cdd1a3d889",
+      "bytes": 42709
+    }
+  ],
+  "findings": [
+    {
+      "id": "explicit-unexecuted-without-artifact",
+      "state": "corrected",
+      "reason": "Only explicit unexecuted corpus records without either path or digest are omitted; any partial, missing or tampered declared artifact remains rejected."
+    },
+    {
+      "id": "preexisting-negative-output-removal",
+      "state": "corrected",
+      "reason": "Existing negative directories reject before source probes or copy; no recursive removal remains in the driver."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/tmp/typst-evidence-work/root-review/driver-correction.json",
+      "sha256": "8f5625b020f054f00fb93e3b9b7cd10d82e409462cf5b4b5e3df5fc274068d51",
+      "bytes": 553
+    },
+    {
+      "path": "/tmp/typst-evidence-work/root-review/driver-old-regressions.log",
+      "sha256": "7551af0e20b3a1a86801d78cc6c8d311e432fe7eb8d2621633b94976a7a4b725",
+      "bytes": 3841
+    },
+    {
+      "path": "/tmp/typst-evidence-work/root-review/driver-corrected-tests.log",
+      "sha256": "2cda9d2c73735ade5b353e000f6f3617d5bcbe4adfc272abfc38b916aae96970",
+      "bytes": 1486
+    }
+  ],
+  "existing_test_results": {
+    "old_methods": 8,
+    "old_failures": 1,
+    "old_errors": 1,
+    "corrected_methods": 8,
+    "corrected_passed": 8
+  },
+  "observations": [
+    "Original native/property inputs are digest-bound, supplied to the strict producer, and checked unchanged at completion.",
+    "Output placement protects original native/property and declared artifact paths before failure-stub writes.",
+    "Intentional tampering occurs only in a new copied negative bundle; final positive consumer validation must still succeed.",
+    "Optional policy/replay attachments retain unsupported-semantic status and do not promote approval.",
+    "A stale own qualification result is explicitly replaced by failure before validation."
+  ],
+  "limitations": [
+    "The eight focused driver methods are not native renderer executions.",
+    "Fresh integrated canonical/post-CI qualification remains a separate gate.",
+    "Whole-programme result remains partial or fail; no human, institutional or submission approval is inferred."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "bounded-evidence-foundation-preservation",
+  "repository": "edithatogo/unimelb-thesis-template-typst",
+  "core_tree": "1f00ef3425ad454f7cf1b8beb31e2597fcc2cc39",
+  "with_driver_tree": "5ffe63fd171ffe4da1557eb5e499a530907c6bfc",
+  "base_revision": "b5dc1a30e5f192c5a6169ea566310090c9acb24c",
+  "base_tree": "1f405eab1ade3d2d4501baf2cc8d59a37ecdf88d",
+  "source_inventory_blob": "34665dd3dd4a87f1fc4560ff8e18e1ccc781b264",
+  "handoff_blob": "ffe156eceecc0c88f4ec1df9bd5149cbc021624d",
+  "coverage_docs_patch_blob": "8ca49739b9e36eedb3d5db6659c6b0811bd1b7d4",
+  "post_ci_workflow_patch_blob": "58ccff7af9ae3b3666f6aae691ae1c375fa913db",
+  "integration_instructions_blob": "395efaefcd892c3dcde78802b2ef49ee5116a332",
+  "archive_manifest_blob": "5e41972a46180e1c54765a8b2eb512c16e9cdb5a",
+  "archive_sha256": "0c538a827c9ea8dd3e4e8faec03fc04140efc5baace2fb35fab060eb29ec3bc9",
+  "archive_bytes": 10524088,
+  "archive_parts": 27,
+  "refs_changed": false,
+  "full_issue_qualified": false
+}
