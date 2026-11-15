@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "replay-source-proposal-inventory",
+  "repository": "edithatogo/unimelb-thesis-template-typst",
+  "base_revision": "e4b84dde79ecadc4fc5a3024f8da19ecbe0d3e18",
+  "base_tree": "1f405eab1ade3d2d4501baf2cc8d59a37ecdf88d",
+  "proposed_tree": "561d34c088bff1b178c99ed6ac2d4df1f690e201",
+  "checkout": "/tmp/typst-replay-prototype",
+  "source_files": [
+    {
+      "path": "scripts/replay_build.py",
+      "sha256": "32c8f5f4f6d20d05cf0f13e86ec3e05bb346a148043c8dd2fa2d4d146bf5f7a8",
+      "git_blob": "22eb91c416fea6570d8e82923e9ca8cbc22775b1",
+      "bytes": 41260,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/maintenance/test_replay_build.py",
+      "sha256": "951731112de82b62a86e449c46a52b2bd8938f97715a78a36abc8751722fbd0b",
+      "git_blob": "16d5bc9437a81bb1722487453496c8ad20437889",
+      "bytes": 29772,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/replay/qualify.py",
+      "sha256": "9e5231510e3d02e8a845b28819d87fbbe7449c84ca2961389934fd756ddaf485",
+      "git_blob": "32a1874bc443c711e508baa641950adc8c8224b9",
+      "bytes": 13488,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/replay/document.typ",
+      "sha256": "94c160643af5563c50954d96fd4d6ba055342842097f9073c53366d080575727",
+      "git_blob": "8ccaadc5f1085243b1b31ad33c1d747408dc1b0e",
+      "bytes": 945,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/replay/configuration.json",
+      "sha256": "c591ed9dd7d59f25b4cdc06b4f49b4be0a5a6fd27738a1fbf65093f1396ee139",
+      "git_blob": "a5d552c7774d1b1cbfcbf9575e8c7757e44a6103",
+      "bytes": 55,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/replay/icon.svg",
+      "sha256": "b44e812f6b05606f7b0e7103282c8abde0b6c46312eed2774c7e676e8619e602",
+      "git_blob": "360e1cbcbdaa196aa8f4009698411446d6815d71",
+      "bytes": 186,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/replay/references.bib",
+      "sha256": "1d3a4997e6a194c030a57e144199defbae1522447c0e41466babc4b340a2be1b",
+      "git_blob": "cb11af8eac3805af5294d44d17b0255dcfee47d4",
+      "bytes": 145,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "tests/replay/synthetic.csl",
+      "sha256": "bc6645a1f21b0dcd92eefe383a4ef90e1a58ffdf1aab64bcb6ce83706ca510cb",
+      "git_blob": "4b8efe05e001ef3101877186a938eac93314c168",
+      "bytes": 508,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "replay/synthetic.json",
+      "sha256": "2a8c734ef61ba84df099455d51dfab883d2e9e707f927e5b95c922c704d52c2b",
+      "git_blob": "18e043567f6fe33e5838269d2f603f6fd3dde147",
+      "bytes": 1204,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "docs/reproducible-builds.md",
+      "sha256": "f810f35998620c478671cd998a89abd86ca9484f69deafbc9a001350aafed46f",
+      "git_blob": "9597ae53160bf0cb2895dba6a8be0c14dc1e7ddf",
+      "bytes": 11337,
+      "mode": "100644",
+      "type": "blob"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "build/replay-prototype/qualification-final.json",
+      "bytes": 11104,
+      "sha256": "325b8ec4cfd06ca168d0436ad83cd6817f19a341b262a64b798f9a43a59cbdef",
+      "git_blob": "8b81b12f3f4437d5d95eaed8f98ed9239a532f01"
+    },
+    {
+      "path": "build/replay-qualified-corrected/report.json",
+      "bytes": 75430,
+      "sha256": "a758c18748b2833002a13447c2e736bece6aa36dd604c85a5d0c54e603eeab4d",
+      "git_blob": "18a882d091e6480570a3ff06566b797ac52657e7"
+    },
+    {
+      "path": "build/replay-qualified-corrected/lock/lock.json",
+      "bytes": 65632,
+      "sha256": "140a546a7fe9ca410ae53772d230ae2a964d8621565b17dfb38531024ad215fa",
+      "git_blob": "647aefa08bf0fffe7b923ab681bacba3f0829547"
+    },
+    {
+      "path": "build/replay-qualified-corrected/pair/report.json",
+      "bytes": 109977,
+      "sha256": "ccc027263e0a6080f6593966fc77b21d7826ef8c56f2f6ae18f37e5f47707f3b",
+      "git_blob": "c22d93a5942c225f990739bcf10602fbd8e17605"
+    },
+    {
+      "path": "build/replay-prototype/read-binding-review/old-source-negative.json",
+      "bytes": 1115,
+      "sha256": "dce946db4854a5b200166edb4c77a30a32ec2ceab46a1564234c5c5faa680340",
+      "git_blob": "4d99d548fa7458e82dc77302f20114d831f32444"
+    },
+    {
+      "path": "build/replay-prototype/read-binding-review/old-source-negative.log",
+      "bytes": 2661,
+      "sha256": "803ea07ffc0758d590d9a7a9957dc859d00f1d0d940382a4cde06f1a424c1390",
+      "git_blob": "6dd44538c7ad5d0be36c8590af8b3b0eee22f892"
+    },
+    {
+      "path": "build/replay-prototype/read-binding-review/corrected-unit.log",
+      "bytes": 6127,
+      "sha256": "d9941630a38b6fbacea624ef4567c2478c23baab7ed17aa7d80fd5f385b066cf",
+      "git_blob": "92b877c8f986868e15213bef76fbd9c9c9cdd987"
+    }
+  ],
+  "optional_additive_patches": [
+    {
+      "path": "build/replay-prototype/proposed-hooks/canonical-opt-in.patch",
+      "bytes": 2623,
+      "sha256": "d66ec12eb96642718149b7ed48ea5565070bb59f294991e1d11cb813347f3d30",
+      "git_blob": "83b418a7af9995c0175ef15206bc2a134bb9f142"
+    },
+    {
+      "path": "build/replay-prototype/proposed-hooks/coverage.patch",
+      "bytes": 200,
+      "sha256": "1f0fe45cf6a2277e94df55254ae410dde46f7348fe76e0c0316e9f4731c8c2aa",
+      "git_blob": "a3770112e512b9946a22be4b202e548fa89fcb13"
+    }
+  ],
+  "qualification": {
+    "existing_canonical_gate": "Pass: 209 rendering/native cases, 127 contract methods, 159 maintenance methods, 640 generated property cases; thesis 58 pages, sample 7 pages.",
+    "canonical_report_sha256": "bf95e9b127d6920d081aa6007ff7d65f6da4c3086776254921d253a764d7b5e4",
+    "canonical_report_path": "/tmp/typst-replay-prototype/build/replay-prototype/canonical-corrected.json",
+    "native_replay": "Pass: 11 controls; four actual compiler attempts, with three successful PDFs and one expected empty-cache failure.",
+    "pdf_sha256": "a9e10f1c2f15001d25397baed7660b53245956dd9df1d9800267326ebf841539",
+    "pdf_bytes": 20877,
+    "lock_sha256": "140a546a7fe9ca410ae53772d230ae2a964d8621565b17dfb38531024ad215fa",
+    "helper_methods": 35,
+    "helper_coverage": {
+      "percent": 81.01604278074866,
+      "covered_lines": 435,
+      "statements": 530,
+      "covered_branches": 171,
+      "branches": 218,
+      "excluded_lines": 0
+    },
+    "eight_helper_coverage": {
+      "percent": 90.84380610412926,
+      "covered_lines": 1740,
+      "statements": 1897,
+      "covered_branches": 790,
+      "branches": 888,
+      "excluded_lines": 0
+    },
+    "source_before_after_identical_files": 529,
+    "peer_review": "ci_controls found separate-read lock/recipe binding defects; corrected by hashing and parsing one buffer and binding the recipe snapshot to the project inventory. Narrow rereview found no remaining substantive defect.",
+    "controlled_negative": "Both new read-mutation tests fail against exact old helper 66870edf; all 35 methods pass on corrected helper 32c8f5f4.",
+    "optional_canonical_patch_executed": false,
+    "release_bundle_qualified": false,
+    "complete_environment_image_locked": false,
+    "cross_environment_semantic_repeatability_qualified": false,
+    "hosted_candidate_qualified": false
+  },
+  "integration": [
+    "Compose only the ten new source files on the intended receiving base. No existing source, workflow, verifier or coverage file was edited.",
+    "Include tests/replay/icon.svg explicitly despite the global SVG ignore. Its exact blob is in source_files.",
+    "Apply the optional coverage patch additively, preserving every prior helper and the 80% floor.",
+    "The optional canonical patch adds --replay-package-cache and direct-call orchestration. It was parsed and checked for AST preservation, but was not applied or executed. All 21 existing non-main function bodies remain identical in that proposal.",
+    "An opted-in canonical replay must fail if namespace isolation is unsupported. The standalone helper returns exit 2 for unsupported isolation and never falls back online.",
+    "Changing scripts/verify.py changes the producer identity; capture a fresh lock after integration instead of reusing the prototype lock.",
+    "Run fresh source and receiving gates after composition. No refs, PRs or release artifacts were published by this agent.",
+    "Keep the rest of issue #20 and the separate PR #9 provisioning conditions open."
+  ]
+}

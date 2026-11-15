@@ -1,0 +1,298 @@
+{
+  "artifact_kind": "replay-proposal-qualification",
+  "artifacts": [
+    {
+      "bytes": 71401,
+      "path": "build/replay-prototype/source-before-corrected.json",
+      "sha256": "0528a5f79d42f15c0bd62cdea1bb764b22802c710d740101bc6a397ead1f5085"
+    },
+    {
+      "bytes": 71418,
+      "path": "build/replay-prototype/source-after-corrected.json",
+      "sha256": "a2acc6f6b4dd70f68724f35251cce869cb9efee3649df756c639db6f82069bf0"
+    },
+    {
+      "bytes": 179935,
+      "path": "build/replay-prototype/make-verify-corrected.log",
+      "sha256": "06538726da4180be94178deb4c58c59d6e61144f5bb2dfb378d19d661b9481fc"
+    },
+    {
+      "bytes": 1596822,
+      "path": "build/replay-prototype/canonical-corrected.json",
+      "sha256": "bf95e9b127d6920d081aa6007ff7d65f6da4c3086776254921d253a764d7b5e4"
+    },
+    {
+      "bytes": 139508,
+      "path": "build/replay-prototype/coverage-component-corrected.json",
+      "sha256": "5ed5d9d3a0a36a0941f1e0c56015422643e944d626cc4e38bee3a2901d46505f"
+    },
+    {
+      "bytes": 1340,
+      "path": "build/replay-prototype/coverage-summary-corrected.txt",
+      "sha256": "d5168677d6045476d3a65b16e56e2b3be53e32f999ec9ec9f9f1ca3f76088ed7"
+    },
+    {
+      "bytes": 6127,
+      "path": "build/replay-prototype/read-binding-review/corrected-unit.log",
+      "sha256": "d9941630a38b6fbacea624ef4567c2478c23baab7ed17aa7d80fd5f385b066cf"
+    },
+    {
+      "bytes": 1115,
+      "path": "build/replay-prototype/read-binding-review/old-source-negative.json",
+      "sha256": "dce946db4854a5b200166edb4c77a30a32ec2ceab46a1564234c5c5faa680340"
+    },
+    {
+      "bytes": 2661,
+      "path": "build/replay-prototype/read-binding-review/old-source-negative.log",
+      "sha256": "803ea07ffc0758d590d9a7a9957dc859d00f1d0d940382a4cde06f1a424c1390"
+    },
+    {
+      "bytes": 75430,
+      "path": "build/replay-qualified-corrected/report.json",
+      "sha256": "a758c18748b2833002a13447c2e736bece6aa36dd604c85a5d0c54e603eeab4d"
+    },
+    {
+      "bytes": 56853,
+      "path": "build/replay-qualified-corrected/lock/report.json",
+      "sha256": "c8b81a163f49d5b2d264640fb9d37fca789de0414e65e53c8cd965bfab8c04df"
+    },
+    {
+      "bytes": 65632,
+      "path": "build/replay-qualified-corrected/lock/lock.json",
+      "sha256": "140a546a7fe9ca410ae53772d230ae2a964d8621565b17dfb38531024ad215fa"
+    },
+    {
+      "bytes": 109977,
+      "path": "build/replay-qualified-corrected/pair/report.json",
+      "sha256": "ccc027263e0a6080f6593966fc77b21d7826ef8c56f2f6ae18f37e5f47707f3b"
+    },
+    {
+      "bytes": 2623,
+      "path": "build/replay-prototype/proposed-hooks/canonical-opt-in.patch",
+      "sha256": "d66ec12eb96642718149b7ed48ea5565070bb59f294991e1d11cb813347f3d30"
+    },
+    {
+      "bytes": 200,
+      "path": "build/replay-prototype/proposed-hooks/coverage.patch",
+      "sha256": "1f0fe45cf6a2277e94df55254ae410dde46f7348fe76e0c0316e9f4731c8c2aa"
+    }
+  ],
+  "base_revision": "e4b84dde79ecadc4fc5a3024f8da19ecbe0d3e18",
+  "base_tree": "1f405eab1ade3d2d4501baf2cc8d59a37ecdf88d",
+  "canonical_finished_at_utc": "2026-11-15T03:37:15.276255+00:00",
+  "canonical_started_at_utc": "2026-11-15T03:36:37.508556+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/workspace/scratch/9c5315d95216/tools/typstyle",
+        "--check",
+        "tests/replay/document.typ"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "/tmp/typst-validation315/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/maintenance",
+        "-p",
+        "test_replay_build.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "methods": 35
+    },
+    {
+      "argv": [
+        "/tmp/typst-validation315/bin/python",
+        "tests/replay/qualify.py",
+        "--package-cache",
+        "/tmp/typst-validation-package-cache",
+        "--output",
+        "build/replay-qualified-corrected"
+      ],
+      "cases": 11,
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "make",
+        "verify",
+        "PYTHON=/tmp/typst-validation315/bin/python"
+      ],
+      "contract_methods": 127,
+      "existing_rendered_native_cases": 209,
+      "exit_code": 0,
+      "generated_property_cases": 640,
+      "maintenance_methods": 159,
+      "properties": 10,
+      "sample_pages": 7,
+      "thesis_pages": 58
+    },
+    {
+      "exit_code": 0,
+      "interface": "Existing make coverage sequence with temporary eight-helper config and separate data file",
+      "threshold": 80,
+      "tracked_coverage_file_modified": false
+    }
+  ],
+  "complete_environment_image_locked": false,
+  "coverage": {
+    "covered_branches": 790,
+    "covered_lines": 1740,
+    "excluded_lines": 0,
+    "missing_branches": 98,
+    "missing_lines": 157,
+    "num_branches": 888,
+    "num_partial_branches": 68,
+    "num_statements": 1897,
+    "percent_branches_covered": 88.96396396396396,
+    "percent_branches_covered_display": "88.96",
+    "percent_covered": 90.84380610412926,
+    "percent_covered_display": "90.84",
+    "percent_statements_covered": 91.72377438060094,
+    "percent_statements_covered_display": "91.72"
+  },
+  "coverage_exclusions": 0,
+  "cross_environment_semantic_repeatability_qualified": false,
+  "existing_coverage_configuration_changed": false,
+  "existing_source_changed": false,
+  "existing_verifier_changed": false,
+  "expected_native_compiler_failures": 1,
+  "historical_attempts_retained": [
+    "build/replay-lock-first",
+    "build/replay-lock-second",
+    "build/replay-pair-first",
+    "build/replay-qualified-current",
+    "build/replay-prototype/read-binding-review/old-source"
+  ],
+  "hosted_candidate_qualified": false,
+  "integration_notes": [
+    "Compose only the ten source paths on the receiving base and run fresh receiving-source gates.",
+    "Include tests/replay/icon.svg explicitly: the global SVG ignore hides this new required input from ordinary git add.",
+    "The separate optional verifier patch adds direct-call orchestration only. It is unexecuted proposal code; all 21 existing non-main helper bodies are AST-identical.",
+    "Add scripts.replay_build to the measured source list through the separate coverage patch; keep every prior entry and the 80% floor.",
+    "Changing scripts/verify.py changes producer identity: capture a fresh lock rather than reuse this prototype lock.",
+    "The bounded input/font/network proof does not close all of issue #20 or change PR #9 provisioning conditions."
+  ],
+  "lock_scope": {
+    "complete_observed_package_trees": 18,
+    "explicit_font_files": 3,
+    "package_files": 214,
+    "project_files": 47,
+    "retained_font_licenses": 1
+  },
+  "lock_sha256": "140a546a7fe9ca410ae53772d230ae2a964d8621565b17dfb38531024ad215fa",
+  "native_compiler_attempts": 4,
+  "native_finished_at_utc": "2026-11-15T03:36:33.456348+00:00",
+  "native_proof_used_network_namespaces": true,
+  "native_started_at_utc": "2026-11-15T03:36:20.416284+00:00",
+  "negative_control": {
+    "corrected_suite_exit_code": 0,
+    "corrected_suite_methods": 35,
+    "expected_failed_methods": 2,
+    "methods": 2,
+    "old_helper_sha256": "66870edfc25f136c44d6f7edacad7ec6af23bf288834d3438a1dd302966ade18",
+    "test_process_exit_code": 1
+  },
+  "optional_canonical_patch_executed": false,
+  "pdf_bytes": 20877,
+  "pdf_sha256": "a9e10f1c2f15001d25397baed7660b53245956dd9df1d9800267326ebf841539",
+  "peer_review": {
+    "correction": "Hash and parse one lock buffer; require parsed recipe buffer identity to match copied inventory",
+    "finding": "Separate hash/parse reads could bind replacement lock/recipe content incorrectly",
+    "helper_sha256": "32c8f5f4f6d20d05cf0f13e86ec3e05bb346a148043c8dd2fa2d4d146bf5f7a8",
+    "kind": "Independent agent static review; no GitHub review or policy change",
+    "rereview_result": "No remaining substantive finding in the bounded scope; reviewer read owner logs, did not rerun tests",
+    "reviewer": "/root/ci_controls",
+    "tests_sha256": "951731112de82b62a86e449c46a52b2bd8938f97715a78a36abc8751722fbd0b"
+  },
+  "proposed_tree": "561d34c088bff1b178c99ed6ac2d4df1f690e201",
+  "release_bundle_qualified": false,
+  "replay_helper_unit_coverage": {
+    "covered_branches": 171,
+    "covered_lines": 435,
+    "excluded_lines": 0,
+    "missing_branches": 47,
+    "missing_lines": 95,
+    "num_branches": 218,
+    "num_partial_branches": 19,
+    "num_statements": 530,
+    "percent_branches_covered": 78.44036697247707,
+    "percent_branches_covered_display": "78.44",
+    "percent_covered": 81.01604278074866,
+    "percent_covered_display": "81.02",
+    "percent_statements_covered": 82.0754716981132,
+    "percent_statements_covered_display": "82.08"
+  },
+  "result": "pass",
+  "schema_version": 1,
+  "source_files_unchanged_before_after": 529,
+  "source_paths": [
+    {
+      "bytes": 41260,
+      "git_blob": "22eb91c416fea6570d8e82923e9ca8cbc22775b1",
+      "path": "scripts/replay_build.py",
+      "sha256": "32c8f5f4f6d20d05cf0f13e86ec3e05bb346a148043c8dd2fa2d4d146bf5f7a8"
+    },
+    {
+      "bytes": 29772,
+      "git_blob": "16d5bc9437a81bb1722487453496c8ad20437889",
+      "path": "tests/maintenance/test_replay_build.py",
+      "sha256": "951731112de82b62a86e449c46a52b2bd8938f97715a78a36abc8751722fbd0b"
+    },
+    {
+      "bytes": 13488,
+      "git_blob": "32a1874bc443c711e508baa641950adc8c8224b9",
+      "path": "tests/replay/qualify.py",
+      "sha256": "9e5231510e3d02e8a845b28819d87fbbe7449c84ca2961389934fd756ddaf485"
+    },
+    {
+      "bytes": 945,
+      "git_blob": "8ccaadc5f1085243b1b31ad33c1d747408dc1b0e",
+      "path": "tests/replay/document.typ",
+      "sha256": "94c160643af5563c50954d96fd4d6ba055342842097f9073c53366d080575727"
+    },
+    {
+      "bytes": 55,
+      "git_blob": "a5d552c7774d1b1cbfcbf9575e8c7757e44a6103",
+      "path": "tests/replay/configuration.json",
+      "sha256": "c591ed9dd7d59f25b4cdc06b4f49b4be0a5a6fd27738a1fbf65093f1396ee139"
+    },
+    {
+      "bytes": 186,
+      "git_blob": "360e1cbcbdaa196aa8f4009698411446d6815d71",
+      "path": "tests/replay/icon.svg",
+      "sha256": "b44e812f6b05606f7b0e7103282c8abde0b6c46312eed2774c7e676e8619e602"
+    },
+    {
+      "bytes": 145,
+      "git_blob": "cb11af8eac3805af5294d44d17b0255dcfee47d4",
+      "path": "tests/replay/references.bib",
+      "sha256": "1d3a4997e6a194c030a57e144199defbae1522447c0e41466babc4b340a2be1b"
+    },
+    {
+      "bytes": 508,
+      "git_blob": "4b8efe05e001ef3101877186a938eac93314c168",
+      "path": "tests/replay/synthetic.csl",
+      "sha256": "bc6645a1f21b0dcd92eefe383a4ef90e1a58ffdf1aab64bcb6ce83706ca510cb"
+    },
+    {
+      "bytes": 1204,
+      "git_blob": "18e043567f6fe33e5838269d2f603f6fd3dde147",
+      "path": "replay/synthetic.json",
+      "sha256": "2a8c734ef61ba84df099455d51dfab883d2e9e707f927e5b95c922c704d52c2b"
+    },
+    {
+      "bytes": 11337,
+      "git_blob": "9597ae53160bf0cb2895dba6a8be0c14dc1e7ddf",
+      "path": "docs/reproducible-builds.md",
+      "sha256": "f810f35998620c478671cd998a89abd86ca9484f69deafbc9a001350aafed46f"
+    }
+  ],
+  "source_state": "Uncommitted ten-file proposal on exact base; no remote ref or PR changed",
+  "successful_native_pdfs": 3
+}

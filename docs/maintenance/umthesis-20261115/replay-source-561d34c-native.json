@@ -1,0 +1,1477 @@
+{
+  "artifact_kind": "bounded-replay-native-controls",
+  "case_count": 11,
+  "cases": [
+    {
+      "evidence": {
+        "artifact_kind": "replay-lock-capture",
+        "discovery": {
+          "artifact_kind": "isolated-typst-compile",
+          "commands": [
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "/usr/bin/unshare",
+                "--user",
+                "--map-root-user",
+                "--net",
+                "/tmp/typst-validation315/bin/python",
+                "-I",
+                "/tmp/typst-replay-prototype/scripts/replay_build.py",
+                "_worker",
+                "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/invocation.json"
+              ],
+              "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+              "duration_seconds": 0.3824046090012416,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "_replay/compile.log",
+              "log_sha256": "82051b70a2dd7d4b709387235010f73ac4b1afb11bb67744480ffc9b8fd8b8c7",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "/workspace/scratch/9c5315d95216/tools/qpdf/bin/qpdf",
+                "--check",
+                "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/document.pdf"
+              ],
+              "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+              "duration_seconds": 0.0055210869904840365,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "_replay/qpdf.log",
+              "log_sha256": "b84395139cfececff6f6873533818b7fae695ae87736dbbdf4c44f6664711361",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "5db60101786f321e73449617936d0445ce9843911a55432f2eabe162a7440d4d",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "/usr/bin/pdftotext",
+                "-layout",
+                "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/document.pdf",
+                "-"
+              ],
+              "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+              "duration_seconds": 0.011884453007951379,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "_replay/text.log",
+              "log_sha256": "1247f31840c484e5a4f6dd8dd6decdb3a3ae743388f709e4fc45b4d40099d2fd",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "1f9b26ab7f63f79d711eedf26bf8f52003ca93df05c868e4f0f2f477d4cacb37",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "/usr/bin/pdffonts",
+                "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/document.pdf"
+              ],
+              "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+              "duration_seconds": 0.008491824002703652,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "_replay/fonts.log",
+              "log_sha256": "6e63c17d5eaf005430c9e5c9f11ebb3c0740c2653594e3ae5db64b40fd17e19d",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "4875f0df146fb2f8b4c63eade89e88ce965deb185b2cf4754e64d9bb1b46c7e1",
+              "timed_out": false,
+              "timeout_seconds": 60
+            }
+          ],
+          "compiler_environment_is_minimal": true,
+          "compiler_execution": {
+            "cleanup_timeout_seconds": 5,
+            "command": [
+              "/workspace/scratch/9c5315d95216/tools/typst-x86_64-unknown-linux-musl/typst",
+              "compile",
+              "--root",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+              "--package-cache-path",
+              "/tmp/typst-validation-package-cache",
+              "--package-path",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/local-packages",
+              "--ignore-system-fonts",
+              "--ignore-embedded-fonts",
+              "--font-path",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/fonts",
+              "--creation-timestamp",
+              "1794700800",
+              "--jobs",
+              "1",
+              "--input",
+              "profile=default",
+              "--deps",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/dependencies.json",
+              "--deps-format",
+              "json",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/tests/replay/document.typ",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/document.pdf"
+            ],
+            "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+            "duration_seconds": 0.3824046090012416,
+            "environment_overrides": {
+              "LANG": "C.UTF-8",
+              "LC_ALL": "C.UTF-8",
+              "SOURCE_DATE_EPOCH": "1794700800",
+              "TZ": "UTC"
+            },
+            "execution_binding": "namespace-worker-execve",
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "log": "_replay/compile.log",
+            "log_sha256": "82051b70a2dd7d4b709387235010f73ac4b1afb11bb67744480ffc9b8fd8b8c7",
+            "outer_invocation": [
+              "/usr/bin/unshare",
+              "--user",
+              "--map-root-user",
+              "--net",
+              "/tmp/typst-validation315/bin/python",
+              "-I",
+              "/tmp/typst-replay-prototype/scripts/replay_build.py",
+              "_worker",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/invocation.json"
+            ],
+            "process_isolation": "posix-session",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "timed_out": false,
+            "timeout_seconds": 60
+          },
+          "finished_at_utc": "2026-11-15T03:36:21.250773+00:00",
+          "fonts": [
+            {
+              "embedded": "yes",
+              "name": "SourceSerifPro-Bold",
+              "subset": "yes",
+              "unicode_map": "yes"
+            },
+            {
+              "embedded": "yes",
+              "name": "SourceSerifPro-Regular",
+              "subset": "yes",
+              "unicode_map": "yes"
+            },
+            {
+              "embedded": "yes",
+              "name": "SourceSerifPro-It",
+              "subset": "yes",
+              "unicode_map": "yes"
+            }
+          ],
+          "native_inventory": {
+            "artifact_kind": "validated-dependency-inventory",
+            "compile_log_sha256": "82051b70a2dd7d4b709387235010f73ac4b1afb11bb67744480ffc9b8fd8b8c7",
+            "external_paths_sanitized": true,
+            "font_inventory_included": false,
+            "inputs": [
+              {
+                "path": "package-cache:preview/lovelace/0.3.0/lib.typ",
+                "sha256_observed_after_compile": "e4ebaeeeb4f87d373bed60f68657f2da9de55cd717d621626b45609b52af1977"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/typst.toml",
+                "sha256_observed_after_compile": "a64f4c35c1e688a746550bd0e3220cd72a67c03605bd1c7d34d9572f18e72370"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/styles.typ",
+                "sha256_observed_after_compile": "3a6fd4750d715aba7c59d5d9df05cc9806a459b68baa48bb6bf72f0463696ca9"
+              },
+              {
+                "path": "package-cache:preview/glossarium/0.5.1/typst.toml",
+                "sha256_observed_after_compile": "9f355f1108bf72b800196261997c5d389f601c5df8fad8074ecda96e87e0a93f"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/draw/shapes.typ",
+                "sha256_observed_after_compile": "987840dfa290ddfc747d5b9cbf944b1e5b6f1604a218e664734da0ffdaabaace"
+              },
+              {
+                "path": "package-cache:preview/codly/1.3.0/typst.toml",
+                "sha256_observed_after_compile": "802159c8ed96acf3d0aae8bcb34c5abb31fd21915af2847979330d466cd57baa"
+              },
+              {
+                "path": "project:config/glossary.typ",
+                "sha256_observed_after_compile": "75cc625a2e0015b7ac8d21e9fe357daa727804b79a0ddb637d37c02a44ee6539"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/decorations.typ",
+                "sha256_observed_after_compile": "952dcd04234f6a3bbb05b196a6d034d95c385d85c106ceb68998649f83887df5"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/cosmos/default.typ",
+                "sha256_observed_after_compile": "1add92c5001d246e0b5c928cd17289effa3bbc0b2b09c1f2c80bcef6ba9db378"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/drawable.typ",
+                "sha256_observed_after_compile": "ae64243f9d3292576c4af49775eec4190ef6bdd6b940b1c4ccc7476f8f4d87fd"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.1/showy.typ",
+                "sha256_observed_after_compile": "fa032de7eba4cedb4e51cfa0208eee02bbb374c7d1acd2a1b91bb87d7ec8226e"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/bezier.typ",
+                "sha256_observed_after_compile": "59243402772ee9f265829d56dc3358c60f750f46b5b4139c71106503ba278627"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/mark.typ",
+                "sha256_observed_after_compile": "00e7e720486bd88b140edbdac9f1d01dd5c88c7b6ce4b5af16b5734b9756622c"
+              },
+              {
+                "path": "project:config/contributions.typ",
+                "sha256_observed_after_compile": "69e810a089a0b0fb25a5a290a6a43c24c8f73b1a1c1fad066dd33226be9ac8e1"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/contour.typ",
+                "sha256_observed_after_compile": "60ba42b8ab0964faaecfff825455dba5ae4adfbf1ad161f4102db7d1dd5da5de"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/format.typ",
+                "sha256_observed_after_compile": "23a5dae0f67eb6874c880f5bbe551fb8e8de1e53720c877d053c3b97436439b5"
+              },
+              {
+                "path": "package-cache:preview/lovelace/0.3.0/typst.toml",
+                "sha256_observed_after_compile": "f218d6c05cd0906475d42c758b6f81a583146d5a5f39edf43764d46573c69d3b"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/cosmos/clouds.typ",
+                "sha256_observed_after_compile": "f7c0a62272849ed0aa5271e3daaf5aa24bb61481cde4c58ded600d33b571b884"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/path-util.typ",
+                "sha256_observed_after_compile": "85de62acaee22998cc6136b72284cf84209971cec247789c00082f41841f0f0c"
+              },
+              {
+                "path": "package-cache:preview/codetastic/0.2.2/ecc.typ",
+                "sha256_observed_after_compile": "5b047161153ed344815490bc6a9c3bccd570a49e4b0806f567a4c38486dd25fc"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/draw/styling.typ",
+                "sha256_observed_after_compile": "7270172eb0de237d430fa70f4ab5deb7440378077985e242c74ef747ed21feb9"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/lib/decorations/path.typ",
+                "sha256_observed_after_compile": "2976615c3d9a37d28a2b5794fd6a12ef5f3a0056fe896a5303e3064e0f69a4d2"
+              },
+              {
+                "path": "project:pages/glossary.typ",
+                "sha256_observed_after_compile": "25924f444006d553db2a249eb826866761086d978cea001b6da05fbdbdcb35ab"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/tree.typ",
+                "sha256_observed_after_compile": "a9fd86ae82d2367dac3317d2f27cc5106debc692da5905d019ac9cc59af58c12"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/cosmos/cosmos.typ",
+                "sha256_observed_after_compile": "ae53c177e93bf82d2fa0ee7e7e415c44b4f4251a4da679ec45d19187e51a2a09"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/canvas.typ",
+                "sha256_observed_after_compile": "5e0254957f741271755cb95c65632afd81d4520ab57dd0991be1212e52b9cd75"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.1/typst.toml",
+                "sha256_observed_after_compile": "bc5e4805b9f52279d20c1ed31ab6cf0eaa959bf6cf336a8c1338caf9f303aae2"
+              },
+              {
+                "path": "package-cache:preview/oxifmt/0.2.0/oxifmt.typ",
+                "sha256_observed_after_compile": "71f9a0c380c2da3f4f819cbedc78befbfe82a0964d9f0c1f6599eae7428b574c"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/complex.typ",
+                "sha256_observed_after_compile": "ea463f2cc596b3b25775b6ffefa323d3240898683c9883331b73108eecfc52b6"
+              },
+              {
+                "path": "project:config/appendix.typ",
+                "sha256_observed_after_compile": "58b2bfd42876dd0568ae578f16198b30352b8b9d9b8e7ebb712254298a10a677"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/util.typ",
+                "sha256_observed_after_compile": "22fb098d5b30b8a3730b29f8107c8b00f01237bf788919491f8891c32adfd979"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/lib.typ",
+                "sha256_observed_after_compile": "2c849021e4e58c4d2eb8d08c46f582f71403c1defa1d8bb5bb306421472a9387"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/diagram.typ",
+                "sha256_observed_after_compile": "05a57994f07856b88dedff1a6384017259e4b446b0297ed1d1ed80b238f4a9c8"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/cosmos/rainbow.typ",
+                "sha256_observed_after_compile": "ca0b0affa16dab543887adc9ac195846477130ceb4f2defd5082fbbfcbf2874f"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/aabb.typ",
+                "sha256_observed_after_compile": "c7cf8aedcfd79c519da30426529a9fbbb98c7b15bc83ad2dcf9c962ef58da00f"
+              },
+              {
+                "path": "package-cache:preview/codetastic/0.2.2/checksum.typ",
+                "sha256_observed_after_compile": "cd192b88ec85f09b2c6da0921df75e2361ccc6d476ba8a9cf14178422fb14627"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/draw/transformations.typ",
+                "sha256_observed_after_compile": "e61cef99c0726686f6d77bc2fa0910dba24037c15d3f30184ef86f3fbdba865d"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/lib/decorations/brace.typ",
+                "sha256_observed_after_compile": "02e904ca6747fbd2a8820f46a7cec01ea618629f890a5658f7352f59b3ba7c05"
+              },
+              {
+                "path": "project:pages/landscape-sample.typ",
+                "sha256_observed_after_compile": "5c9a33493747dfcb257f552b39b413d62af529ef0e1b344b1d519e498281b83d"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/angle.typ",
+                "sha256_observed_after_compile": "50d708f23b34ebcb01e5f4af6ace8171a3564ad647f25b1b0660cd4d1b7acce0"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/i18n.typ",
+                "sha256_observed_after_compile": "006f5e5dbd91d4fa57a0c534e58e165587b0f3a57de1852dfc34f5f3caf0e5c9"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/version.typ",
+                "sha256_observed_after_compile": "10d3965a53548b3ff375d7f0319015d871be3eb3fcbe9ae34c77ff51c935f5eb"
+              },
+              {
+                "path": "package-cache:preview/equate/0.2.1/src/equate.typ",
+                "sha256_observed_after_compile": "33f529f9ecf0c63f3eb777231878ab75a3679d9163b4615f6f2e5a7a58a93de5"
+              },
+              {
+                "path": "package-cache:preview/oxifmt/0.2.0/typst.toml",
+                "sha256_observed_after_compile": "188d3adac491cfb1bc9fd0aabd1b5401fa4b4ea6db87f24e957ae4abe5011747"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/hobby.typ",
+                "sha256_observed_after_compile": "a179f26b95dd21e439bd0b1dc0f7716ce6396cc5f23e95259c0ac249dc852e78"
+              },
+              {
+                "path": "project:config/abbreviations.typ",
+                "sha256_observed_after_compile": "5820564cb8670b5b995265bd4b82b35a07c705a4fe12e13ef5117514b2ad520c"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/line.typ",
+                "sha256_observed_after_compile": "01011591ab19f1c939040a8a4bd47c481b4bc6529a740d80c140c6dfd327e4f8"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/typst.toml",
+                "sha256_observed_after_compile": "14b8557b6aa23e0b0c502bcf02a7c77b1a98ce3728064b7ade840bc225177e53"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/edge.typ",
+                "sha256_observed_after_compile": "5ed91106b16d52e84626645ed8ba1d484af538ee07bbf3e3973fa4209a36046b"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/cosmos/fancy.typ",
+                "sha256_observed_after_compile": "e2e45a17a060b6102ce7d2bc6951c72dc25e0c85a4747379097dae9e85008f20"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/bezier.typ",
+                "sha256_observed_after_compile": "45569be9ae63cc425c0232385ba0cb542ed11fb0653fa8896a6f1902feae8d07"
+              },
+              {
+                "path": "package-cache:preview/codetastic/0.2.2/util.typ",
+                "sha256_observed_after_compile": "46cf52e5b5233b3418d47e8b640de281b9149a64b5bc57a50c028f312acfd967"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/anchor.typ",
+                "sha256_observed_after_compile": "286174f7114dc70d820f435ad3237bf2c6d4e10f9ec8d99c9cdc496305c63ab7"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/lib/decorations.typ",
+                "sha256_observed_after_compile": "1f44aa27842638530864ba3bed22dc3012546f16e7ee9d7a5f2d6afe34acf2ac"
+              },
+              {
+                "path": "project:pages/front-matter.typ",
+                "sha256_observed_after_compile": "bf8b9ce7e455827e0688c2ec6c49bb893c337159acb7b7a512932d1bb175f1a2"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/chart/piechart.typ",
+                "sha256_observed_after_compile": "dc606bed67a87f4b5a3600d2984e989c81ffa14ac05060f37b3ceb973f3d1eac"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/core.typ",
+                "sha256_observed_after_compile": "794293cf0730ac449ec90a19fc61235cdc8511f58ad3b22b56e870f557238c0c"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/lib.typ",
+                "sha256_observed_after_compile": "ecb2b915db074bb87e2ca62142c94fa9fa2da9f148c61192d43e393edf2f1190"
+              },
+              {
+                "path": "package-cache:preview/equate/0.2.1/src/lib.typ",
+                "sha256_observed_after_compile": "d2276961fb660897ea80bcab14a12a19ea52ec9f0006b8c4f1c1c81b68bfa058"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/deps.typ",
+                "sha256_observed_after_compile": "94e5ebe784d37cc24cd84ada6dc88a90576b46216040f1f1247d78a36a0ba007"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/draw/shapes.typ",
+                "sha256_observed_after_compile": "4fa605316ce33050b6cb4aefd541f50faee5c4289b21058af2613437bfbe0f3e"
+              },
+              {
+                "path": "project:config/publications.typ",
+                "sha256_observed_after_compile": "f1796fd3d8d3302dccb5b59536daf619d9d332655e6da86e752e45827c9d0187"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/sample.typ",
+                "sha256_observed_after_compile": "4b18db1a72a34031dd0f623dd99c6a608230c99b3be9c8fe675ab15de2a59966"
+              },
+              {
+                "path": "package-cache:preview/tablex/0.0.8/tablex.typ",
+                "sha256_observed_after_compile": "321d7b51fab4d4412a5869637597185d4512382ac5d72053eb97c77580fe06f8"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/node.typ",
+                "sha256_observed_after_compile": "53266edc3c15df550592c7dd76fb988d6152948aa78cdac53c4450663b249867"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/cosmos/simple.typ",
+                "sha256_observed_after_compile": "cc0f97c2ca5f421c678077607aa25e1dd5392309b2fb28aa9c437a3cb1d9ec59"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/cetz-core/cetz_core.wasm",
+                "sha256_observed_after_compile": "836ee089fa23d43fe72ee3d062462846914627581c8ba6faad344eb1ccc4e4cb"
+              },
+              {
+                "path": "package-cache:preview/codetastic/0.2.2/bitfield.typ",
+                "sha256_observed_after_compile": "ca4d421118ef4b86cad565f7964fc9a2577584cbb20a1e4b93ce84e60be5ff0e"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/coordinate.typ",
+                "sha256_observed_after_compile": "37e1e7617f4a8b33e44c949995fb2bc2151241d6dd5590702c4e06fb8550047c"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/lib/tree.typ",
+                "sha256_observed_after_compile": "49cb0d983d96000cb693b9b3354230c6e5667a19ce677bcb82a83498831b73eb"
+              },
+              {
+                "path": "project:pages/funding.typ",
+                "sha256_observed_after_compile": "035b543ca204eae7146c5d95a54d32df683d41b7e9652f4e4a6586aeaea824ab"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/chart/columnchart.typ",
+                "sha256_observed_after_compile": "647d398ef5cf03682272cc0d50f95151708cb7ff8892990d184324b260772a28"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/lib.typ",
+                "sha256_observed_after_compile": "6d73da6bbba223055ead588bf3e6c8760f8f1471e88241f6fa5f6ee4fd9eb355"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/typst.toml",
+                "sha256_observed_after_compile": "1fca9b25094f6241bf9e53b9eff609d9eda3a30a4993d7b552415a947b9d4bab"
+              },
+              {
+                "path": "package-cache:preview/equate/0.2.1/typst.toml",
+                "sha256_observed_after_compile": "5fb86cb18b5e5303d8d853470d4fe5c651a93d7d5d099a0a7bb5031674732c76"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/util.typ",
+                "sha256_observed_after_compile": "bd025d67b03dbbc5378bc8c82ba6f6f6b2d9cdfd8b75c122a4d843d56dfd270e"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/draw/styling.typ",
+                "sha256_observed_after_compile": "b3383855b5c99aaf13f564657be60a282e8ccf619ab0cac06650640db0f5f684"
+              },
+              {
+                "path": "project:config/optional.typ",
+                "sha256_observed_after_compile": "e5eb8da9afad6d63ecc82d12086e0b919423ff22afb646bd28c18ac56bb276c1"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/palette.typ",
+                "sha256_observed_after_compile": "c64dd8b63e087965e9fa5f0cd7fb2389d71985a1c66326266ddd5380eb9ee258"
+              },
+              {
+                "path": "package-cache:preview/tablex/0.0.8/typst.toml",
+                "sha256_observed_after_compile": "59472096bf6d3419c7ff8a80c4175779a133382e2e94ee7c1a7231aac18871ab"
+              },
+              {
+                "path": "project:tests/replay/synthetic.csl",
+                "sha256_observed_after_compile": "bc6645a1f21b0dcd92eefe383a4ef90e1a58ffdf1aab64bcb6ce83706ca510cb"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/shapes.typ",
+                "sha256_observed_after_compile": "01dc3f257a139bec7f586176b0b888baf97b1c428783e6dcecb8cfaef3c7e384"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.4/lib/pre-rendering.typ",
+                "sha256_observed_after_compile": "89e77501dd2d949661f71a6f1acf5211033f1101d84c36b53e778fb7d8d73611"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/wasm.typ",
+                "sha256_observed_after_compile": "b79986b390caafa7eb46832a17bb4f4f37538b9310ee9d4b8c46a312f4260f44"
+              },
+              {
+                "path": "package-cache:preview/codetastic/0.2.2/bits.typ",
+                "sha256_observed_after_compile": "223c27c572991798384329a998528e3d47cebb9f44ed117cb27ad6c2511d9c95"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/intersection.typ",
+                "sha256_observed_after_compile": "37e2732ab3c28263cec9aac635a00b999d862bdeef157c4650bfa7375499e28e"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/lib/angle.typ",
+                "sha256_observed_after_compile": "53253d7a8238fe1448de639e54dd3473a84e2812381e9f0e818c597aff178333"
+              },
+              {
+                "path": "project:pages/preface-helpers.typ",
+                "sha256_observed_after_compile": "4cacedd4f860d76053c46ae51f5930a77136f0737c039a8b1d01fce446a98c49"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/chart/barchart.typ",
+                "sha256_observed_after_compile": "5e3c12138f2f93538afa5acb2ea7ced4bcafd5c7a56016d2b55ac2b21aff32e9"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/typst.toml",
+                "sha256_observed_after_compile": "35f40a1d6aabed0ba933830162f762f56dbbfc790f2a51b8bac675afd63ef99c"
+              },
+              {
+                "path": "project:utils/fonts.typ",
+                "sha256_observed_after_compile": "a3f7b405ecc2b661f382c8004e90efa3d5f0bc26641f9ef9fe32b60014c2b3c9"
+              },
+              {
+                "path": "package-cache:preview/zebraw/0.4.0/theme.typ",
+                "sha256_observed_after_compile": "2aa0bf63e9a137feb1ec57ab1b5be256f4b2f98eb447cdb49c8abee755e7144d"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/vector.typ",
+                "sha256_observed_after_compile": "44a954a9f07a79c2d016d4ef15338b91e7761055e94938f0ab9087c6e1e07902"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/draw/transformations.typ",
+                "sha256_observed_after_compile": "2c91fc2edf62fd8e10829abcb9e8e27cbcd90eea51b5204b5b339d2acedcf8f9"
+              },
+              {
+                "path": "project:config/metadata.typ",
+                "sha256_observed_after_compile": "1bc71ef943511667ea5d92739b6329ce0d719e6787ecdbd5c0b925ce1de054cd"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot.typ",
+                "sha256_observed_after_compile": "ae94f833c5c9db1a872b36c35f15965215c7abd51826647fdb3b7d4d8f011099"
+              },
+              {
+                "path": "package-cache:preview/i-figured/0.2.4/i-figured.typ",
+                "sha256_observed_after_compile": "2f5cbd54668e1a9bfcdf024975d97de7e573de574ca34f2d0f1c77c006cf4b29"
+              },
+              {
+                "path": "project:tests/replay/references.bib",
+                "sha256_observed_after_compile": "1d3a4997e6a194c030a57e144199defbae1522447c0e41466babc4b340a2be1b"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/coords.typ",
+                "sha256_observed_after_compile": "59e043379f403222e7a5ffbce7b511f4bb8bcf47502a8499163308a0b94c2bb1"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.4/lib/id.typ",
+                "sha256_observed_after_compile": "a72408f09b6c986fc82e8c7b343d10d0b7fbf24f4acfbebe3b7e64daa308b4c8"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/matrix.typ",
+                "sha256_observed_after_compile": "805ec2ee119a59ca93e293910ef6c9cf42945b51034258ecc07f5b6f80b8034e"
+              },
+              {
+                "path": "package-cache:preview/codetastic/0.2.2/codetastic.typ",
+                "sha256_observed_after_compile": "abf60a987c41449b55a621f376407ed9e4c5e2d868767e3b6eb98b122d268c32"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/draw/grouping.typ",
+                "sha256_observed_after_compile": "c5b65cbc73173933ddd344b2cb2985428504b244cec683714dde5d1dccd08400"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/lib/palette.typ",
+                "sha256_observed_after_compile": "f529f963aacb7f066a07463bb24006c4dca684bf08ded3d2ebddb09724c1a832"
+              },
+              {
+                "path": "project:pages/preface.typ",
+                "sha256_observed_after_compile": "f0e9f9075b45308a037c45e98082abac0fd96c8d33d037b353b05d7e642e2beb"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/chart/boxwhisker.typ",
+                "sha256_observed_after_compile": "b708b9bcb5ada2aeec7a5cbb781518e8846bcd81484b0588736d452056e6eaeb"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/prefixes-ru.csv",
+                "sha256_observed_after_compile": "2c42dd45132f1a746c8cb3a8b916434950ba79a78200e9e6560f317208c95c70"
+              },
+              {
+                "path": "project:assets/colors/unimelb-colors.typ",
+                "sha256_observed_after_compile": "8d0c88ba3d9906e87a6b0ef53e36bd44d5248b5c8efc6dba675ef81363c79499"
+              },
+              {
+                "path": "package-cache:preview/zebraw/0.4.0/mod.typ",
+                "sha256_observed_after_compile": "b4b7eeaefcce62279c0758c36825a21b3d5fd73cfb732ea689e54573197b497f"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/matrix.typ",
+                "sha256_observed_after_compile": "2668535350abb84a595ce97a9690835ff9c59fe4f4344324796e09bc262cec6d"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/anchor.typ",
+                "sha256_observed_after_compile": "72299dfa861443415a176b0cd1e25d0672ce9f91f12645010ffe3279b62c8071"
+              },
+              {
+                "path": "project:config/index.typ",
+                "sha256_observed_after_compile": "ef844fb3599859eaac5d5efc35e16e486b8b07a8facebc750084270526f06c5b"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/axes.typ",
+                "sha256_observed_after_compile": "499fb3c322015ce9ac67fdb114aa5f317442ff590c8b6b160d65f5a6bc7812e7"
+              },
+              {
+                "path": "package-cache:preview/i-figured/0.2.4/typst.toml",
+                "sha256_observed_after_compile": "18d3b1cf50f7c783b9e6b026eae06ee905bbae3be77e84caec3c1068d16a807b"
+              },
+              {
+                "path": "project:tests/replay/icon.svg",
+                "sha256_observed_after_compile": "b44e812f6b05606f7b0e7103282c8abde0b6c46312eed2774c7e676e8619e602"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/draw.typ",
+                "sha256_observed_after_compile": "7ea839e727767ad1c3a54c6b44cceb2c3be2841d9c04c19f49baac2974b69eeb"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.4/lib/shadows.typ",
+                "sha256_observed_after_compile": "d753b767ba3aafbaccaa820063312e636f66457b773b6fd5fee666ddefe7b368"
+              },
+              {
+                "path": "package-cache:preview/oxifmt/1.0.0/oxifmt.typ",
+                "sha256_observed_after_compile": "e3575b8760f158fca284a66cfefaf033a6b9e31a425f913686fd185e6ed2300a"
+              },
+              {
+                "path": "package-cache:preview/codetastic/0.2.2/typst.toml",
+                "sha256_observed_after_compile": "256a4744d290e1e2bf7eb9bae39ca061e9e70d10730ac12b21edf121b81e51af"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/draw.typ",
+                "sha256_observed_after_compile": "481a02d865bb0e9cff12073ee88a42cd54b9ddec7726213d389f7335b6ef632c"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/sorting.typ",
+                "sha256_observed_after_compile": "d9cafee6e584100c3e71e7a787841589aa289e1900b1eb3d181bc1325400a6ae"
+              },
+              {
+                "path": "project:pages/acknowledgements.typ",
+                "sha256_observed_after_compile": "8e9e30515528ca370f9983399222a5a52a1a7d108c8702d227ce12305845aa79"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/chart.typ",
+                "sha256_observed_after_compile": "287c151c4db865b246015f6bbe23a7f9f9bd53863ff5ca1c054b94c253ec2e06"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/units-ru.csv",
+                "sha256_observed_after_compile": "a9571c3f0001d4cf430421f377d4eb534b590158f1f8eec6c187262efb3ca402"
+              },
+              {
+                "path": "project:utils/style.typ",
+                "sha256_observed_after_compile": "8f50dbb6f421cee814e06a07a528ba140239783dae186301acdf38d5fbed9267"
+              },
+              {
+                "path": "package-cache:preview/zebraw/0.4.0/lib.typ",
+                "sha256_observed_after_compile": "dae5ae7c11316b88213d49801461f40a4f89d5a63f81849a8b44967fe4ee35ad"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/canvas.typ",
+                "sha256_observed_after_compile": "8659a479d6302d2d8470afea18f3e5c641657a005236faee35110b18b9949a11"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/intersection.typ",
+                "sha256_observed_after_compile": "c4df7d4a26764fc0d428a3f19d3ef7624618d5c3cace96d06cbab2ab30b4989f"
+              },
+              {
+                "path": "project:utils/locales/zh.typ",
+                "sha256_observed_after_compile": "9aa7ba053303437641e6c84e0d87bc81a8d48e872a8189389e4cbd4a4b2d05d0"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/draw/projection.typ",
+                "sha256_observed_after_compile": "911e4a0b94b84733e2c8714a872d1d442ed2a9ac4a601d11f47d57bd90662315"
+              },
+              {
+                "path": "package-cache:preview/codly/1.3.0/src/typst-small.png",
+                "sha256_observed_after_compile": "828a7f6d87ac8a029325f1394631d960fd43fcae46e58db44eab7f5480050fd0"
+              },
+              {
+                "path": "project:tests/replay/configuration.json",
+                "sha256_observed_after_compile": "c591ed9dd7d59f25b4cdc06b4f49b4be0a5a6fd27738a1fbf65093f1396ee139"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/default-marks.typ",
+                "sha256_observed_after_compile": "f0c915847f8c005936af09cbaee2f58991fc36362631f681668d9ee0a1b35366"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.4/lib/sections.typ",
+                "sha256_observed_after_compile": "37be00413c36c2ca7bdb9d194b64a5450deebe7147e9a3c055e3eaa438740766"
+              },
+              {
+                "path": "package-cache:preview/oxifmt/1.0.0/lib.typ",
+                "sha256_observed_after_compile": "9d1ae81fffd85c20d1cbbc130200f32099615771fa146af36cc4a1e0f0242c2d"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.1/lib/pre-rendering.typ",
+                "sha256_observed_after_compile": "7457c3df8fd5c28ddd597898ba2d4e7430a8d955c0860038cf3f7f0fe6688199"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/drawable.typ",
+                "sha256_observed_after_compile": "141ffb97422865affd5e1075a337561b14422fd3281088cf2249e37060beb5e0"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/draw/util.typ",
+                "sha256_observed_after_compile": "663b88cd8cc6269985b479f1ab9d5ed8d1d1b7040bc0a6edb03431570cb8a7c2"
+              },
+              {
+                "path": "project:pages/declaration.typ",
+                "sha256_observed_after_compile": "40992ca6acf96bd62b09525c371996129af0524ae8d269b5e1a1666841a24b6a"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/bar.typ",
+                "sha256_observed_after_compile": "30d54c44c9436d5be7b44729f0111f8a8fe5957857f801682e20f62518c66bc4"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/prefixes-en.csv",
+                "sha256_observed_after_compile": "c8723b2f038bf16480c5363c72b1c3963d7d994a68085cdc59f4fa1f772619a7"
+              },
+              {
+                "path": "project:lib.typ",
+                "sha256_observed_after_compile": "68ca9c787f5cf396f233ef9aba7c0bc9f7b80432ed71ec02ee61232044e3a4cb"
+              },
+              {
+                "path": "package-cache:preview/zebraw/0.4.0/typst.toml",
+                "sha256_observed_after_compile": "e1c94eaab8e01a640151b9775e147555e43bf595e463b79d19fa4561a1bb1196"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib.typ",
+                "sha256_observed_after_compile": "e7f75e911f06d9a6644e2e998bd0fa089d8924d70ebebcd299358cb85e6fe198"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/draw/grouping.typ",
+                "sha256_observed_after_compile": "c6ccf0550e8ae4f2155f989ab30f84508d0bba09ac404896f092e8d19e78313f"
+              },
+              {
+                "path": "project:utils/locales/en.typ",
+                "sha256_observed_after_compile": "f97c137e8ac6776d9a8b46664e948d3f0e72c2687c5aea9f23297877c7c65b42"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/mark-shapes.typ",
+                "sha256_observed_after_compile": "6d23bac968e99047a41227e64b7948c4e15882e591978751969d403e9cf195d3"
+              },
+              {
+                "path": "package-cache:preview/codly/1.3.0/src/args.json",
+                "sha256_observed_after_compile": "e4a7fa942a868efab98da88ed1ea8b57a75309ef8bc5875c33de7e03f6c093f1"
+              },
+              {
+                "path": "project:layouts/document.typ",
+                "sha256_observed_after_compile": "6f1af47d014bded89ba0a8aedbfb1a844b82febb48c10553ced4673c7cbd84d0"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/utils.typ",
+                "sha256_observed_after_compile": "93843d1b684eff38acd615c246147c8b4afb1025ac1dfb250313323ff49e55aa"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.4/lib/func.typ",
+                "sha256_observed_after_compile": "ed1e7c21137d4ee9ee10fd945e62677080023c24c7829b84e6632a5457f8c7fa"
+              },
+              {
+                "path": "package-cache:preview/oxifmt/1.0.0/typst.toml",
+                "sha256_observed_after_compile": "323397fd70c1830714bbd8a6f33951b5d2b04eb5841b4f524922279c1fb197fd"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.1/lib/state.typ",
+                "sha256_observed_after_compile": "be28dd5f5410798a82837ebd2f1702057f93058c1142ffa15411c9fd2755eebb"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/process.typ",
+                "sha256_observed_after_compile": "8d16443b46c0ab40bb9e45740dead8db304bd146cd7194f7584d045a2da5ed26"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/draw/projection.typ",
+                "sha256_observed_after_compile": "99ebd3aee16991d9426125ab5778dc4ddab62d2f6958fdc857d995843cc4cb90"
+              },
+              {
+                "path": "project:pages/abstract.typ",
+                "sha256_observed_after_compile": "f2d630d87304741cf750ed1f0b2cb89bcc516754a560d7f8dacfc295ae958d70"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/annotation.typ",
+                "sha256_observed_after_compile": "8b979fef6ac064f24f202bdc3631e1dc1b63d394a4d8f028c5be04be8f527138"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/money.csv",
+                "sha256_observed_after_compile": "013f4b0066ae76268dc1c36de40a842115c3ab733fd65790fdc72ca1ea25163f"
+              },
+              {
+                "path": "package-cache:preview/numbly/0.1.0/lib.typ",
+                "sha256_observed_after_compile": "c271586f43dbb2ce5efee6e2963895684896bb2c49c417cd8ffa0c0cef2654d7"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/typst.toml",
+                "sha256_observed_after_compile": "df56452cc0a521c883525def492b1cb3e9ff64252c411cde16f0836b63bdf524"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/draw.typ",
+                "sha256_observed_after_compile": "0b14762adcfa7430035633cd286982cadc3de6a019db11d9c173bc2319f8e18c"
+              },
+              {
+                "path": "project:utils/locales.typ",
+                "sha256_observed_after_compile": "83d36a4b4a5234b5e73a9594487b508ba900380e3709976ec72111afce2eb425"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/mark.typ",
+                "sha256_observed_after_compile": "ec57081c6ff93f7c2c03676ba37945fcdf75061e6e800397d9c224acc2aeeee6"
+              },
+              {
+                "path": "package-cache:preview/codly/1.3.0/src/args.typ",
+                "sha256_observed_after_compile": "1e2488d8e234935e3d32992309ea190dfab3c8e38299870b30e1e42d6438df97"
+              },
+              {
+                "path": "project:pages/appendix.typ",
+                "sha256_observed_after_compile": "6eed95a2f4371ede4d53a79374dc14f907ad213543f769faa0fd2f32d6928829"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/marks.typ",
+                "sha256_observed_after_compile": "d1047366c4833136aed41f6252cdab0903907c08238603a6a1b3a93c3a2ffb3c"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.4/showy.typ",
+                "sha256_observed_after_compile": "3baea690b55062424f96deb950fb3d59a12d5ebfa1db105a2d2422032952b00b"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/deps.typ",
+                "sha256_observed_after_compile": "486a5c68c091cf47c59ad3767176b46c6bf92bc760bf83cad31e2594198f4daf"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.1/lib/shadows.typ",
+                "sha256_observed_after_compile": "30063aae968793e6270001944540a979684ff6247f042265d21437b30e51536e"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/styles.typ",
+                "sha256_observed_after_compile": "17256297c3ab15827f320085354c6527887922a39d7dd37a84615ffc97fd145d"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/draw/boolean.typ",
+                "sha256_observed_after_compile": "efbe8ba1b64f2ea8c5d7a561a23d76c094c70235cb1f4657e002b2b80421fbed"
+              },
+              {
+                "path": "project:pages/title.typ",
+                "sha256_observed_after_compile": "2e5fe047b2e7b27db191d79c40c906a7e9e9a597ec9b5e46c6f04aa0e977757a"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/mark.typ",
+                "sha256_observed_after_compile": "b9bf7c43c3517c6addbf17422f94b138ce6292680a1f8a3e7ebb128f814f9f46"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/units-en.csv",
+                "sha256_observed_after_compile": "18bd14125628fc74b1a8a9eac64cf89bea7eea4fb49ca5c02e0a4ea719ee0700"
+              },
+              {
+                "path": "package-cache:preview/numbly/0.1.0/typst.toml",
+                "sha256_observed_after_compile": "448588d1b976bdbc38bd151219c8f1cb98011360b3cf9e14c5fc62ca2faf1ea3"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/deps.typ",
+                "sha256_observed_after_compile": "d4f8e406585b680da555055eab309074a0a1bed8e6603ae897330db888d6a686"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/coordinate.typ",
+                "sha256_observed_after_compile": "bc3cb6d29bd3c0630b227588f0f3bee050d380e9971a4516621c76e5f3dcdbde"
+              },
+              {
+                "path": "package-cache:preview/glossarium/0.5.1/themes/default.typ",
+                "sha256_observed_after_compile": "063d7c24b38a7f8553ebad42a14cb66edbfd97c573206ff0b3b91f1046b2b605"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/complex.typ",
+                "sha256_observed_after_compile": "9bf4a79f7469da8fa577e6ecf8fce9776d7f652539ee73856392b6bbe85ab475"
+              },
+              {
+                "path": "package-cache:preview/codly/1.3.0/src/lib.typ",
+                "sha256_observed_after_compile": "b74741e9c7714dfbf7c45c7414a8ba04087cdbbcb9d4a3313d2e8175c7351ae2"
+              },
+              {
+                "path": "project:endmatter/optional-index.typ",
+                "sha256_observed_after_compile": "fa0d4861462498ea333f858436235d709f409a40dbec6192a52f5a66b19cfeb3"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/decorations/path.typ",
+                "sha256_observed_after_compile": "5035d9376b7d8bdf0b62800d3e8e32597bfbd764fbfa66404e78801999d8039b"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.4/typst.toml",
+                "sha256_observed_after_compile": "c0e65d15fc4fd0f4e3a8d052ac966311ee1ff5001d60442161e7bf6b7f191a3b"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/util.typ",
+                "sha256_observed_after_compile": "fc2a8079ec855699b07cbc1fda3b7e03c9d372057ccdfb5f6c7f8cb10dc0ee21"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.1/lib/sections.typ",
+                "sha256_observed_after_compile": "3470929b38a9c4af27b75dc5c13ccaa819fe8ee58944266411712428a1a9de03"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/aabb.typ",
+                "sha256_observed_after_compile": "a9a4f772f97cdd8d70dc8d2275abfcf4b10f956992cd621eb3ac88ee1bbf7576"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/polygon.typ",
+                "sha256_observed_after_compile": "349718b2673717cb6daa5ac6252a42fae0b8b3973e8ae3e1781712d9ad43b33b"
+              },
+              {
+                "path": "project:config/review.typ",
+                "sha256_observed_after_compile": "9819b13bf7c445c7cb4f939697ea838f1769ebe6eb1194fff8c61d022af205ec"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/legend.typ",
+                "sha256_observed_after_compile": "0284ffe9a4405301aa39a063f48b0ff6ccc471821fb403209dfa7deee1256cab"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/postfixes.csv",
+                "sha256_observed_after_compile": "3456070b23f1c0c2cdd38034b7d8329f410fb851d6901373213e6f052b0d69e1"
+              },
+              {
+                "path": "project:tests/replay/document.typ",
+                "sha256_observed_after_compile": "94c160643af5563c50954d96fd4d6ba055342842097f9073c53366d080575727"
+              },
+              {
+                "path": "package-cache:preview/lovelace/0.3.0/lovelace.typ",
+                "sha256_observed_after_compile": "bffd4e6f45a3fa837184b35f1faefeaab66bf71e4181df1927a8c373869c7f53"
+              },
+              {
+                "path": "package-cache:preview/fletcher/0.5.1/src/exports.typ",
+                "sha256_observed_after_compile": "93c7e9c42875b1c740829ef1651c41aaec8fcc521c3b18bed2fb73a41635020f"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/process.typ",
+                "sha256_observed_after_compile": "bd683e9223e2b36a7311719d707e88c3044589612a3259b7de253a35d0b92d3d"
+              },
+              {
+                "path": "package-cache:preview/glossarium/0.5.1/glossarium.typ",
+                "sha256_observed_after_compile": "1c68ac438562e760521788db4bc7a43639a7c6652646c67d6f2a64d7b85c97bf"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/hobby.typ",
+                "sha256_observed_after_compile": "7434b0da027e56cbff5c98517130303839efc13307ebb8cc38810d7cc0d902c4"
+              },
+              {
+                "path": "package-cache:preview/codly/1.3.0/codly.typ",
+                "sha256_observed_after_compile": "6dd2996102dc304e253a5f44dcbf51223dd7f5a89369c7bf6e52e60c45b4503a"
+              },
+              {
+                "path": "project:endmatter/optional-glossary.typ",
+                "sha256_observed_after_compile": "ef0af54ca7a276029373b3efc6635ab7284d18d0bfa5097ae25432417a4ee3ea"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/decorations/brace.typ",
+                "sha256_observed_after_compile": "4e917adaed2f08a3e978e5c5160f62634098ffa8af51718595bf22fe50e4c23d"
+              },
+              {
+                "path": "package-cache:preview/theorion/0.4.0/deps.typ",
+                "sha256_observed_after_compile": "f9335717ff744dea81949729f7adb2f152e28e6e4ea6ccd9976843a72d9e5344"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/vector.typ",
+                "sha256_observed_after_compile": "a54947dc41f789181aac09f8bf9b284c38126ab261f4438b09a5bd05cc70b64e"
+              },
+              {
+                "path": "package-cache:preview/showybox/2.0.1/lib/func.typ",
+                "sha256_observed_after_compile": "5c5045478dd8e3868aeacc60618e98cb83f755c153b5a78614a5d9b0139644cb"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/path-util.typ",
+                "sha256_observed_after_compile": "3c70828838299d4f136a8866861534fccde4b4e7fa70e980cca75046362a0fb4"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.5.2/src/mark-shapes.typ",
+                "sha256_observed_after_compile": "f7b6fc4287fe14141873ccad57364970f0cf648fb02f94fee35187be3f9f1233"
+              },
+              {
+                "path": "project:config/options.typ",
+                "sha256_observed_after_compile": "ce9e08ebc3dccc90db5ae5c6eacc2a751eb99f709af38031c9e48241f36700b3"
+              },
+              {
+                "path": "package-cache:preview/cetz/0.2.2/src/lib/plot/boxwhisker.typ",
+                "sha256_observed_after_compile": "9ba00415fb5546e2b8a76811003474fc64ce95c24e453439293be811c1dab178"
+              },
+              {
+                "path": "package-cache:preview/unify/0.7.0/init.typ",
+                "sha256_observed_after_compile": "8f72a8b00ab8c5fb5b25c9c44dc01508c2f0309e3c2a72cfe405d24e1dc1545a"
+              }
+            ],
+            "native_entries_are_paths": true,
+            "native_report_bytes": 13754,
+            "native_report_retained_verbatim": false,
+            "native_report_sha256": "7973d5f0cc888742cc02899ad92ad015e90b93d334e760590a7c11cbf5a61a76",
+            "outputs": [
+              {
+                "path": "project:_replay/document.pdf",
+                "sha256": "a9e10f1c2f15001d25397baed7660b53245956dd9df1d9800267326ebf841539"
+              }
+            ],
+            "replay_qualified": false,
+            "schema_version": 1,
+            "scope": "Native paths and observed post-compile content hashes; not a complete replay lock",
+            "source": {
+              "path": "project:tests/replay/document.typ",
+              "sha256": "94c160643af5563c50954d96fd4d6ba055342842097f9073c53366d080575727"
+            }
+          },
+          "network": {
+            "child_connection_failed": true,
+            "child_namespace": "net:[4026532648]",
+            "compiler_argv": [
+              "/workspace/scratch/9c5315d95216/tools/typst-x86_64-unknown-linux-musl/typst",
+              "compile",
+              "--root",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+              "--package-cache-path",
+              "/tmp/typst-validation-package-cache",
+              "--package-path",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/local-packages",
+              "--ignore-system-fonts",
+              "--ignore-embedded-fonts",
+              "--font-path",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/fonts",
+              "--creation-timestamp",
+              "1794700800",
+              "--jobs",
+              "1",
+              "--input",
+              "profile=default",
+              "--deps",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/dependencies.json",
+              "--deps-format",
+              "json",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/tests/replay/document.typ",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/document.pdf"
+            ],
+            "compiler_environment": {
+              "LANG": "C.UTF-8",
+              "LC_ALL": "C.UTF-8",
+              "SOURCE_DATE_EPOCH": "1794700800",
+              "TZ": "UTC"
+            },
+            "connection_error": {
+              "errno": 101,
+              "type": "OSError"
+            },
+            "interface_inventory_sha256": "dcee31fcbec3e6c05cc28dd7f68c6ce4dd33ec6c92104c80ecac9d1aac3f79c0",
+            "interface_inventory_source": "/proc/net/dev",
+            "interfaces": [
+              "lo"
+            ],
+            "loopback_port": 34735,
+            "parent_connection_succeeded": true,
+            "parent_namespace": "net:[4026532742]"
+          },
+          "output": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project/_replay/document.pdf",
+          "pdf": {
+            "bytes": 20877,
+            "sha256": "a9e10f1c2f15001d25397baed7660b53245956dd9df1d9800267326ebf841539"
+          },
+          "result": "pass",
+          "schema_version": 1,
+          "started_at_utc": "2026-11-15T03:36:20.824765+00:00",
+          "text_sha256": "1f9b26ab7f63f79d711eedf26bf8f52003ca93df05c868e4f0f2f477d4cacb37"
+        },
+        "finished_at_utc": "2026-11-15T03:36:21.422156+00:00",
+        "font_file_count": 3,
+        "lock_sha256": "140a546a7fe9ca410ae53772d230ae2a964d8621565b17dfb38531024ad215fa",
+        "network_disabled_discovery": true,
+        "package_count": 18,
+        "package_file_count": 214,
+        "producer_sha256": {
+          "scripts/native_evidence.py": "855dd8b2786c1b27fa8b436655d43931e4870bf589eaeedb5db5a88eb460b22f",
+          "scripts/package_template.py": "a46a0283228d81b3791acd8de4ecde2ea62e7fe152cdc24b0ed295339251b0ec",
+          "scripts/replay_build.py": "32c8f5f4f6d20d05cf0f13e86ec3e05bb346a148043c8dd2fa2d4d146bf5f7a8",
+          "scripts/verify.py": "87b8cafe3216c2a54e9915b580a01bec4d2913c565a022f17c3e219ca248a54a"
+        },
+        "project_file_count": 47,
+        "recipe_sha256": "2a8c734ef61ba84df099455d51dfab883d2e9e707f927e5b95c922c704d52c2b",
+        "result": "pass",
+        "schema_version": 1,
+        "started_at_utc": "2026-11-15T03:36:20.424937+00:00",
+        "tool_commands": [
+          {
+            "cleanup_timeout_seconds": 5,
+            "command": [
+              "/workspace/scratch/9c5315d95216/tools/typst-x86_64-unknown-linux-musl/typst",
+              "--version"
+            ],
+            "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+            "duration_seconds": 0.008624604000942782,
+            "environment_overrides": {
+              "SOURCE_DATE_EPOCH": "0"
+            },
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "log": "_replay/typst-version.log",
+            "log_sha256": "c6b007644b625bb12572c306a04cefef8d991f12d8515bcbddb5150f2bbf243a",
+            "process_isolation": "posix-session",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "20ad20e86d85d168643624dc3e3388e7cbcc5a8384d17835db3a0ab04c496fba",
+            "timed_out": false,
+            "timeout_seconds": 60
+          },
+          {
+            "cleanup_timeout_seconds": 5,
+            "command": [
+              "/workspace/scratch/9c5315d95216/tools/qpdf/bin/qpdf",
+              "--version"
+            ],
+            "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+            "duration_seconds": 0.018506153995986097,
+            "environment_overrides": {
+              "SOURCE_DATE_EPOCH": "0"
+            },
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "log": "_replay/qpdf-version.log",
+            "log_sha256": "22a295d819cb9c540d9db285353691077843bd45d95383a5a0dc53abe5851fa8",
+            "process_isolation": "posix-session",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "f2cb75c0e76d16e21c393e9540e9d08ee456c5e80622600f4d7022846f28081d",
+            "timed_out": false,
+            "timeout_seconds": 60
+          },
+          {
+            "cleanup_timeout_seconds": 5,
+            "command": [
+              "/usr/bin/pdftotext",
+              "-v"
+            ],
+            "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+            "duration_seconds": 0.016048713005147874,
+            "environment_overrides": {
+              "SOURCE_DATE_EPOCH": "0"
+            },
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "log": "_replay/pdftotext-version.log",
+            "log_sha256": "dad40ae49c685f3bd6af78a63c68dc5600177968104e3f90226d370770d60d37",
+            "process_isolation": "posix-session",
+            "stderr_sha256": "0f2ff359cb556fedcd7be481e9a06c6f25d46789094b702bd84ab4cf09ce49b0",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "timed_out": false,
+            "timeout_seconds": 60
+          },
+          {
+            "cleanup_timeout_seconds": 5,
+            "command": [
+              "/usr/bin/pdffonts",
+              "-v"
+            ],
+            "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+            "duration_seconds": 0.013629798995680176,
+            "environment_overrides": {
+              "SOURCE_DATE_EPOCH": "0"
+            },
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "log": "_replay/pdffonts-version.log",
+            "log_sha256": "8952e04ad8178b2b2e77d72f0f98cc9fa38a8f49a43f6b9a3fc4de40f52b37f5",
+            "process_isolation": "posix-session",
+            "stderr_sha256": "79571f2d10d1933aeb0851556d03db918aac9f45dfcba5a86a27114ef189de32",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "timed_out": false,
+            "timeout_seconds": 60
+          },
+          {
+            "cleanup_timeout_seconds": 5,
+            "command": [
+              "/usr/bin/unshare",
+              "--version"
+            ],
+            "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock/discovery/project",
+            "duration_seconds": 0.0014596309920307249,
+            "environment_overrides": {
+              "SOURCE_DATE_EPOCH": "0"
+            },
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "log": "_replay/unshare-version.log",
+            "log_sha256": "355856ffb19336d5a1bfee5a2851b7e3f165ef8958df32b7d336a4c22cbca1b7",
+            "process_isolation": "posix-session",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "4946d1a86de73fa4c7f0a8708ece25e03959e9cf79cee7ce58df7e29419a05be",
+            "timed_out": false,
+            "timeout_seconds": 60
+          }
+        ],
+        "two_build_replay_qualified": false
+      },
+      "expected": "successful native capture",
+      "name": "isolated-lock-capture",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "ambient_override_control": {
+          "SOURCE_DATE_EPOCH": "1",
+          "TYPST_FONT_PATHS": "/tmp/typst-replay-prototype/assets/fonts",
+          "TYPST_PACKAGE_CACHE_PATH": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/absent-ambient-cache",
+          "TZ": "Pacific/Honolulu"
+        },
+        "pdf_bytes": 20877,
+        "pdf_sha256": "a9e10f1c2f15001d25397baed7660b53245956dd9df1d9800267326ebf841539",
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/pair/report.json",
+        "report_sha256": "ccc027263e0a6080f6593966fc77b21d7826ef8c56f2f6ae18f37e5f47707f3b"
+      },
+      "expected": "byte-identical isolated PDFs",
+      "name": "two-fresh-byte-replay",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "code": "input-mismatch",
+        "compiler_invoked": false,
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/source-tamper-result/report.json",
+        "report_sha256": "f2a8eea537e4eeaa9c58f975f1212c5ab3bae5ad344b7bb43e743429f0ff2399"
+      },
+      "expected": "rejection before compilation",
+      "name": "source-tamper",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "code": "input-mismatch",
+        "compiler_invoked": false,
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/asset-tamper-result/report.json",
+        "report_sha256": "aefa71df9e7c05f75eb1d185767f5a77113a938ec30aa2a1a54bc257d2282abb"
+      },
+      "expected": "rejection before compilation",
+      "name": "asset-tamper",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "code": "input-mismatch",
+        "compiler_invoked": false,
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/package-tamper-result/report.json",
+        "report_sha256": "b1bd3f0a32454be436455d95f6226e8651b49ccb44099c03a93685aeae352ef8"
+      },
+      "expected": "rejection before compilation",
+      "name": "package-tamper",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "code": "input-mismatch",
+        "compiler_invoked": false,
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/font-tamper-result/report.json",
+        "report_sha256": "984135af9bb952d4c741c34f950089165701888c2daba890e7d18d098399df04"
+      },
+      "expected": "rejection before compilation",
+      "name": "font-tamper",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "code": "lock-mismatch",
+        "compiler_invoked": false,
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/lock-tamper-result/report.json",
+        "report_sha256": "20891166a18033d12413cd1135c49f1a0503d2a70274808fb6c4268fc910866f"
+      },
+      "expected": "rejection before compilation",
+      "name": "lock-tamper",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "code": "tool-mismatch",
+        "compiler_invoked": false,
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/compiler-tamper-result/report.json",
+        "report_sha256": "63b5bfab1a466a79fc48b26455610db25d44e38af8742db3afd98d4ad69ed3b2"
+      },
+      "expected": "rejection before invocation",
+      "name": "compiler-tamper",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "code": "input-mismatch",
+        "compiler_invoked": false,
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/missing-package-result/report.json",
+        "report_sha256": "bcec5ba53902bf4d0deb4f7b4905d3e39ddacfa5d739211fa0c461a1c7e647a0"
+      },
+      "expected": "actionable rejection before compilation",
+      "name": "missing-package",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "compiler_exit_code": 1,
+        "network": {
+          "child_connection_failed": true,
+          "child_namespace": "net:[4026532648]",
+          "compiler_argv": [
+            "/workspace/scratch/9c5315d95216/tools/typst-x86_64-unknown-linux-musl/typst",
+            "compile",
+            "--root",
+            "/tmp/typst-replay-prototype/build/replay-qualified-corrected/empty-cache/project",
+            "--package-cache-path",
+            "/tmp/typst-replay-prototype/build/replay-qualified-corrected/empty-cache/packages",
+            "--package-path",
+            "/tmp/typst-replay-prototype/build/replay-qualified-corrected/empty-cache/project/_replay/local-packages",
+            "--ignore-system-fonts",
+            "--ignore-embedded-fonts",
+            "--font-path",
+            "/tmp/typst-replay-prototype/build/replay-qualified-corrected/empty-cache/fonts",
+            "--creation-timestamp",
+            "1794700800",
+            "--jobs",
+            "1",
+            "--input",
+            "profile=default",
+            "--deps",
+            "/tmp/typst-replay-prototype/build/replay-qualified-corrected/empty-cache/project/_replay/dependencies.json",
+            "--deps-format",
+            "json",
+            "/tmp/typst-replay-prototype/build/replay-qualified-corrected/empty-cache/project/tests/replay/document.typ",
+            "/tmp/typst-replay-prototype/build/replay-qualified-corrected/empty-cache/project/_replay/document.pdf"
+          ],
+          "compiler_environment": {
+            "LANG": "C.UTF-8",
+            "LC_ALL": "C.UTF-8",
+            "SOURCE_DATE_EPOCH": "1794700800",
+            "TZ": "UTC"
+          },
+          "connection_error": {
+            "errno": 101,
+            "type": "OSError"
+          },
+          "interface_inventory_sha256": "dcee31fcbec3e6c05cc28dd7f68c6ce4dd33ec6c92104c80ecac9d1aac3f79c0",
+          "interface_inventory_source": "/proc/net/dev",
+          "interfaces": [
+            "lo"
+          ],
+          "loopback_port": 38045,
+          "parent_connection_succeeded": true,
+          "parent_namespace": "net:[4026532742]"
+        },
+        "report": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/empty-cache/project/_replay/compile-receipt.json",
+        "report_sha256": "f48adf7e999b7da6d693259349af91fd0b83fa846427ea1c56145512ff79fe7f",
+        "timed_out": false
+      },
+      "expected": "real isolated compiler failure without downloads",
+      "name": "empty-cache-network-rejection",
+      "result": "pass"
+    },
+    {
+      "evidence": {
+        "commands": [
+          {
+            "cleanup_timeout_seconds": 5,
+            "command": [
+              "/usr/bin/pdftotext",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/pair/first/project/_replay/document.pdf",
+              "-"
+            ],
+            "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/different-bytes",
+            "duration_seconds": 0.015973609988577664,
+            "environment_overrides": {
+              "SOURCE_DATE_EPOCH": "0"
+            },
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "log": "_replay/original-text.log",
+            "log_sha256": "4548ca9d642bed9b790374dc5b3f73df6daa652804e840e4b0ef557a021ffde5",
+            "process_isolation": "posix-session",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "d77126ee3fb88ff72f555f260c5fa9575917656d22ec8b72a4164d7eb6845083",
+            "timed_out": false,
+            "timeout_seconds": 60
+          },
+          {
+            "cleanup_timeout_seconds": 5,
+            "command": [
+              "/usr/bin/pdftotext",
+              "/tmp/typst-replay-prototype/build/replay-qualified-corrected/different-bytes/changed.pdf",
+              "-"
+            ],
+            "cwd": "/tmp/typst-replay-prototype/build/replay-qualified-corrected/different-bytes",
+            "duration_seconds": 0.012465951003832743,
+            "environment_overrides": {
+              "SOURCE_DATE_EPOCH": "0"
+            },
+            "exit_code": 0,
+            "expected_exit_code": 0,
+            "log": "_replay/changed-text.log",
+            "log_sha256": "ca3c6b101ac706e96344215a86e8cccca1624bccf839a96c30887df319d1470e",
+            "process_isolation": "posix-session",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "d77126ee3fb88ff72f555f260c5fa9575917656d22ec8b72a4164d7eb6845083",
+            "timed_out": false,
+            "timeout_seconds": 60
+          }
+        ],
+        "diagnostic": {
+          "bytes_equal": false,
+          "first_bytes": 20877,
+          "first_difference_offset": 20877,
+          "first_sha256": "a9e10f1c2f15001d25397baed7660b53245956dd9df1d9800267326ebf841539",
+          "second_bytes": 20908,
+          "second_sha256": "9de00c462741447277da048866d3a9668b572c461e6f5ac208b735403f09e954"
+        },
+        "text_equal": true,
+        "text_sha256": "d77126ee3fb88ff72f555f260c5fa9575917656d22ec8b72a4164d7eb6845083"
+      },
+      "expected": "rejection despite equal actual PDF text",
+      "name": "equal-text-different-pdf-bytes",
+      "result": "pass"
+    }
+  ],
+  "complete_environment_image_locked": false,
+  "cross_environment_semantic_repeatability_qualified": false,
+  "expected_native_compiler_failures": 1,
+  "finished_at_utc": "2026-11-15T03:36:33.456348+00:00",
+  "fixture_sha256": {
+    "tests/replay/configuration.json": "c591ed9dd7d59f25b4cdc06b4f49b4be0a5a6fd27738a1fbf65093f1396ee139",
+    "tests/replay/document.typ": "94c160643af5563c50954d96fd4d6ba055342842097f9073c53366d080575727",
+    "tests/replay/icon.svg": "b44e812f6b05606f7b0e7103282c8abde0b6c46312eed2774c7e676e8619e602",
+    "tests/replay/qualify.py": "9e5231510e3d02e8a845b28819d87fbbe7449c84ca2961389934fd756ddaf485",
+    "tests/replay/references.bib": "1d3a4997e6a194c030a57e144199defbae1522447c0e41466babc4b340a2be1b",
+    "tests/replay/synthetic.csl": "bc6645a1f21b0dcd92eefe383a4ef90e1a58ffdf1aab64bcb6ce83706ca510cb"
+  },
+  "lock_sha256": "140a546a7fe9ca410ae53772d230ae2a964d8621565b17dfb38531024ad215fa",
+  "native_compiler_attempts": 4,
+  "pdf_sha256": "a9e10f1c2f15001d25397baed7660b53245956dd9df1d9800267326ebf841539",
+  "producer_sha256": {
+    "scripts/native_evidence.py": "855dd8b2786c1b27fa8b436655d43931e4870bf589eaeedb5db5a88eb460b22f",
+    "scripts/package_template.py": "a46a0283228d81b3791acd8de4ecde2ea62e7fe152cdc24b0ed295339251b0ec",
+    "scripts/replay_build.py": "32c8f5f4f6d20d05cf0f13e86ec3e05bb346a148043c8dd2fa2d4d146bf5f7a8",
+    "scripts/verify.py": "87b8cafe3216c2a54e9915b580a01bec4d2913c565a022f17c3e219ca248a54a"
+  },
+  "recipe_sha256": "2a8c734ef61ba84df099455d51dfab883d2e9e707f927e5b95c922c704d52c2b",
+  "release_bundle_qualified": false,
+  "result": "pass",
+  "schema_version": 1,
+  "scope": "One synthetic fixture and explicit negative controls; no release qualification",
+  "source": {
+    "git_dirty": true,
+    "git_revision": "e4b84dde79ecadc4fc5a3024f8da19ecbe0d3e18",
+    "git_tree": "1f405eab1ade3d2d4501baf2cc8d59a37ecdf88d"
+  },
+  "started_at_utc": "2026-11-15T03:36:20.416284+00:00",
+  "successful_native_pdfs": 3
+}

@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "/tmp/typst-validation315/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/maintenance",
+    "-p",
+    "test_replay_build.py",
+    "-k",
+    "lock_replacement",
+    "-k",
+    "recipe_replacement",
+    "-v"
+  ],
+  "cwd": "/tmp/typst-replay-prototype/build/replay-prototype/read-binding-review/old-source",
+  "exit_code": 1,
+  "expected_failed_methods": 2,
+  "expected_outcome": "The two new controls fail against the unchanged pre-review helper",
+  "source_sha256": {
+    "scripts/native_evidence.py": "855dd8b2786c1b27fa8b436655d43931e4870bf589eaeedb5db5a88eb460b22f",
+    "scripts/package_template.py": "a46a0283228d81b3791acd8de4ecde2ea62e7fe152cdc24b0ed295339251b0ec",
+    "scripts/replay_build.py": "66870edfc25f136c44d6f7edacad7ec6af23bf288834d3438a1dd302966ade18",
+    "scripts/verify.py": "87b8cafe3216c2a54e9915b580a01bec4d2913c565a022f17c3e219ca248a54a",
+    "tests/maintenance/test_replay_build.py": "951731112de82b62a86e449c46a52b2bd8938f97715a78a36abc8751722fbd0b"
+  },
+  "stdout_sha256": "803ea07ffc0758d590d9a7a9957dc859d00f1d0d940382a4cde06f1a424c1390"
+}

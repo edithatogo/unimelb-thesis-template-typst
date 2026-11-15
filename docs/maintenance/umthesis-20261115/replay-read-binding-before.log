@@ -1,0 +1,32 @@
+test_lock_replacement_after_read_cannot_change_the_trusted_parsed_snapshot (test_replay_build.ReplayBuildTests.test_lock_replacement_after_read_cannot_change_the_trusted_parsed_snapshot) ... FAIL
+test_recipe_replacement_after_parsing_cannot_bind_a_different_copied_recipe (test_replay_build.ReplayBuildTests.test_recipe_replacement_after_parsing_cannot_bind_a_different_copied_recipe) ... FAIL
+
+======================================================================
+FAIL: test_lock_replacement_after_read_cannot_change_the_trusted_parsed_snapshot (test_replay_build.ReplayBuildTests.test_lock_replacement_after_read_cannot_change_the_trusted_parsed_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/typst-replay-prototype/build/replay-prototype/read-binding-review/old-source/tests/maintenance/test_replay_build.py", line 370, in test_lock_replacement_after_read_cannot_change_the_trusted_parsed_snapshot
+    self.assertEqual(result["source"], self.lock["source"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'git_dirty': False, 'git_revision': 'aaaaaaaaa[84 chars]bbb'} != {'git_revision': None, 'git_tree': None, 'git_dirty': None}
++ {'git_dirty': None, 'git_revision': None, 'git_tree': None}
+- {'git_dirty': False,
+-  'git_revision': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+-  'git_tree': 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'}
+
+======================================================================
+FAIL: test_recipe_replacement_after_parsing_cannot_bind_a_different_copied_recipe (test_replay_build.ReplayBuildTests.test_recipe_replacement_after_parsing_cannot_bind_a_different_copied_recipe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/typst-replay-prototype/build/replay-prototype/read-binding-review/old-source/tests/maintenance/test_replay_build.py", line 398, in test_recipe_replacement_after_parsing_cannot_bind_a_different_copied_recipe
+    self.reject("input-mismatch", lambda: self.capture_call(self.area / "recipe-read-race", compiler))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/typst-replay-prototype/build/replay-prototype/read-binding-review/old-source/tests/maintenance/test_replay_build.py", line 94, in reject
+    with self.assertRaises(replay.ReplayError) as caught:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: ReplayError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.286s
+
+FAILED (failures=2)

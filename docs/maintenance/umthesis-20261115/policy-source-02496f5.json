@@ -1,0 +1,3355 @@
+{
+  "schema_version": 1,
+  "scope": "Exact pull-request source qualification; receiving-main qualification is separate.",
+  "repository": "edithatogo/unimelb-thesis-template-typst",
+  "pull_request": 34,
+  "observed_at_utc": "2026-11-15T03:31:27Z",
+  "observed_at_aest": "2026-11-15T13:31:27+10:00",
+  "timezone": "Australia/Brisbane",
+  "result": "qualified",
+  "identity": {
+    "source_revision": "02496f5fc7e7131657993a22958997a121b1ea99",
+    "source_tree": "2ad2a98565c788b67ad0029f8880ccd45a8d0990",
+    "parents": [
+      "45d95372e98f103344487a3fcc6c33dd1417b085"
+    ],
+    "base_revision": "45d95372e98f103344487a3fcc6c33dd1417b085",
+    "live_main_observed": "45d95372e98f103344487a3fcc6c33dd1417b085",
+    "synthetic_revision": "9122f763f676844d2a7f15c58fcdfafce6a27b7a",
+    "synthetic_tree": "2ad2a98565c788b67ad0029f8880ccd45a8d0990",
+    "synthetic_parents": [
+      "45d95372e98f103344487a3fcc6c33dd1417b085",
+      "02496f5fc7e7131657993a22958997a121b1ea99"
+    ],
+    "source_and_synthetic_trees_match": true,
+    "git_commit_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/commit/02496f5fc7e7131657993a22958997a121b1ea99"
+  },
+  "qualification_basis": [
+    "Latest applicable source workflow and check-run conclusions inspected by exact source SHA.",
+    "Actual job logs retained and hash-verified locally.",
+    "Verification and coverage ZIPs downloaded, API digests and CRCs checked, native reference hashes and reports independently inspected.",
+    "Fresh premerge main/base, reviews, threads and active provider-bound ruleset inspected."
+  ],
+  "local_execution_boundary": "This receipt records actual hosted source execution and local artifact inspection. It does not rerun source tests or transfer the author's earlier local result.",
+  "pr_snapshot": {
+    "observed_at_utc": "2026-11-15T03:30:37Z",
+    "state": "open",
+    "draft": false,
+    "head": "02496f5fc7e7131657993a22958997a121b1ea99",
+    "base": "45d95372e98f103344487a3fcc6c33dd1417b085",
+    "mergeable": true,
+    "mergeable_state": "clean",
+    "merged": false,
+    "updated_at": "2026-11-15T03:24:14Z",
+    "reviews": {
+      "reviews": []
+    },
+    "review_threads": {
+      "review_threads": []
+    }
+  },
+  "selected_workflow_runs": [
+    {
+      "id": 43672043170,
+      "name": "Privacy and secrets",
+      "path": ".github/workflows/privacy-secrets.yml",
+      "event": "pull_request",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "run_started_at": "2026-11-15T03:22:07Z",
+      "created_at": "2026-11-15T03:22:07Z",
+      "updated_at": "2026-11-15T03:22:40Z",
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043170",
+      "referenced_workflows": []
+    },
+    {
+      "id": 43672043194,
+      "name": "Maintenance",
+      "path": ".github/workflows/maintenance.yml",
+      "event": "pull_request",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "run_started_at": "2026-11-15T03:22:07Z",
+      "created_at": "2026-11-15T03:22:07Z",
+      "updated_at": "2026-11-15T03:23:28Z",
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043194",
+      "referenced_workflows": []
+    },
+    {
+      "id": 43672043485,
+      "name": "Quality gates",
+      "path": ".github/workflows/quality.yml",
+      "event": "pull_request",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "run_started_at": "2026-11-15T03:22:07Z",
+      "created_at": "2026-11-15T03:22:07Z",
+      "updated_at": "2026-11-15T03:24:40Z",
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485",
+      "referenced_workflows": [
+        {
+          "path": "edithatogo/repository-standards/.github/workflows/typst-ci.yml@f37a6c6a9764766ac25d2c65c7ec71f3a7a9fd87",
+          "sha": "f37a6c6a9764766ac25d2c65c7ec71f3a7a9fd87"
+        }
+      ]
+    },
+    {
+      "id": 43672040818,
+      "name": "PR #34",
+      "path": "dynamic/github-code-scanning/codeql",
+      "event": "dynamic",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "run_started_at": "2026-11-15T03:22:05Z",
+      "created_at": "2026-11-15T03:22:05Z",
+      "updated_at": "2026-11-15T03:23:03Z",
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672040818",
+      "referenced_workflows": []
+    }
+  ],
+  "selected_check_runs": [
+    {
+      "id": 132684376409,
+      "name": "codecov/patch",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:23:42Z",
+      "completed_at": "2026-11-15T03:23:42Z",
+      "details_url": "https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/34",
+      "app": {
+        "id": 254,
+        "slug": "codecov",
+        "name": "Codecov",
+        "html_url": "https://github.com/apps/codecov"
+      },
+      "output": {
+        "title": "93.42% of diff hit (target 80.00%)",
+        "summary": "[View this Pull Request on Codecov](https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/34?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=checks&utm_campaign=pr+comments&utm_term=Dylan+A+Mordaunt)\n\n93.42% of diff hit (target 80.00%)",
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684277694,
+      "name": "coverage-upload",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:23:19Z",
+      "completed_at": "2026-11-15T03:23:27Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043194/job/132684277694",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684083622,
+      "name": "CodeQL",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:28Z",
+      "completed_at": "2026-11-15T03:22:30Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/runs/132684083622",
+      "app": {
+        "id": 57789,
+        "slug": "github-advanced-security",
+        "name": "GitHub Advanced Security",
+        "html_url": "https://github.com/apps/github-advanced-security"
+      },
+      "output": {
+        "title": "No new alerts in code changed by this pull request",
+        "summary": "[View all branch alerts](/edithatogo/unimelb-thesis-template-typst/security/code-scanning?query=pr%3A34+tool%3ACodeQL+is%3Aopen).",
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684008619,
+      "name": "Extended property corpus",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-15T03:22:08Z",
+      "completed_at": "2026-11-15T03:22:07Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684008619",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684008121,
+      "name": "compile (screen) / build",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:10Z",
+      "completed_at": "2026-11-15T03:22:28Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684008121",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 132684008088,
+      "name": "compile (print) / build",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:22:28Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684008088",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 132684008009,
+      "name": "compile (default) / build",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:10Z",
+      "completed_at": "2026-11-15T03:22:32Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684008009",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 132684007929,
+      "name": "Dependency review",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:10Z",
+      "completed_at": "2026-11-15T03:22:20Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684007929",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684007918,
+      "name": "compile (draft) / build",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:22:29Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684007918",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 132684007818,
+      "name": "Workflow lint",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:10Z",
+      "completed_at": "2026-11-15T03:22:19Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684007818",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684007639,
+      "name": "Verify template and properties",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:24:39Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684007639",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684006620,
+      "name": "Python validation coverage",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:23:17Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043194/job/132684006620",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684006379,
+      "name": "privacy-and-secrets",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:22:40Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043170/job/132684006379",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 0
+      }
+    },
+    {
+      "id": 132684001899,
+      "name": "Analyze (actions)",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:08Z",
+      "completed_at": "2026-11-15T03:22:38Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672040818/job/132684001899",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 1
+      }
+    },
+    {
+      "id": 132684001651,
+      "name": "Analyze (python)",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:08Z",
+      "completed_at": "2026-11-15T03:23:02Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672040818/job/132684001651",
+      "app": {
+        "id": 15368,
+        "slug": "github-actions",
+        "name": "GitHub Actions",
+        "html_url": "https://github.com/apps/github-actions"
+      },
+      "output": {
+        "title": null,
+        "summary": null,
+        "annotations_count": 1
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "id": 132684007639,
+      "run_id": 43672043485,
+      "name": "Verify template and properties",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:24:39Z",
+      "runner_id": 1000837461,
+      "runner_name": "GitHub Actions 1000837461",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684007639",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:10Z",
+          "completed_at": "2026-11-15T03:22:11Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:14Z"
+        },
+        {
+          "number": 3,
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:14Z",
+          "completed_at": "2026-11-15T03:22:23Z"
+        },
+        {
+          "number": 4,
+          "name": "Run typst-community/setup-typst@63ac138db421d586de61f7f5ac3bcef6a2e6c78c",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:23Z",
+          "completed_at": "2026-11-15T03:22:26Z"
+        },
+        {
+          "number": 5,
+          "name": "Install pinned validation tooling",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:26Z",
+          "completed_at": "2026-11-15T03:22:28Z"
+        },
+        {
+          "number": 6,
+          "name": "Install PDF validators",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:28Z",
+          "completed_at": "2026-11-15T03:22:37Z"
+        },
+        {
+          "number": 7,
+          "name": "Run the repository verification command",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:37Z",
+          "completed_at": "2026-11-15T03:24:33Z"
+        },
+        {
+          "number": 8,
+          "name": "Retain verification evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:24:33Z",
+          "completed_at": "2026-11-15T03:24:36Z"
+        },
+        {
+          "number": 15,
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:24:36Z",
+          "completed_at": "2026-11-15T03:24:36Z"
+        },
+        {
+          "number": 16,
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:24:36Z",
+          "completed_at": "2026-11-15T03:24:37Z"
+        },
+        {
+          "number": 17,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:24:37Z",
+          "completed_at": "2026-11-15T03:24:37Z"
+        }
+      ]
+    },
+    {
+      "id": 132684007818,
+      "run_id": 43672043485,
+      "name": "Workflow lint",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:10Z",
+      "completed_at": "2026-11-15T03:22:19Z",
+      "runner_id": 1000837462,
+      "runner_name": "GitHub Actions 1000837462",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684007818",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:12Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:12Z",
+          "completed_at": "2026-11-15T03:22:14Z"
+        },
+        {
+          "number": 3,
+          "name": "Install checksum-verified actionlint",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:14Z",
+          "completed_at": "2026-11-15T03:22:14Z"
+        },
+        {
+          "number": 4,
+          "name": "Validate every workflow",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:14Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 5,
+          "name": "Retain lint evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:16Z"
+        },
+        {
+          "number": 10,
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:16Z",
+          "completed_at": "2026-11-15T03:22:16Z"
+        },
+        {
+          "number": 11,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:16Z",
+          "completed_at": "2026-11-15T03:22:16Z"
+        }
+      ]
+    },
+    {
+      "id": 132684007918,
+      "run_id": 43672043485,
+      "name": "compile (draft) / build",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:22:29Z",
+      "runner_id": 1000837463,
+      "runner_name": "GitHub Actions 1000837463",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684007918",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:10Z",
+          "completed_at": "2026-11-15T03:22:10Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:10Z",
+          "completed_at": "2026-11-15T03:22:13Z"
+        },
+        {
+          "number": 3,
+          "name": "Run typst-community/setup-typst@63ac138db421d586de61f7f5ac3bcef6a2e6c78c",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:13Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 4,
+          "name": "Install and verify typstyle",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 5,
+          "name": "Check formatting",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 6,
+          "name": "Compile",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:16Z"
+        },
+        {
+          "number": 7,
+          "name": "Validate PDF",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:16Z",
+          "completed_at": "2026-11-15T03:22:27Z"
+        },
+        {
+          "number": 8,
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:27Z",
+          "completed_at": "2026-11-15T03:22:28Z"
+        },
+        {
+          "number": 16,
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:28Z",
+          "completed_at": "2026-11-15T03:22:28Z"
+        },
+        {
+          "number": 17,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:28Z",
+          "completed_at": "2026-11-15T03:22:28Z"
+        }
+      ]
+    },
+    {
+      "id": 132684007929,
+      "run_id": 43672043485,
+      "name": "Dependency review",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:10Z",
+      "completed_at": "2026-11-15T03:22:20Z",
+      "runner_id": 1000837467,
+      "runner_name": "GitHub Actions 1000837467",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684007929",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:13Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:13Z",
+          "completed_at": "2026-11-15T03:22:17Z"
+        },
+        {
+          "number": 3,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:17Z",
+          "completed_at": "2026-11-15T03:22:17Z"
+        }
+      ]
+    },
+    {
+      "id": 132684008009,
+      "run_id": 43672043485,
+      "name": "compile (default) / build",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:10Z",
+      "completed_at": "2026-11-15T03:22:32Z",
+      "runner_id": 1000837464,
+      "runner_name": "GitHub Actions 1000837464",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684008009",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:12Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:12Z",
+          "completed_at": "2026-11-15T03:22:14Z"
+        },
+        {
+          "number": 3,
+          "name": "Run typst-community/setup-typst@63ac138db421d586de61f7f5ac3bcef6a2e6c78c",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:14Z",
+          "completed_at": "2026-11-15T03:22:16Z"
+        },
+        {
+          "number": 4,
+          "name": "Install and verify typstyle",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:16Z",
+          "completed_at": "2026-11-15T03:22:16Z"
+        },
+        {
+          "number": 5,
+          "name": "Check formatting",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:16Z",
+          "completed_at": "2026-11-15T03:22:16Z"
+        },
+        {
+          "number": 6,
+          "name": "Compile",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:16Z",
+          "completed_at": "2026-11-15T03:22:18Z"
+        },
+        {
+          "number": 7,
+          "name": "Validate PDF",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:18Z",
+          "completed_at": "2026-11-15T03:22:27Z"
+        },
+        {
+          "number": 8,
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:27Z",
+          "completed_at": "2026-11-15T03:22:29Z"
+        },
+        {
+          "number": 16,
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:29Z",
+          "completed_at": "2026-11-15T03:22:29Z"
+        },
+        {
+          "number": 17,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:29Z",
+          "completed_at": "2026-11-15T03:22:29Z"
+        }
+      ]
+    },
+    {
+      "id": 132684008088,
+      "run_id": 43672043485,
+      "name": "compile (print) / build",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:22:28Z",
+      "runner_id": 1000837465,
+      "runner_name": "GitHub Actions 1000837465",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684008088",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:10Z",
+          "completed_at": "2026-11-15T03:22:11Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:13Z"
+        },
+        {
+          "number": 3,
+          "name": "Run typst-community/setup-typst@63ac138db421d586de61f7f5ac3bcef6a2e6c78c",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:13Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 4,
+          "name": "Install and verify typstyle",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 5,
+          "name": "Check formatting",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 6,
+          "name": "Compile",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:17Z"
+        },
+        {
+          "number": 7,
+          "name": "Validate PDF",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:17Z",
+          "completed_at": "2026-11-15T03:22:25Z"
+        },
+        {
+          "number": 8,
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:25Z",
+          "completed_at": "2026-11-15T03:22:26Z"
+        },
+        {
+          "number": 16,
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:26Z",
+          "completed_at": "2026-11-15T03:22:26Z"
+        },
+        {
+          "number": 17,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:26Z",
+          "completed_at": "2026-11-15T03:22:26Z"
+        }
+      ]
+    },
+    {
+      "id": 132684008121,
+      "run_id": 43672043485,
+      "name": "compile (screen) / build",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:10Z",
+      "completed_at": "2026-11-15T03:22:28Z",
+      "runner_id": 1000837466,
+      "runner_name": "GitHub Actions 1000837466",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684008121",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:10Z",
+          "completed_at": "2026-11-15T03:22:11Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:13Z"
+        },
+        {
+          "number": 3,
+          "name": "Run typst-community/setup-typst@63ac138db421d586de61f7f5ac3bcef6a2e6c78c",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:13Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 4,
+          "name": "Install and verify typstyle",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 5,
+          "name": "Check formatting",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:15Z"
+        },
+        {
+          "number": 6,
+          "name": "Compile",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:15Z",
+          "completed_at": "2026-11-15T03:22:17Z"
+        },
+        {
+          "number": 7,
+          "name": "Validate PDF",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:17Z",
+          "completed_at": "2026-11-15T03:22:25Z"
+        },
+        {
+          "number": 8,
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:25Z",
+          "completed_at": "2026-11-15T03:22:27Z"
+        },
+        {
+          "number": 16,
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:27Z",
+          "completed_at": "2026-11-15T03:22:27Z"
+        },
+        {
+          "number": 17,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:27Z",
+          "completed_at": "2026-11-15T03:22:27Z"
+        }
+      ]
+    },
+    {
+      "id": 132684008619,
+      "run_id": 43672043485,
+      "name": "Extended property corpus",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-15T03:22:08Z",
+      "completed_at": "2026-11-15T03:22:07Z",
+      "runner_id": null,
+      "runner_name": null,
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043485/job/132684008619",
+      "steps": []
+    },
+    {
+      "id": 132684006620,
+      "run_id": 43672043194,
+      "name": "Python validation coverage",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:23:17Z",
+      "runner_id": 1000837460,
+      "runner_name": "GitHub Actions 1000837460",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043194/job/132684006620",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:10Z",
+          "completed_at": "2026-11-15T03:22:11Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:13Z"
+        },
+        {
+          "number": 3,
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:13Z",
+          "completed_at": "2026-11-15T03:22:20Z"
+        },
+        {
+          "number": 4,
+          "name": "Install coverage tooling",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:20Z",
+          "completed_at": "2026-11-15T03:22:22Z"
+        },
+        {
+          "number": 5,
+          "name": "Verify Python tools and desired policy",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:22Z",
+          "completed_at": "2026-11-15T03:22:47Z"
+        },
+        {
+          "number": 6,
+          "name": "Measure Python validation-tool coverage",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:47Z",
+          "completed_at": "2026-11-15T03:23:13Z"
+        },
+        {
+          "number": 7,
+          "name": "Retain measured coverage reports",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:13Z",
+          "completed_at": "2026-11-15T03:23:15Z"
+        },
+        {
+          "number": 13,
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:15Z",
+          "completed_at": "2026-11-15T03:23:15Z"
+        },
+        {
+          "number": 14,
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:15Z",
+          "completed_at": "2026-11-15T03:23:15Z"
+        },
+        {
+          "number": 15,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:15Z",
+          "completed_at": "2026-11-15T03:23:15Z"
+        }
+      ]
+    },
+    {
+      "id": 132684277694,
+      "run_id": 43672043194,
+      "name": "coverage-upload",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:23:19Z",
+      "completed_at": "2026-11-15T03:23:27Z",
+      "runner_id": 1000837515,
+      "runner_name": "GitHub Actions 1000837515",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043194/job/132684277694",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:20Z",
+          "completed_at": "2026-11-15T03:23:21Z"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:21Z",
+          "completed_at": "2026-11-15T03:23:23Z"
+        },
+        {
+          "number": 3,
+          "name": "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:23Z",
+          "completed_at": "2026-11-15T03:23:24Z"
+        },
+        {
+          "number": 4,
+          "name": "Upload measured coverage using OIDC",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:24Z",
+          "completed_at": "2026-11-15T03:23:26Z"
+        },
+        {
+          "number": 8,
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:26Z",
+          "completed_at": "2026-11-15T03:23:26Z"
+        },
+        {
+          "number": 9,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:26Z",
+          "completed_at": "2026-11-15T03:23:26Z"
+        }
+      ]
+    },
+    {
+      "id": 132684006379,
+      "run_id": 43672043170,
+      "name": "privacy-and-secrets",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:09Z",
+      "completed_at": "2026-11-15T03:22:40Z",
+      "runner_id": 1000837459,
+      "runner_name": "GitHub Actions 1000837459",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672043170/job/132684006379",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:10Z",
+          "completed_at": "2026-11-15T03:22:11Z"
+        },
+        {
+          "number": 2,
+          "name": "Check out complete repository history",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:13Z"
+        },
+        {
+          "number": 3,
+          "name": "Scan with Presidio and Gitleaks",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:13Z",
+          "completed_at": "2026-11-15T03:22:37Z"
+        },
+        {
+          "number": 5,
+          "name": "Post Scan with Presidio and Gitleaks",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:37Z",
+          "completed_at": "2026-11-15T03:22:37Z"
+        },
+        {
+          "number": 6,
+          "name": "Post Check out complete repository history",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:37Z",
+          "completed_at": "2026-11-15T03:22:37Z"
+        },
+        {
+          "number": 7,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:37Z",
+          "completed_at": "2026-11-15T03:22:37Z"
+        }
+      ]
+    },
+    {
+      "id": 132684001651,
+      "run_id": 43672040818,
+      "name": "Analyze (python)",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:08Z",
+      "completed_at": "2026-11-15T03:23:02Z",
+      "runner_id": 1000837457,
+      "runner_name": "GitHub Actions 1000837457",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672040818/job/132684001651",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:08Z",
+          "completed_at": "2026-11-15T03:22:09Z"
+        },
+        {
+          "number": 2,
+          "name": "Checkout repository",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:09Z",
+          "completed_at": "2026-11-15T03:22:11Z"
+        },
+        {
+          "number": 3,
+          "name": "Setup proxy for registries",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:11Z"
+        },
+        {
+          "number": 4,
+          "name": "Initialize CodeQL",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:11Z",
+          "completed_at": "2026-11-15T03:22:25Z"
+        },
+        {
+          "number": 5,
+          "name": "Perform CodeQL Analysis",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:25Z",
+          "completed_at": "2026-11-15T03:22:59Z"
+        },
+        {
+          "number": 7,
+          "name": "Post Perform CodeQL Analysis",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:59Z",
+          "completed_at": "2026-11-15T03:22:59Z"
+        },
+        {
+          "number": 8,
+          "name": "Post Initialize CodeQL",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:59Z",
+          "completed_at": "2026-11-15T03:23:00Z"
+        },
+        {
+          "number": 9,
+          "name": "Post Setup proxy for registries",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:00Z",
+          "completed_at": "2026-11-15T03:23:00Z"
+        },
+        {
+          "number": 10,
+          "name": "Post Checkout repository",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:00Z",
+          "completed_at": "2026-11-15T03:23:01Z"
+        },
+        {
+          "number": 11,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:23:01Z",
+          "completed_at": "2026-11-15T03:23:01Z"
+        }
+      ]
+    },
+    {
+      "id": 132684001899,
+      "run_id": 43672040818,
+      "name": "Analyze (actions)",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:08Z",
+      "completed_at": "2026-11-15T03:22:38Z",
+      "runner_id": 1000837458,
+      "runner_name": "GitHub Actions 1000837458",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "html_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43672040818/job/132684001899",
+      "steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:09Z",
+          "completed_at": "2026-11-15T03:22:09Z"
+        },
+        {
+          "number": 2,
+          "name": "Checkout repository",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:09Z",
+          "completed_at": "2026-11-15T03:22:12Z"
+        },
+        {
+          "number": 3,
+          "name": "Setup proxy for registries",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:12Z",
+          "completed_at": "2026-11-15T03:22:12Z"
+        },
+        {
+          "number": 4,
+          "name": "Initialize CodeQL",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:12Z",
+          "completed_at": "2026-11-15T03:22:18Z"
+        },
+        {
+          "number": 5,
+          "name": "Perform CodeQL Analysis",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:18Z",
+          "completed_at": "2026-11-15T03:22:34Z"
+        },
+        {
+          "number": 7,
+          "name": "Post Perform CodeQL Analysis",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:34Z",
+          "completed_at": "2026-11-15T03:22:34Z"
+        },
+        {
+          "number": 8,
+          "name": "Post Initialize CodeQL",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:34Z",
+          "completed_at": "2026-11-15T03:22:35Z"
+        },
+        {
+          "number": 9,
+          "name": "Post Setup proxy for registries",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:35Z",
+          "completed_at": "2026-11-15T03:22:35Z"
+        },
+        {
+          "number": 10,
+          "name": "Post Checkout repository",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:35Z",
+          "completed_at": "2026-11-15T03:22:35Z"
+        },
+        {
+          "number": 11,
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-15T03:22:35Z",
+          "completed_at": "2026-11-15T03:22:35Z"
+        }
+      ]
+    }
+  ],
+  "check_summary": {
+    "success": 14,
+    "expected_skips": 1,
+    "failed": 0,
+    "pending": 0,
+    "all_latest_applicable_workflows_succeeded": true
+  },
+  "expected_skip": {
+    "id": 132684008619,
+    "name": "Extended property corpus",
+    "reason": "Scheduled/manual extended corpus is not applicable to the pull_request event."
+  },
+  "superseded_history": {
+    "runs": [],
+    "check_runs": [],
+    "selection": "One attempt of each applicable workflow registered for this source head."
+  },
+  "codecov": {
+    "check": {
+      "id": 132684376409,
+      "name": "codecov/patch",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:23:42Z",
+      "completed_at": "2026-11-15T03:23:42Z",
+      "details_url": "https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/34",
+      "app": {
+        "id": 254,
+        "slug": "codecov",
+        "name": "Codecov",
+        "html_url": "https://github.com/apps/codecov"
+      },
+      "output": {
+        "title": "93.42% of diff hit (target 80.00%)",
+        "summary": "[View this Pull Request on Codecov](https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/34?dropdown=coverage&src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=checks&utm_campaign=pr+comments&utm_term=Dylan+A+Mordaunt)\n\n93.42% of diff hit (target 80.00%)",
+        "annotations_count": 0
+      }
+    },
+    "actual_app_id": 254,
+    "diff_percent": 93.42,
+    "target_percent": 80,
+    "upload_job_id": 132684277694,
+    "legacy_statuses": [],
+    "upload_configuration": {
+      "file": "build/coverage.xml",
+      "flag": "validation-tools",
+      "fail_ci_if_error": true,
+      "disable_search": true,
+      "commit": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "provider_processing_observed": true
+    }
+  },
+  "controls_snapshot": {
+    "observed_at_utc": "2026-11-15T03:30:37Z",
+    "ruleset_inventory": [
+      {
+        "id": 27266891,
+        "name": "solo-maintainer-main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "edithatogo/unimelb-thesis-template-typst",
+        "enforcement": "active",
+        "node_id": "RRS_lACqUmVwb3NpdG9yec4-3_n-zgGgD0s",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets/27266891"
+          },
+          "html": {
+            "href": "https://github.com/edithatogo/unimelb-thesis-template-typst/rules/27266891"
+          }
+        },
+        "created_at": "2026-11-15T02:19:04.588+11:00",
+        "updated_at": "2026-11-15T02:47:03.712+11:00"
+      }
+    ],
+    "active_ruleset": {
+      "id": 27266891,
+      "name": "solo-maintainer-main",
+      "target": "branch",
+      "source_type": "Repository",
+      "source": "edithatogo/unimelb-thesis-template-typst",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "~DEFAULT_BRANCH"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "non_fast_forward"
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": false,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          }
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": false,
+            "required_status_checks": [
+              {
+                "context": "compile (draft) / build",
+                "integration_id": 15368
+              },
+              {
+                "context": "compile (print) / build",
+                "integration_id": 15368
+              },
+              {
+                "context": "Workflow lint",
+                "integration_id": 15368
+              },
+              {
+                "context": "privacy-and-secrets",
+                "integration_id": 15368
+              },
+              {
+                "context": "Verify template and properties",
+                "integration_id": 15368
+              },
+              {
+                "context": "compile (default) / build",
+                "integration_id": 15368
+              },
+              {
+                "context": "compile (screen) / build",
+                "integration_id": 15368
+              },
+              {
+                "context": "Python validation coverage",
+                "integration_id": 15368
+              }
+            ]
+          }
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec4-3_n-zgGgD0s",
+      "created_at": "2026-11-15T02:19:04.588+11:00",
+      "updated_at": "2026-11-15T02:47:03.712+11:00",
+      "bypass_actors": [
+        {
+          "actor_id": 15080672,
+          "actor_type": "User",
+          "bypass_mode": "always"
+        }
+      ],
+      "current_user_can_bypass": "always",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets/27266891"
+        },
+        "html": {
+          "href": "https://github.com/edithatogo/unimelb-thesis-template-typst/rules/27266891"
+        }
+      }
+    },
+    "required_context_results": [
+      {
+        "context": "compile (draft) / build",
+        "integration_id": 15368,
+        "check_id": 132684007918,
+        "conclusion": "success"
+      },
+      {
+        "context": "compile (print) / build",
+        "integration_id": 15368,
+        "check_id": 132684008088,
+        "conclusion": "success"
+      },
+      {
+        "context": "Workflow lint",
+        "integration_id": 15368,
+        "check_id": 132684007818,
+        "conclusion": "success"
+      },
+      {
+        "context": "privacy-and-secrets",
+        "integration_id": 15368,
+        "check_id": 132684006379,
+        "conclusion": "success"
+      },
+      {
+        "context": "Verify template and properties",
+        "integration_id": 15368,
+        "check_id": 132684007639,
+        "conclusion": "success"
+      },
+      {
+        "context": "compile (default) / build",
+        "integration_id": 15368,
+        "check_id": 132684008009,
+        "conclusion": "success"
+      },
+      {
+        "context": "compile (screen) / build",
+        "integration_id": 15368,
+        "check_id": 132684008121,
+        "conclusion": "success"
+      },
+      {
+        "context": "Python validation coverage",
+        "integration_id": 15368,
+        "check_id": 132684006620,
+        "conclusion": "success"
+      }
+    ],
+    "strict_base_matches_observed_main": true,
+    "required_approvals": 0,
+    "code_owner_review_required": false,
+    "last_push_approval_required": false,
+    "unresolved_threads": 0,
+    "bypass_used_by_qualifier": false,
+    "boundary": "Read-only observation; root must reread current head/base/controls immediately before any merge. No settings or merge action performed by this qualifier."
+  },
+  "changed_files": [
+    {
+      "filename": ".coveragerc",
+      "status": "modified",
+      "sha": "89e75145f4d3a8b09d4870f3d7eb2dc00aaf96bd",
+      "additions": 1,
+      "deletions": 0
+    },
+    {
+      "filename": "CONTRIBUTING.md",
+      "status": "modified",
+      "sha": "c166a39d054ae45df01c07a1ae43b9011091f0ad",
+      "additions": 5,
+      "deletions": 1
+    },
+    {
+      "filename": "codecov.yml",
+      "status": "modified",
+      "sha": "b2e897843e7bc135ba998e440e1206ab0767f4b1",
+      "additions": 2,
+      "deletions": 1
+    },
+    {
+      "filename": "conductor/tracks/umthesis_v1_20261115/plan.md",
+      "status": "modified",
+      "sha": "f48801ebdb8ba5c0fd9b6d7e96d4336532c37e50",
+      "additions": 19,
+      "deletions": 8
+    },
+    {
+      "filename": "docs/maintenance.md",
+      "status": "modified",
+      "sha": "2fc856471a8a5881176ece9f64729e5937ef8f29",
+      "additions": 7,
+      "deletions": 4
+    },
+    {
+      "filename": "docs/quality-gates.md",
+      "status": "modified",
+      "sha": "54ccf3388980c7e47742de1393b8752b2148c85f",
+      "additions": 17,
+      "deletions": 4
+    },
+    {
+      "filename": "docs/submission-policy.md",
+      "status": "added",
+      "sha": "85f09aaf8239afa59446706aaa813d913512eed1",
+      "additions": 196,
+      "deletions": 0
+    },
+    {
+      "filename": "policies/unimelb/2026-11-15/manifest.json",
+      "status": "added",
+      "sha": "6e57708e260cc9cf253fde046530166fe389ca34",
+      "additions": 11,
+      "deletions": 0
+    },
+    {
+      "filename": "policies/unimelb/2026-11-15/profile.json",
+      "status": "added",
+      "sha": "dbaee0afca9a7d7cea5cbe036d7a7f0e0aa39a02",
+      "additions": 46,
+      "deletions": 0
+    },
+    {
+      "filename": "policies/unimelb/2026-11-15/request.schema.json",
+      "status": "added",
+      "sha": "00c6a17a161cc04c91f00b4b65188c7112bba427",
+      "additions": 873,
+      "deletions": 0
+    },
+    {
+      "filename": "policies/unimelb/2026-11-15/result.schema.json",
+      "status": "added",
+      "sha": "688f2b879dc2d57e8b37da782adfa9022614063b",
+      "additions": 340,
+      "deletions": 0
+    },
+    {
+      "filename": "policies/unimelb/2026-11-15/rules.json",
+      "status": "added",
+      "sha": "d08818a41e05e15de90f88911f055ccfbe4815a9",
+      "additions": 197,
+      "deletions": 0
+    },
+    {
+      "filename": "policies/unimelb/2026-11-15/sources.json",
+      "status": "added",
+      "sha": "2a4e03eb7fbd5560b95bfce2967d8e24497f0b88",
+      "additions": 71,
+      "deletions": 0
+    },
+    {
+      "filename": "scripts/submission_policy.py",
+      "status": "added",
+      "sha": "341ad2eb9bbd5f722ee16755a87bc492c33ed2f2",
+      "additions": 592,
+      "deletions": 0
+    },
+    {
+      "filename": "scripts/verify.py",
+      "status": "modified",
+      "sha": "6193b69399ee3bf0d94953abca6b90c9695360e2",
+      "additions": 34,
+      "deletions": 1
+    },
+    {
+      "filename": "tests/maintenance/test_submission_policy.py",
+      "status": "added",
+      "sha": "9ac5a5cdf70c17363009f55e133b54e4cba45287",
+      "additions": 507,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/LICENSE",
+      "status": "added",
+      "sha": "25871a9a34a0b01abea862c61bd4fb687c3bca60",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/applicability-matrix.json",
+      "status": "added",
+      "sha": "4b691aa27f40f5fbe1051f9f63e6ec53d2deded8",
+      "additions": 170,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/approval.md",
+      "status": "added",
+      "sha": "3b25a5cbbd742689709ff61aac2b384f8523bd5a",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/assistance-log.md",
+      "status": "added",
+      "sha": "92964bb274ebcd00812dc7d0686ed1c2f072cee7",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/creative-electronic.md",
+      "status": "added",
+      "sha": "6870012734d72c0d5b592ddaee84b44bc0812070",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/durable-component.md",
+      "status": "added",
+      "sha": "e30d5b8379c476554c4a7c511e1c637b5ccfce5b",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/handbook.md",
+      "status": "added",
+      "sha": "d923dfa09ff5317a01b114da52b8bf411f1cd0cb",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/human-review.md",
+      "status": "added",
+      "sha": "445ef068cda7512b296bfc9bcee243200de0057d",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/originality-report.md",
+      "status": "added",
+      "sha": "e270ce9990b53845df34ef7bf7ebab07d133ff19",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/publication-form.md",
+      "status": "added",
+      "sha": "cf8c01b000f1fe9421ed64ec2c6674a35e1857a8",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/publication-forms-bundle.md",
+      "status": "added",
+      "sha": "021a4407d60de39aba6c7a22c849bf59f029ca9e",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/documents/rights-record.md",
+      "status": "added",
+      "sha": "60eeb1da40651c1b2f6434f43ade8ac24f4185d0",
+      "additions": 3,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/above-advisory-target.json",
+      "status": "added",
+      "sha": "47879673a7fa2e75bf0d8a85ec4234ad6a821dec",
+      "additions": 71,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/ai-assistance.json",
+      "status": "added",
+      "sha": "e2cdd0b6ba4c0a8f0bd19ca4a84de9982771e471",
+      "additions": 133,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/ai-authorship-claim.json",
+      "status": "added",
+      "sha": "aad289af78e65a6b32bd8cdf085d2af98adb1c43",
+      "additions": 135,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/ai-authorship-declaration-missing.json",
+      "status": "added",
+      "sha": "513fe7134b0735eae3e3ce1761b69b97614c38cc",
+      "additions": 134,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/approved-word-exception.json",
+      "status": "added",
+      "sha": "d7cf35c215c5afcfd35aff9d51a65ebcbf1c7ad5",
+      "additions": 98,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/chair-final-record-missing.json",
+      "status": "added",
+      "sha": "08ea4f1c40630d5a59919a1ef9873196c55e039d",
+      "additions": 145,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/combined-forms-missing.json",
+      "status": "added",
+      "sha": "c4d65f830b17397edaf8ff1ac4512baa6f2db010",
+      "additions": 191,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/count-adjustment.json",
+      "status": "added",
+      "sha": "bc24e9932b22342fc73f9421a4b5d9259d37512f",
+      "additions": 102,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/count-missing.json",
+      "status": "added",
+      "sha": "b31760966ab84b9f3dada8d02a72b6453b2bd19c",
+      "additions": 60,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/course-override.json",
+      "status": "added",
+      "sha": "80a721330ba74cfdcdce6fbd16867b6fdf22a53f",
+      "additions": 87,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/course-scope-mismatch.json",
+      "status": "added",
+      "sha": "2c25edc727ce5675cd3bad6d64e4e2e6f9c361f8",
+      "additions": 91,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/course-source-missing.json",
+      "status": "added",
+      "sha": "995638bd1a289c62a4b113d4ca95a25c580fee93",
+      "additions": 81,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/creative-agreed.json",
+      "status": "added",
+      "sha": "1325c9da2e20fd4324f8b0ebc9515c837ee49ef4",
+      "additions": 121,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/creative-component-missing.json",
+      "status": "added",
+      "sha": "d8873fd542d354b6429c22d0b5132b8ab729a32f",
+      "additions": 122,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/creative-durable-deposit.json",
+      "status": "added",
+      "sha": "202192e05bce8b903fdc2bcfe08473ae5a292732",
+      "additions": 195,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/creative-durable-missing.json",
+      "status": "added",
+      "sha": "4df44959703ae7ef6f3a7472d826bc012e532b34",
+      "additions": 194,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/creative-percentages-invalid.json",
+      "status": "added",
+      "sha": "5d7b44fadd604b09a0fbbd29e01d748074b9609d",
+      "additions": 122,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/digital-assistance.json",
+      "status": "added",
+      "sha": "6584cd0b4bf194e398be6276b7a3a7146b6bbed2",
+      "additions": 132,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/digital-private-log-missing.json",
+      "status": "added",
+      "sha": "48840f6fc7fca82afee218f0321bdff228c2feef",
+      "additions": 134,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/draft-baseline.json",
+      "status": "added",
+      "sha": "3e6df32ad7e292028c0b4d401944d63219547528",
+      "additions": 97,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/english-summary-missing.json",
+      "status": "added",
+      "sha": "28850b03428bf9fa7d8aefd5ccf4864742719bac",
+      "additions": 101,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/english-thesis-chinese-labels.json",
+      "status": "added",
+      "sha": "a07dd51a732fbf5c4c17fc4eb9f0abac481c2f52",
+      "additions": 72,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/examination-records.json",
+      "status": "added",
+      "sha": "7e4e4ec472b371ea71e9c1d3cab10662836de236",
+      "additions": 114,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/exclusive-partition-invalid.json",
+      "status": "added",
+      "sha": "9fe591644b8e01843e577610fb2b6b2b8cce1927",
+      "additions": 150,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/exclusive-partition.json",
+      "status": "added",
+      "sha": "0da658bbded073f22f8b1c6fabcf1dcb0023df22",
+      "additions": 148,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/figure-only-form-exception.json",
+      "status": "added",
+      "sha": "ccae99ac2577bcfa0af2fd83fabc596fcf5d4ecf",
+      "additions": 126,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/final-corrections-missing.json",
+      "status": "added",
+      "sha": "3e1e908f22385f03e39144e2b08f886993016c3c",
+      "additions": 145,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/final-deposit-records.json",
+      "status": "added",
+      "sha": "1de7f2d079e8eba1df6db2cce42430b2d4bcdc78",
+      "additions": 145,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/funding-applicability-unknown.json",
+      "status": "added",
+      "sha": "72241ad9f6fa8de1c77c967109dc7723f3805d4c",
+      "additions": 67,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/funding-grant-missing.json",
+      "status": "added",
+      "sha": "f077e60cc9ba8df7b5347ce00e8a2c82e0d679ca",
+      "additions": 82,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/funding-grant.json",
+      "status": "added",
+      "sha": "db9101be8d7abce03a2d7d38391608dc9caf9eb5",
+      "additions": 82,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/human-assistance-detail-missing.json",
+      "status": "added",
+      "sha": "bff8e00e5d0a0dda8f73e609b7968357ce8b7d3c",
+      "additions": 79,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/human-assistance.json",
+      "status": "added",
+      "sha": "8633f9f4c5ca9e40e807884ca0be9070cb246b76",
+      "additions": 95,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/included-material-filter-invalid.json",
+      "status": "added",
+      "sha": "fa073c8e7f8f06b767d4a48dabeebf87f5dac158",
+      "additions": 192,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/incorporated-global-bibliography.json",
+      "status": "added",
+      "sha": "8ef5b03ee863375927a83a5257530b1d9d152968",
+      "additions": 141,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/language-approval-missing.json",
+      "status": "added",
+      "sha": "4e2e920323dbf8e329c3ca3419a496c64e93e5d1",
+      "additions": 84,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/literature-update-missing.json",
+      "status": "added",
+      "sha": "f37f2f5ed17ae1fef48002f0544b0740b5571cb3",
+      "additions": 142,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/literature-update.json",
+      "status": "added",
+      "sha": "ad38b535832edce0d934e3745ab0914f03eecdf2",
+      "additions": 139,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/nonenglish-doctoral.json",
+      "status": "added",
+      "sha": "329e3290bb6361b3a68762c771237d762a28a420",
+      "additions": 99,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/nonenglish-masters.json",
+      "status": "added",
+      "sha": "c89dc648b4e6fd4b3124e7dd2c5fc4133f5e7e42",
+      "additions": 99,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/originality-filter-explanation-missing.json",
+      "status": "added",
+      "sha": "ada83ff67500032b33d5735b2556fd0a246bc093",
+      "additions": 191,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/originality-record-missing.json",
+      "status": "added",
+      "sha": "0f2a0d7d9b62f3657d852348bea87e122c1debcf",
+      "additions": 107,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/other-editor-substance-change.json",
+      "status": "added",
+      "sha": "df9ad3ea4d88eb5512d7f95c100c956b78692361",
+      "additions": 97,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/other-qualification-work.json",
+      "status": "added",
+      "sha": "d0c3ca85fd99e9853cf98016c5afd2b41710a2bb",
+      "additions": 83,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/prior-enrolment-work.json",
+      "status": "added",
+      "sha": "8b048992f0554775d6aa9398eebfbfa700ee4736",
+      "additions": 83,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/prior-work-classification-missing.json",
+      "status": "added",
+      "sha": "fcea65fe3cfc69c8109848f8e86aeacac4b86850",
+      "additions": 79,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/publication-coauthored.json",
+      "status": "added",
+      "sha": "080d29a246c863499e9e32bf7af909c36be8d4b1",
+      "additions": 142,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/publication-form-missing.json",
+      "status": "added",
+      "sha": "463f2f163ac882948530f01a9d8fbd2c9a89318f",
+      "additions": 140,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/publication-in-revision.json",
+      "status": "added",
+      "sha": "0a23d6bbd0eb9d84626d38feefcfde8927bcdaa0",
+      "additions": 139,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/publication-rights-ref-missing.json",
+      "status": "added",
+      "sha": "ddde44fabed038c2170ba08c815445d4622351e2",
+      "additions": 140,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/publication-rights-scoped.json",
+      "status": "added",
+      "sha": "dfb00b418d6ebff1c582656565a0120a4f9f7853",
+      "additions": 163,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/publication-rights-wrong-scope.json",
+      "status": "added",
+      "sha": "7865c2506f1215678de9c17544dab67411af47a7",
+      "additions": 165,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/publication-submission-records.json",
+      "status": "added",
+      "sha": "c97a1c0b128430a0f0e7ea6cf6dd842e76477727",
+      "additions": 191,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/publication-venue-missing.json",
+      "status": "added",
+      "sha": "6dde9faaa26c0a6cd07b681bb28beace5e2100bd",
+      "additions": 139,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/rtp-acknowledgement-missing.json",
+      "status": "added",
+      "sha": "9f7de7d92e0547a306ee030d3145ed4eefb3562b",
+      "additions": 83,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/rtp-fee-offset.json",
+      "status": "added",
+      "sha": "e5366a9c9954eb3fade0fb4d95c07f8dd14d455b",
+      "additions": 83,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/summary-too-short.json",
+      "status": "added",
+      "sha": "0c235d1d3af518ff8d6541229b46b4eaa949d29a",
+      "additions": 100,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/supervisor-editing-boundary.json",
+      "status": "added",
+      "sha": "91cd20c5c9744f354fd8d46f3092fe546942ac39",
+      "additions": 95,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/supervisor-record-missing.json",
+      "status": "added",
+      "sha": "4cb9c5d93ff025f6c4b29f14ad67cd1cafe8c03f",
+      "additions": 113,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/supervisor-stale-pdf.json",
+      "status": "added",
+      "sha": "45c905857cbb20e41be36a4b672a157567a9bc8b",
+      "additions": 114,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/unapproved-count-adjustment.json",
+      "status": "added",
+      "sha": "6ed844efb945917cbade4566468fcef68ea51f4e",
+      "additions": 88,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/unapproved-word-exception.json",
+      "status": "added",
+      "sha": "cd55b1fc55223e489cd043ac3dbec3db6f92f68d",
+      "additions": 100,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/word-exception-ref-missing.json",
+      "status": "added",
+      "sha": "040d8dab7cbdbc0c225bf3255e7cf56649e4933c",
+      "additions": 73,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/fixtures/written-component-inventory-multiple.json",
+      "status": "added",
+      "sha": "96c813451e0b65ec13af27152e0b65fc07b2ccd2",
+      "additions": 114,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/manifest.json",
+      "status": "added",
+      "sha": "a09d5b62e68f26db86876ea833f390989e27668c",
+      "additions": 331,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/specimen.typ",
+      "status": "added",
+      "sha": "65c06d9d1045a3b0c25f10d13774a1a45f8e3945",
+      "additions": 5,
+      "deletions": 0
+    },
+    {
+      "filename": "tests/policy/verify.py",
+      "status": "added",
+      "sha": "4a4f5a00baf1f1be7b577dc05aeb41eacad9824b",
+      "additions": 160,
+      "deletions": 0
+    }
+  ],
+  "no_gate_weakening_review": {
+    "workflow_changes": [],
+    "coverage_change": "Adds scripts.submission_policy to measured helper scope and the validation-tools flag; thresholds and exclusions remain unchanged.",
+    "verifier_change": "Independent exact-base AST comparison found only new verify_submission_policy and changed main; all prior functions and command budgets unchanged.",
+    "source_reviewed_helper_sha256": "acdab7bf812b9c03820a2c245a8e957ff699a2c571d239af58a28b3e82f51fab",
+    "source_verifier_sha256": "2d81276582adb03a5886a8d92052c8d8c342844e6fe57d6f66afa78d14d437ef",
+    "review_report": "/tmp/ci-policy-review/additive-hook-review.json"
+  },
+  "actual_execution": {
+    "canonical_command": "make verify",
+    "contract_methods": 127,
+    "maintenance_methods": 165,
+    "new_policy_methods": 41,
+    "generated_property_cases": 640,
+    "property_methods": 10,
+    "property_seed": 20261115,
+    "contract_fixtures": 18,
+    "bounded_native_regression_cases": 209,
+    "native_case_components": {
+      "renderer": 162,
+      "native_evidence": 16,
+      "contract_adapter": 21,
+      "packaging": 10
+    },
+    "separate_supplied_data_policy_cases": 64,
+    "policy_data_valid": 27,
+    "policy_intended_data_failures": 37,
+    "policy_assertions": 632,
+    "policy_assertions_independently_counted": true,
+    "policy_reports_all_keep_submission_unapproved": true,
+    "rendered_policy_qualified": false,
+    "inspected_native_command_records": 764,
+    "expected_nonzero_command_records": 50,
+    "watchdog_methods": 5,
+    "watchdog_commands": 6,
+    "deliberate_watchdog_timeouts": 2,
+    "normal_command_timeout_seconds": 60,
+    "cleanup_timeout_seconds": 5,
+    "python_version": "3.15.1",
+    "typst_version": "typst 0.15.1 (9dfd3a08)",
+    "default_documents": [
+      {
+        "source": "thesis.typ",
+        "pages": 58,
+        "pdf": "build/verification/thesis.pdf",
+        "pdf_sha256": "d52c32c94d3f2cf23bf454333af2fcde3267d407b56f5e885b2b537ba76bbd86",
+        "bytes": 456203,
+        "result": "pass"
+      },
+      {
+        "source": "sample-chapter.typ",
+        "pages": 7,
+        "pdf": "build/verification/sample-chapter.pdf",
+        "pdf_sha256": "a9c0dee4b74e79505cff81bcf0b9d71d6fffdbdb8eb5296c5a97c5080e5fe789",
+        "bytes": 158208,
+        "result": "pass"
+      }
+    ],
+    "profile_pages": {
+      "default": 58,
+      "draft": 58,
+      "print": 67,
+      "screen": 57
+    }
+  },
+  "native_artifacts": {
+    "metadata": [
+      {
+        "id": 14145260569,
+        "name": "template-verification",
+        "size_in_bytes": 6359997,
+        "digest": "sha256:1c9cca921810e82502cfc548421833d3ceeaffbbcba2d95270496375864e116d",
+        "expired": false,
+        "created_at": "2026-11-15T03:24:36Z",
+        "updated_at": "2026-11-15T03:24:36Z",
+        "workflow_run": {
+          "id": 43672043485,
+          "repository_id": 1054865918,
+          "head_repository_id": 1054865918,
+          "head_branch": "feat/submission-policy-20261115",
+          "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99"
+        }
+      },
+      {
+        "id": 14145225293,
+        "name": "typst-thesis-default",
+        "size_in_bytes": 263395,
+        "digest": "sha256:9a4ffa1ffcaa83f20e679af8a9193185e4da3bc115445c2476a78abda71e1c2c",
+        "expired": false,
+        "created_at": "2026-11-15T03:22:29Z",
+        "updated_at": "2026-11-15T03:22:29Z",
+        "workflow_run": {
+          "id": 43672043485,
+          "repository_id": 1054865918,
+          "head_repository_id": 1054865918,
+          "head_branch": "feat/submission-policy-20261115",
+          "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99"
+        }
+      },
+      {
+        "id": 14144815809,
+        "name": "typst-thesis-draft",
+        "size_in_bytes": 280856,
+        "digest": "sha256:4e93738187bb9eac38d7364493df6f725ffd10d5ae6dc10819010c9bfdec432e",
+        "expired": false,
+        "created_at": "2026-11-15T03:22:28Z",
+        "updated_at": "2026-11-15T03:22:28Z",
+        "workflow_run": {
+          "id": 43672043485,
+          "repository_id": 1054865918,
+          "head_repository_id": 1054865918,
+          "head_branch": "feat/submission-policy-20261115",
+          "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99"
+        }
+      },
+      {
+        "id": 14144815783,
+        "name": "workflow-lint",
+        "size_in_bytes": 144,
+        "digest": "sha256:1dc6872c5890496b7a71c8df7a865fdcfb2f0b62210dc7156ec18f64b3e0f831",
+        "expired": false,
+        "created_at": "2026-11-15T03:22:16Z",
+        "updated_at": "2026-11-15T03:22:16Z",
+        "workflow_run": {
+          "id": 43672043485,
+          "repository_id": 1054865918,
+          "head_repository_id": 1054865918,
+          "head_branch": "feat/submission-policy-20261115",
+          "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99"
+        }
+      },
+      {
+        "id": 14144433643,
+        "name": "typst-thesis-print",
+        "size_in_bytes": 266835,
+        "digest": "sha256:0167b4dc7042affdd77e3e1fec7d1479586eeffb228fd74b2781cc2f334b0b28",
+        "expired": false,
+        "created_at": "2026-11-15T03:22:26Z",
+        "updated_at": "2026-11-15T03:22:26Z",
+        "workflow_run": {
+          "id": 43672043485,
+          "repository_id": 1054865918,
+          "head_repository_id": 1054865918,
+          "head_branch": "feat/submission-policy-20261115",
+          "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99"
+        }
+      },
+      {
+        "id": 14144209557,
+        "name": "typst-thesis-screen",
+        "size_in_bytes": 272557,
+        "digest": "sha256:1bb5c3e871ecff58baad428b626f4f016b26b95d213f404b98715fe831b6c722",
+        "expired": false,
+        "created_at": "2026-11-15T03:22:26Z",
+        "updated_at": "2026-11-15T03:22:26Z",
+        "workflow_run": {
+          "id": 43672043485,
+          "repository_id": 1054865918,
+          "head_repository_id": 1054865918,
+          "head_branch": "feat/submission-policy-20261115",
+          "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99"
+        }
+      },
+      {
+        "id": 14144976121,
+        "name": "maintenance-evidence",
+        "size_in_bytes": 17612,
+        "digest": "sha256:1f4e7d00aa498dc8092148a6df6470cb8c092c707c6ff0b142536fa884eedc8c",
+        "expired": false,
+        "created_at": "2026-11-15T03:23:14Z",
+        "updated_at": "2026-11-15T03:23:14Z",
+        "workflow_run": {
+          "id": 43672043194,
+          "repository_id": 1054865918,
+          "head_repository_id": 1054865918,
+          "head_branch": "feat/submission-policy-20261115",
+          "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99"
+        }
+      }
+    ],
+    "downloaded_archives": {
+      "coverage": {
+        "bytes": 17612,
+        "crc_verified": true,
+        "entry_count": 2,
+        "file_count": 2,
+        "path": "/tmp/pr34-source-02496f5/coverage.zip",
+        "pdf_count": 0,
+        "sha256": "1f4e7d00aa498dc8092148a6df6470cb8c092c707c6ff0b142536fa884eedc8c"
+      },
+      "verification": {
+        "bytes": 6359997,
+        "crc_verified": true,
+        "entry_count": 1735,
+        "file_count": 1735,
+        "path": "/tmp/pr34-source-02496f5/verification.zip",
+        "pdf_count": 136,
+        "sha256": "1c9cca921810e82502cfc548421833d3ceeaffbbcba2d95270496375864e116d"
+      }
+    },
+    "profile_archives_individually_downloaded": false,
+    "inspection_script": {
+      "path": "/tmp/umthesis-evidence/inspect_native_artifacts_v2.py",
+      "sha256": "577ec4d700dd83ab1715e5cc4922727be43dbd0072e44202071b6fb95188e154",
+      "result": "pass",
+      "scope": "Prior inspector preserved; v2 independently separates policy-data cases and validates all 64 emitted reports, PDF binding and no-approval flags."
+    },
+    "inspection_summary": {
+      "adapter_invocation_count": 21,
+      "all_native_commands_matched_expected_exit": true,
+      "archive_identity": {
+        "coverage": {
+          "bytes": 17612,
+          "crc_verified": true,
+          "entry_count": 2,
+          "file_count": 2,
+          "path": "/tmp/pr34-source-02496f5/coverage.zip",
+          "pdf_count": 0,
+          "sha256": "1f4e7d00aa498dc8092148a6df6470cb8c092c707c6ff0b142536fa884eedc8c"
+        },
+        "verification": {
+          "bytes": 6359997,
+          "crc_verified": true,
+          "entry_count": 1735,
+          "file_count": 1735,
+          "path": "/tmp/pr34-source-02496f5/verification.zip",
+          "pdf_count": 136,
+          "sha256": "1c9cca921810e82502cfc548421833d3ceeaffbbcba2d95270496375864e116d"
+        }
+      },
+      "artifact_reference_count": 1490,
+      "artifact_references_verified": true,
+      "boundaries": [
+        "This is an archive/native-reference inspection, not independent execution of source tests.",
+        "Git tree correspondence, hosted conclusions, provider identity and repository controls are separate.",
+        "Only declared build artifact references are rehashed; source/tool hashes outside these ZIPs are not.",
+        "Passing rejection/residual/unsupported regression cases do not certify their outputs or institutional approval."
+      ],
+      "case_count": 209,
+      "contract_fixture_count": 18,
+      "contract_scope": {
+        "document_adapter_execution": {
+          "latex": "unexecuted",
+          "typst": "unexecuted"
+        },
+        "institutional_approval": "unverified",
+        "result": "pass",
+        "scope": "contract-schema-api"
+      },
+      "corpora": {
+        "blind_corpus": {
+          "clean_blind_pdf_count": 2,
+          "creation_timestamp": "1794700800",
+          "evidence_boundary": "Internal synthetic provenance; this report is not a reviewer-safe manifest",
+          "expected_specimen_count": 10,
+          "inspected_case_count": 10,
+          "oracle_sha256": "bc86ed51621f0b10aeace304cdbd3b2a3b487c208bace2b9b7183ac90ac99e67",
+          "passed_count": 10,
+          "requirement": "COR-04",
+          "residual_blind_pdf_count": 3,
+          "result": "pass",
+          "reviewer_ready_certified": false,
+          "scope": "Bounded managed-identity projection and explicit authored residual failures"
+        },
+        "configuration_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 34,
+          "inspected_case_count": 34,
+          "oracle_sha256": "a6ad68b26139644a069a20b2bfa11f5e9db36c5164ba9a81cc06d5a4a3384929",
+          "passed_count": 34,
+          "requirement": "COR-03",
+          "result": "pass",
+          "scope": "Bounded legacy options, bibliography resources, declaration content and logo rejection"
+        },
+        "contract_adapter_corpus": {
+          "command_timeout_seconds": 60,
+          "contract_acceptance": "blocked",
+          "contract_sha256": "338f93c64ce84621670f267c0919555d77c592e92e75f04e12afd6cab57cea7c",
+          "expectations_sha256": "4f343ee3972206102714d846c4e4753bd21ab8ef73eaa243b567b2873f363a18",
+          "explicit_unsupported_cases": 5,
+          "finished_at_utc": "2026-11-15T03:24:17.814228+00:00",
+          "fixture_manifest_sha256": "af82359a786b2be565e49de594e32a5d2edb3354221dfd5371d5d954b33c5757",
+          "inspected_case_count": 21,
+          "institutional_approval": "unverified",
+          "intended_rejections": 9,
+          "latex_execution": "unexecuted",
+          "oracle_sha256": "6f9eb4979dbd1885ad0e4e382c05e0bfecc4355263b0d577e6b0cfef26311b92",
+          "passed": true,
+          "passed_count": 21,
+          "pdf_parser_sha256": "81535212016feda6f393b116f875c6f93bd9197d1cebdaa95cd52222f455a97a",
+          "schema_version": 1,
+          "scope": "18 canonical configuration fixtures plus three local rendering/precedence controls",
+          "shared_matter_order_oracle": "absent-from-current-canonical-bundle",
+          "source_kind": "content-hash-bound-native-slice",
+          "source_revision": null,
+          "source_revision_status": "uncollected",
+          "started_at_utc": "2026-11-15T03:24:12.045520+00:00",
+          "verified_rendered_outputs": 7
+        },
+        "image_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 20,
+          "inspected_case_count": 20,
+          "oracle_sha256": "010acc9300bb7eaa7e3270787e21d3e7a25f48243c689249cea0d4d93d2a95fc",
+          "passed_count": 20,
+          "result": "pass",
+          "scope": "Bounded PNG/JPEG/SVG, native path and byte inputs across four profiles"
+        },
+        "layout_order_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 9,
+          "inspected_case_count": 9,
+          "native_parser_sha256": "81535212016feda6f393b116f875c6f93bd9197d1cebdaa95cd52222f455a97a",
+          "oracle_sha256": "5676ef0e6087621a9f879c88137bdc16f8c0844475e700d4707f913da7ff6f68",
+          "passed_count": 9,
+          "result": "pass",
+          "scope": "Bounded section order, logical pagination, native destinations and A4/30mm geometry"
+        },
+        "native_evidence_corpus": {
+          "accepted_evidence_count": 6,
+          "expected_rejection_count": 10,
+          "expected_specimen_count": 16,
+          "inspected_case_count": 16,
+          "passed_count": 16,
+          "replay_qualified": false,
+          "result": "pass",
+          "scope": "Fixed-expression synthetic semantics and source/output-bound inventories; not full replay or thesis acceptance",
+          "source_unchanged": true
+        },
+        "navigation_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 3,
+          "inspected_case_count": 3,
+          "oracle_sha256": "81535212016feda6f393b116f875c6f93bd9197d1cebdaa95cd52222f455a97a",
+          "passed_count": 3,
+          "requirement": "COR-02",
+          "result": "pass",
+          "scope": "Bounded synthetic contents, bookmarks, links, appendix content and page labels"
+        },
+        "optional_corpus": {
+          "clean_blind_pdf_count": 1,
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 47,
+          "inspected_case_count": 47,
+          "oracle_sha256": "be1063d80ca8f69dedc0048340435330372c58789c7ded52aaebbf75085fe4e8",
+          "passed_count": 47,
+          "policy_or_approval_certified": false,
+          "rendered_pdf_count": 21,
+          "requirement": "COR-05",
+          "residual_blind_pdf_count": 1,
+          "result": "pass",
+          "reviewer_ready_certified": false,
+          "scope": "Bounded public optional sections, typed/private-log rejections and authored residual controls"
+        },
+        "packaging_corpus": {
+          "assertion_count": 18,
+          "cold_start_qualified": false,
+          "expected_specimen_count": 10,
+          "inspected_case_count": 10,
+          "offline_replay_qualified": false,
+          "passed_count": 10,
+          "registry_submission_qualified": false,
+          "result": "pass",
+          "reviewer_safe_package_qualified": false,
+          "scope": "Bounded local archive/install/starter and executable documentation checks",
+          "source_unchanged": true
+        },
+        "rendered_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 14,
+          "inspected_case_count": 14,
+          "oracle_sha256": "ccda5289318de2d58ee9e1a03e07115c29063ba9dcc8d19771aa8e346f228ebd",
+          "passed_count": 14,
+          "requirement": "COR-01",
+          "result": "pass",
+          "scope": "Bounded synthetic declaration, table, footnote and appendix-reference text"
+        },
+        "terms_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_document_count": 17,
+          "expected_rejection_count": 8,
+          "expected_specimen_count": 25,
+          "inspected_case_count": 25,
+          "native_parser_sha256": "81535212016feda6f393b116f875c6f93bd9197d1cebdaa95cd52222f455a97a",
+          "oracle_sha256": "4ca86525fadd8cf5497e70782f97aca2e4a9f84e35da3d6b81d88e8c2f658dfa",
+          "passed_count": 25,
+          "rejected_input_count": 8,
+          "result": "pass",
+          "scope": "Bounded abbreviation/glossary/index values, actual references and unsupported-extraction diagnostics",
+          "validated_document_count": 17
+        }
+      },
+      "coverage_helpers": [
+        "scripts/check_repository_policy.py",
+        "scripts/native_evidence.py",
+        "scripts/package_template.py",
+        "scripts/preflight.py",
+        "scripts/submission_policy.py",
+        "scripts/thesis_contract.py",
+        "scripts/typst_contract_adapter.py",
+        "scripts/validate_template.py"
+      ],
+      "coverage_json_sha256": "04623e86f38c012da8af1ba63185906116435cb15d909a6b67afa6515d34c779",
+      "coverage_totals": {
+        "covered_branches": 737,
+        "covered_lines": 1715,
+        "excluded_lines": 0,
+        "missing_branches": 65,
+        "missing_lines": 78,
+        "num_branches": 802,
+        "num_partial_branches": 61,
+        "num_statements": 1793,
+        "percent_branches_covered": 91.89526184538653,
+        "percent_branches_covered_display": "91.90",
+        "percent_covered": 94.48940269749518,
+        "percent_covered_display": "94.49",
+        "percent_statements_covered": 95.64974902398215,
+        "percent_statements_covered_display": "95.65"
+      },
+      "coverage_xml_json_denominators_agree": true,
+      "coverage_xml_sha256": "83d17a0c49630ff84be4ecdb140825f41796d7d66c57cbfcab230ea1833f85a8",
+      "documents": [
+        {
+          "bytes": 456203,
+          "commands": [
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "typst",
+                "compile",
+                "--root",
+                ".",
+                "thesis.typ",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/thesis.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 1.4317742819999921,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/thesis-compile.log",
+              "log_sha256": "a5756a5089714416df891e19795955f719220c4082ba375c3e0ff8d0d342a49c",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e0047da9bc848269a68991a126f124df26312a8aa8bbf621d3949f9bc741dcfd",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "qpdf",
+                "--check",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/thesis.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.16354502100000445,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/thesis-qpdf.log",
+              "log_sha256": "264f7ebcd452940c771a4cc362fff1026319becc518bdc1a82814ea4403a4382",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "eab783f4ba14f739922159530c29a563a15ebcc11b9f59ce93b722f4b4d9cefb",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "pdfinfo",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/thesis.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.010481612000006635,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/thesis-pdfinfo.log",
+              "log_sha256": "4f74e188b7969f33a51f86216552c53b15f3378a6da3837ff79a6350ff3c9cb6",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "1caba36976fd3bbea2009a8fa6ea9c450e613e879e11190e8757b7df6e9f7b71",
+              "stdout_sha256": "996f778cee1663cfe240535ced89a27d87852ad597de89dbc430132c38335b28",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "pdftotext",
+                "-layout",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/thesis.pdf",
+                "-"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.11832080400000677,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/thesis-pdftotext.log",
+              "log_sha256": "0eb2a31f1946a10e13720889d6c67702b62acb13359aff2beae3145ca234900e",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "41d15c3ca2f541f7d6bad22bea8daa197c1b83ea0f307a4cd49d7ef719b4ac4e",
+              "timed_out": false,
+              "timeout_seconds": 60
+            }
+          ],
+          "pages": 58,
+          "pdf": "build/verification/thesis.pdf",
+          "pdf_sha256": "d52c32c94d3f2cf23bf454333af2fcde3267d407b56f5e885b2b537ba76bbd86",
+          "result": "pass",
+          "source": "thesis.typ",
+          "source_sha256": "487733b80612fafeecabc4681fb8d6b9e5baee588c5a15dbccd1d695bfeb31fa",
+          "text": "build/verification/thesis.txt",
+          "text_sha256": "41d15c3ca2f541f7d6bad22bea8daa197c1b83ea0f307a4cd49d7ef719b4ac4e"
+        },
+        {
+          "bytes": 158208,
+          "commands": [
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "typst",
+                "compile",
+                "--root",
+                ".",
+                "sample-chapter.typ",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/sample-chapter.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.4249600040000132,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/sample-chapter-compile.log",
+              "log_sha256": "58970e222072b43ade9490e39d11796887a41317c48c5eab359340c02282cdaf",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "3e256f47dec046d918f17ca6c18180c3ccd00269cccf3655c456910eec4b7d1e",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "qpdf",
+                "--check",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/sample-chapter.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.04053873000000863,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/sample-chapter-qpdf.log",
+              "log_sha256": "1d7065f4d31cb5f4fa743931d88eb0ee8ddcd59501ca3c3d41638ea13097ccb3",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "ff52f732d78a093c0f48b72b9c3ae51f0a872ffa56f8eb24ac0668df5baceec0",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "pdfinfo",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/sample-chapter.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.00968301800000404,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/sample-chapter-pdfinfo.log",
+              "log_sha256": "e05d542ed7ea0329462552a482c249b2862cf46640d5e71aa4a5c3591478d7d0",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "1caba36976fd3bbea2009a8fa6ea9c450e613e879e11190e8757b7df6e9f7b71",
+              "stdout_sha256": "84f70b34e6c5c21d897c888baa8db91e52655e298613f9468a758ed82447a2b1",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "pdftotext",
+                "-layout",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/sample-chapter.pdf",
+                "-"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.027218818000022793,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/sample-chapter-pdftotext.log",
+              "log_sha256": "4c35ac473167c4ccc61133194a0abf7785202b09eaeed91345d044972a8dee93",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "71447e15681e84996e21e2464b92bacd7d2e7a80438ea6a2ec38fcebca9b5059",
+              "timed_out": false,
+              "timeout_seconds": 60
+            }
+          ],
+          "pages": 7,
+          "pdf": "build/verification/sample-chapter.pdf",
+          "pdf_sha256": "a9c0dee4b74e79505cff81bcf0b9d71d6fffdbdb8eb5296c5a97c5080e5fe789",
+          "result": "pass",
+          "source": "sample-chapter.typ",
+          "source_sha256": "0c3ea5aaa67f2c62f15b197b8df4929f978be6ff00c20fe02b0ce887faa58893",
+          "text": "build/verification/sample-chapter.txt",
+          "text_sha256": "71447e15681e84996e21e2464b92bacd7d2e7a80438ea6a2ec38fcebca9b5059"
+        }
+      ],
+      "expected_native_checkout": "9122f763f676844d2a7f15c58fcdfafce6a27b7a",
+      "expected_nonzero_commands": 50,
+      "native_command_count": 764,
+      "native_identity": {
+        "command_timeout_seconds": 60,
+        "compiler": "typst 0.15.1 (9dfd3a08)",
+        "finished_at_utc": "2026-11-15T03:24:33.591882+00:00",
+        "passed": true,
+        "python_version": "3.15.1",
+        "schema_version": 1,
+        "source_dirty": false,
+        "source_revision": "9122f763f676844d2a7f15c58fcdfafce6a27b7a",
+        "started_at_utc": "2026-11-15T03:23:26.024307+00:00",
+        "typst_manifest_sha256": "eb3a077ad21ce671a834ae1e763992594724fe540a27a8f2755ed3c53e911246",
+        "verifier_sha256": "2d81276582adb03a5886a8d92052c8d8c342844e6fe57d6f66afa78d14d437ef"
+      },
+      "native_report_sha256": "c53172f19816975505a64aeb75958d5ebc1fe914ee0dfaadc98546d22c76d4d8",
+      "observed_at_utc": "2026-11-15T03:30:44.372008+00:00",
+      "policy_data_case_count": 64,
+      "property_cases": 640,
+      "property_methods": 10,
+      "result": "pass",
+      "schema_version": 1,
+      "separate_policy_data_cases": {
+        "assertion_count": 632,
+        "binding_pdf": {
+          "bytes": 11796,
+          "pages": 1,
+          "pdf": "build/verification/submission-policy/binding.pdf",
+          "pdf_sha256": "85e14fe75beead216a82bc32dfce009ef8d00f6003ccf4afcd7f06aed099dbc7",
+          "policy_content_representation": "none; neutral artifact identity specimen only",
+          "source": "tests/policy/specimen.typ",
+          "source_sha256": "14883c694495ca77ee8f45ac4d7d3f48e8656bf47f13a74e3ab131f12679981a",
+          "text": "build/verification/submission-policy/binding.txt",
+          "text_sha256": "ad1f06b868e3d1764097376eb4e4c8fa2c9648deeaec8b3930560eab3cd04644"
+        },
+        "binding_pdf_unchanged": true,
+        "command_records": 5,
+        "command_timeout_seconds": 60,
+        "compiler": "typst 0.15.1 (9dfd3a08)",
+        "counted_as_rendered_policy_evidence": false,
+        "data_valid_cases": 27,
+        "data_valid_overall_result": "partial",
+        "emitted_case_reports_independently_checked": true,
+        "finished_at_utc": "2026-11-15T03:24:33.590261+00:00",
+        "inspected_case_count": 64,
+        "intended_data_failures": 37,
+        "passed": true,
+        "passed_count": 64,
+        "rendered_policy_qualified": false,
+        "schema_version": 1,
+        "scope": "Supplied-data policy fixtures and actual PDF byte binding",
+        "source_kind": "content-hash-bound-candidate",
+        "source_revision": null,
+        "source_unchanged": true,
+        "started_at_utc": "2026-11-15T03:24:22.472695+00:00",
+        "submission_approved": false
+      },
+      "source_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "watchdog_command_count": 6,
+      "watchdog_deliberate_timeouts": 2,
+      "watchdog_methods": 5,
+      "watchdog_scope": "Observation files and declared logs verified; unittest job determines pass/fail."
+    },
+    "summary_file": {
+      "path": "/tmp/pr34-source-02496f5/downloaded-summary.json",
+      "sha256": "f375deb6e9c937d1f4183e5464ffa9470a8c024d0acef0baa0aaeac3a26e5ab5",
+      "bytes": 20897
+    },
+    "complete_inspection": {
+      "path": "/tmp/pr34-source-02496f5/downloaded-evidence.json",
+      "sha256": "826e17135d53adf9b866a030faf89bd2b5f43ba3a6388e3338008b5a6ead18fd",
+      "bytes": 2537279
+    }
+  },
+  "privacy": {
+    "gitleaks": "Hosted baseline job completed successfully; full native log retained.",
+    "presidio": {
+      "advisory_findings": 0,
+      "blocking_findings": 0,
+      "coverage_complete": true,
+      "engine": "presidio",
+      "files_scanned": 95,
+      "files_selected": 95,
+      "findings": [],
+      "findings_omitted": 0,
+      "limitations": [
+        "Names, addresses, clinical narratives and re-identification risk are not covered by this baseline.",
+        "Only selected Git text blobs are scanned; images, binary documents, LFS payloads and submodule contents are not scanned.",
+        "Repository checks do not inspect application runtime data or prevent upload before CI executes.",
+        "Detection is probabilistic; no findings is not a declaration that data is anonymous or safe to publish."
+      ],
+      "profile": "repository",
+      "schema_version": 1,
+      "scope": "changed",
+      "skipped": [],
+      "skipped_count": 0,
+      "skipped_counts_by_reason": {},
+      "skipped_omitted": 0,
+      "status": "no_supported_identifiers_detected"
+    }
+  },
+  "codeql": {
+    "python_job_id": 132684001651,
+    "actions_job_id": 132684001899,
+    "exact_source_checkout": "02496f5fc7e7131657993a22958997a121b1ea99",
+    "python_overlay_base": "45d95372e98f103344487a3fcc6c33dd1417b085",
+    "new_file_extraction_observed": [
+      "tests/policy/verify.py",
+      "tests/maintenance/test_submission_policy.py",
+      "scripts/submission_policy.py"
+    ],
+    "native_log_summary": "Python overlay restored the base45 database and explicitly extracted the three new Python files. Native summary reports37/37 Python and4/4 Actions; this is not represented as a separate full-source40-file scan.",
+    "uploads_succeeded": true,
+    "producer": {
+      "id": 132684083622,
+      "name": "CodeQL",
+      "head_sha": "02496f5fc7e7131657993a22958997a121b1ea99",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T03:22:28Z",
+      "completed_at": "2026-11-15T03:22:30Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/runs/132684083622",
+      "app": {
+        "id": 57789,
+        "slug": "github-advanced-security",
+        "name": "GitHub Advanced Security",
+        "html_url": "https://github.com/apps/github-advanced-security"
+      },
+      "output": {
+        "title": "No new alerts in code changed by this pull request",
+        "summary": "[View all branch alerts](/edithatogo/unimelb-thesis-template-typst/security/code-scanning?query=pr%3A34+tool%3ACodeQL+is%3Aopen).",
+        "annotations_count": 0
+      }
+    }
+  },
+  "logs": [
+    {
+      "job_id": 132684007639,
+      "sha256": "12c8c8b86225934c2434e122d70f310749c29bdb78a58d0dd9f2932773f926fe",
+      "bytes": 103237,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684007639.log"
+    },
+    {
+      "job_id": 132684006620,
+      "sha256": "727579bebef2a5c43e43aca7a53c7e8cb973c8f61e660711744d3d3a7a78f656",
+      "bytes": 157570,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684006620.log"
+    },
+    {
+      "job_id": 132684006379,
+      "sha256": "ba4b8479829a968725d5657966f945af9c92e1487966e18d6e94c3007bd97eac",
+      "bytes": 47011,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684006379.log"
+    },
+    {
+      "job_id": 132684007929,
+      "sha256": "edb73a12208e9d3e68fdef3df1c691169e8645807d6117f9999babc864615045",
+      "bytes": 3219,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684007929.log"
+    },
+    {
+      "job_id": 132684007818,
+      "sha256": "16d1a2eb94fcaad72cddf4d8db6f3f60603438a603542963518d340016e3719c",
+      "bytes": 19716,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684007818.log"
+    },
+    {
+      "job_id": 132684008121,
+      "sha256": "669f963077071a55eaaf384c6b20f3779c4963dec9ca68e34c69648bd58cc7ca",
+      "bytes": 56192,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684008121.log"
+    },
+    {
+      "job_id": 132684008088,
+      "sha256": "ceaf97c29b5b8fab0bfe0a3bfb5bbaf18994e46605c16f28ebcd4cebb96bf66a",
+      "bytes": 53060,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684008088.log"
+    },
+    {
+      "job_id": 132684008009,
+      "sha256": "9d7ecd43e113fb57b571b06861a6dee759728d92622ccfb49953cb17086a7246",
+      "bytes": 53087,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684008009.log"
+    },
+    {
+      "job_id": 132684007918,
+      "sha256": "a7f52f2f17e29d1d2a026d6a0a1d95152742d5d77b86509fc2db804382c09a52",
+      "bytes": 61383,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684007918.log"
+    },
+    {
+      "job_id": 132684001899,
+      "sha256": "891a30a4679b8ecde39fa229c84981be4773a34455ae6c6cc3528b18d9002ff5",
+      "bytes": 119177,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684001899.log"
+    },
+    {
+      "job_id": 132684001651,
+      "sha256": "b0307ce42dbfa595feed43572ccbcd34c5493d5133cf6209f1a6964774b44c02",
+      "bytes": 120563,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684001651.log"
+    },
+    {
+      "job_id": 132684277694,
+      "sha256": "3632c033476b7ef28d12fff4eaa32db687f3819143af920350114b9f94c872b7",
+      "bytes": 39484,
+      "local_write_completed": true,
+      "retrieved_at": "2026-11-15 03:27:57 UTC",
+      "local_path": "/tmp/pr34-source-02496f5/logs/132684277694.log"
+    }
+  ],
+  "log_observations": {
+    "excerpts": {
+      "132684007639": {
+        "warnings": [
+          "2026-11-15T03:22:38.0020397Z python3 scripts/validate_template.py",
+          "2026-11-15T03:22:38.3948411Z Ran 10 tests in 0.226s",
+          "2026-11-15T03:22:38.3948670Z OK",
+          "2026-11-15T03:22:55.1724389Z Ran 127 tests in 16.447s",
+          "2026-11-15T03:22:55.1732583Z OK",
+          "2026-11-15T03:23:25.8183548Z Ran 165 tests in 29.974s",
+          "2026-11-15T03:23:25.8184187Z OK",
+          "2026-11-15T03:23:25.8451547Z python3 scripts/validate_template.py",
+          "2026-11-15T03:23:25.8846456Z python3 scripts/check_packages.py",
+          "2026-11-15T03:23:25.9637022Z python3 scripts/verify.py"
+        ],
+        "policy_extraction": []
+      },
+      "132684006620": {
+        "warnings": [
+          "2026-11-15T03:22:29.9286491Z Ran 127 tests in 7.419s",
+          "2026-11-15T03:22:29.9286674Z OK",
+          "2026-11-15T03:22:47.4948477Z Ran 165 tests in 17.097s",
+          "2026-11-15T03:22:47.4948676Z OK",
+          "2026-11-15T03:22:47.5154447Z python scripts/validate_template.py",
+          "2026-11-15T03:22:47.5383735Z python scripts/check_packages.py",
+          "2026-11-15T03:23:05.3671821Z Ran 165 tests in 17.519s",
+          "2026-11-15T03:23:05.3671957Z OK",
+          "2026-11-15T03:23:05.3770542Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.typst_contract_adapter was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:12.8181496Z Ran 127 tests in 7.251s",
+          "2026-11-15T03:23:12.8181702Z OK",
+          "2026-11-15T03:23:12.8217722Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.preflight was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:12.8219971Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.validate_template was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:12.8221967Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.check_repository_policy was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:12.8224112Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.native_evidence was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:12.8226006Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.package_template was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:12.8227904Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.submission_policy was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.0842245Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.preflight was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.0843514Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.validate_template was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.0844708Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.check_repository_policy was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.0845867Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.typst_contract_adapter was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.0847007Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.native_evidence was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.0848136Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.package_template was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.0849544Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.submission_policy was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.3089605Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.preflight was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.3091725Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.validate_template was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.3093694Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.check_repository_policy was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.3095907Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.typst_contract_adapter was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.3097727Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.native_evidence was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.3099823Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.package_template was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported",
+          "2026-11-15T03:23:13.3101644Z /opt/hostedtoolcache/Python/3.15.1/x64/lib/python3.15/site-packages/coverage/inorout.py:560: CoverageWarning: Module scripts.submission_policy was never imported. (module-not-imported); see https://coverage.readthedocs.io/en/7.17.3/messages.html#warning-module-not-imported"
+        ],
+        "policy_extraction": [
+          "2026-11-15T03:23:13.8486126Z scripts/submission_policy.py           426     16    132     12  94.62%   19, 68, 76, 136, 155->exit, 294->296, 345, 348->351, 421->423, 560->565, 562->565, 569, 573-577, 585-588, 592"
+        ]
+      },
+      "132684006379": {
+        "warnings": [],
+        "policy_extraction": []
+      },
+      "132684001651": {
+        "warnings": [
+          "2026-11-15T03:22:26.9435904Z [2026-11-15 03:22:26] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py"
+        ],
+        "policy_extraction": [
+          "2026-11-15T03:22:28.2298172Z [2026-11-15 03:22:28] [build-stdout] [INFO] [1] Extracted file /home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/tests/policy/verify.py in 319ms",
+          "2026-11-15T03:22:28.5009360Z [2026-11-15 03:22:28] [build-stdout] [INFO] [2] Extracted file /home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/tests/maintenance/test_submission_policy.py in 588ms",
+          "2026-11-15T03:22:28.6831382Z [2026-11-15 03:22:28] [build-stdout] [INFO] [3] Extracted file /home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/scripts/submission_policy.py in 741ms"
+        ]
+      },
+      "132684001899": {
+        "warnings": [],
+        "policy_extraction": []
+      }
+    },
+    "coverage_warnings": "Per-process module-not-imported warnings are retained; final combined JSON/XML includes all eight helpers with zero exclusions and agreeing denominators.",
+    "profile_warnings": "Unknown-font-family warnings remain in profile compiler logs; this qualification does not assert a warning-free or universal font environment.",
+    "dependency_review": "Actual source job reports no denied packages.",
+    "upload": "Actual native upload names exact source02496f5; the separate Codecov producer result is successful."
+  },
+  "limitations": [
+    "These are bounded synthetic and supplied-data checks, not complete thesis acceptance, policy authenticity, human approval or a reviewer-safe release.",
+    "The64 policy-data scenarios are distinct from209 native regression cases. A valid supplied-data result remains overall partial and submission_approved:false; the binding PDF is a neutral identity specimen.",
+    "Native artifact inspection does not independently rehash source/tool paths absent from the ZIP or prove the entire runtime image.",
+    "Only verification and coverage ZIPs were independently downloaded; profile artifacts are identified through API digests and executed job logs.",
+    "Privacy baseline limitations remain those in the native scanner report, despite no findings in this95-text-file delta.",
+    "The actual source CodeQL overlay/producer success does not certify the absence of all vulnerabilities.",
+    "Package cold-start/offline replay/registry publication and reviewer-safe package flags remain false; native-evidence replay and shared contract acceptance remain unqualified.",
+    "Receiving-main must be independently qualified on its actual revision after merge."
+  ],
+  "parent_reported_subsequent_merge": {
+    "receiving_revision": "6d2654d477232fa8ddc5cd398357411114039b5d",
+    "method": "normal merge",
+    "source_of_statement": "Root reported merge after this premerge source snapshot; receiving API identity and execution not yet inspected."
+  }
+}
