@@ -10,6 +10,12 @@
   the PR and #14 checkpoint.
 - [ ] Execute minimal shared metadata/order/invalid-input cases in both document
   adapters; preserve the LaTeX issue #18 ownership boundary.
+- [x] Reproduce the nine COR-01 rendered failures and prepare the focused
+  declaration, table, footnote and appendix-reference repairs with 14 canonical
+  specimens. Preserve the original failing PDFs and legitimate raw-code controls.
+- [ ] Qualify the COR-01 candidate and receiving revision through the existing
+  gates; record the bounded #15/#18 checkpoint. Creative applicability,
+  navigation, configuration and blind-output requirements remain open.
 - [ ] Integrate normalized configuration and repaired rendered semantics (#15),
   native capabilities (#16) and document regression oracles (#18).
 - [ ] Implement source-dated Melbourne requirements (#17).

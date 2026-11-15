@@ -25,8 +25,8 @@
     table(
       columns: 3,
       column-gutter: 1em,
-      [*Name*, *Role*, *Contribution (%)*],
-      ..rows.map(r => [r.at(0), r.at(1), r.at(2)]),
+      table.header([*Name*], [*Role*], [*Contribution (%)*]),
+      ..rows.map(r => ([#r.at(0)], [#r.at(1)], [#r.at(2)])).flatten(),
     )
   }
 }

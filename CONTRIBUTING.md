@@ -28,7 +28,9 @@ make coverage
 
 `make verify` runs unit tests, template structure and package checks, desired
 ruleset validation, bounded properties, and thesis/sample compilation with PDF
-validation. The existing Typst CI separately runs typstyle 0.15.0 and the four
+validation. It also checks 14 synthetic rendered specimens for declarations,
+contributions, publication tables, footnotes and appendix references; see the
+[COR-01 corpus](tests/rendered/cor01/README.md). The existing Typst CI separately runs typstyle 0.15.0 and the four
 thesis build profiles. Errors stop the run.
 
 For a focused iteration, use `make verify-python`, `make verify-source` or
