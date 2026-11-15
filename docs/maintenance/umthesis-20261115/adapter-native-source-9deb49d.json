@@ -1,0 +1,1025 @@
+{
+  "schema_version": 1,
+  "repository": "edithatogo/unimelb-thesis-template-typst",
+  "pr": 32,
+  "scope": "Bounded Typst adapter and native-evidence source qualification",
+  "source_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+  "source_tree": "2005ddb6d3712ae4075ee9f54ce575fd5060f9ec",
+  "base_sha": "d76bf5efee1209c3d98e7573052cbeb92c63c8ee",
+  "source_parents": [
+    "3f540359796802a873a9c2ff5392d2cf297c8dc3",
+    "d76bf5efee1209c3d98e7573052cbeb92c63c8ee"
+  ],
+  "synthetic_checkout": {
+    "sha": "161293924cb53f06881f54b94373885956e654ca",
+    "tree": "2005ddb6d3712ae4075ee9f54ce575fd5060f9ec",
+    "parents": [
+      "d76bf5efee1209c3d98e7573052cbeb92c63c8ee",
+      "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb"
+    ],
+    "tree_matches": true
+  },
+  "observed_at_utc": "2026-11-15T03:04:45Z",
+  "compiled_at_utc": "2026-11-15 03:08:42 UTC",
+  "timezone": "Australia/Brisbane",
+  "qualified": true,
+  "receiving_qualified": false,
+  "check_counts": {
+    "successful": 14,
+    "expected_event_skips": 1
+  },
+  "checks": [
+    {
+      "id": 132678068133,
+      "name": "codecov/patch",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 254,
+      "started_at": "2026-11-15T02:57:06Z",
+      "completed_at": "2026-11-15T02:57:07Z",
+      "details_url": "https://app.codecov.io/gh/edithatogo/unimelb-thesis-template-typst/pull/32",
+      "provider_title": "95.30% of diff hit (target 80.00%)"
+    },
+    {
+      "id": 132677995040,
+      "name": "CodeQL",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 57789,
+      "started_at": "2026-11-15T02:56:46Z",
+      "completed_at": "2026-11-15T02:56:53Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/runs/132677995040"
+    },
+    {
+      "id": 132677848396,
+      "name": "coverage-upload",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:56:16Z",
+      "completed_at": "2026-11-15T02:56:24Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462518/job/132677848396"
+    },
+    {
+      "id": 132676044403,
+      "name": "Extended property corpus",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "skipped",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:48:16Z",
+      "completed_at": "2026-11-15T02:48:16Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750/job/132676044403"
+    },
+    {
+      "id": 132676043578,
+      "name": "compile (screen) / build",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:57:31Z",
+      "completed_at": "2026-11-15T02:57:49Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750/job/132676043578"
+    },
+    {
+      "id": 132676043492,
+      "name": "compile (draft) / build",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:56:58Z",
+      "completed_at": "2026-11-15T02:57:19Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750/job/132676043492"
+    },
+    {
+      "id": 132676043466,
+      "name": "compile (default) / build",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:56:58Z",
+      "completed_at": "2026-11-15T02:57:36Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750/job/132676043466"
+    },
+    {
+      "id": 132676043424,
+      "name": "compile (print) / build",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:56:12Z",
+      "completed_at": "2026-11-15T02:56:44Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750/job/132676043424"
+    },
+    {
+      "id": 132676043380,
+      "name": "Verify template and properties",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:54:02Z",
+      "completed_at": "2026-11-15T02:55:52Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750/job/132676043380"
+    },
+    {
+      "id": 132676043233,
+      "name": "Dependency review",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:53:13Z",
+      "completed_at": "2026-11-15T02:53:18Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750/job/132676043233"
+    },
+    {
+      "id": 132676043191,
+      "name": "Workflow lint",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:53:52Z",
+      "completed_at": "2026-11-15T02:54:01Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750/job/132676043191"
+    },
+    {
+      "id": 132676042501,
+      "name": "privacy-and-secrets",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:56:25Z",
+      "completed_at": "2026-11-15T02:56:55Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462539/job/132676042501"
+    },
+    {
+      "id": 132676042201,
+      "name": "Python validation coverage",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:54:55Z",
+      "completed_at": "2026-11-15T02:56:05Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462518/job/132676042201"
+    },
+    {
+      "id": 132676036834,
+      "name": "Analyze (python)",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:56:43Z",
+      "completed_at": "2026-11-15T02:57:25Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669459734/job/132676036834"
+    },
+    {
+      "id": 132676036733,
+      "name": "Analyze (actions)",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "app_id": 15368,
+      "started_at": "2026-11-15T02:56:21Z",
+      "completed_at": "2026-11-15T02:56:56Z",
+      "details_url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669459734/job/132676036733"
+    }
+  ],
+  "runs": [
+    {
+      "id": 43669462750,
+      "name": "Quality gates",
+      "event": "pull_request",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462750"
+    },
+    {
+      "id": 43669462518,
+      "name": "Maintenance",
+      "event": "pull_request",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462518"
+    },
+    {
+      "id": 43669462539,
+      "name": "Privacy and secrets",
+      "event": "pull_request",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669462539"
+    },
+    {
+      "id": 43669459734,
+      "name": "PR #32",
+      "event": "dynamic",
+      "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "url": "https://github.com/edithatogo/unimelb-thesis-template-typst/actions/runs/43669459734"
+    }
+  ],
+  "live_controls": {
+    "ruleset": {
+      "id": 27266891,
+      "name": "solo-maintainer-main",
+      "target": "branch",
+      "source_type": "Repository",
+      "source": "edithatogo/unimelb-thesis-template-typst",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "~DEFAULT_BRANCH"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "non_fast_forward"
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": false,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          }
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": false,
+            "required_status_checks": [
+              {
+                "context": "compile (draft) / build",
+                "integration_id": 15368
+              },
+              {
+                "context": "compile (print) / build",
+                "integration_id": 15368
+              },
+              {
+                "context": "Workflow lint",
+                "integration_id": 15368
+              },
+              {
+                "context": "privacy-and-secrets",
+                "integration_id": 15368
+              },
+              {
+                "context": "Verify template and properties",
+                "integration_id": 15368
+              },
+              {
+                "context": "compile (default) / build",
+                "integration_id": 15368
+              },
+              {
+                "context": "compile (screen) / build",
+                "integration_id": 15368
+              },
+              {
+                "context": "Python validation coverage",
+                "integration_id": 15368
+              }
+            ]
+          }
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec4-3_n-zgGgD0s",
+      "created_at": "2026-11-15T02:19:04.588+11:00",
+      "updated_at": "2026-11-15T02:47:03.712+11:00",
+      "bypass_actors": [
+        {
+          "actor_id": 15080672,
+          "actor_type": "User",
+          "bypass_mode": "always"
+        }
+      ],
+      "current_user_can_bypass": "always",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/edithatogo/unimelb-thesis-template-typst/rulesets/27266891"
+        },
+        "html": {
+          "href": "https://github.com/edithatogo/unimelb-thesis-template-typst/rules/27266891"
+        }
+      }
+    },
+    "formal_reviews": [],
+    "review_threads": [],
+    "previous_receiving_sha": "d76bf5efee1209c3d98e7573052cbeb92c63c8ee",
+    "previous_receiving_qualified": true,
+    "previous_receiving_receipt_sha256": "5d15355de27edc42323b945b9e7cbf58c7b1d4c7b6f6a9ec05df6ddb70cb5f24",
+    "bypass_used": false
+  },
+  "executed_results": {
+    "contract_methods": 127,
+    "maintenance_methods": 103,
+    "property_methods": 10,
+    "property_cases": 640,
+    "configuration_fixtures": 18,
+    "rendered_and_native_cases": 199,
+    "native_inspection": {
+      "adapter_invocation_count": 21,
+      "all_native_commands_matched_expected_exit": true,
+      "archive_identity": {
+        "coverage": {
+          "bytes": 12461,
+          "crc_verified": true,
+          "entry_count": 2,
+          "file_count": 2,
+          "path": "/tmp/pr32-source-9deb49d/artifacts/coverage.zip",
+          "pdf_count": 0,
+          "sha256": "a565ce898c8d3f3f3edfd6f2ba4388f4adf35d7edab29b3f3c1cc925a12d1b80"
+        },
+        "verification": {
+          "bytes": 5398413,
+          "crc_verified": true,
+          "entry_count": 1489,
+          "file_count": 1489,
+          "path": "/tmp/pr32-source-9deb49d/artifacts/verification.zip",
+          "pdf_count": 126,
+          "sha256": "8c9b37d588d7b9a41a927d14f5471d0233d0087b3b2cb20d633c0a72ffcf81a2"
+        }
+      },
+      "artifact_reference_count": 1333,
+      "artifact_references_verified": true,
+      "boundaries": [
+        "This is an archive/native-reference inspection, not independent execution of source tests.",
+        "Git tree correspondence, hosted conclusions, provider identity and repository controls are separate.",
+        "Only declared build artifact references are rehashed; source/tool hashes outside these ZIPs are not.",
+        "Passing rejection/residual/unsupported regression cases do not certify their outputs or institutional approval."
+      ],
+      "case_count": 199,
+      "contract_fixture_count": 18,
+      "contract_scope": {
+        "document_adapter_execution": {
+          "latex": "unexecuted",
+          "typst": "unexecuted"
+        },
+        "institutional_approval": "unverified",
+        "result": "pass",
+        "scope": "contract-schema-api"
+      },
+      "corpora": {
+        "blind_corpus": {
+          "clean_blind_pdf_count": 2,
+          "creation_timestamp": "1794700800",
+          "evidence_boundary": "Internal synthetic provenance; this report is not a reviewer-safe manifest",
+          "expected_specimen_count": 10,
+          "inspected_case_count": 10,
+          "oracle_sha256": "bc86ed51621f0b10aeace304cdbd3b2a3b487c208bace2b9b7183ac90ac99e67",
+          "passed_count": 10,
+          "requirement": "COR-04",
+          "residual_blind_pdf_count": 3,
+          "result": "pass",
+          "reviewer_ready_certified": false,
+          "scope": "Bounded managed-identity projection and explicit authored residual failures"
+        },
+        "configuration_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 34,
+          "inspected_case_count": 34,
+          "oracle_sha256": "a6ad68b26139644a069a20b2bfa11f5e9db36c5164ba9a81cc06d5a4a3384929",
+          "passed_count": 34,
+          "requirement": "COR-03",
+          "result": "pass",
+          "scope": "Bounded legacy options, bibliography resources, declaration content and logo rejection"
+        },
+        "contract_adapter_corpus": {
+          "command_timeout_seconds": 60,
+          "contract_acceptance": "blocked",
+          "contract_sha256": "338f93c64ce84621670f267c0919555d77c592e92e75f04e12afd6cab57cea7c",
+          "expectations_sha256": "4f343ee3972206102714d846c4e4753bd21ab8ef73eaa243b567b2873f363a18",
+          "explicit_unsupported_cases": 5,
+          "finished_at_utc": "2026-11-15T02:55:48.403362+00:00",
+          "fixture_manifest_sha256": "af82359a786b2be565e49de594e32a5d2edb3354221dfd5371d5d954b33c5757",
+          "inspected_case_count": 21,
+          "institutional_approval": "unverified",
+          "intended_rejections": 9,
+          "latex_execution": "unexecuted",
+          "oracle_sha256": "6f9eb4979dbd1885ad0e4e382c05e0bfecc4355263b0d577e6b0cfef26311b92",
+          "passed": true,
+          "passed_count": 21,
+          "pdf_parser_sha256": "81535212016feda6f393b116f875c6f93bd9197d1cebdaa95cd52222f455a97a",
+          "schema_version": 1,
+          "scope": "18 canonical configuration fixtures plus three local rendering/precedence controls",
+          "shared_matter_order_oracle": "absent-from-current-canonical-bundle",
+          "source_kind": "content-hash-bound-native-slice",
+          "source_revision": null,
+          "source_revision_status": "uncollected",
+          "started_at_utc": "2026-11-15T02:55:42.735406+00:00",
+          "verified_rendered_outputs": 7
+        },
+        "image_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 20,
+          "inspected_case_count": 20,
+          "oracle_sha256": "010acc9300bb7eaa7e3270787e21d3e7a25f48243c689249cea0d4d93d2a95fc",
+          "passed_count": 20,
+          "result": "pass",
+          "scope": "Bounded PNG/JPEG/SVG, native path and byte inputs across four profiles"
+        },
+        "layout_order_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 9,
+          "inspected_case_count": 9,
+          "native_parser_sha256": "81535212016feda6f393b116f875c6f93bd9197d1cebdaa95cd52222f455a97a",
+          "oracle_sha256": "5676ef0e6087621a9f879c88137bdc16f8c0844475e700d4707f913da7ff6f68",
+          "passed_count": 9,
+          "result": "pass",
+          "scope": "Bounded section order, logical pagination, native destinations and A4/30mm geometry"
+        },
+        "native_evidence_corpus": {
+          "accepted_evidence_count": 6,
+          "expected_rejection_count": 10,
+          "expected_specimen_count": 16,
+          "inspected_case_count": 16,
+          "passed_count": 16,
+          "replay_qualified": false,
+          "result": "pass",
+          "scope": "Fixed-expression synthetic semantics and source/output-bound inventories; not full replay or thesis acceptance",
+          "source_unchanged": true
+        },
+        "navigation_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 3,
+          "inspected_case_count": 3,
+          "oracle_sha256": "81535212016feda6f393b116f875c6f93bd9197d1cebdaa95cd52222f455a97a",
+          "passed_count": 3,
+          "requirement": "COR-02",
+          "result": "pass",
+          "scope": "Bounded synthetic contents, bookmarks, links, appendix content and page labels"
+        },
+        "optional_corpus": {
+          "clean_blind_pdf_count": 1,
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 47,
+          "inspected_case_count": 47,
+          "oracle_sha256": "be1063d80ca8f69dedc0048340435330372c58789c7ded52aaebbf75085fe4e8",
+          "passed_count": 47,
+          "policy_or_approval_certified": false,
+          "rendered_pdf_count": 21,
+          "requirement": "COR-05",
+          "residual_blind_pdf_count": 1,
+          "result": "pass",
+          "reviewer_ready_certified": false,
+          "scope": "Bounded public optional sections, typed/private-log rejections and authored residual controls"
+        },
+        "rendered_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_specimen_count": 14,
+          "inspected_case_count": 14,
+          "oracle_sha256": "ccda5289318de2d58ee9e1a03e07115c29063ba9dcc8d19771aa8e346f228ebd",
+          "passed_count": 14,
+          "requirement": "COR-01",
+          "result": "pass",
+          "scope": "Bounded synthetic declaration, table, footnote and appendix-reference text"
+        },
+        "terms_corpus": {
+          "creation_timestamp": "1794700800",
+          "expected_document_count": 17,
+          "expected_rejection_count": 8,
+          "expected_specimen_count": 25,
+          "inspected_case_count": 25,
+          "native_parser_sha256": "81535212016feda6f393b116f875c6f93bd9197d1cebdaa95cd52222f455a97a",
+          "oracle_sha256": "4ca86525fadd8cf5497e70782f97aca2e4a9f84e35da3d6b81d88e8c2f658dfa",
+          "passed_count": 25,
+          "rejected_input_count": 8,
+          "result": "pass",
+          "scope": "Bounded abbreviation/glossary/index values, actual references and unsupported-extraction diagnostics",
+          "validated_document_count": 17
+        }
+      },
+      "coverage_helpers": [
+        "scripts/check_repository_policy.py",
+        "scripts/native_evidence.py",
+        "scripts/preflight.py",
+        "scripts/thesis_contract.py",
+        "scripts/typst_contract_adapter.py",
+        "scripts/validate_template.py"
+      ],
+      "coverage_json_sha256": "afdfd380c4e202035a0141d754e442fbd459893312dae73cf01beec2a3ef0a0c",
+      "coverage_totals": {
+        "covered_branches": 532,
+        "covered_lines": 1093,
+        "excluded_lines": 0,
+        "missing_branches": 48,
+        "missing_lines": 59,
+        "num_branches": 580,
+        "num_partial_branches": 46,
+        "num_statements": 1152,
+        "percent_branches_covered": 91.72413793103448,
+        "percent_branches_covered_display": "91.72",
+        "percent_covered": 93.82217090069284,
+        "percent_covered_display": "93.82",
+        "percent_statements_covered": 94.87847222222223,
+        "percent_statements_covered_display": "94.88"
+      },
+      "coverage_xml_json_denominators_agree": true,
+      "coverage_xml_sha256": "f60901543d0cbfd9a2d2a6d360134f0a11731fb8f3e29844615a008ff7f5bb69",
+      "documents": [
+        {
+          "bytes": 456203,
+          "commands": [
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "typst",
+                "compile",
+                "--root",
+                ".",
+                "thesis.typ",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/thesis.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 1.6959359850000055,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/thesis-compile.log",
+              "log_sha256": "a5756a5089714416df891e19795955f719220c4082ba375c3e0ff8d0d342a49c",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e0047da9bc848269a68991a126f124df26312a8aa8bbf621d3949f9bc741dcfd",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "qpdf",
+                "--check",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/thesis.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.16000512099999753,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/thesis-qpdf.log",
+              "log_sha256": "264f7ebcd452940c771a4cc362fff1026319becc518bdc1a82814ea4403a4382",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "eab783f4ba14f739922159530c29a563a15ebcc11b9f59ce93b722f4b4d9cefb",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "pdfinfo",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/thesis.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.010049080999991133,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/thesis-pdfinfo.log",
+              "log_sha256": "4f74e188b7969f33a51f86216552c53b15f3378a6da3837ff79a6350ff3c9cb6",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "1caba36976fd3bbea2009a8fa6ea9c450e613e879e11190e8757b7df6e9f7b71",
+              "stdout_sha256": "996f778cee1663cfe240535ced89a27d87852ad597de89dbc430132c38335b28",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "pdftotext",
+                "-layout",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/thesis.pdf",
+                "-"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.1159347509999975,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/thesis-pdftotext.log",
+              "log_sha256": "0eb2a31f1946a10e13720889d6c67702b62acb13359aff2beae3145ca234900e",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "41d15c3ca2f541f7d6bad22bea8daa197c1b83ea0f307a4cd49d7ef719b4ac4e",
+              "timed_out": false,
+              "timeout_seconds": 60
+            }
+          ],
+          "pages": 58,
+          "pdf": "build/verification/thesis.pdf",
+          "pdf_sha256": "d52c32c94d3f2cf23bf454333af2fcde3267d407b56f5e885b2b537ba76bbd86",
+          "result": "pass",
+          "source": "thesis.typ",
+          "source_sha256": "487733b80612fafeecabc4681fb8d6b9e5baee588c5a15dbccd1d695bfeb31fa",
+          "text": "build/verification/thesis.txt",
+          "text_sha256": "41d15c3ca2f541f7d6bad22bea8daa197c1b83ea0f307a4cd49d7ef719b4ac4e"
+        },
+        {
+          "bytes": 158208,
+          "commands": [
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "typst",
+                "compile",
+                "--root",
+                ".",
+                "sample-chapter.typ",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/sample-chapter.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.42520108200000095,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/sample-chapter-compile.log",
+              "log_sha256": "58970e222072b43ade9490e39d11796887a41317c48c5eab359340c02282cdaf",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "3e256f47dec046d918f17ca6c18180c3ccd00269cccf3655c456910eec4b7d1e",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "qpdf",
+                "--check",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/sample-chapter.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.040271024999995575,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/sample-chapter-qpdf.log",
+              "log_sha256": "1d7065f4d31cb5f4fa743931d88eb0ee8ddcd59501ca3c3d41638ea13097ccb3",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "ff52f732d78a093c0f48b72b9c3ae51f0a872ffa56f8eb24ac0668df5baceec0",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "pdfinfo",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/sample-chapter.pdf"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.009409288000000515,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/sample-chapter-pdfinfo.log",
+              "log_sha256": "e05d542ed7ea0329462552a482c249b2862cf46640d5e71aa4a5c3591478d7d0",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "1caba36976fd3bbea2009a8fa6ea9c450e613e879e11190e8757b7df6e9f7b71",
+              "stdout_sha256": "84f70b34e6c5c21d897c888baa8db91e52655e298613f9468a758ed82447a2b1",
+              "timed_out": false,
+              "timeout_seconds": 60
+            },
+            {
+              "cleanup_timeout_seconds": 5,
+              "command": [
+                "pdftotext",
+                "-layout",
+                "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst/build/verification/sample-chapter.pdf",
+                "-"
+              ],
+              "cwd": "/home/runner/work/unimelb-thesis-template-typst/unimelb-thesis-template-typst",
+              "duration_seconds": 0.027105157999997687,
+              "environment_overrides": {
+                "SOURCE_DATE_EPOCH": "0"
+              },
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "log": "build/verification/sample-chapter-pdftotext.log",
+              "log_sha256": "4c35ac473167c4ccc61133194a0abf7785202b09eaeed91345d044972a8dee93",
+              "process_isolation": "posix-session",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_sha256": "71447e15681e84996e21e2464b92bacd7d2e7a80438ea6a2ec38fcebca9b5059",
+              "timed_out": false,
+              "timeout_seconds": 60
+            }
+          ],
+          "pages": 7,
+          "pdf": "build/verification/sample-chapter.pdf",
+          "pdf_sha256": "a9c0dee4b74e79505cff81bcf0b9d71d6fffdbdb8eb5296c5a97c5080e5fe789",
+          "result": "pass",
+          "source": "sample-chapter.typ",
+          "source_sha256": "0c3ea5aaa67f2c62f15b197b8df4929f978be6ff00c20fe02b0ce887faa58893",
+          "text": "build/verification/sample-chapter.txt",
+          "text_sha256": "71447e15681e84996e21e2464b92bacd7d2e7a80438ea6a2ec38fcebca9b5059"
+        }
+      ],
+      "expected_native_checkout": "161293924cb53f06881f54b94373885956e654ca",
+      "expected_nonzero_commands": 48,
+      "native_command_count": 711,
+      "native_identity": {
+        "command_timeout_seconds": 60,
+        "compiler": "typst 0.15.1 (9dfd3a08)",
+        "finished_at_utc": "2026-11-15T02:55:48.404136+00:00",
+        "passed": true,
+        "python_version": "3.15.1",
+        "schema_version": 1,
+        "source_dirty": false,
+        "source_revision": "161293924cb53f06881f54b94373885956e654ca",
+        "started_at_utc": "2026-11-15T02:54:57.038816+00:00",
+        "typst_manifest_sha256": "ed9c92358754e6a4bad7c697b39ea3f1e5e1090a7bb6b7439b985cd53d1a63fb",
+        "verifier_sha256": "19d6f2b18c0bc466c50dde42f49b79dce455db7b0473912bc5cfb690d297fce1"
+      },
+      "native_report_sha256": "08d4cf4daefc2ab03393eceb6208c1394c3e97eaccc5373e859db8344136a510",
+      "observed_at_utc": "2026-11-15T03:03:11.922982+00:00",
+      "property_cases": 640,
+      "property_methods": 10,
+      "result": "pass",
+      "schema_version": 1,
+      "source_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+      "watchdog_command_count": 6,
+      "watchdog_deliberate_timeouts": 2,
+      "watchdog_methods": 5,
+      "watchdog_scope": "Observation files and declared logs verified; unittest job determines pass/fail."
+    },
+    "privacy": {
+      "advisory_findings": 0,
+      "blocking_findings": 0,
+      "coverage_complete": true,
+      "engine": "presidio",
+      "files_scanned": 35,
+      "files_selected": 35,
+      "findings": [],
+      "findings_omitted": 0,
+      "limitations": [
+        "Names, addresses, clinical narratives and re-identification risk are not covered by this baseline.",
+        "Only selected Git text blobs are scanned; images, binary documents, LFS payloads and submodule contents are not scanned.",
+        "Repository checks do not inspect application runtime data or prevent upload before CI executes.",
+        "Detection is probabilistic; no findings is not a declaration that data is anonymous or safe to publish."
+      ],
+      "profile": "repository",
+      "schema_version": 1,
+      "scope": "changed",
+      "skipped": [],
+      "skipped_count": 0,
+      "skipped_counts_by_reason": {},
+      "skipped_omitted": 0,
+      "status": "no_supported_identifiers_detected"
+    },
+    "profile_pdf_pages": {
+      "default": 58,
+      "draft": 58,
+      "print": 67,
+      "screen": 57
+    }
+  },
+  "coverage_provider": {
+    "id": 132678068133,
+    "app_id": 254,
+    "conclusion": "success",
+    "head_sha": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+    "completed_at": "2026-11-15T02:57:07Z",
+    "observed_title": "95.30% of diff hit (target 80.00%)",
+    "actual_diff_percent": 95.3,
+    "target_percent": 80,
+    "upload": {
+      "id": 132677848396,
+      "runner_id": 1000836886,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-15T02:56:16Z",
+      "completed_at": "2026-11-15T02:56:24Z",
+      "log_sha256": "f3a42aa7a03080941dc237cf90bcebf35850dd9aea5c8607d393acb22c074a76"
+    }
+  },
+  "local_exact_source_proof": {
+    "source_revision": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+    "source_tree": "2005ddb6d3712ae4075ee9f54ce575fd5060f9ec",
+    "status_before": "",
+    "time_zone": "Australia/Brisbane",
+    "commands": [
+      {
+        "command": [
+          "typstyle",
+          "--version"
+        ],
+        "started_utc": "2026-11-15T02:49:27.741702+00:00",
+        "finished_utc": "2026-11-15T02:49:27.745588+00:00",
+        "elapsed_seconds": 0.004,
+        "exit_code": 0,
+        "log_path": "/tmp/typst-pr32-proof-9deb/00.log",
+        "log_sha256": "9471b47360a52ec0e50e0976b6c33b95ce9bee7513f778c905755fabc6863e10"
+      },
+      {
+        "command": [
+          "typst",
+          "--version"
+        ],
+        "started_utc": "2026-11-15T02:49:27.745687+00:00",
+        "finished_utc": "2026-11-15T02:49:27.749301+00:00",
+        "elapsed_seconds": 0.004,
+        "exit_code": 0,
+        "log_path": "/tmp/typst-pr32-proof-9deb/01.log",
+        "log_sha256": "20ad20e86d85d168643624dc3e3388e7cbcc5a8384d17835db3a0ab04c496fba"
+      },
+      {
+        "command": [
+          "/tmp/typst-validation315/bin/python",
+          "--version"
+        ],
+        "started_utc": "2026-11-15T02:49:27.749369+00:00",
+        "finished_utc": "2026-11-15T02:49:27.752832+00:00",
+        "elapsed_seconds": 0.003,
+        "exit_code": 0,
+        "log_path": "/tmp/typst-pr32-proof-9deb/02.log",
+        "log_sha256": "36eccae64c73138a6ce898fb4100d385bf3618b6f07bf251cdfe60cccdd43a41"
+      },
+      {
+        "command": [
+          "qpdf",
+          "--version"
+        ],
+        "started_utc": "2026-11-15T02:49:27.752893+00:00",
+        "finished_utc": "2026-11-15T02:49:27.760410+00:00",
+        "elapsed_seconds": 0.008,
+        "exit_code": 0,
+        "log_path": "/tmp/typst-pr32-proof-9deb/03.log",
+        "log_sha256": "f2cb75c0e76d16e21c393e9540e9d08ee456c5e80622600f4d7022846f28081d"
+      },
+      {
+        "command": [
+          "typstyle",
+          "--check",
+          "."
+        ],
+        "started_utc": "2026-11-15T02:49:27.760455+00:00",
+        "finished_utc": "2026-11-15T02:49:27.792166+00:00",
+        "elapsed_seconds": 0.032,
+        "exit_code": 0,
+        "log_path": "/tmp/typst-pr32-proof-9deb/04.log",
+        "log_sha256": "3a9bd86e7a4a3750f58dbe7ff21a9348ca90f1635409e8ad565df01512a367c7"
+      },
+      {
+        "command": [
+          "make",
+          "verify",
+          "PYTHON=/tmp/typst-validation315/bin/python"
+        ],
+        "started_utc": "2026-11-15T02:49:27.792220+00:00",
+        "finished_utc": "2026-11-15T02:50:14.374443+00:00",
+        "elapsed_seconds": 46.582,
+        "exit_code": 0,
+        "log_path": "/tmp/typst-pr32-proof-9deb/05.log",
+        "log_sha256": "7af0d62439a91ae5f720e0a9489259b37c3811c9c857c48b5b170f74b40851b7"
+      }
+    ],
+    "status_after": "",
+    "source_revision_after": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+    "source_tree_after": "2005ddb6d3712ae4075ee9f54ce575fd5060f9ec",
+    "passed": true,
+    "native_report_path": "/tmp/typst-pr32-9deb/build/verification/report.json",
+    "native_report_sha256": "14daf32eebd1b40d53221026e3cc5ce52596db1bab3862cd52487d131d9aad97"
+  },
+  "retained_logs": {
+    "verification": {
+      "job": 132676043380,
+      "path": "/tmp/pr32-source-9deb49d/logs/verification.log",
+      "sha256": "d8c4bfd9c7b7cc827737fc9a763897679a5159e65f58a9be252ffd50dfa3383b",
+      "characters": 89826
+    },
+    "coverage": {
+      "job": 132676042201,
+      "path": "/tmp/pr32-source-9deb49d/logs/coverage.log",
+      "sha256": "4f5f9f6eb9bce4c6b57aa8a76203184c44c4978a8096695472c12789aea46556",
+      "characters": 129064
+    },
+    "coverage-upload": {
+      "job": 132677848396,
+      "path": "/tmp/pr32-source-9deb49d/logs/coverage-upload.log",
+      "sha256": "f3a42aa7a03080941dc237cf90bcebf35850dd9aea5c8607d393acb22c074a76",
+      "characters": 39493
+    },
+    "privacy": {
+      "job": 132676042501,
+      "path": "/tmp/pr32-source-9deb49d/logs/privacy.log",
+      "sha256": "250bb27287919aaeb35c4eacbfce2f49d6a9e4dd34991a305fa458cce9b160fa",
+      "characters": 46122
+    },
+    "print": {
+      "job": 132676043424,
+      "path": "/tmp/pr32-source-9deb49d/logs/print.log",
+      "sha256": "a4525a4061a619c2364753030c93feaef96fb74487ed06437fa7d84e706b3d68",
+      "characters": 52424
+    },
+    "default": {
+      "job": 132676043466,
+      "path": "/tmp/pr32-source-9deb49d/logs/default.log",
+      "sha256": "193c5aa3dbefad16885c9889325e2c3916d1452795828e91f5c46e4e7b17ac87",
+      "characters": 52450
+    },
+    "draft": {
+      "job": 132676043492,
+      "path": "/tmp/pr32-source-9deb49d/logs/draft.log",
+      "sha256": "0be8ac082ef5c6fc76e56f9e250be3016b5fd16faa73b5165568f16e96d7b756",
+      "characters": 60934
+    },
+    "screen": {
+      "job": 132676043578,
+      "path": "/tmp/pr32-source-9deb49d/logs/screen.log",
+      "sha256": "123703635ce4f0d8357126e6acc92dbb58a2139081212ea7897cc308528dd8b2",
+      "characters": 55881
+    },
+    "codeql-python": {
+      "job": 132676036834,
+      "path": "/tmp/pr32-source-9deb49d/logs/codeql-python.log",
+      "sha256": "c9c806e51d2da8921923dbb7fbe26e6669585368f11608182f246777a6b1bfff",
+      "characters": 121553
+    },
+    "codeql-actions": {
+      "job": 132676036733,
+      "path": "/tmp/pr32-source-9deb49d/logs/codeql-actions.log",
+      "sha256": "9a3cee94d98773e61ec0f7533430817f2528edc58b15f0665c1b6b388fdcf7d0",
+      "characters": 119173
+    },
+    "lint": {
+      "job": 132676043191,
+      "path": "/tmp/pr32-source-9deb49d/logs/lint.log",
+      "sha256": "70b72cb302fc10eddf7048be66b245611a41f5969144409704b62a8d08622781",
+      "characters": 19713
+    },
+    "dependency": {
+      "job": 132676043233,
+      "path": "/tmp/pr32-source-9deb49d/logs/dependency.log",
+      "sha256": "14f28c8fe2124a48dd386f047098a7bbace77d8c0e56190543eb4ae05806e2e4",
+      "characters": 3217
+    }
+  },
+  "native_download_inspection": {
+    "summary_sha256": "ac5a3136d4c9047561547a40e2548301bf1a8c98972b028814b87ff984b99972",
+    "full_evidence_sha256": "3be2756dbf4b68d67de379f5b008d3327ddf7661fb1a695bd4967ce3236ab2a0",
+    "inspector_sha256": "6ad1ff070f93db3980355d24984c6dfbe0d84c625bce1d8124a7351d03d69d15",
+    "verification_artifact": 14142699676,
+    "coverage_artifact": 14144001476
+  },
+  "limits": [
+    "Adapter outcomes remain seven rendered outputs, nine required validation rejections and five unsupported results. Full shared contract acceptance remains blocked; LaTeX execution is not asserted.",
+    "The native corpus retains six accepted results and ten required rejections. Dependency normalization is labeled and does not lock full font/environment/package archives.",
+    "The rendered corpus retains four deliberately failed residual-identity controls; these do not certify reviewer readiness.",
+    "Coverage measures exactly six named helpers, not all repository code or Typst layout. Actual provider diff coverage is distinct from component coverage.",
+    "Privacy covers only35 selected changed text blobs and baseline supported identifiers; zero findings is not anonymity or publication approval.",
+    "Existing font fallback warnings and qpdf limitations remain in profile logs. PDF/UA, PDF/A and per-face font-source qualification are not claimed.",
+    "Only canonical verification and coverage archives were independently downloaded; individual profile PDF archives were not downloaded.",
+    "Local canonical tests used a separately provisioned package cache; cold-cache/offline/cross-environment replay is not qualified.",
+    "Source success does not qualify a future receiving revision. Original3f review covers unchanged implementation bytes; only the Conductor reconciliation changed afterward."
+  ],
+  "receipt_local_path": "/tmp/pr32-source-9deb49d/qualification.json"
+}
