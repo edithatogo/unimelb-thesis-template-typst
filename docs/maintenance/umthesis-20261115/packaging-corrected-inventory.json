@@ -1,0 +1,512 @@
+{
+  "schema_version": 1,
+  "repository": "edithatogo/unimelb-thesis-template-typst",
+  "supersedes_inventory_blob": "92aade5b9c4af7fd0dbee970733cfa50cabfc0c9",
+  "measured_local_source": {
+    "base_revision": "3f540359796802a873a9c2ff5392d2cf297c8dc3",
+    "base_tree": "45a8925a75f2fcdcef24552600ca2b6acf7acd30",
+    "candidate_tree": "1d5fecac9f517161cd65696e6aed7c2b07371df0",
+    "all_candidate_files_unchanged": true,
+    "file_count": 519
+  },
+  "root_integration_base": {
+    "revision": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+    "tree": "2005ddb6d3712ae4075ee9f54ce575fd5060f9ec",
+    "difference_from_measured_base": "Only conductor/tracks/umthesis_v1_20261115/plan.md changed upstream; applying the declared operations leaves it intact. The new composed source needs its own published-head qualification."
+  },
+  "changes": [
+    {
+      "path": ".coveragerc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b49b6510ccec5212b19a288c5f17ee61c8843363",
+      "status": "M",
+      "bytes": 308,
+      "sha256": "480fa02ddecf6db21d84e664388ada6e82aba47b5cae587c1b30fa80c486cae5"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e010e60214e37d173b0aa0257fc1c3a1eda037a",
+      "status": "M",
+      "bytes": 769,
+      "sha256": "806b20f78e49f3d00c2e71b68c39b66ef47dde5107c352601bc685142ce64fe5"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af0fc6b0adc65b111cd4ecf09ba7d0955d00b697",
+      "status": "M",
+      "bytes": 3523,
+      "sha256": "f7e50ddb9653a3e4d5724113e347704726aca2847d045b81b2b2290d044e161e"
+    },
+    {
+      "path": "QUICKSTART.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9974a3dac290c0af2898f291b547dd7e341db9a9",
+      "status": "M",
+      "bytes": 1044,
+      "sha256": "4727e2813c8eb76994dbbe5f69444f974ec8cc1e3dd3e99201fa17558a240527"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "993111b90bdbf02a295182e94c30c8de964635ba",
+      "status": "M",
+      "bytes": 5821,
+      "sha256": "3b47c5234eb4f5210103acbf3705d78cda7f12801019b1051b3887c082771bb8"
+    },
+    {
+      "path": "README.typ",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68703bacc783483aba466eada755dcd7fe7ed27b",
+      "status": "M",
+      "bytes": 634,
+      "sha256": "c033c42780b12b778cd2b35ed4a7b1f5bd2c3923f14b31c5803b13eb90a23749"
+    },
+    {
+      "path": "SUBMITTING_TO_TYPST_PACKAGES.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9945ddf0fb5c996460ce5950ade47c1106cc375",
+      "status": "M",
+      "bytes": 1904,
+      "sha256": "8e35f1428b227d9aaf128fe1334673db5ae26c721e6a51a3d1c98900fb11c99e"
+    },
+    {
+      "path": "codecov.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bb1518b9b735a79512aee3010697c06da5db7f7",
+      "status": "M",
+      "bytes": 728,
+      "sha256": "b2beb4d90f884ea90c22a7fc9b5b240237ddb6531d13c043f9b274f5e8f43761"
+    },
+    {
+      "path": "docs/PACKAGE_SUBMISSION_GUIDE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8e6b7e2077d6149574ff42a00fe93661531e046",
+      "status": "M",
+      "bytes": 7487,
+      "sha256": "612f7d4bfa9e67508497f46688d4b2bd4834081650f2ea19a8c82e6fdf7f0f51"
+    },
+    {
+      "path": "docs/TEMPLATE_STANDARDS_ASSESSMENT.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "561e993f3c111037cc6aec89a44cafe67c5653d7",
+      "status": "M",
+      "bytes": 7286,
+      "sha256": "acfa6ed0dd7f48766a2ef21e38afbd1f6ff127c7d22f2b250da95450963d8bf3"
+    },
+    {
+      "path": "docs/TYPST_STANDARDS_SUMMARY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2be2faad3e45373fcd20d822da4e4d39a13d262d",
+      "status": "M",
+      "bytes": 5976,
+      "sha256": "570b6406acf5d6ed07fb8ca162a1c604ff722aacc8309f1ff814baa98c01bfbe"
+    },
+    {
+      "path": "docs/fonts-and-package-payload.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d61fd20455c756715a4d87a7773c60bd1356955",
+      "status": "A",
+      "bytes": 3335,
+      "sha256": "d34d6693fb3608b78f29c43d321f279985f2bd1eb0d5feea22c5b938c93679e8"
+    },
+    {
+      "path": "docs/maintenance.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ea60f09d720a17d01055ec7e72a2d549ade590c",
+      "status": "M",
+      "bytes": 12919,
+      "sha256": "e1c517dedc70c6b4b49431c9abdb96f558751495b85eb39631d80a6367385ac6"
+    },
+    {
+      "path": "docs/package-font-inventory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3054d47b1720e1940d50b4fece7cbcf8a7596aa",
+      "status": "A",
+      "bytes": 48896,
+      "sha256": "d67c2ed8140347323189da9ce358c9f10567e0d415a94ce1680aa542852ebe23"
+    },
+    {
+      "path": "docs/packaging.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2d28f1386253f67313eb6a97f9aaf6d9a3e548a",
+      "status": "A",
+      "bytes": 12480,
+      "sha256": "7480bfb5d609000d03dbcbe6947b43a61b7c85fa060f9d42f7ff3d33a9a97d90"
+    },
+    {
+      "path": "docs/source-material/modern-uit-global.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce1f4c57c3af159898a3cd1a9c08767a33bb81b0",
+      "status": "A",
+      "bytes": 293630,
+      "sha256": "01e219e36a6901b8702e61486bcd2c1a7656e66777a007545e26144d54ed0d60"
+    },
+    {
+      "path": "docs/source-material/modern-uit-global.typ",
+      "mode": "100644",
+      "type": "blob",
+      "sha": null,
+      "status": "D"
+    },
+    {
+      "path": "scripts/package_template.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34c3e5d82fb2422accd448342c78ee8ff51800b1",
+      "status": "A",
+      "bytes": 15416,
+      "sha256": "a46a0283228d81b3791acd8de4ecde2ea62e7fe152cdc24b0ed295339251b0ec"
+    },
+    {
+      "path": "scripts/verify.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49e29b878c05e711fb4aab14f12edde498e536aa",
+      "status": "M",
+      "bytes": 78623,
+      "sha256": "87b8cafe3216c2a54e9915b580a01bec4d2913c565a022f17c3e219ca248a54a"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6526067866dd5a4e509648e3350352d667e783b5",
+      "status": "A",
+      "bytes": 24636,
+      "sha256": "9e598599a77dfa41d3012ab599b7aaf0fdf7275ca7e338acd95f805186c08804"
+    },
+    {
+      "path": "template/LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bd280303a3bbf5362ee1605a65656f7638150d4",
+      "status": "A",
+      "bytes": 11324,
+      "sha256": "8f03052ffedee62db28b49dbcb30046b7f02436fc9004bebfbdcbe2828e032b6"
+    },
+    {
+      "path": "template/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85e5161885fda3153f25e47420dc79213302f213",
+      "status": "A",
+      "bytes": 1899,
+      "sha256": "00986e5d4a32c12495dcf3d172b04e8357005ccd9a431f708d60a20fe8ca488b"
+    },
+    {
+      "path": "template/assets/figures/example.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee7d418874000f7a66750faa876dc7297afd451e",
+      "status": "A",
+      "bytes": 327,
+      "sha256": "60872b8731159c4f33be3a06c775c968aac219df1e79ec1ce6919b80a0aef7a5"
+    },
+    {
+      "path": "template/chapters/introduction.typ",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7315990ca57a7f440fbab236c6e826484659a82c",
+      "status": "A",
+      "bytes": 603,
+      "sha256": "605a4bf1380f5e522749d60b43e0259082216373ea713233dd87accea17041fd"
+    },
+    {
+      "path": "template/main.typ",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebf374b0cd20b5e0e958853e300674804f01a9d4",
+      "status": "A",
+      "bytes": 1141,
+      "sha256": "81f65705948b7d216cf400504f663b70863bf14adf0989d0feebb8f3eade6c8b"
+    },
+    {
+      "path": "template/references.bib",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6b82004434cb17f402dff26a2c76a2591f3476e",
+      "status": "A",
+      "bytes": 240,
+      "sha256": "9d537b58190f54387b0cb9a8f103d6d851f44da26d9101e84c58d29b3b33403b"
+    },
+    {
+      "path": "tests/maintenance/test_package_template.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b840dc6b0a7fd132f0cc580e210a74d3d0d1c56b",
+      "status": "A",
+      "bytes": 21467,
+      "sha256": "8e90cf574494106f332d1a46008b4ff5494694cd7aa1af04e7737e71be1f9a30"
+    },
+    {
+      "path": "tests/packaging/watch_probe.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5bf9b00c88ca04763276075964c0ab2b3bfd9b0",
+      "status": "A",
+      "bytes": 5364,
+      "sha256": "fdccdce6e84ac0d6202865f1f3e3420aab53bfb263157cf6291562921a11d1fc"
+    },
+    {
+      "path": "thumbnail.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "308a5636f0a2c2ca9f924dd0e90c1b8f4c9c40aa",
+      "status": "A",
+      "bytes": 86616,
+      "sha256": "0ca4a7ff1aa9cdaa7bfc134cfcba42512ec9db0c1156f1852bb02fba12c4da74"
+    },
+    {
+      "path": "typst.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0519646c64fb25a8d45f05dd136740b2bc702d5c",
+      "status": "M",
+      "bytes": 1152,
+      "sha256": "eb3a077ad21ce671a834ae1e763992594724fe540a27a8f2755ed3c53e911246"
+    }
+  ],
+  "tree": [
+    {
+      "path": ".coveragerc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b49b6510ccec5212b19a288c5f17ee61c8843363"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e010e60214e37d173b0aa0257fc1c3a1eda037a"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "af0fc6b0adc65b111cd4ecf09ba7d0955d00b697"
+    },
+    {
+      "path": "QUICKSTART.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9974a3dac290c0af2898f291b547dd7e341db9a9"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "993111b90bdbf02a295182e94c30c8de964635ba"
+    },
+    {
+      "path": "README.typ",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "68703bacc783483aba466eada755dcd7fe7ed27b"
+    },
+    {
+      "path": "SUBMITTING_TO_TYPST_PACKAGES.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9945ddf0fb5c996460ce5950ade47c1106cc375"
+    },
+    {
+      "path": "codecov.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6bb1518b9b735a79512aee3010697c06da5db7f7"
+    },
+    {
+      "path": "docs/PACKAGE_SUBMISSION_GUIDE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d8e6b7e2077d6149574ff42a00fe93661531e046"
+    },
+    {
+      "path": "docs/TEMPLATE_STANDARDS_ASSESSMENT.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "561e993f3c111037cc6aec89a44cafe67c5653d7"
+    },
+    {
+      "path": "docs/TYPST_STANDARDS_SUMMARY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2be2faad3e45373fcd20d822da4e4d39a13d262d"
+    },
+    {
+      "path": "docs/fonts-and-package-payload.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d61fd20455c756715a4d87a7773c60bd1356955"
+    },
+    {
+      "path": "docs/maintenance.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3ea60f09d720a17d01055ec7e72a2d549ade590c"
+    },
+    {
+      "path": "docs/package-font-inventory.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3054d47b1720e1940d50b4fece7cbcf8a7596aa"
+    },
+    {
+      "path": "docs/packaging.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2d28f1386253f67313eb6a97f9aaf6d9a3e548a"
+    },
+    {
+      "path": "docs/source-material/modern-uit-global.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce1f4c57c3af159898a3cd1a9c08767a33bb81b0"
+    },
+    {
+      "path": "docs/source-material/modern-uit-global.typ",
+      "mode": "100644",
+      "type": "blob",
+      "sha": null
+    },
+    {
+      "path": "scripts/package_template.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34c3e5d82fb2422accd448342c78ee8ff51800b1"
+    },
+    {
+      "path": "scripts/verify.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49e29b878c05e711fb4aab14f12edde498e536aa"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6526067866dd5a4e509648e3350352d667e783b5"
+    },
+    {
+      "path": "template/LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bd280303a3bbf5362ee1605a65656f7638150d4"
+    },
+    {
+      "path": "template/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85e5161885fda3153f25e47420dc79213302f213"
+    },
+    {
+      "path": "template/assets/figures/example.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee7d418874000f7a66750faa876dc7297afd451e"
+    },
+    {
+      "path": "template/chapters/introduction.typ",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7315990ca57a7f440fbab236c6e826484659a82c"
+    },
+    {
+      "path": "template/main.typ",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebf374b0cd20b5e0e958853e300674804f01a9d4"
+    },
+    {
+      "path": "template/references.bib",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6b82004434cb17f402dff26a2c76a2591f3476e"
+    },
+    {
+      "path": "tests/maintenance/test_package_template.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b840dc6b0a7fd132f0cc580e210a74d3d0d1c56b"
+    },
+    {
+      "path": "tests/packaging/watch_probe.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5bf9b00c88ca04763276075964c0ab2b3bfd9b0"
+    },
+    {
+      "path": "thumbnail.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "308a5636f0a2c2ca9f924dd0e90c1b8f4c9c40aa"
+    },
+    {
+      "path": "typst.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0519646c64fb25a8d45f05dd136740b2bc702d5c"
+    }
+  ],
+  "qualification_receipt": {
+    "bytes": 6701,
+    "sha256": "db42ed8feb04d7520a594d0178d3ca5efd8aed75ad40bb5d31813249e5ba12fd",
+    "git_blob": "2f4e140da652729b8fd58f70375b0ca93c132f51"
+  },
+  "confirmed_defect_receipt": {
+    "bytes": 8958,
+    "sha256": "7d2b14daf3f274457b2dcd8b283ef9a6a39a30864e8f49afa8f144b9279cb6b6",
+    "git_blob": "2e9eaea7a617daf9553d0b65b92cbc09ae82553f"
+  },
+  "correction": {
+    "paths": [
+      "scripts/package_template.py",
+      "tests/maintenance/test_package_template.py",
+      "docs/packaging.md"
+    ],
+    "new_unit_methods": 3,
+    "total_package_unit_methods": 21,
+    "defect": "Existing excluded source files and hardlink aliases could be overwritten as archive or receipt destinations.",
+    "guard": "Protect existing selected-root source except normal top-level build/dist/target output areas; retain payload-name and inode-alias protection. Do not traverse directory symlinks.",
+    "old_source_negative_control": "Two failing method groups/23 subtests; the ordinary rebuild positive control passes on both versions.",
+    "frozen_prior_candidate_unchanged": true
+  },
+  "canonical_integration": {
+    "verifier_blob": "49e29b878c05e711fb4aab14f12edde498e536aa",
+    "existing_changed_functions": [
+      "clear_previous_outputs",
+      "main"
+    ],
+    "new_function": "verify_packaging",
+    "all_other_existing_functions_byte_identical_to_pr32": true,
+    "source_cases": 209,
+    "maintenance_unit_methods": 124,
+    "contract_unit_methods": 127,
+    "generated_property_cases": 640,
+    "required_gates_and_coverage_floors_unchanged": true
+  },
+  "limits": [
+    "Only local uncommitted candidate proof is asserted here.",
+    "Root alone owns branch/PR mutations and sequential integration.",
+    "Prior missing-thumbnail, preparation-race and cold-cache failures remain distinct retained evidence.",
+    "No registry approval, reviewer-safe package, complete environment replay, shared-contract acceptance or full issue #21 closure."
+  ]
+}

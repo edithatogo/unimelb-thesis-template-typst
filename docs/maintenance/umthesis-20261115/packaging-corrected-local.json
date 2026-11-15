@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-15T02:51:44.255334+00:00",
+  "qualification": "isolated uncommitted candidate; hosted source and receiving checks remain separate",
+  "base_revision": "3f540359796802a873a9c2ff5392d2cf297c8dc3",
+  "base_tree": "45a8925a75f2fcdcef24552600ca2b6acf7acd30",
+  "candidate_tree": "1d5fecac9f517161cd65696e6aed7c2b07371df0",
+  "all_519_candidate_files_unchanged": true,
+  "prior_23ed_candidate_unchanged": true,
+  "supersedes_local_tree": "23ed708c1adbffcc7904d68d62dc8e1a1804a8c5",
+  "root_integration_base": {
+    "revision": "9deb49df13f89ee42a4dd2063e9e2bb71807ccdb",
+    "tree": "2005ddb6d3712ae4075ee9f54ce575fd5060f9ec",
+    "only_difference_from_local_base": "Conductor plan update; preserve it by applying only the declared 30 changes. No local result is assigned to that future composed tree."
+  },
+  "commands": [
+    {
+      "argv": [
+        "make",
+        "verify",
+        "PYTHON=/tmp/typst-validation315/bin/python"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "make",
+        "coverage",
+        "PYTHON=/tmp/typst-validation315/bin/python"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "runtime": {
+    "python": "3.15.1",
+    "typst": "typst 0.15.1 (9dfd3a08)",
+    "ordinary_dependency_cache": "/tmp/typst-validation-package-cache",
+    "cold_cache_qualified": false
+  },
+  "canonical": {
+    "passed": true,
+    "corpus_cases": 209,
+    "contract_unit_methods": 127,
+    "maintenance_unit_methods": 124,
+    "properties": 10,
+    "generated_property_cases": 640,
+    "property_seed": 20261115,
+    "thesis_pages": 58,
+    "sample_pages": 7,
+    "pdf_phase_started_at_utc": "2026-11-15T02:49:43.927067+00:00",
+    "pdf_phase_finished_at_utc": "2026-11-15T02:50:19.798263+00:00"
+  },
+  "packaging": {
+    "unit_methods": 21,
+    "native_cases": 10,
+    "assertions": 18,
+    "source_unchanged": true,
+    "thumbnail_sha256": "0ca4a7ff1aa9cdaa7bfc134cfcba42512ec9db0c1156f1852bb02fba12c4da74"
+  },
+  "coverage": {
+    "production_helpers": 7,
+    "totals": {
+      "covered_lines": 1305,
+      "num_statements": 1367,
+      "percent_covered": 94.4526264113893,
+      "percent_covered_display": "94.45",
+      "missing_lines": 62,
+      "excluded_lines": 0,
+      "percent_statements_covered": 95.46452084857351,
+      "percent_statements_covered_display": "95.46",
+      "num_branches": 670,
+      "num_partial_branches": 49,
+      "covered_branches": 619,
+      "missing_branches": 51,
+      "percent_branches_covered": 92.38805970149254,
+      "percent_branches_covered_display": "92.39"
+    },
+    "package_helper": {
+      "covered_lines": 212,
+      "num_statements": 215,
+      "percent_covered": 98.0327868852459,
+      "percent_covered_display": "98.03",
+      "missing_lines": 3,
+      "excluded_lines": 0,
+      "percent_statements_covered": 98.6046511627907,
+      "percent_statements_covered_display": "98.60",
+      "num_branches": 90,
+      "num_partial_branches": 3,
+      "covered_branches": 87,
+      "missing_branches": 3,
+      "percent_branches_covered": 96.66666666666667,
+      "percent_branches_covered_display": "96.67"
+    }
+  },
+  "review_regression": {
+    "baseline_cli_overwrites": 8,
+    "baseline_receipt": "/tmp/typst-packaging-source-guard/baseline.json",
+    "baseline_receipt_sha256": "7d2b14daf3f274457b2dcd8b283ef9a6a39a30864e8f49afa8f144b9279cb6b6",
+    "old_source_control_methods": 3,
+    "old_source_failing_subtests": 23,
+    "old_source_failing_method_groups": 2,
+    "ordinary_rebuild_control_passed_on_both_versions": true,
+    "helper_old_sha256": "c6a45a4585f215ecad1588560a4c07026192b73feab18fd86475d5674724fa39",
+    "helper_new_sha256": "a46a0283228d81b3791acd8de4ecde2ea62e7fe152cdc24b0ed295339251b0ec",
+    "test_sha256": "8e90cf574494106f332d1a46008b4ff5494694cd7aa1af04e7737e71be1f9a30"
+  },
+  "evidence": {
+    "build/verification/report.json": {
+      "bytes": 1598362,
+      "sha256": "48c9ac6a6c973882c64021897994e506d41ca92add831a11a6abd88637d0347d"
+    },
+    "build/property-tests.json": {
+      "bytes": 1281,
+      "sha256": "2f175a92ecc4419707f2008f3565864c88f99aad266aae94fc67e9c6f209d037"
+    },
+    "build/coverage.json": {
+      "bytes": 102379,
+      "sha256": "61f3c6cfd5617ce178a5663e051e0ee352a0ed171f9bfcf697349c46b645114e"
+    },
+    "build/coverage.xml": {
+      "bytes": 67246,
+      "sha256": "52f714718ea36ceef16bad7d774a0a1e5b1af3c62ecf12f57f1615fcf8b30a48"
+    },
+    "build/package-focused/report.json": {
+      "bytes": 94345,
+      "sha256": "5425bf66dbc5e73c7714dfef6e15d5eaeb4a09ecf574c164047cbf3e81c5b15b"
+    },
+    "build/package-source-guard/full-make-verify.log": {
+      "bytes": 46689,
+      "sha256": "730d19311b41fd7f90f36650bb516cbf5da3fce8604ab0078d1842d25c01c9a4"
+    },
+    "build/package-source-guard/full-make-coverage.log": {
+      "bytes": 49156,
+      "sha256": "5ae509cc5faba83f7c509ac471a4e2c4f97b5e4dd810d1caa6f6763d50e07075"
+    },
+    "build/package-source-guard/helper-unit.log": {
+      "bytes": 3671,
+      "sha256": "8a51d472c50acc46db395a93fde78fcdc746df63fc71316abe30146b3ec9ec00"
+    },
+    "build/package-source-guard/old-source-control.json": {
+      "bytes": 738,
+      "sha256": "474679055c34aa59b53a04222a0c12e48cd9a06dd22c71c003b667b27f76cde5"
+    },
+    "build/package-source-guard/old-source-control.py": {
+      "bytes": 1055,
+      "sha256": "d55d6b24d2b2097c7e38168cadbe5dc5c091d97092332af0168be2fb23f76e64"
+    },
+    "build/package-source-guard/old-source-control.stderr": {
+      "bytes": 22538,
+      "sha256": "9f7774439b185985f8ca99d96ea5a6cb635d5ab3fad12d135fc0a99ad42481a5"
+    },
+    "build/package-source-guard/source-protection.patch": {
+      "bytes": 10549,
+      "sha256": "9732faef760f581e2353f83dc9994d1bc7b38e3ff54507ab87032ed058784c4a"
+    },
+    "build/package-source-guard/final-tree-inputs.json": {
+      "bytes": 8635,
+      "sha256": "6748b0673d9a34c24ee778b7c0e15eb5a189c0c5ff65391d27b7997f6323cd33"
+    },
+    "build/package-source-guard/candidate-before.json": {
+      "bytes": 70027,
+      "sha256": "cad9aa6e143911688be63a51ef36397fc57487e4ea29dddfb78614d43493bb8a"
+    }
+  },
+  "retained_prior_failures": "Prior missing-thumbnail, preparation-race and cold-cache evidence remain unchanged at their original paths/receipts.",
+  "limits": [
+    "No published-head or receiving qualification is asserted.",
+    "No registry acceptance, all-font coverage, per-face source hashes, locked replay, shared-contract acceptance, reviewer-safe package or full issue #21 closure.",
+    "Existing files outside the selected source root are ordinary explicit output destinations unless they alias protected source; this is not a general filesystem backup mechanism."
+  ]
+}

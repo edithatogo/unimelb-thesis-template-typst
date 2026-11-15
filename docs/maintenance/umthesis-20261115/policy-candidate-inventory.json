@@ -1,0 +1,540 @@
+{
+  "schema_version": 1,
+  "base_revision": "3f540359796802a873a9c2ff5392d2cf297c8dc3",
+  "base_tree": "45a8925a75f2fcdcef24552600ca2b6acf7acd30",
+  "status": "local-candidate-qualified-hosted-unexecuted",
+  "files": [
+    {
+      "path": "docs/submission-policy.md",
+      "bytes": 11089,
+      "sha256": "b9a7e4bc73c3d2e1c7942a11b338e422be5e871bfc56625ba7cd40804e7c8853",
+      "git_blob": "048afe96dfe66f72d3da8932af96c6c34418428f"
+    },
+    {
+      "path": "policies/unimelb/2026-11-15/manifest.json",
+      "bytes": 534,
+      "sha256": "ee538a07aa7387fd5af45ae73095a42c1439130534df8ea6aa93bc01189ea37b",
+      "git_blob": "6e57708e260cc9cf253fde046530166fe389ca34"
+    },
+    {
+      "path": "policies/unimelb/2026-11-15/profile.json",
+      "bytes": 1230,
+      "sha256": "0e1b84630a8587411d30d4c71564074315844b966bdb092c5e224698f3ff8b9e",
+      "git_blob": "dbaee0afca9a7d7cea5cbe036d7a7f0e0aa39a02"
+    },
+    {
+      "path": "policies/unimelb/2026-11-15/request.schema.json",
+      "bytes": 25791,
+      "sha256": "a3d6a15c5435a02633ecb2212bc0b69f560cdc11df32dd235c0f0f1589b9f1a0",
+      "git_blob": "00c6a17a161cc04c91f00b4b65188c7112bba427"
+    },
+    {
+      "path": "policies/unimelb/2026-11-15/result.schema.json",
+      "bytes": 7504,
+      "sha256": "5313255d29ac64dacd316920c3fc6a05d05de3385520830bf4009d5cec5c76c6",
+      "git_blob": "688f2b879dc2d57e8b37da782adfa9022614063b"
+    },
+    {
+      "path": "policies/unimelb/2026-11-15/rules.json",
+      "bytes": 7473,
+      "sha256": "e199e02c8a7a47e32b23ea041c5704fd951845e86bcd81a3a69ea228cd6ec8fb",
+      "git_blob": "d08818a41e05e15de90f88911f055ccfbe4815a9"
+    },
+    {
+      "path": "policies/unimelb/2026-11-15/sources.json",
+      "bytes": 3198,
+      "sha256": "cd524d2174975b15b68c743e6530cc05c51bf819eee49c43e9c5eda01a05dbcb",
+      "git_blob": "2a4e03eb7fbd5560b95bfce2967d8e24497f0b88"
+    },
+    {
+      "path": "scripts/submission_policy.py",
+      "bytes": 39737,
+      "sha256": "acdab7bf812b9c03820a2c245a8e957ff699a2c571d239af58a28b3e82f51fab",
+      "git_blob": "341ad2eb9bbd5f722ee16755a87bc492c33ed2f2"
+    },
+    {
+      "path": "tests/maintenance/test_submission_policy.py",
+      "bytes": 28697,
+      "sha256": "e3397f06f74cc7b7201af2d18c015fda214823f03cdc3d22ffb4c132115c8c0c",
+      "git_blob": "9ac5a5cdf70c17363009f55e133b54e4cba45287"
+    },
+    {
+      "path": "tests/policy/LICENSE",
+      "bytes": 200,
+      "sha256": "79908c1c3c3f7c2699e07d141828cda59ca8dfdde3beb47844ff9371b93369e8",
+      "git_blob": "25871a9a34a0b01abea862c61bd4fb687c3bca60"
+    },
+    {
+      "path": "tests/policy/applicability-matrix.json",
+      "bytes": 5650,
+      "sha256": "44b0aad630db7f38e9e35f9fe02011f697780186cf2f89b66b017734c1a45360",
+      "git_blob": "4b691aa27f40f5fbe1051f9f63e6ec53d2deded8"
+    },
+    {
+      "path": "tests/policy/documents/approval.md",
+      "bytes": 135,
+      "sha256": "a8e8d866fecc2e6faeae52d5b8cb703e0c2c36d52d3ef4873b774c5c0262256b",
+      "git_blob": "3b25a5cbbd742689709ff61aac2b384f8523bd5a"
+    },
+    {
+      "path": "tests/policy/documents/assistance-log.md",
+      "bytes": 141,
+      "sha256": "40c0333b240858fdb1c3007bbb7b3dff5ab8b059263123f3d106153a9fbd74f6",
+      "git_blob": "92964bb274ebcd00812dc7d0686ed1c2f072cee7"
+    },
+    {
+      "path": "tests/policy/documents/creative-electronic.md",
+      "bytes": 146,
+      "sha256": "81078c65dd59958e5ae0ce3db3360e0f71a409b75822912b0ad846c9718f159a",
+      "git_blob": "6870012734d72c0d5b592ddaee84b44bc0812070"
+    },
+    {
+      "path": "tests/policy/documents/durable-component.md",
+      "bytes": 144,
+      "sha256": "f3b277a687611dbdb63810cf8d02dfbd960a679c58eefc9c8efd0a9b3288b8b1",
+      "git_blob": "e30d5b8379c476554c4a7c511e1c637b5ccfce5b"
+    },
+    {
+      "path": "tests/policy/documents/handbook.md",
+      "bytes": 135,
+      "sha256": "55028ad7c017f1ab849165b26e5b80c892104cd2fb88e4f38bca5b86bef7e1eb",
+      "git_blob": "d923dfa09ff5317a01b114da52b8bf411f1cd0cb"
+    },
+    {
+      "path": "tests/policy/documents/human-review.md",
+      "bytes": 139,
+      "sha256": "d50388b05fe4b36e2338ae0d9f76f82e8234801833bbdcaba7c128a6cfd03e34",
+      "git_blob": "445ef068cda7512b296bfc9bcee243200de0057d"
+    },
+    {
+      "path": "tests/policy/documents/originality-report.md",
+      "bytes": 145,
+      "sha256": "5f757fcda0d02ac07740c552d1550d9aa6229f4907568f9ff82f006804ea59ae",
+      "git_blob": "e270ce9990b53845df34ef7bf7ebab07d133ff19"
+    },
+    {
+      "path": "tests/policy/documents/publication-form.md",
+      "bytes": 143,
+      "sha256": "6773ff6227173f62802c3f17caa066323f133b32996a4046c42f8237430b5e6f",
+      "git_blob": "cf8c01b000f1fe9421ed64ec2c6674a35e1857a8"
+    },
+    {
+      "path": "tests/policy/documents/publication-forms-bundle.md",
+      "bytes": 151,
+      "sha256": "6a512bdf0e2775550ea974b6b7c783eb828d5445efd51688f5d6708ca61ee24a",
+      "git_blob": "021a4407d60de39aba6c7a22c849bf59f029ca9e"
+    },
+    {
+      "path": "tests/policy/documents/rights-record.md",
+      "bytes": 140,
+      "sha256": "eca5c4eaba70cc5f790dd1d520270ecc8d2c7b20b46509fba937cda7c1dbcbc2",
+      "git_blob": "60eeb1da40651c1b2f6434f43ade8ac24f4185d0"
+    },
+    {
+      "path": "tests/policy/fixtures/above-advisory-target.json",
+      "bytes": 1835,
+      "sha256": "ac3cd878950d18fdcef9b2f00460d54815d232e05619f2157629e6c2746ce51d",
+      "git_blob": "47879673a7fa2e75bf0d8a85ec4234ad6a821dec"
+    },
+    {
+      "path": "tests/policy/fixtures/ai-assistance.json",
+      "bytes": 3743,
+      "sha256": "f6155cb99a44564ff07564f235fc12d19428f3520e4f864de735df5d3e3c6ef6",
+      "git_blob": "e2cdd0b6ba4c0a8f0bd19ca4a84de9982771e471"
+    },
+    {
+      "path": "tests/policy/fixtures/ai-authorship-claim.json",
+      "bytes": 3759,
+      "sha256": "3475b6bd7a3bfa1b637b929a871e72d2b0f65cc3b858e67d0846c3de55d5b41e",
+      "git_blob": "aad289af78e65a6b32bd8cdf085d2af98adb1c43"
+    },
+    {
+      "path": "tests/policy/fixtures/ai-authorship-declaration-missing.json",
+      "bytes": 3732,
+      "sha256": "bf28604ba2c1be234e96d4181389c02b74ab9fa119d941a3b5ceb426ddf7b2f9",
+      "git_blob": "513fe7134b0735eae3e3ce1761b69b97614c38cc"
+    },
+    {
+      "path": "tests/policy/fixtures/approved-word-exception.json",
+      "bytes": 2681,
+      "sha256": "4c648a595ed2421c627683a2ecd926cca217729cf1d6eb2f5d79cb38f34273ab",
+      "git_blob": "d7cf35c215c5afcfd35aff9d51a65ebcbf1c7ad5"
+    },
+    {
+      "path": "tests/policy/fixtures/chair-final-record-missing.json",
+      "bytes": 4418,
+      "sha256": "6f9ce00907e919698ed91700144d42b18c5a74732ea363f9155474d37cbdb1ce",
+      "git_blob": "08ea4f1c40630d5a59919a1ef9873196c55e039d"
+    },
+    {
+      "path": "tests/policy/fixtures/combined-forms-missing.json",
+      "bytes": 5924,
+      "sha256": "4fddf533015bf7433ec3eb2432f010b5ef4842b2a2b5624c9e9559b28428a840",
+      "git_blob": "c4d65f830b17397edaf8ff1ac4512baa6f2db010"
+    },
+    {
+      "path": "tests/policy/fixtures/count-adjustment.json",
+      "bytes": 2790,
+      "sha256": "6e9d2caaaa65d71d877087a93293628bd6c1c745753b3f674b4cd19d23f7368b",
+      "git_blob": "bc24e9932b22342fc73f9421a4b5d9259d37512f"
+    },
+    {
+      "path": "tests/policy/fixtures/count-missing.json",
+      "bytes": 1373,
+      "sha256": "2cd22b20bed6480c1732d86648f088120a4927a3b1d7f95bf912fc0104e886bf",
+      "git_blob": "b31760966ab84b9f3dada8d02a72b6453b2bd19c"
+    },
+    {
+      "path": "tests/policy/fixtures/course-override.json",
+      "bytes": 2359,
+      "sha256": "72bc2d03095936e2f9bae5d860310303257b5182075526e7a9f03d0cdd345981",
+      "git_blob": "80a721330ba74cfdcdce6fbd16867b6fdf22a53f"
+    },
+    {
+      "path": "tests/policy/fixtures/course-scope-mismatch.json",
+      "bytes": 2433,
+      "sha256": "eb0c78679835fc4c9b8de19e9a6e1cb1e50576f0ea894a627f05b936096c94a6",
+      "git_blob": "2c25edc727ce5675cd3bad6d64e4e2e6f9c361f8"
+    },
+    {
+      "path": "tests/policy/fixtures/course-source-missing.json",
+      "bytes": 2120,
+      "sha256": "5fd15921864272932dff6c374ea88ac51d437005976f6b83d7d865e2aef4e6bb",
+      "git_blob": "995638bd1a289c62a4b113d4ca95a25c580fee93"
+    },
+    {
+      "path": "tests/policy/fixtures/creative-agreed.json",
+      "bytes": 3513,
+      "sha256": "20e1b37e145244c0eb6b95ebb2729f1860d73d8bfa694e1932f237323d267c86",
+      "git_blob": "1325c9da2e20fd4324f8b0ebc9515c837ee49ef4"
+    },
+    {
+      "path": "tests/policy/fixtures/creative-component-missing.json",
+      "bytes": 3496,
+      "sha256": "5058a6b92ba17d89123801b4b5d4ca0229db062e0b6bfcd4bdee46291ee82f5d",
+      "git_blob": "d8873fd542d354b6429c22d0b5132b8ab729a32f"
+    },
+    {
+      "path": "tests/policy/fixtures/creative-durable-deposit.json",
+      "bytes": 6255,
+      "sha256": "85e5693fad30b4b4d098fc467b20cc75b4636bc62cf5332ff03e02c85c4ed58b",
+      "git_blob": "202192e05bce8b903fdc2bcfe08473ae5a292732"
+    },
+    {
+      "path": "tests/policy/fixtures/creative-durable-missing.json",
+      "bytes": 6164,
+      "sha256": "e5a169977d5df91faf0b8d86efe28126a6e660e31dc186058d3e5220e1c89618",
+      "git_blob": "4df44959703ae7ef6f3a7472d826bc012e532b34"
+    },
+    {
+      "path": "tests/policy/fixtures/creative-percentages-invalid.json",
+      "bytes": 3510,
+      "sha256": "6f1f9feda312d2f6a545df3c97edea7e713f3b72aea936dcc1c9b7a1a9cc3421",
+      "git_blob": "5d7b44fadd604b09a0fbbd29e01d748074b9609d"
+    },
+    {
+      "path": "tests/policy/fixtures/digital-assistance.json",
+      "bytes": 3721,
+      "sha256": "763d0c8e7ee237f1393011c65195e0eb5327226bb5b1e1e894321b88fbc2821b",
+      "git_blob": "6584cd0b4bf194e398be6276b7a3a7146b6bbed2"
+    },
+    {
+      "path": "tests/policy/fixtures/digital-private-log-missing.json",
+      "bytes": 3751,
+      "sha256": "8eec4a9de0e95c92ee06c8822e4fee11e4b9ca321234e30d6c9f6bdf22ce357a",
+      "git_blob": "48840f6fc7fca82afee218f0321bdff228c2feef"
+    },
+    {
+      "path": "tests/policy/fixtures/draft-baseline.json",
+      "bytes": 2929,
+      "sha256": "7d90d08a1f41570fa48531062d81bbfebd2c63ebae38abfd0e624cbc7c942cd2",
+      "git_blob": "3e6df32ad7e292028c0b4d401944d63219547528"
+    },
+    {
+      "path": "tests/policy/fixtures/english-summary-missing.json",
+      "bytes": 2742,
+      "sha256": "c9df30b1ef15c36146dcb415f8432425671bffb5a14d423eaed165bcdfa47ac6",
+      "git_blob": "28850b03428bf9fa7d8aefd5ccf4864742719bac"
+    },
+    {
+      "path": "tests/policy/fixtures/english-thesis-chinese-labels.json",
+      "bytes": 1884,
+      "sha256": "0b9b9b93ff9b92651c3364d15710ad840f7a9965eee8334f479bb04a50dcd039",
+      "git_blob": "a07dd51a732fbf5c4c17fc4eb9f0abac481c2f52"
+    },
+    {
+      "path": "tests/policy/fixtures/examination-records.json",
+      "bytes": 3319,
+      "sha256": "e9df9acb84320928d7c36da3959a5c241c26c3787d90a711f958acf96f7aedef",
+      "git_blob": "7e4e4ec472b371ea71e9c1d3cab10662836de236"
+    },
+    {
+      "path": "tests/policy/fixtures/exclusive-partition-invalid.json",
+      "bytes": 4342,
+      "sha256": "f03e9226fd6a74cb202fa8acf8863b09648639af0cd52e10b6c0b7d7842d452f",
+      "git_blob": "9fe591644b8e01843e577610fb2b6b2b8cce1927"
+    },
+    {
+      "path": "tests/policy/fixtures/exclusive-partition.json",
+      "bytes": 4309,
+      "sha256": "4c43a7cf4d2696d3da2f31af54b71dd571dbea63182100b9cfd76a7807fc0707",
+      "git_blob": "0da658bbded073f22f8b1c6fabcf1dcb0023df22"
+    },
+    {
+      "path": "tests/policy/fixtures/figure-only-form-exception.json",
+      "bytes": 3610,
+      "sha256": "e61ff36d1b7db03c8700082b33b8ed55564ee06703e5eba4c5e3bd3312a2ad01",
+      "git_blob": "ccae99ac2577bcfa0af2fd83fabc596fcf5d4ecf"
+    },
+    {
+      "path": "tests/policy/fixtures/final-corrections-missing.json",
+      "bytes": 4426,
+      "sha256": "433016c931352a38cc7aa366688917a86f74ce05a4e9ce64d0a32df2708d7782",
+      "git_blob": "3e1e908f22385f03e39144e2b08f886993016c3c"
+    },
+    {
+      "path": "tests/policy/fixtures/final-deposit-records.json",
+      "bytes": 4477,
+      "sha256": "72e96dc56a532dfb621d7a88e97cc3b46d6cd4c055087d88dc5aa67833809d87",
+      "git_blob": "1de7f2d079e8eba1df6db2cce42430b2d4bcdc78"
+    },
+    {
+      "path": "tests/policy/fixtures/funding-applicability-unknown.json",
+      "bytes": 1728,
+      "sha256": "1655cebc49f1199047c4a6a463bbf993a59fef003ba2d2c70688c0b3d6302f8b",
+      "git_blob": "72241ad9f6fa8de1c77c967109dc7723f3805d4c"
+    },
+    {
+      "path": "tests/policy/fixtures/funding-grant-missing.json",
+      "bytes": 2013,
+      "sha256": "29d070eba71c3ac33166ac060de97d55436b34bd96809b0770ae769a9f7ebdab",
+      "git_blob": "f077e60cc9ba8df7b5347ce00e8a2c82e0d679ca"
+    },
+    {
+      "path": "tests/policy/fixtures/funding-grant.json",
+      "bytes": 2052,
+      "sha256": "987e96af7f4a04fd1d10d90f995d4e139ae3198bb900a9ded930e254b76d9c67",
+      "git_blob": "db9101be8d7abce03a2d7d38391608dc9caf9eb5"
+    },
+    {
+      "path": "tests/policy/fixtures/human-assistance-detail-missing.json",
+      "bytes": 2031,
+      "sha256": "22bb3780eab7a214cd98d9e0d5828e57d07177a98d4a9f0c77047f7676fb9461",
+      "git_blob": "bff8e00e5d0a0dda8f73e609b7968357ce8b7d3c"
+    },
+    {
+      "path": "tests/policy/fixtures/human-assistance.json",
+      "bytes": 2495,
+      "sha256": "8b66953ca74dc845cb947721b193acd03abc5926731188189f1c74f29a21ac34",
+      "git_blob": "8633f9f4c5ca9e40e807884ca0be9070cb246b76"
+    },
+    {
+      "path": "tests/policy/fixtures/included-material-filter-invalid.json",
+      "bytes": 5964,
+      "sha256": "4ff2b18c48e83cf3ddb6dc51877ffddb9d2cea1274564da303f18ab5fe446adf",
+      "git_blob": "fa073c8e7f8f06b767d4a48dabeebf87f5dac158"
+    },
+    {
+      "path": "tests/policy/fixtures/incorporated-global-bibliography.json",
+      "bytes": 4091,
+      "sha256": "49dd1610f07863d8e8fa6fe63655862d8bbd8f89538330b1eaf685f52ee883c2",
+      "git_blob": "8ef5b03ee863375927a83a5257530b1d9d152968"
+    },
+    {
+      "path": "tests/policy/fixtures/language-approval-missing.json",
+      "bytes": 27195,
+      "sha256": "40fde8712cf01afc8e297aadd6b057484a7eeca09c41174bb006e08aabbe399c",
+      "git_blob": "4e2e920323dbf8e329c3ca3419a496c64e93e5d1"
+    },
+    {
+      "path": "tests/policy/fixtures/literature-update-missing.json",
+      "bytes": 4122,
+      "sha256": "a1d30d3a230fec5d75d7ec33a87b7fa701ac1419d9b9a3900f6479a2e3089dab",
+      "git_blob": "f37f2f5ed17ae1fef48002f0544b0740b5571cb3"
+    },
+    {
+      "path": "tests/policy/fixtures/literature-update.json",
+      "bytes": 4114,
+      "sha256": "6791616c91971a7b9c7fef1f85a69c17f6e1b333facf1482e5805518b13f2828",
+      "git_blob": "ad38b535832edce0d934e3745ab0914f03eecdf2"
+    },
+    {
+      "path": "tests/policy/fixtures/nonenglish-doctoral.json",
+      "bytes": 27713,
+      "sha256": "c54d7935c3d8da2a48a0c68591b1498e620619d99f511437c4cdb4b4fd41f0b2",
+      "git_blob": "329e3290bb6361b3a68762c771237d762a28a420"
+    },
+    {
+      "path": "tests/policy/fixtures/nonenglish-masters.json",
+      "bytes": 15225,
+      "sha256": "8120a21eeeceb161fc96bb61b7689346a5fff96b07606a8f3b67c7a3df028fcb",
+      "git_blob": "c89dc648b4e6fd4b3124e7dd2c5fc4133f5e7e42"
+    },
+    {
+      "path": "tests/policy/fixtures/originality-filter-explanation-missing.json",
+      "bytes": 5904,
+      "sha256": "36e2ce20a804da5cbb3de9950c61a8490330318161c90ae4cee9aa4033a919d5",
+      "git_blob": "ada83ff67500032b33d5735b2556fd0a246bc093"
+    },
+    {
+      "path": "tests/policy/fixtures/originality-record-missing.json",
+      "bytes": 3044,
+      "sha256": "be0c8d2b2e7ad722d23b18ea22b0e55ee4acb09481d3b73be2b09afec56b07de",
+      "git_blob": "0f2a0d7d9b62f3657d852348bea87e122c1debcf"
+    },
+    {
+      "path": "tests/policy/fixtures/other-editor-substance-change.json",
+      "bytes": 2516,
+      "sha256": "2c455ddca476fdb89cb46bae474ff6595e3e3439dc61b4752baf88c7cc960a59",
+      "git_blob": "df9ad3ea4d88eb5512d7f95c100c956b78692361"
+    },
+    {
+      "path": "tests/policy/fixtures/other-qualification-work.json",
+      "bytes": 2123,
+      "sha256": "82bb170933a1779a2511eb8ee2fcb53200fc0a978dfdf405e125ada2405fd8d8",
+      "git_blob": "d0c3ca85fd99e9853cf98016c5afd2b41710a2bb"
+    },
+    {
+      "path": "tests/policy/fixtures/prior-enrolment-work.json",
+      "bytes": 2119,
+      "sha256": "e533c506a563bcf4dbee84154cd8df768a28a60ec22c73f9addfe42a72459750",
+      "git_blob": "8b048992f0554775d6aa9398eebfbfa700ee4736"
+    },
+    {
+      "path": "tests/policy/fixtures/prior-work-classification-missing.json",
+      "bytes": 2030,
+      "sha256": "e3d820c5c26be0ad5c858c7058bfc0ea3fb619c30e38a0d8cf902800bbcbe748",
+      "git_blob": "fcea65fe3cfc69c8109848f8e86aeacac4b86850"
+    },
+    {
+      "path": "tests/policy/fixtures/publication-coauthored.json",
+      "bytes": 4159,
+      "sha256": "0666e34b342850d29f3a0877aaadd9a590cfacda33794d3e42e85be5fa23bf34",
+      "git_blob": "080d29a246c863499e9e32bf7af909c36be8d4b1"
+    },
+    {
+      "path": "tests/policy/fixtures/publication-form-missing.json",
+      "bytes": 4041,
+      "sha256": "bc0bf63a0407cd28e8c632774f1c55e5a30c02c6a847a8b7a96dbd5521336c55",
+      "git_blob": "463f2f163ac882948530f01a9d8fbd2c9a89318f"
+    },
+    {
+      "path": "tests/policy/fixtures/publication-in-revision.json",
+      "bytes": 4091,
+      "sha256": "be9c46c0e6be8d7db66fffa43e695489121a8a215202bc2f2f35711f76d14080",
+      "git_blob": "0a23d6bbd0eb9d84626d38feefcfde8927bcdaa0"
+    },
+    {
+      "path": "tests/policy/fixtures/publication-rights-ref-missing.json",
+      "bytes": 4063,
+      "sha256": "d2de8a74f0ac6f2ee06130c9dc8fc011a18feab0685f7a094393ee6d3f458771",
+      "git_blob": "ddde44fabed038c2170ba08c815445d4622351e2"
+    },
+    {
+      "path": "tests/policy/fixtures/publication-rights-scoped.json",
+      "bytes": 4915,
+      "sha256": "f610dbcc9a7c6319332ef0a6268e11f5f40240f8b3f5146051bb652c00b8d9d4",
+      "git_blob": "dfb00b418d6ebff1c582656565a0120a4f9f7853"
+    },
+    {
+      "path": "tests/policy/fixtures/publication-rights-wrong-scope.json",
+      "bytes": 4957,
+      "sha256": "9b08a0d4a5d3b55950679a04cd1214b04566cc1e1cbd28d70cc710d293c1535b",
+      "git_blob": "7865c2506f1215678de9c17544dab67411af47a7"
+    },
+    {
+      "path": "tests/policy/fixtures/publication-submission-records.json",
+      "bytes": 5997,
+      "sha256": "bd55f3664796d8f659a058e7fa7d005ee46c670ec6f54e41f0aaf3ce2315d421",
+      "git_blob": "c97a1c0b128430a0f0e7ea6cf6dd842e76477727"
+    },
+    {
+      "path": "tests/policy/fixtures/publication-venue-missing.json",
+      "bytes": 4015,
+      "sha256": "7d7d2e23852ff5ab5a4714bd09f7909f09a7f4a66aaf688e592c71ff0003e1c3",
+      "git_blob": "6dde9faaa26c0a6cd07b681bb28beace5e2100bd"
+    },
+    {
+      "path": "tests/policy/fixtures/rtp-acknowledgement-missing.json",
+      "bytes": 2044,
+      "sha256": "f2cac46356aba676f55db7736c47d67aa600424e938f33db060402a2d550b207",
+      "git_blob": "9f7de7d92e0547a306ee030d3145ed4eefb3562b"
+    },
+    {
+      "path": "tests/policy/fixtures/rtp-fee-offset.json",
+      "bytes": 2101,
+      "sha256": "62d75ed791b9c82ea9445e3a74bdcfee684114294b5d906496edcf6f628003ac",
+      "git_blob": "e5366a9c9954eb3fade0fb4d95c07f8dd14d455b"
+    },
+    {
+      "path": "tests/policy/fixtures/summary-too-short.json",
+      "bytes": 27698,
+      "sha256": "88e339e824f67b1df40e354a6d7ee7844c9e6f0684d564be049cf91f7ef60860",
+      "git_blob": "0c235d1d3af518ff8d6541229b46b4eaa949d29a"
+    },
+    {
+      "path": "tests/policy/fixtures/supervisor-editing-boundary.json",
+      "bytes": 2492,
+      "sha256": "264be6411b6eb4899c2744e51b955370a7c893423f56a8a47552046595cc3b76",
+      "git_blob": "91cd20c5c9744f354fd8d46f3092fe546942ac39"
+    },
+    {
+      "path": "tests/policy/fixtures/supervisor-record-missing.json",
+      "bytes": 3216,
+      "sha256": "cd3c23992b6c3e4fc2bd47e5f10965828d53db67b92fdf5e51d3f87bef13109d",
+      "git_blob": "4cb9c5d93ff025f6c4b29f14ad67cd1cafe8c03f"
+    },
+    {
+      "path": "tests/policy/fixtures/supervisor-stale-pdf.json",
+      "bytes": 3316,
+      "sha256": "6b49e9b24ca09c0e0575df61690c203f80202c12053f408fbf604f873b1ef39a",
+      "git_blob": "45c905857cbb20e41be36a4b672a157567a9bc8b"
+    },
+    {
+      "path": "tests/policy/fixtures/unapproved-count-adjustment.json",
+      "bytes": 2307,
+      "sha256": "dba0fc7ec0464081cde7c1ae7fb9fdfa87ed01a104b7143453e461851604b9df",
+      "git_blob": "6ed844efb945917cbade4566468fcef68ea51f4e"
+    },
+    {
+      "path": "tests/policy/fixtures/unapproved-word-exception.json",
+      "bytes": 2700,
+      "sha256": "d2c47c9983d5ada02417ed6e66f5a201f5f197d52fbf83779458ea42a570348f",
+      "git_blob": "cd55b1fc55223e489cd043ac3dbec3db6f92f68d"
+    },
+    {
+      "path": "tests/policy/fixtures/word-exception-ref-missing.json",
+      "bytes": 1850,
+      "sha256": "7ca85a25990a5ccd534cfe35381e31d15039e1fdef13c7c4cce992371a1eddaf",
+      "git_blob": "040d8dab7cbdbc0c225bf3255e7cf56649e4933c"
+    },
+    {
+      "path": "tests/policy/fixtures/written-component-inventory-multiple.json",
+      "bytes": 3307,
+      "sha256": "c41e330ac2bfe2af8d2c75f65034d88f78b8334f59f39d43d0f4771c7c9d6f7c",
+      "git_blob": "96c813451e0b65ec13af27152e0b65fc07b2ccd2"
+    },
+    {
+      "path": "tests/policy/manifest.json",
+      "bytes": 12565,
+      "sha256": "761ee2e188a603dd71514eaf68f57be48fc3ade5db9fc2d46934a492ea1926a8",
+      "git_blob": "a09d5b62e68f26db86876ea833f390989e27668c"
+    },
+    {
+      "path": "tests/policy/specimen.typ",
+      "bytes": 213,
+      "sha256": "14883c694495ca77ee8f45ac4d7d3f48e8656bf47f13a74e3ab131f12679981a",
+      "git_blob": "65c06d9d1045a3b0c25f10d13774a1a45f8e3945"
+    },
+    {
+      "path": "tests/policy/verify.py",
+      "bytes": 9760,
+      "sha256": "3c7a09e8a05f3fbfdd7cb68ebda9fb7f8df2652d22b13f484efdea107817782b",
+      "git_blob": "4a4f5a00baf1f1be7b577dc05aeb41eacad9824b"
+    }
+  ],
+  "candidate_tree": "209b50070a0802969142220fd66c66a183406921",
+  "local_proof_sha256": "f7ec5b4d45891b5d4a333425a6806e0b0a0b49dd742ec4156afd2d2a68f5beff",
+  "source_paths_unchanged": 593,
+  "submission_approved": false
+}

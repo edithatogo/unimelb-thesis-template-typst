@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-11-15T03:02:08.327300+00:00",
+  "revision": "e4b84dde79ecadc4fc5a3024f8da19ecbe0d3e18",
+  "tree": "1f405eab1ade3d2d4501baf2cc8d59a37ecdf88d",
+  "clean_before_and_after": true,
+  "all_519_source_hashes_unchanged": true,
+  "command": [
+    "make",
+    "verify",
+    "PYTHON=/tmp/typst-validation315/bin/python"
+  ],
+  "exit_code": 0,
+  "formatter": {
+    "tracked_typst_files": 94,
+    "exit_code": 0,
+    "stdout_empty": true,
+    "stderr_empty": true
+  },
+  "python": "3.15.1",
+  "compiler": "typst 0.15.1 (9dfd3a08)",
+  "corpus_cases": 209,
+  "unit_counts": [
+    [
+      "10",
+      "0.073"
+    ],
+    [
+      "127",
+      "6.167"
+    ],
+    [
+      "124",
+      "7.285"
+    ]
+  ],
+  "property_cases": 640,
+  "thesis_pages": 58,
+  "sample_pages": 7,
+  "report_sha256": "715862d51a63a39ff73659d6097ea724d1e43343ec56c6a86a0d3b83ac6d6e7d",
+  "log_sha256": "f743da9c6ce4b64f4ee4cd2bd1f7e638f7fa83dd2757ebcdd5229e5c564c96ac",
+  "pdf_phase_started_at_utc": "2026-11-15T02:57:54.278495+00:00",
+  "pdf_phase_finished_at_utc": "2026-11-15T02:58:30.444953+00:00",
+  "source_before_sha256": "68f31e44e35a4370897f39c0c1356fa33f388e3f491627d830a33f7d28e4a435",
+  "qualification": "Actual local exact clean published source; hosted and receiving results remain separate."
+}
