@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "scope": "Locally executed staged replay integration; hosted source and receiving proof outstanding",
+  "started_at_aest": "2026-11-15T13:46:08.813275+10:00",
+  "base_revision": "6d2654d477232fa8ddc5cd398357411114039b5d",
+  "candidate_tree": "cf8bf4f6a42104f526101d26b8ea72243e7e315d",
+  "commands": [
+    {
+      "name": "format",
+      "command": [
+        "/workspace/scratch/9c5315d95216/tools/typstyle",
+        "--check",
+        "README.typ",
+        "adapters/typst/v1/document.typ",
+        "adapters/typst/v1/entry.typ",
+        "assets/colors/unimelb-colors.typ",
+        "config/abbreviations.typ",
+        "config/appendix.typ",
+        "config/contributions.typ",
+        "config/glossary.typ",
+        "config/index.typ",
+        "config/metadata.typ",
+        "config/optional.typ",
+        "config/options.typ",
+        "config/publications.typ",
+        "config/review.typ",
+        "docs/source-material/modern-uit-thesis-template.typ",
+        "endmatter/appendix-a.typ",
+        "endmatter/appendix-b.typ",
+        "endmatter/bibliography.typ",
+        "endmatter/glossary.typ",
+        "endmatter/index.typ",
+        "endmatter/optional-glossary.typ",
+        "endmatter/optional-index.typ",
+        "example-config.typ",
+        "example-run.typ",
+        "examples/basic.typ",
+        "examples/chapters/chapter1-introduction.typ",
+        "examples/chapters/chapter2-literature.typ",
+        "examples/chapters/chapter3-methods.typ",
+        "examples/run-basic.typ",
+        "examples/samples/sample-ai-disclosure.typ",
+        "examples/samples/sample-creative-outputs.typ",
+        "examples/samples/sample-publications.typ",
+        "examples/samples/sample-qa-checklist.typ",
+        "frontmatter/authorship.typ",
+        "frontmatter/dedication.typ",
+        "frontmatter/preface.typ",
+        "layouts/document.typ",
+        "lib.typ",
+        "pages/abstract.typ",
+        "pages/acknowledgements.typ",
+        "pages/appendix.typ",
+        "pages/declaration.typ",
+        "pages/front-matter.typ",
+        "pages/funding.typ",
+        "pages/glossary.typ",
+        "pages/landscape-sample.typ",
+        "pages/preface-helpers.typ",
+        "pages/preface.typ",
+        "pages/title.typ",
+        "sample-chapter.typ",
+        "sample-config-with-features.typ",
+        "template/chapters/introduction.typ",
+        "template/main.typ",
+        "tests/contract-adapter/body.typ",
+        "tests/policy/specimen.typ",
+        "tests/rendered/cor01/appendix-links.typ",
+        "tests/rendered/cor01/contributions.typ",
+        "tests/rendered/cor01/declaration.typ",
+        "tests/rendered/cor01/footnotes.typ",
+        "tests/rendered/cor01/publications.typ",
+        "tests/rendered/cor02/appendix-layout.typ",
+        "tests/rendered/cor02/appendix-pages.typ",
+        "tests/rendered/cor02/navigation.typ",
+        "tests/rendered/cor03/bibliography-style.typ",
+        "tests/rendered/cor03/direct-layout.typ",
+        "tests/rendered/cor03/native-paths.typ",
+        "tests/rendered/cor03/style-control.typ",
+        "tests/rendered/cor03/thesis-config.typ",
+        "tests/rendered/cor03/thesis-logo.typ",
+        "tests/rendered/cor03/title-config.typ",
+        "tests/rendered/cor04/authored-surfaces.typ",
+        "tests/rendered/cor04/index-surfaces.typ",
+        "tests/rendered/cor04/structured-fields.typ",
+        "tests/rendered/cor05/compat-preface.typ",
+        "tests/rendered/cor05/optional-sections.typ",
+        "tests/rendered/images/image.typ",
+        "tests/rendered/layout-order/custom-bibliography.typ",
+        "tests/rendered/layout-order/direct-appendix.typ",
+        "tests/rendered/layout-order/thesis.typ",
+        "tests/rendered/native/bad.typ",
+        "tests/rendered/native/document.typ",
+        "tests/rendered/native/part.typ",
+        "tests/rendered/terms/abbreviations.typ",
+        "tests/rendered/terms/edge-cases.typ",
+        "tests/rendered/terms/glossary.typ",
+        "tests/rendered/terms/index.typ",
+        "tests/rendered/terms/pages.typ",
+        "tests/rendered/terms/thesis-index.typ",
+        "tests/replay/document.typ",
+        "thesis.typ",
+        "thumbnail.typ",
+        "utils/fonts.typ",
+        "utils/locales.typ",
+        "utils/locales/en.typ",
+        "utils/locales/zh.typ",
+        "utils/style.typ"
+      ],
+      "returncode": 0,
+      "seconds": 0.03192360200046096,
+      "log": "/tmp/typst-replay-integrated-proof/format.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "actionlint",
+      "command": [
+        "/workspace/scratch/9c5315d95216/tools/actionlint",
+        "-no-color"
+      ],
+      "returncode": 0,
+      "seconds": 0.00763485899369698,
+      "log": "/tmp/typst-replay-integrated-proof/actionlint.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "verify",
+      "command": [
+        "make",
+        "verify",
+        "PYTHON=/tmp/typst-validation315/bin/python",
+        "VERIFY_ARGS=--replay-package-cache /tmp/typst-validation-package-cache"
+      ],
+      "returncode": 0,
+      "seconds": 79.75361721399531,
+      "log": "/tmp/typst-replay-integrated-proof/verify.log",
+      "log_sha256": "b9e9b1c0d0861dd94fc6a9b43019779d74cf1b5e4db85cf0dd1885309290ea10"
+    },
+    {
+      "name": "coverage",
+      "command": [
+        "make",
+        "coverage",
+        "PYTHON=/tmp/typst-validation315/bin/python"
+      ],
+      "returncode": 0,
+      "seconds": 25.015987584993127,
+      "log": "/tmp/typst-replay-integrated-proof/coverage.log",
+      "log_sha256": "3fa4f560619366ad0e9167f88b17f38bad7eae143aa3e5fc121935e8da1c4c7d"
+    }
+  ],
+  "passed": true,
+  "source_hashes_unchanged": true,
+  "source_file_count": 617,
+  "format_files": 96,
+  "finished_at_aest": "2026-11-15T13:47:53.714229+10:00",
+  "native_report": {
+    "path": "/tmp/typst-replay-integrated/build/verification/report.json",
+    "sha256": "4d0e820de471328a375651cd11e266c35d1ee98f5f9dec99c991ecf858d99923"
+  },
+  "policy_report": {
+    "path": "/tmp/typst-replay-integrated/build/verification/submission-policy/report.json",
+    "sha256": "a3cc67e4e0964fb2de123129c71fd1022de1d23153b9588bd5d81719a2a7157c"
+  },
+  "coverage_report": {
+    "path": "/tmp/typst-replay-integrated/build/coverage.json",
+    "sha256": "964a8a99aeb87972a0c69f88a5db8f36497f1be658ee9d98362801dbb17722d3"
+  },
+  "replay_corpus": {
+    "byte_replay_qualified": true,
+    "case_count": 11,
+    "complete_environment_image_locked": false,
+    "release_bundle_qualified": false,
+    "result": "pass",
+    "scope": "One synthetic input closure in the observed Linux environment",
+    "sidecar": "/tmp/typst-replay-integrated/build/verification/replay-20261115T034715.873161Z/report.json",
+    "sidecar_sha256": "40d81fb66aa6c4d095bd2643048e72a83b7b2a0f09f6a792cdec949a48588ed1"
+  },
+  "coverage": {
+    "covered_lines": 2150,
+    "num_statements": 2323,
+    "percent_covered": 91.47472330242297,
+    "percent_covered_display": "91.47",
+    "missing_lines": 173,
+    "excluded_lines": 0,
+    "percent_statements_covered": 92.55273353422298,
+    "percent_statements_covered_display": "92.55",
+    "num_branches": 1020,
+    "num_partial_branches": 80,
+    "covered_branches": 908,
+    "missing_branches": 112,
+    "percent_branches_covered": 89.01960784313725,
+    "percent_branches_covered_display": "89.02"
+  },
+  "documents": [
+    {
+      "bytes": 456203,
+      "commands": [
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "typst",
+            "compile",
+            "--root",
+            ".",
+            "thesis.typ",
+            "/tmp/typst-replay-integrated/build/verification/thesis.pdf"
+          ],
+          "cwd": "/tmp/typst-replay-integrated",
+          "duration_seconds": 0.7111687940050615,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/thesis-compile.log",
+          "log_sha256": "8ef306a4fb0831b38695a712896b72ae7d2d728c7af7de1e87039fdd56103e32",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "2ed94f1f607272161dc06222374ee06ef27fd927dc295ea3aa396ebfdf74ba79",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "qpdf",
+            "--check",
+            "/tmp/typst-replay-integrated/build/verification/thesis.pdf"
+          ],
+          "cwd": "/tmp/typst-replay-integrated",
+          "duration_seconds": 0.04675776000658516,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/thesis-qpdf.log",
+          "log_sha256": "8cc95cd5e012cf6123184690916d1b8a878f306efe3fd37099f5757cc1f59796",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "d775a138615a734141f80563b25a29404faef086b7cd7983314d30efa955c1b6",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "pdfinfo",
+            "/tmp/typst-replay-integrated/build/verification/thesis.pdf"
+          ],
+          "cwd": "/tmp/typst-replay-integrated",
+          "duration_seconds": 0.010812580003403127,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/thesis-pdfinfo.log",
+          "log_sha256": "6e50320ac07f1f2f2346921f3321f9724be33bf85e9c99d6e0d5d53c42138c3f",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "797f2f59be75de6071d15f1f852c26a3734504df7b832fba5bfb62fc221761ef",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "pdftotext",
+            "-layout",
+            "/tmp/typst-replay-integrated/build/verification/thesis.pdf",
+            "-"
+          ],
+          "cwd": "/tmp/typst-replay-integrated",
+          "duration_seconds": 0.07468910899478942,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/thesis-pdftotext.log",
+          "log_sha256": "c32dabf40953182e196cb1f41e77e0d1394fc35e5c86aaae056d8bb76ae6e1a3",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "41d15c3ca2f541f7d6bad22bea8daa197c1b83ea0f307a4cd49d7ef719b4ac4e",
+          "timed_out": false,
+          "timeout_seconds": 60
+        }
+      ],
+      "pages": 58,
+      "pdf": "build/verification/thesis.pdf",
+      "pdf_sha256": "d52c32c94d3f2cf23bf454333af2fcde3267d407b56f5e885b2b537ba76bbd86",
+      "result": "pass",
+      "source": "thesis.typ",
+      "source_sha256": "487733b80612fafeecabc4681fb8d6b9e5baee588c5a15dbccd1d695bfeb31fa",
+      "text": "build/verification/thesis.txt",
+      "text_sha256": "41d15c3ca2f541f7d6bad22bea8daa197c1b83ea0f307a4cd49d7ef719b4ac4e"
+    },
+    {
+      "bytes": 158208,
+      "commands": [
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "typst",
+            "compile",
+            "--root",
+            ".",
+            "sample-chapter.typ",
+            "/tmp/typst-replay-integrated/build/verification/sample-chapter.pdf"
+          ],
+          "cwd": "/tmp/typst-replay-integrated",
+          "duration_seconds": 0.27639306099445093,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/sample-chapter-compile.log",
+          "log_sha256": "0b6d0d77f2c0aeaa9ddd393d8916a02f6de6fe4d97ea9e8459ef0c7408af1bc3",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "3e256f47dec046d918f17ca6c18180c3ccd00269cccf3655c456910eec4b7d1e",
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "qpdf",
+            "--check",
+            "/tmp/typst-replay-integrated/build/verification/sample-chapter.pdf"
+          ],
+          "cwd": "/tmp/typst-replay-integrated",
+          "duration_seconds": 0.012810244006686844,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/sample-chapter-qpdf.log",
+          "log_sha256": "d3332315ebac45fc990f62dd064862bca19568e649fe6ff2600093afb103bda3",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "f5f6961e1d47ac5c355de75b3c54ec4bbd0f65c8d38db4cb8a8403f50a09c032",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "pdfinfo",
+            "/tmp/typst-replay-integrated/build/verification/sample-chapter.pdf"
+          ],
+          "cwd": "/tmp/typst-replay-integrated",
+          "duration_seconds": 0.01101478299824521,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/sample-chapter-pdfinfo.log",
+          "log_sha256": "5cb58eeaaab9e0950f991469afefc1999898d59d5c30cf43ed393f08c1af7d65",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "9ec0d76bbbba2d5668409f03c11b319260820288d68b1301cb58d7784925ecb5",
+          "timed_out": false,
+          "timeout_seconds": 60
+        },
+        {
+          "cleanup_timeout_seconds": 5,
+          "command": [
+            "pdftotext",
+            "-layout",
+            "/tmp/typst-replay-integrated/build/verification/sample-chapter.pdf",
+            "-"
+          ],
+          "cwd": "/tmp/typst-replay-integrated",
+          "duration_seconds": 0.02171581599395722,
+          "environment_overrides": {
+            "SOURCE_DATE_EPOCH": "0"
+          },
+          "exit_code": 0,
+          "expected_exit_code": 0,
+          "log": "build/verification/sample-chapter-pdftotext.log",
+          "log_sha256": "18116f1652a8317608866487222087e7c760605ecf456918bfbe940edec990dc",
+          "process_isolation": "posix-session",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "71447e15681e84996e21e2464b92bacd7d2e7a80438ea6a2ec38fcebca9b5059",
+          "timed_out": false,
+          "timeout_seconds": 60
+        }
+      ],
+      "pages": 7,
+      "pdf": "build/verification/sample-chapter.pdf",
+      "pdf_sha256": "a9c0dee4b74e79505cff81bcf0b9d71d6fffdbdb8eb5296c5a97c5080e5fe789",
+      "result": "pass",
+      "source": "sample-chapter.typ",
+      "source_sha256": "0c3ea5aaa67f2c62f15b197b8df4929f978be6ff00c20fe02b0ce887faa58893",
+      "text": "build/verification/sample-chapter.txt",
+      "text_sha256": "71447e15681e84996e21e2464b92bacd7d2e7a80438ea6a2ec38fcebca9b5059"
+    }
+  ],
+  "policy_corpus": {
+    "data_valid_cases": 27,
+    "intended_data_failures": 37,
+    "invocation": {
+      "external_process": false,
+      "interface": "tests/policy/verify.py::main(argv)",
+      "return_code": 0
+    },
+    "passed_count": 64,
+    "rendered_policy_qualified": false,
+    "report": "build/verification/submission-policy/report.json",
+    "report_sha256": "a3cc67e4e0964fb2de123129c71fd1022de1d23153b9588bd5d81719a2a7157c",
+    "requirements": [
+      "POL-03",
+      "POL-04",
+      "POL-05",
+      "POL-06",
+      "POL-07"
+    ],
+    "result": "pass",
+    "submission_approved": false
+  },
+  "replay_native": {
+    "result": "pass",
+    "case_count": 11,
+    "native_compiler_attempts": 4,
+    "successful_native_pdfs": 3,
+    "expected_native_compiler_failures": 1,
+    "lock_sha256": "497be67b4921c13dc16fd1e31ae3793ce250dcebdb0b6045e995a0a4c0b35328",
+    "pdf_sha256": "a9e10f1c2f15001d25397baed7660b53245956dd9df1d9800267326ebf841539"
+  }
+}
