@@ -1,0 +1,88 @@
+{
+  "source_revision": "3086863a1ddc3a699d172a10132a183b22979192",
+  "source_tree": "e2e876d07ad2af2baa6da9fa34c78f0dab2d3b99",
+  "status_before": "",
+  "time_zone": "Australia/Brisbane",
+  "commands": [
+    {
+      "command": [
+        "typstyle",
+        "--version"
+      ],
+      "started_utc": "2026-11-15T02:34:06.307228+00:00",
+      "finished_utc": "2026-11-15T02:34:06.308692+00:00",
+      "elapsed_seconds": 0.001,
+      "exit_code": 0,
+      "log_path": "/tmp/typst-pr31-proof-308-restored/00.log",
+      "log_sha256": "9471b47360a52ec0e50e0976b6c33b95ce9bee7513f778c905755fabc6863e10"
+    },
+    {
+      "command": [
+        "typst",
+        "--version"
+      ],
+      "started_utc": "2026-11-15T02:34:06.308761+00:00",
+      "finished_utc": "2026-11-15T02:34:06.324413+00:00",
+      "elapsed_seconds": 0.016,
+      "exit_code": 0,
+      "log_path": "/tmp/typst-pr31-proof-308-restored/01.log",
+      "log_sha256": "20ad20e86d85d168643624dc3e3388e7cbcc5a8384d17835db3a0ab04c496fba"
+    },
+    {
+      "command": [
+        "/tmp/typst-validation315/bin/python",
+        "--version"
+      ],
+      "started_utc": "2026-11-15T02:34:06.324466+00:00",
+      "finished_utc": "2026-11-15T02:34:06.327929+00:00",
+      "elapsed_seconds": 0.003,
+      "exit_code": 0,
+      "log_path": "/tmp/typst-pr31-proof-308-restored/02.log",
+      "log_sha256": "36eccae64c73138a6ce898fb4100d385bf3618b6f07bf251cdfe60cccdd43a41"
+    },
+    {
+      "command": [
+        "qpdf",
+        "--version"
+      ],
+      "started_utc": "2026-11-15T02:34:06.327973+00:00",
+      "finished_utc": "2026-11-15T02:34:06.335469+00:00",
+      "elapsed_seconds": 0.007,
+      "exit_code": 0,
+      "log_path": "/tmp/typst-pr31-proof-308-restored/03.log",
+      "log_sha256": "f2cb75c0e76d16e21c393e9540e9d08ee456c5e80622600f4d7022846f28081d"
+    },
+    {
+      "command": [
+        "typstyle",
+        "--check",
+        "."
+      ],
+      "started_utc": "2026-11-15T02:34:06.335514+00:00",
+      "finished_utc": "2026-11-15T02:34:06.367194+00:00",
+      "elapsed_seconds": 0.032,
+      "exit_code": 0,
+      "log_path": "/tmp/typst-pr31-proof-308-restored/04.log",
+      "log_sha256": "3a9bd86e7a4a3750f58dbe7ff21a9348ca90f1635409e8ad565df01512a367c7"
+    },
+    {
+      "command": [
+        "make",
+        "verify",
+        "PYTHON=/tmp/typst-validation315/bin/python"
+      ],
+      "started_utc": "2026-11-15T02:34:06.367261+00:00",
+      "finished_utc": "2026-11-15T02:34:49.340763+00:00",
+      "elapsed_seconds": 42.974,
+      "exit_code": 0,
+      "log_path": "/tmp/typst-pr31-proof-308-restored/05.log",
+      "log_sha256": "cf13f5fc8b549c30882a0fce69b64e1ff3d8a75e15ee75ff1aad5f7a0e143bcc"
+    }
+  ],
+  "status_after": "",
+  "source_revision_after": "3086863a1ddc3a699d172a10132a183b22979192",
+  "source_tree_after": "e2e876d07ad2af2baa6da9fa34c78f0dab2d3b99",
+  "passed": true,
+  "native_report_path": "/tmp/typst-pr31-308/build/verification/report.json",
+  "native_report_sha256": "a3412b6162808d3c65fe14c31e511cc1fff0065969f7379396aab7b898cf672d"
+}
