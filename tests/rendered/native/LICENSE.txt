@@ -1,0 +1,4 @@
+SPDX-License-Identifier: CC0-1.0
+
+The synthetic Typst and JSON fixture data in this directory is dedicated to the public domain under CC0-1.0.
+The Python oracle and validation code remains under the repository's Apache-2.0 license.

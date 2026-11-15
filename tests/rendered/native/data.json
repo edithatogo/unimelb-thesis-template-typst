@@ -1,0 +1,10 @@
+{
+  "title": "NATIVE METADATA TITLE",
+  "optional_false": false,
+  "optional_null": null,
+  "optional_empty": "",
+  "optional_array": [],
+  "literal": "#panic(123)",
+  "optional_object": {},
+  "optional_zero": 0
+}

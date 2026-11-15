@@ -26,7 +26,7 @@ restricted to version tags.
 ## Local verification
 
 Use Python 3.11 or newer, the exact Typst version declared in `typst.toml`,
-qpdf and Poppler (`pdfinfo` and `pdftotext`). Hosted verification pins
+qpdf and Poppler (including `pdfinfo`, `pdftotext` and `pdffonts`). Hosted verification pins
 Python 3.15.1 and Typst 0.15.1. Install the pinned Python dependencies from
 `requirements-dev.txt`; the shared contract validator uses JSON Schema.
 
@@ -90,6 +90,31 @@ section corpus adds 21 validated PDFs and 26 required diagnostic rejections,
 including one deliberately failed authored-identity scan and one clean blind
 control. An expected privacy failure is retained as a failure in its native
 report even when the surrounding regression assertion passes.
+
+The same canonical result also includes two bounded follow-up corpora:
+
+| Corpus | Cases | Checked behavior |
+| --- | ---: | --- |
+| [Typst contract adapter](typst-contract-adapter.md) | 21 | Five-layer normalization and the supported metadata/order slice: seven PDF outputs, nine required validation rejections and five explicit unsupported outcomes |
+| [Native evidence](native-evidence.md) | 16 | Fixed-expression semantic extraction and source/output-bound dependency inventories: six accepted evidence results and ten required native or schema rejections |
+
+Together with the 162 rendering cases, these define 199 bounded regression
+cases. The adapter uses a separate
+entry point and native report; canonical compatibility registration and full
+CON-02/CON-03 acceptance remain planned or blocked. Its unsupported outcomes are
+not rendered passes. The native validator preserves valid optional false/null/
+empty values but rejects missing or malformed required evidence. Successful
+COR-04/COR-05 dependency captures now bind the actual compile, source, output and
+native report bytes before retaining a normalized inventory.
+
+The six-helper Python coverage scope adds the bounded adapter producer and
+native evidence validator to the four existing helpers. The adapter corpus
+runner, native orchestration and fixture/PDF oracles are measured through their
+actual canonical execution, not included in that line/branch denominator.
+The existing 80% floors are unchanged; see [maintenance](maintenance.md).
+The complete composed source still requires fresh canonical and hosted results;
+historical focused runs do not qualify reconstructed support files or later
+review corrections.
 
 These checks do not complete the shared five-layer adapter contract, all
 conditional submission policy, arbitrary-content anonymity, PDF/UA or PDF/A,
@@ -214,7 +239,8 @@ a repository-wide exclusion. [Issue #14](https://github.com/edithatogo/unimelb-t
 owns the shared UMTHESIS schemas, fixtures and adapter boundary; its acceptance
 uses the existing verification orchestration. The
 [schema/API milestone](thesis-contract.md) now supplies versioned inputs and
-validation; both document adapters retain their separate execution acceptance.
+validation. The bounded Typst adapter now has a separate native slice and report;
+both canonical document adapters retain their separate execution acceptance.
 
 No Conductor directory exists at the inspected baseline. This document records
 the issue's scope, acceptance commands and exclusions without creating a

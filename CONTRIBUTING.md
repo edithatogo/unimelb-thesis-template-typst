@@ -6,7 +6,7 @@ Keep each PR focused, link its issue and explain any changes to thesis output.
 ## Set up
 
 Use Python 3.11 or newer (CI uses 3.15.1), GNU Make, Typst 0.15.1,
-qpdf and Poppler's `pdftotext` and `pdfinfo`. The Typst version is also recorded
+qpdf and Poppler's `pdftotext`, `pdfinfo` and `pdffonts`. The Typst version is also recorded
 in `typst.toml`; keep the build workflows consistent with it.
 
 Install the pinned validation and coverage dependencies in an isolated environment:
@@ -37,10 +37,14 @@ For a focused iteration, use `make verify-python`, `make verify-source` or
 `make verify-typst`. See [Quality gates](docs/quality-gates.md) for property replay.
 These narrower commands do not replace the complete check before a change is
 reported as verified. Inspect the affected rendered pages for layout changes.
+The same canonical report includes the [bounded adapter](docs/typst-contract-adapter.md)
+and [native evidence](docs/native-evidence.md) corpora; their separate acceptance
+boundaries remain in force.
 
 Coverage reports measure line and branch execution in `scripts/preflight.py`,
-`scripts/validate_template.py`, `scripts/check_repository_policy.py` and
-`scripts/thesis_contract.py`.
+`scripts/validate_template.py`, `scripts/check_repository_policy.py`,
+`scripts/thesis_contract.py`, `scripts/typst_contract_adapter.py` and
+`scripts/native_evidence.py`.
 They do not measure Typst source, visual fidelity or the other helper scripts.
 
 ## Pull requests

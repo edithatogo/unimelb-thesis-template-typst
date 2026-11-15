@@ -10,8 +10,18 @@
   actual Codecov producer result passed. Preserve the earlier failed `60a95ba`
   dependency-graph observation and the corrected contract pin. Both document
   adapters retain their separate execution acceptance.
+- [x] Prepare the separate bounded Typst producer and its 21-case native corpus;
+  preserve supported, invalid and unsupported outcomes and the five-layer
+  normalization contract. Canonical compatibility registration remains planned.
+- [x] Prepare the 16-case native semantic/inventory gate, independent oracles and
+  strict validation helper, including the reviewed finite-float parser correction.
+- [ ] Qualify the combined 162 rendering + 21 adapter + 16 native cases on the
+  final source and receiving revision, with fresh six-helper line/branch coverage.
+  Reconstructed support files and the corrected 33-method native test suite need
+  fresh execution; historical focused receipts do not qualify the composed tree.
 - [ ] Execute minimal shared metadata/order/invalid-input cases in both document
-  adapters; preserve the LaTeX issue #18 ownership boundary.
+  adapters; preserve the LaTeX issue #18 ownership boundary. The bounded Typst
+  report retains blocked contract acceptance and does not close CON-02/CON-03.
 - [x] Reproduce the nine COR-01 rendered failures and prepare the focused
   declaration, table, footnote and appendix-reference repairs with 14 canonical
   specimens. Preserve the original failing PDFs and legitimate raw-code controls.

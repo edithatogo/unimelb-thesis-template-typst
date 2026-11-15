@@ -1,4 +1,4 @@
-# Coverage is limited to the four Python validation tools in .coveragerc.
+# Coverage is limited to the six Python validation tools in .coveragerc.
 # Typst layout correctness is checked by compilation/PDF validation separately.
 codecov:
   require_ci_to_pass: true
@@ -24,5 +24,7 @@ flags:
       - scripts/validate_template.py
       - scripts/check_repository_policy.py
       - scripts/thesis_contract.py
+      - scripts/typst_contract_adapter.py
+      - scripts/native_evidence.py
 
 comment: false
