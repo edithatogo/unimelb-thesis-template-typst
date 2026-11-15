@@ -25,13 +25,9 @@
 #let publication-footnote(entry) = {
   let v = validate(entry)
   let appendix = v.at("appendix", default: none)
-  footnote([
-    v.at("citation", default: ""),
-    " (status: ", v.at("status", default: ""),
-    ", consent: ", if v.at("consent", default: false) {"yes"} else {"no"},
-    if appendix != none { ", appendix: " + appendix } else { "" },
-    ")"
-  ])
+  footnote[
+    #v.at("citation", default: "") (status: #v.at("status", default: ""), consent: #if v.at("consent", default: false) { "yes" } else { "no" }#if appendix != none { [, appendix: #appendix] })
+  ]
 }
 
 #let publication-appendix-entries(entries) = entries.filter(entry => (
@@ -44,9 +40,9 @@
 
 // Find a publication entry by citation text or index
 #let find-publication(entries, key) = {
-  if type(key) == "integer" {
+  if type(key) == int {
     if key >= 0 and key < entries.len() { entries.at(key) } else { none }
-  } else if type(key) == "string" {
+  } else if type(key) == str {
     entries.find(e => e.at("citation", default: "") == key)
   } else {
     none
@@ -59,7 +55,7 @@
   let candidate = find-publication(entries, key)
   if candidate == none {
     // Render a lightweight note indicating missing entry, but do not fail.
-    footnote(["Publication: (missing entry)"])
+    footnote([Publication: (missing entry)])
   } else {
     publication-footnote(candidate)
   }
@@ -82,17 +78,22 @@
     let atext = appendix
     // If an explicit anchor parameter was passed, prefer it
     if anchor != none {
-      // Emit a link to the named anchor
-      link(atext, href: "#" + str(anchor))
-    } else if atext.str().starts_with("#") {
+      // Native labels resolve to destinations in the document.
+      let destination = if type(anchor) == label { anchor } else {
+        label(str(anchor))
+      }
+      link(destination, atext)
+    } else if type(atext) == str and atext.starts-with("#") {
       // Looks like a fragment already
-      link(atext, href: str(atext))
-    } else if atext.str().matches("^[A-Za-z0-9_-]+$") {
+      link(label(atext.slice(1)), atext)
+    } else if (
+      type(atext) == str and atext.match(regex("^[A-Za-z0-9_-]+$")) != none
+    ) {
       // Looks like a simple id; create fragment
-      link("See " + atext, href: "#" + str(atext))
+      link(label(atext), [See #atext])
     } else {
       // Fallback to plain textual reference (e.g., "See Appendix A")
-      ["See ", atext]
+      [See #atext]
     }
   }
 }
@@ -141,40 +142,42 @@
       column-gutter: 1.2em,
       row-gutter: 0.6em,
       table.header(..header),
-      ..entries.map(entry => {
-        let v = validate(entry)
-        let citation-cell = table.cell(align: top + left, breakable: true)[
-          set text(size: 9pt)
-          set par(justify: false, leading: 1.2em, spacing: 0.3em)
-          v.at("citation", default: "")
-        ]
-        let status-cell = table.cell(
-          align: top + left,
-          breakable: true,
-        )[v.at("status", default: "")]
-        let consent-cell = table.cell(
-          align: top + left,
-        )[if v.at("consent", default: false) {"Yes"} else {"No"}]
-
-        if show_links {
-          let appendix-cell = table.cell(
+      ..entries
+        .map(entry => {
+          let v = validate(entry)
+          let citation-cell = table.cell(align: top + left, breakable: true)[
+            #set text(size: 9pt)
+            #set par(justify: false, leading: 1.2em, spacing: 0.3em)
+            #v.at("citation", default: "")
+          ]
+          let status-cell = table.cell(
             align: top + left,
             breakable: true,
-          )[publication-appendix-link(v) ?: ""]
-          [
-            citation-cell,
-            status-cell,
-            consent-cell,
-            appendix-cell
-          ]
-        } else {
-          [
-            citation-cell,
-            status-cell,
-            consent-cell
-          ]
-        }
-      })
+          )[#v.at("status", default: "")]
+          let consent-cell = table.cell(
+            align: top + left,
+          )[#if v.at("consent", default: false) { "Yes" } else { "No" }]
+
+          if show_links {
+            let appendix-cell = table.cell(
+              align: top + left,
+              breakable: true,
+            )[#publication-appendix-link(v)]
+            (
+              citation-cell,
+              status-cell,
+              consent-cell,
+              appendix-cell,
+            )
+          } else {
+            (
+              citation-cell,
+              status-cell,
+              consent-cell,
+            )
+          }
+        })
+        .flatten(),
     )
   }
 }

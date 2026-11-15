@@ -27,22 +27,32 @@ restricted to version tags.
 
 Use Python 3.11 or newer, the exact Typst version declared in `typst.toml`,
 qpdf and Poppler (`pdfinfo` and `pdftotext`). Hosted verification pins
-Python 3.15.1 and Typst 0.15.1. Python validation and property tests require only
-the standard library.
+Python 3.15.1 and Typst 0.15.1. Install the pinned Python dependencies from
+`requirements-dev.txt`; the shared contract validator uses JSON Schema.
 
 ```sh
 make verify
 ```
 
-This command checks Python syntax, runs template structure/metadata validation
-and the normal property corpus, then compiles both `thesis.typ` and
-`sample-chapter.typ`. Each resulting PDF must exist, be nonempty, pass qpdf,
+This command checks Python syntax, runs template structure/metadata validation,
+the shared contract checks and the normal property corpus, then compiles both
+`thesis.typ` and `sample-chapter.typ`. Each resulting PDF must exist, be nonempty, pass qpdf,
 contain at least one page and contain extractable text. Missing executables,
 compiler-version mismatches, nonzero exits and command timeouts fail the gate.
 Each compile/PDF command has a 60-second timeout. Output is written under
 `build/verification/`, with a JSON result and command logs.
 The integrated maintenance increment adds unit tests, package checks and
 desired-policy validation to the same command; see [maintenance](maintenance.md).
+
+The bounded [COR-01 corpus](../tests/rendered/cor01/README.md) also runs through
+this verifier. Its 14 synthetic specimens assert actual declaration clauses,
+contribution/publication rows, footnote values and appendix-reference text.
+Empty, one-entry and multiple-entry controls test absence and exact cardinality.
+Each fixture has a separate raw-code control page; unwanted source fragments
+are rejected only in the component region. The report retains exact commands,
+tool identities, source/fixture/output hashes and failure diagnostics. These
+checks establish the declared rendered-text behavior, not complete navigation,
+accessibility, identity projection or institutional policy conformance.
 
 The shared Typst workflow additionally checks formatting and compiles
 the thesis under all four profiles: default, draft, screen and print. Its pinned
@@ -160,9 +170,12 @@ The foundation also did not require a separate consumer/provider contract-test
 lane for its inspected boundaries. This is a scoped historical decision, not
 a repository-wide exclusion. [Issue #14](https://github.com/edithatogo/unimelb-thesis-template-typst/issues/14)
 owns the shared UMTHESIS schemas, fixtures and adapter boundary; its acceptance
-must reassess and test those new contracts through the existing verification
-orchestration. That planned work is not represented as already implemented.
+uses the existing verification orchestration. The
+[schema/API milestone](thesis-contract.md) now supplies versioned inputs and
+validation; both document adapters retain their separate execution acceptance.
 
 No Conductor directory exists at the inspected baseline. This document records
 the issue's scope, acceptance commands and exclusions without creating a
-separate project-management system.
+separate project-management system for that historical increment. The later
+[UMTHESIS track](../conductor/tracks/umthesis_v1_20261115/index.md) records the
+current document programme.
