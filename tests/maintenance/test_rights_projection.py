@@ -176,6 +176,22 @@ class RightsProjectionTests(unittest.TestCase):
             rights.project(manifest, self.source, self.source / "output",
                            target="deposit-public")
 
+
+    def test_cli_io_failure_redacts_paths_and_stops_without_traceback(self):
+        item = self.material("public.txt", "Public content.", "public")
+        parent_file = self.folder / "not-a-directory"
+        parent_file.write_text("existing file", encoding="utf-8")
+        destination = parent_file / "output"
+        cmd = [sys.executable, "-m", "scripts.rights_projection", "--manifest",
+               str(self.manifest(item)), "--source-root", str(self.source),
+               "--destination", str(destination), "--target", "deposit-public"]
+        result = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=10)
+        self.assertEqual(result.returncode, 2)
+        self.assertNotIn("Traceback", result.stderr)
+        self.assertNotIn(str(self.folder), result.stderr)
+        self.assertFalse(destination.exists())
+        self.assertEqual(parent_file.read_text(encoding="utf-8"), "existing file")
+
     def test_cli_projection_report_contains_only_public_data(self):
         item = self.material("public.txt", "Public content.", "public")
         secret = self.material("secret.txt", "DO-NOT-PUBLISH-SECRET", "restricted")
