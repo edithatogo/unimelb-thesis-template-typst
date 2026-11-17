@@ -122,6 +122,32 @@ class RightsProjectionTests(unittest.TestCase):
             rights.project(self.manifest(item, dict(item, id="other")), self.source,
                            self.out, target="deposit-public")
 
+
+    def test_backslash_in_existing_source_path_is_rejected(self):
+        # On POSIX a backslash can be a filename character, but Typst paths
+        # forbid it. Reject it even when such a file exists and hashes match.
+        invalid = "chapter" + chr(92) + "private.txt"
+        item = self.material(invalid, "SENTINEL-NO-PROJECTION", "public")
+        with self.assertRaises(rights.ProjectionError):
+            rights.project(self.manifest(item), self.source, self.out,
+                           target="deposit-public")
+        self.assertFalse(self.out.exists())
+
+    def test_literal_nul_byte_cannot_enter_compiled_input(self):
+        item = self.material("nul.txt", "Visible" + chr(0) + "hidden", "public")
+        with self.assertRaises(rights.ProjectionError):
+            rights.project(self.manifest(item), self.source, self.out,
+                           target="deposit-public")
+        self.assertFalse(self.out.exists())
+
+    def test_unhashable_visibility_is_rejected_with_stable_error(self):
+        item = self.material("chapter.txt", "Visible", "public")
+        item["visibility"] = {"malformed": True}
+        with self.assertRaises(rights.ProjectionError):
+            rights.project(self.manifest(item), self.source, self.out,
+                           target="deposit-public")
+        self.assertFalse(self.out.exists())
+
     def test_schema_strictness_and_unsupported_binary_is_fail_closed(self):
         item = self.material("chapter.txt", "Visible", "public")
         mutations = [
