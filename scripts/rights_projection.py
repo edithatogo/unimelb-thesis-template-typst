@@ -216,8 +216,11 @@ def main(argv=None):
     try:
         receipt = project(args.manifest, args.source_root, args.destination,
                           target=args.target)
-    except ProjectionError as exc:
-        print("rights-projection: " + exc.code, file=sys.stderr)
+    except (ProjectionError, OSError, UnicodeError) as exc:
+        # I/O errors may contain private source or destination paths. Never
+        # print their exception text or a traceback in a public CLI report.
+        code = exc.code if isinstance(exc, ProjectionError) else "io-or-encoding-failure"
+        print("rights-projection: " + code, file=sys.stderr)
         return 2
     print(json.dumps(receipt, sort_keys=True))
     return 0
