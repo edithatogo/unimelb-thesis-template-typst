@@ -77,7 +77,7 @@ def _validated_items(manifest: Path):
         if source in paths:
             raise ProjectionError("duplicate-source")
         paths.add(source)
-        if item["visibility"] not in VISIBILITIES or type(item["visibility"]) is not str:
+        if type(item["visibility"]) is not str or item["visibility"] not in VISIBILITIES:
             raise ProjectionError("invalid-visibility")
         if item["kind"] != "literal-text" or type(item["kind"]) is not str:
             raise ProjectionError("unsupported-material")
@@ -87,7 +87,7 @@ def _validated_items(manifest: Path):
 
 
 def _safe_name(name: str) -> PurePosixPath:
-    if (type(name) is not str or not name or "\\\\" in name or "\\x00" in name
+    if (type(name) is not str or not name or "\\" in name or "\x00" in name
             or any(ord(c) < 32 for c in name)
             or ":" in name or name.startswith("/")
             or any(x in ("", ".", "..") for x in name.split("/"))):
@@ -123,7 +123,7 @@ def _read_material(root: Path, item: dict) -> str:
         decoded = data.decode("utf-8")
     except UnicodeDecodeError as exc:
         raise ProjectionError("non-utf8-source") from exc
-    if "\\x00" in decoded:
+    if "\x00" in decoded:
         raise ProjectionError("null-in-source")
     return decoded
 
