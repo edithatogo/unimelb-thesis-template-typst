@@ -79,7 +79,7 @@ class HtmlOracle(HTMLParser):
             self.tables[-1]["th"] = True
         if tag == "meta" and a.get("http-equiv", "").lower() == "refresh":
             raise WebBundleError("html-refresh")
-        if any(k in a for k in ("srcset", "style", "onload", "onclick")):
+        if any(k in a for k in ("srcset", "style")) or any(k.startswith("on") for k in a):
             raise WebBundleError("unreviewed-html-attribute")
         for key in ("href", "src", "poster", "data", "action"):
             if key in a:
@@ -218,7 +218,7 @@ def inspect_bundle(root, *, required_pages=("index.html",), forbidden=()):
         for tag, attr, raw in page.links:
             link = _resolve_link(name, raw)
             if link is None:
-                if attr != "href" or tag not in {"a", "link"}:
+                if attr != "href" or tag != "a":
                     raise WebBundleError("external-asset-reference")
                 external += 1
                 continue
