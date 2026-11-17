@@ -113,6 +113,26 @@ class WebBundleValidationTests(unittest.TestCase):
                 with self.assertRaises(web.WebBundleError):
                     self.check()
 
+
+    def test_all_event_handlers_are_rejected_not_only_onload(self):
+        page = self.bundle / "index.html"
+        for handler in ('onerror="steal()"', 'onmouseover="steal()"',
+                        'onfocus="steal()"'):
+            with self.subTest(handler=handler):
+                self.valid_pages()
+                page.write_text(page.read_text().replace(
+                    '<img src=', '<img ' + handler + ' src='))
+                with self.assertRaises(web.WebBundleError):
+                    self.check()
+
+    def test_external_stylesheet_is_not_an_author_link(self):
+        page = self.bundle / "index.html"
+        page.write_text(page.read_text().replace(
+            '</head>', '<link rel="stylesheet" href="https://example.test/remote.css"></head>'
+        ))
+        with self.assertRaises(web.WebBundleError):
+            self.check()
+
     def test_duplicate_ids_are_rejected(self):
         p = self.bundle / "index.html"
         p.write_text(p.read_text().replace('</body>', '<h2 id="home">Duplicate</h2></body>'))
