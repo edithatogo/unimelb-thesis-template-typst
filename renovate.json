@@ -3,7 +3,9 @@
   "extends": [
     "github>edithatogo/renovate-config"
   ],
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "description": "Keep GitHub Actions and reusable workflows immutable",
