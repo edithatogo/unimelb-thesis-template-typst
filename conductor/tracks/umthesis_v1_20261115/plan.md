@@ -79,3 +79,21 @@
 Archive only after the mapped requirements have executed acceptance or legitimate
 recorded non-applicability. A candidate schema, configured job or approval
 reference does not supply missing document, runtime or human evidence.
+
+
+## Bounded candidates — 17 November 2026
+
+The following increments are **draft, source-only candidates** rather than
+accepted contract outcomes. Each retains independent exact-head checks,
+receiving-main qualification, privacy/rights constraints and existing owner
+boundaries. No PR is accepted or merged by this status note.
+
+- [ ] **DEP-01/02** — [Typst PR #38](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/38), pre-render public versus controlled examination *literal-text-only* source projection; synthetic fail-closed rights/unsafe-path/hash/CLI tests; no PDF/deposit/pagination claim. Its full #23 rights ledger and final-surface audit remain outstanding.
+- [ ] **WEB-01/02** — [Typst PR #39](https://github.com/edithatogo/unimelb-thesis-template-typst/pull/39), offline HTML/MathML link/asset/semantics/sentinel validator and synthetic experimental exporter fixture; still needs actual native Typst bundle builds, full browser/AT assessment and the #23 rights projection.
+- [ ] **CON-03 LaTeX consumer** — [LaTeX PR #32](https://github.com/edithatogo/unimelb-thesis-template-latex/pull/32), pinned normalized-metadata-to-TeX source fragment with type/digest and injection controls; still needs actual LaTeX PDF rendering and the minimal jointly executed fixture/oracle set.
+- [ ] For each, obtain final-head successful mandatory hosted checks, appropriate offline/local tests and independent review before a non-draft merge; verify receiving main and link exact artifacts in #13 and the leaf issue. At this checkpoint the jobs were registered but queued; no passing conclusion is asserted.
+
+Do not expand the release qualifier, present the source fragment as a submission
+PDF, or substitute structural web checks for accessibility and rights review.
+The existing source/CI, package, policy, receipt and security tracks retain
+their owners and closure criteria.
